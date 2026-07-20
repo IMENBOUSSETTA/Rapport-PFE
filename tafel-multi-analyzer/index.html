@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tracé de Tafel — |J| vs E (échelle log)</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #10131A;
+    --panel: #171B24;
+    --panel-2: #1E232E;
+    --border: #2A3140;
+    --border-bright: #3B4356;
+    --teal: #4EEAC2;
+    --text: #E7ECF3;
+    --text-dim: #8B94A6;
+    --text-faint: #5A6376;
+    --danger: #FF6B6B;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    background-image:
+      radial-gradient(circle at 15% 0%, rgba(78,234,194,0.07), transparent 40%),
+      radial-gradient(circle at 85% 100%, rgba(255,155,92,0.05), transparent 45%);
+    color: var(--text);
+    font-family: 'Inter', system-ui, sans-serif;
+    min-height: 100vh;
+    padding: 40px 24px 80px;
+  }
+  .wrap { max-width: 1040px; margin: 0 auto; }
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--teal);
+    text-transform: uppercase;
+  }
+  h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 30px;
+    font-weight: 600;
+    margin: 4px 0 6px;
+    letter-spacing: -0.01em;
+  }
+  .subtitle {
+    color: var(--text-dim);
+    font-size: 14px;
+    margin-bottom: 32px;
+    max-width: 620px;
+    line-height: 1.5;
+  }
+  .panel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+  .panel-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .panel-title .num { color: var(--teal); }
+  .dropzone {
+    border: 1.5px dashed var(--border-bright);
+    border-radius: 8px;
+    padding: 32px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.15s ease, background 0.15s ease;
+    position: relative;
+  }
+  .dropzone:hover, .dropzone.drag { border-color: var(--teal); background: rgba(78,234,194,0.04); }
+  .dropzone input[type=file] { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+  .dropzone .icon { font-size: 24px; margin-bottom: 8px; color: var(--teal); }
+  .dropzone .main-txt { font-size: 15px; font-weight: 500; }
+  .dropzone .sub-txt { font-size: 12.5px; color: var(--text-faint); margin-top: 6px; font-family: 'JetBrains Mono', monospace; }
+
+  table.filelist { width: 100%; border-collapse: collapse; margin-top: 18px; display: none; }
+  table.filelist.show { display: table; }
+  table.filelist th {
+    text-align: left;
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-faint);
+    font-weight: 500;
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  table.filelist td {
+    padding: 9px 10px;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+    vertical-align: middle;
+  }
+  .swatch { width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right: 8px; flex-shrink:0; }
+  .fname { display: flex; align-items: center; font-family: 'JetBrains Mono', monospace; font-size: 12.5px; }
+  .fname-txt { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 280px; }
+  .fpoints { color: var(--text-faint); font-family: 'JetBrains Mono', monospace; font-size: 12px; }
+  input.area-input {
+    background: var(--panel-2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13.5px;
+    padding: 6px 9px;
+    border-radius: 6px;
+    width: 100px;
+  }
+  input.area-input:focus { outline: none; border-color: var(--teal); }
+  .rm-btn {
+    background: none; border: none; color: var(--text-faint);
+    cursor: pointer; font-size: 16px; padding: 2px 8px; border-radius: 5px;
+  }
+  .rm-btn:hover { color: var(--danger); background: rgba(255,107,107,0.08); }
+
+  .bulk-row { display: flex; align-items: center; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
+  .bulk-row label { font-size: 12.5px; color: var(--text-dim); }
+
+  button {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    border: none;
+    border-radius: 7px;
+    padding: 11px 22px;
+    cursor: pointer;
+    transition: transform 0.1s ease, box-shadow 0.15s ease;
+  }
+  button:active { transform: scale(0.98); }
+  button:disabled { opacity: 0.4; cursor: not-allowed; }
+  .btn-primary { background: var(--teal); color: #06231C; }
+  .btn-primary:not(:disabled):hover { box-shadow: 0 0 24px rgba(78,234,194,0.35); }
+  .btn-ghost { background: transparent; border: 1px solid var(--border-bright); color: var(--text-dim); padding: 9px 16px; font-size: 13px; }
+  .btn-ghost:hover { border-color: var(--teal); color: var(--teal); }
+  .btn-small { padding: 7px 14px; font-size: 12.5px; }
+
+  .actions { display: flex; gap: 10px; margin-top: 18px; flex-wrap: wrap; }
+
+  .screen {
+    background: #0B0E13;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 18px 8px;
+    position: relative;
+    box-shadow: inset 0 0 60px rgba(0,0,0,0.5);
+  }
+  .screen-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+  .screen-title { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-faint); letter-spacing: 0.06em; }
+  .live-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); display: inline-block; margin-right: 6px; box-shadow: 0 0 6px var(--teal); }
+  canvas#chart { width: 100% !important; height: 460px !important; }
+  .empty-plot { height: 460px; display: flex; align-items: center; justify-content: center; color: var(--text-faint); font-size: 13px; font-family: 'JetBrains Mono', monospace; }
+
+  .error-box {
+    display: none;
+    background: rgba(255,107,107,0.08);
+    border: 1px solid rgba(255,107,107,0.35);
+    color: #FFB4B4;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 13px;
+    margin-top: 14px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .error-box.show { display: block; }
+
+  .result-card {
+    background: var(--panel-2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .result-card .label {
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-faint);
+    margin-bottom: 6px;
+  }
+  .result-card .value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 18px;
+    color: var(--teal);
+    font-weight: 600;
+  }
+
+  footer { text-align: center; color: var(--text-faint); font-size: 11.5px; margin-top: 36px; font-family: 'JetBrains Mono', monospace; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="eyebrow">IRT M2P · Traitements &amp; Revêtements de Surfaces</div>
+  <h1>Tracé de Tafel — multi-courbes</h1>
+  <p class="subtitle">Charge autant de fichiers .DTA que tu veux (répétabilité, reproductibilité, comparaison de configurations), renseigne la surface de chacun, et superpose toutes les courbes |J| = f(E) en échelle logarithmique sur un même graphe.</p>
+
+  <!-- STEP 1 : FILES -->
+  <div class="panel">
+    <div class="panel-title"><span><span class="num">01</span> Fichiers DTA</span><span id="fileCount"></span></div>
+    <div class="dropzone" id="dropzone">
+      <input type="file" id="fileInput" accept=".dta,.DTA,.txt" multiple />
+      <div class="icon">⌁</div>
+      <div class="main-txt">Dépose un ou plusieurs fichiers .DTA ici, ou clique pour parcourir</div>
+      <div class="sub-txt">Format Gamry — colonnes Vf (potentiel) &amp; Im (courant)</div>
+    </div>
+
+    <table class="filelist" id="filelist">
+      <thead>
+        <tr><th style="width:45%">Fichier</th><th>Points</th><th>Surface (cm²)</th><th></th></tr>
+      </thead>
+      <tbody id="filelistBody"></tbody>
+    </table>
+
+    <div class="bulk-row" id="bulkRow" style="display:none;">
+      <label>Appliquer une surface à tous :</label>
+      <input type="number" class="area-input" id="bulkArea" step="any" placeholder="1.00" />
+      <button class="btn-ghost btn-small" id="bulkApply">Appliquer</button>
+    </div>
+
+    <div class="error-box" id="errorBox"></div>
+  </div>
+
+  <!-- STEP 2 : PLOT -->
+  <div class="panel">
+    <div class="panel-title"><span class="num">02</span> |J| = f(E) — échelle log</div>
+
+    <div class="actions" style="margin-top:0; margin-bottom:16px; align-items:flex-end;">
+      <div class="field" style="margin-right:6px;">
+        <label for="unitSelect" style="font-size:12.5px; color:var(--text-dim); display:block; margin-bottom:7px;">Unité de densité de courant</label>
+        <select id="unitSelect" class="area-input" style="width:140px; height:38px;">
+          <option value="1">A/cm²</option>
+          <option value="1000">mA/cm²</option>
+          <option value="1000000" selected>µA/cm²</option>
+          <option value="1000000000">nA/cm²</option>
+        </select>
+      </div>
+      <button class="btn-primary" id="plotBtn" disabled>Générer le tracé</button>
+    </div>
+
+    <div class="screen">
+      <div class="screen-header">
+        <div class="screen-title"><span class="live-dot"></span>TAFEL PLOT</div>
+        <div class="screen-title" id="screenMeta">—</div>
+      </div>
+      <div class="empty-plot" id="emptyPlot">En attente de données…</div>
+      <canvas id="chart" style="display:none;"></canvas>
+    </div>
+
+    <div class="actions">
+      <button class="btn-ghost" id="exportPng" disabled>Exporter l'image (PNG)</button>
+      <button class="btn-ghost" id="exportCsv" disabled>Exporter les données (CSV)</button>
+    </div>
+  </div>
+
+  <!-- STEP 3 : TAFEL FIT -->
+  <div class="panel">
+    <div class="panel-title"><span class="num">03</span> Ecorr / Jcorr — extrapolation de Tafel</div>
+    <p style="font-size:13px; color:var(--text-dim); margin-top:-6px; margin-bottom:16px; line-height:1.5;">
+      Sélectionne la courbe à analyser : l'application détecte elle-même les zones linéaires (branches cathodique et anodique) par régression glissante, puis calcule Ecorr et Jcorr par extrapolation.
+    </p>
+
+    <div class="field" style="margin-bottom:16px;">
+      <label style="font-size:12.5px; color:var(--text-dim); display:block; margin-bottom:7px;">Courbe à analyser</label>
+      <select id="curveSelect" class="area-input" style="width:280px; height:38px;"></select>
+    </div>
+
+    <div class="actions" style="margin-top:0;">
+      <button class="btn-primary" id="tafelFitBtn" disabled>Calculer Ecorr / Jcorr</button>
+      <button class="btn-ghost" id="clearFitBtn" style="display:none;">Retirer les droites du graphe</button>
+    </div>
+
+    <div class="results" id="tafelResults" style="display:none; grid-template-columns: repeat(3, 1fr); gap:12px; margin-top:18px;">
+      <div class="result-card">
+        <div class="label">Ecorr</div>
+        <div class="value" id="resEcorr">—</div>
+      </div>
+      <div class="result-card">
+        <div class="label">Jcorr</div>
+        <div class="value" id="resJcorr">—</div>
+      </div>
+      <div class="result-card">
+        <div class="label">Pente cathodique / anodique</div>
+        <div class="value" id="resSlopes" style="font-size:13px;">—</div>
+      </div>
+    </div>
+
+    <div class="results" id="tafelRanges" style="display:none; grid-template-columns: repeat(2, 1fr); gap:12px; margin-top:12px;">
+      <div class="result-card" style="border-left:3px solid #378ADD;">
+        <div class="label">Zone cathodique détectée</div>
+        <div class="value" id="resCatRange" style="font-size:13px;">—</div>
+      </div>
+      <div class="result-card" style="border-left:3px solid #D85A30;">
+        <div class="label">Zone anodique détectée</div>
+        <div class="value" id="resAnRange" style="font-size:13px;">—</div>
+      </div>
+    </div>
+
+    <div class="error-box" id="tafelErrorBox"></div>
+  </div>
+
+  <footer>Analyse locale — aucune donnée n'est envoyée en dehors de ce navigateur.</footer>
+</div>
+
+<script>
+const COLORS = ['#4EEAC2', '#FF9B5C', '#FF6BCB', '#6BA8FF', '#D4FF6B', '#B58CFF', '#FF6B6B', '#6BFFC9', '#FFD86B', '#6BD9FF'];
+
+let loadedFiles = []; // { id, name, Vf, Im, meta, surface }
+let nextId = 0;
+let chartInstance = null;
+
+const dropzone = document.getElementById('dropzone');
+const fileInput = document.getElementById('fileInput');
+const filelistTable = document.getElementById('filelist');
+const filelistBody = document.getElementById('filelistBody');
+const fileCount = document.getElementById('fileCount');
+const bulkRow = document.getElementById('bulkRow');
+const bulkArea = document.getElementById('bulkArea');
+const bulkApply = document.getElementById('bulkApply');
+const errorBox = document.getElementById('errorBox');
+const plotBtn = document.getElementById('plotBtn');
+const emptyPlot = document.getElementById('emptyPlot');
+const chartCanvas = document.getElementById('chart');
+const exportPngBtn = document.getElementById('exportPng');
+const exportCsvBtn = document.getElementById('exportCsv');
+const screenMeta = document.getElementById('screenMeta');
+const unitSelect = document.getElementById('unitSelect');
+const curveSelect = document.getElementById('curveSelect');
+const tafelFitBtn = document.getElementById('tafelFitBtn');
+const clearFitBtn = document.getElementById('clearFitBtn');
+const tafelResults = document.getElementById('tafelResults');
+const tafelRanges = document.getElementById('tafelRanges');
+const tafelErrorBox = document.getElementById('tafelErrorBox');
+const resEcorr = document.getElementById('resEcorr');
+const resJcorr = document.getElementById('resJcorr');
+const resSlopes = document.getElementById('resSlopes');
+const resCatRange = document.getElementById('resCatRange');
+const resAnRange = document.getElementById('resAnRange');
+
+let lastUnitFactor = 1e6;
+let lastUnitLabel = 'µA/cm²';
+let fitDatasetsAdded = false;
+
+['dragover', 'dragenter'].forEach(evt => {
+  dropzone.addEventListener(evt, e => { e.preventDefault(); dropzone.classList.add('drag'); });
+});
+['dragleave', 'drop'].forEach(evt => {
+  dropzone.addEventListener(evt, e => { e.preventDefault(); dropzone.classList.remove('drag'); });
+});
+dropzone.addEventListener('drop', e => {
+  handleFiles(Array.from(e.dataTransfer.files));
+});
+fileInput.addEventListener('change', e => {
+  handleFiles(Array.from(e.target.files));
+  fileInput.value = '';
+});
+
+function showError(msg) {
+  errorBox.textContent = msg;
+  errorBox.classList.add('show');
+}
+function clearError() {
+  errorBox.classList.remove('show');
+  errorBox.textContent = '';
+}
+
+function toFloat(str) {
+  return parseFloat(String(str).trim().replace(',', '.'));
+}
+
+function parseDTA(text) {
+  const lines = text.split(/\r\n|\n|\r/);
+  let title = null, date = null, area = null;
+  let curveLineIdx = -1;
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    if (line.startsWith('TITLE\t')) title = line.split('\t')[2] || null;
+    if (line.startsWith('DATE\t')) date = line.split('\t')[2] || null;
+    if (line.startsWith('AREA\t')) area = toFloat(line.split('\t')[2]);
+    if (line.startsWith('CURVE\tTABLE')) { curveLineIdx = i; break; }
+  }
+  if (curveLineIdx === -1) throw new Error('section "CURVE TABLE" introuvable');
+
+  const cols = lines[curveLineIdx + 1].split('\t').map(s => s.trim());
+  const vfIdx = cols.indexOf('Vf');
+  const imIdx = cols.indexOf('Im');
+  if (vfIdx === -1 || imIdx === -1) throw new Error('colonnes Vf/Im introuvables');
+
+  const Vf = [], Im = [];
+  for (let i = curveLineIdx + 3; i < lines.length; i++) {
+    const line = lines[i];
+    if (!line || !line.trim()) continue;
+    const parts = line.split('\t');
+    if (parts.length <= Math.max(vfIdx, imIdx)) continue;
+    const vf = toFloat(parts[vfIdx]);
+    const im = toFloat(parts[imIdx]);
+    if (isNaN(vf) || isNaN(im)) continue;
+    Vf.push(vf); Im.push(im);
+  }
+  if (Vf.length === 0) throw new Error('aucune ligne de données valide trouvée');
+
+  return { Vf, Im, meta: { title, date, area } };
+}
+
+function handleFiles(files) {
+  clearError();
+  files.forEach(file => {
+    const reader = new FileReader();
+    reader.onload = e => {
+      try {
+        const parsed = parseDTA(e.target.result);
+        const entry = {
+          id: nextId++,
+          name: file.name,
+          Vf: parsed.Vf,
+          Im: parsed.Im,
+          meta: parsed.meta,
+          surface: parsed.meta.area || null,
+        };
+        loadedFiles.push(entry);
+        renderFileList();
+        plotBtn.disabled = loadedFiles.length === 0;
+      } catch (err) {
+        showError('"' + file.name + '" : ' + err.message);
+      }
+    };
+    reader.onerror = () => showError('Erreur de lecture de "' + file.name + '"');
+    reader.readAsText(file);
+  });
+}
+
+function renderFileList() {
+  filelistBody.innerHTML = '';
+  loadedFiles.forEach((f, idx) => {
+    const tr = document.createElement('tr');
+
+    const tdName = document.createElement('td');
+    const fnameDiv = document.createElement('div');
+    fnameDiv.className = 'fname';
+    const swatch = document.createElement('span');
+    swatch.className = 'swatch';
+    swatch.style.background = COLORS[idx % COLORS.length];
+    const txt = document.createElement('span');
+    txt.className = 'fname-txt';
+    txt.textContent = f.name;
+    txt.title = f.name;
+    fnameDiv.appendChild(swatch);
+    fnameDiv.appendChild(txt);
+    tdName.appendChild(fnameDiv);
+
+    const tdPoints = document.createElement('td');
+    tdPoints.className = 'fpoints';
+    tdPoints.textContent = f.Vf.length.toLocaleString('fr-FR');
+
+    const tdArea = document.createElement('td');
+    const areaInput = document.createElement('input');
+    areaInput.type = 'number';
+    areaInput.step = 'any';
+    areaInput.className = 'area-input';
+    areaInput.placeholder = '1.00';
+    if (f.surface) areaInput.value = f.surface;
+    areaInput.addEventListener('input', () => {
+      f.surface = parseFloat(areaInput.value) || null;
+    });
+    tdArea.appendChild(areaInput);
+
+    const tdRm = document.createElement('td');
+    const rmBtn = document.createElement('button');
+    rmBtn.className = 'rm-btn';
+    rmBtn.textContent = '✕';
+    rmBtn.addEventListener('click', () => {
+      loadedFiles = loadedFiles.filter(x => x.id !== f.id);
+      renderFileList();
+      plotBtn.disabled = loadedFiles.length === 0;
+    });
+    tdRm.appendChild(rmBtn);
+
+    tr.appendChild(tdName);
+    tr.appendChild(tdPoints);
+    tr.appendChild(tdArea);
+    tr.appendChild(tdRm);
+    filelistBody.appendChild(tr);
+  });
+
+  filelistTable.classList.toggle('show', loadedFiles.length > 0);
+  bulkRow.style.display = loadedFiles.length > 1 ? 'flex' : 'none';
+  fileCount.textContent = loadedFiles.length > 0 ? loadedFiles.length + ' fichier(s)' : '';
+}
+
+bulkApply.addEventListener('click', () => {
+  const val = parseFloat(bulkArea.value);
+  if (!val || val <= 0) { showError('Renseigne une surface valide pour l\'appliquer à tous les fichiers.'); return; }
+  loadedFiles.forEach(f => f.surface = val);
+  renderFileList();
+});
+
+plotBtn.addEventListener('click', () => {
+  clearError();
+  if (loadedFiles.length === 0) return;
+
+  const missing = loadedFiles.filter(f => !f.surface || f.surface <= 0);
+  if (missing.length > 0) {
+    showError('Renseigne une surface (> 0 cm²) pour : ' + missing.map(f => f.name).join(', '));
+    return;
+  }
+
+  const unitFactor = parseFloat(unitSelect.value);
+  const unitLabel = unitSelect.options[unitSelect.selectedIndex].text;
+
+  const datasets = [];
+  const allPointsForExport = [];
+
+  loadedFiles.forEach((f, idx) => {
+    const pts = [];
+    for (let i = 0; i < f.Vf.length; i++) {
+      const j = (f.Im[i] / f.surface) * unitFactor;
+      const absJ = Math.abs(j);
+      if (absJ === 0) continue;
+      pts.push({ x: f.Vf[i], y: absJ });
+      allPointsForExport.push({ file: f.name, x: f.Vf[i], y: absJ });
+    }
+    datasets.push({
+      label: f.name,
+      data: pts,
+      borderColor: COLORS[idx % COLORS.length],
+      backgroundColor: 'transparent',
+      borderWidth: 1.6,
+      pointRadius: 0,
+      tension: 0,
+    });
+  });
+
+  drawChart(datasets, unitLabel);
+  screenMeta.textContent = loadedFiles.length + ' courbe(s) · ' + unitLabel;
+  exportPngBtn.disabled = false;
+  exportCsvBtn.disabled = false;
+  window._tafelExport = allPointsForExport;
+  window._tafelUnitLabel = unitLabel;
+  lastUnitFactor = unitFactor;
+  lastUnitLabel = unitLabel;
+
+  // Peupler le sélecteur de courbe pour l'analyse de Tafel
+  curveSelect.innerHTML = '';
+  loadedFiles.forEach((f, idx) => {
+    const opt = document.createElement('option');
+    opt.value = f.id;
+    opt.textContent = f.name;
+    curveSelect.appendChild(opt);
+  });
+  tafelFitBtn.disabled = false;
+});
+
+function drawChart(datasets, unitLabel) {
+  emptyPlot.style.display = 'none';
+  chartCanvas.style.display = 'block';
+  if (chartInstance) chartInstance.destroy();
+
+  chartInstance = new Chart(chartCanvas, {
+    type: 'line',
+    data: { datasets },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      animation: { duration: 400 },
+      scales: {
+        x: {
+          type: 'linear',
+          title: { display: true, text: 'Potentiel E (V vs. Réf.)', color: '#8B94A6', font: { family: 'JetBrains Mono', size: 11 } },
+          ticks: { color: '#8B94A6', font: { family: 'JetBrains Mono', size: 10 } },
+          grid: { color: 'rgba(255,255,255,0.05)' },
+        },
+        y: {
+          type: 'logarithmic',
+          title: { display: true, text: '|J| (' + unitLabel + ') — échelle log', color: '#8B94A6', font: { family: 'JetBrains Mono', size: 11 } },
+          ticks: {
+            color: '#8B94A6',
+            font: { family: 'JetBrains Mono', size: 10 },
+            callback: function(value) {
+              const log = Math.log10(value);
+              const n = Math.round(log);
+              if (Math.abs(log - n) > 1e-9) return null; // ne garder que les puissances de 10
+              if (n >= 0) return String(Math.pow(10, n));
+              return '0.' + '0'.repeat(-n - 1) + '1';
+            },
+          },
+          grid: { color: 'rgba(255,255,255,0.05)' },
+        }
+      },
+      plugins: {
+        legend: {
+          display: true,
+          position: 'bottom',
+          labels: { color: '#B7BFCC', font: { family: 'JetBrains Mono', size: 10.5 }, boxWidth: 12, boxHeight: 12 }
+        },
+        tooltip: {
+          backgroundColor: '#1E232E',
+          borderColor: '#2A3140',
+          borderWidth: 1,
+          titleFont: { family: 'JetBrains Mono' },
+          bodyFont: { family: 'JetBrains Mono' },
+          callbacks: {
+            title: (items) => 'E = ' + items[0].parsed.x.toFixed(4) + ' V',
+            label: (item) => item.dataset.label + ' — |J| = ' + item.parsed.y.toExponential(3) + ' ' + unitLabel,
+          }
+        }
+      }
+    }
+  });
+}
+
+exportPngBtn.addEventListener('click', () => {
+  if (!chartInstance) return;
+  const url = chartCanvas.toDataURL('image/png', 1.0);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'tafel_multi.png';
+  a.click();
+});
+
+exportCsvBtn.addEventListener('click', () => {
+  if (!window._tafelExport) return;
+  const unitLabel = window._tafelUnitLabel || 'A/cm²';
+  let csv = 'Fichier;E (V vs Ref);|J| (' + unitLabel + ')\n';
+  window._tafelExport.forEach(p => {
+    csv += p.file + ';' + p.x.toString().replace('.', ',') + ';' + p.y.toString().replace('.', ',') + '\n';
+  });
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'tafel_multi.csv';
+  a.click();
+  URL.revokeObjectURL(url);
+});
+
+// ============================================================
+// ANALYSE DE TAFEL — détermination Ecorr / Jcorr
+// ============================================================
+
+function linearRegression(points) {
+  const n = points.length;
+  let sumX = 0, sumY = 0, sumXY = 0, sumXX = 0;
+  points.forEach(p => {
+    sumX += p.x; sumY += p.y; sumXY += p.x * p.y; sumXX += p.x * p.x;
+  });
+  const denom = (n * sumXX - sumX * sumX);
+  if (denom === 0) return null;
+  const slope = (n * sumXY - sumX * sumY) / denom;
+  const intercept = (sumY - slope * sumX) / n;
+  return { slope, intercept };
+}
+
+// Recherche automatique de la meilleure zone linéaire (régression glissante, R² maximal)
+function bestLinearWindow(points) {
+  const n = points.length;
+  if (n < 10) return null;
+  const MIN_POINTS = 10;
+  const MIN_WIDTH = 0.08; // 80 mV minimum, pour éviter les fenêtres trop étroites au R² artificiellement parfait
+
+  const cx = [0], cy = [0], cxy = [0], cxx = [0];
+  for (let i = 0; i < n; i++) {
+    cx.push(cx[i] + points[i].x);
+    cy.push(cy[i] + points[i].y);
+    cxy.push(cxy[i] + points[i].x * points[i].y);
+    cxx.push(cxx[i] + points[i].x * points[i].x);
+  }
+
+  function stats(i, j) { // fenêtre [i, j)
+    const m = j - i;
+    const sx = cx[j] - cx[i], sy = cy[j] - cy[i], sxy = cxy[j] - cxy[i], sxx = cxx[j] - cxx[i];
+    const denom = m * sxx - sx * sx;
+    if (denom === 0) return null;
+    const slope = (m * sxy - sx * sy) / denom;
+    const intercept = (sy - slope * sx) / m;
+    let ssRes = 0, ssTot = 0;
+    const meanY = sy / m;
+    for (let k = i; k < j; k++) {
+      const pred = slope * points[k].x + intercept;
+      ssRes += (points[k].y - pred) ** 2;
+      ssTot += (points[k].y - meanY) ** 2;
+    }
+    const r2 = ssTot === 0 ? 1 : 1 - ssRes / ssTot;
+    return { slope, intercept, r2, n: m };
+  }
+
+  const GRID = 60;
+  const idxGrid = [];
+  for (let g = 0; g <= GRID; g++) idxGrid.push(Math.round((g * (n - 1)) / GRID));
+
+  let best = null;
+  for (let a = 0; a < idxGrid.length; a++) {
+    for (let b = a + 1; b < idxGrid.length; b++) {
+      const i = idxGrid[a], j = idxGrid[b] + 1;
+      if (j - i < MIN_POINTS) continue;
+      if (points[j - 1].x - points[i].x < MIN_WIDTH) continue;
+      const s = stats(i, j);
+      if (!s) continue;
+      if (!best || s.r2 > best.r2) best = { ...s, eStart: points[i].x, eEnd: points[j - 1].x };
+    }
+  }
+  return best;
+}
+
+function autoDetectTafel(f) {
+  const raw = [];
+  for (let i = 0; i < f.Vf.length; i++) {
+    const j = Math.abs((f.Im[i] / f.surface) * lastUnitFactor);
+    if (j === 0) continue;
+    raw.push({ x: f.Vf[i], y: Math.log10(j) });
+  }
+  raw.sort((a, b) => a.x - b.x);
+  if (raw.length < 30) return null;
+
+  let minIdx = 0;
+  for (let i = 1; i < raw.length; i++) if (raw[i].y < raw[minIdx].y) minIdx = i;
+  const EcorrEst = raw[minIdx].x;
+
+  // Zone resserrée autour d'Ecorr : au-delà, on risque de capter un plateau de
+  // passivation ou un second phénomène plutôt que la vraie cinétique de Tafel.
+  const MIN_OFFSET = 0.03, MAX_OFFSET = 0.12;
+
+  const catCandidates = raw.filter(p => p.x <= EcorrEst - MIN_OFFSET && p.x >= EcorrEst - MAX_OFFSET);
+  const anCandidates = raw.filter(p => p.x >= EcorrEst + MIN_OFFSET && p.x <= EcorrEst + MAX_OFFSET);
+
+  const catBest = bestLinearWindow(catCandidates);
+  const anBest = bestLinearWindow(anCandidates);
+
+  return { EcorrEst, catBest, anBest };
+}
+
+function showTafelError(msg) {
+  tafelErrorBox.textContent = msg;
+  tafelErrorBox.classList.add('show');
+}
+function clearTafelError() {
+  tafelErrorBox.classList.remove('show');
+  tafelErrorBox.textContent = '';
+}
+
+tafelFitBtn.addEventListener('click', () => {
+  clearTafelError();
+
+  const curveId = parseInt(curveSelect.value);
+  const f = loadedFiles.find(x => x.id === curveId);
+  if (!f) { showTafelError('Sélectionne une courbe à analyser.'); return; }
+
+  const detection = autoDetectTafel(f);
+  if (!detection || !detection.catBest || !detection.anBest) {
+    showTafelError('Détection automatique impossible : pas assez de zone linéaire exploitable de part et d\'autre du minimum de courant. Le fichier contient-il un vrai balayage complet autour d\'Ecorr ?');
+    return;
+  }
+
+  const catFit = detection.catBest;
+  const anFit = detection.anBest;
+
+  const Ecorr = (anFit.intercept - catFit.intercept) / (catFit.slope - anFit.slope);
+  const logJcorr = catFit.slope * Ecorr + catFit.intercept;
+  const Jcorr = Math.pow(10, logJcorr);
+
+  const deviation = Math.abs(Ecorr - detection.EcorrEst);
+  if (deviation > 0.10) {
+    showTafelError('Attention : l\'Ecorr calculé (' + Ecorr.toFixed(3) + ' V) s\'écarte de plus de 100 mV du minimum de courant observé (' + detection.EcorrEst.toFixed(3) + ' V). La courbe présente peut-être un plateau de passivation ou un phénomène secondaire qui perturbe la détection automatique — vérifie visuellement les droites tracées sur le graphe avant de faire confiance à ce résultat.');
+  }
+
+  resEcorr.textContent = Ecorr.toFixed(4) + ' V';
+  resJcorr.textContent = Jcorr.toExponential(3) + ' ' + lastUnitLabel;
+  const betaCat = Math.abs(1000 / catFit.slope).toFixed(0);
+  const betaAn = Math.abs(1000 / anFit.slope).toFixed(0);
+  resSlopes.textContent = 'βc ≈ ' + betaCat + ' mV/déc · βa ≈ ' + betaAn + ' mV/déc';
+  tafelResults.style.display = 'grid';
+
+  resCatRange.textContent = catFit.eStart.toFixed(4) + ' V → ' + catFit.eEnd.toFixed(4) + ' V (R²=' + catFit.r2.toFixed(3) + ', n=' + catFit.n + ')';
+  resAnRange.textContent = anFit.eStart.toFixed(4) + ' V → ' + anFit.eEnd.toFixed(4) + ' V (R²=' + anFit.r2.toFixed(3) + ', n=' + anFit.n + ')';
+  tafelRanges.style.display = 'grid';
+
+  if (chartInstance) {
+    if (fitDatasetsAdded) {
+      chartInstance.data.datasets.splice(-2, 2);
+    }
+    const spanMin = catFit.eStart - 0.03;
+    const spanMax = anFit.eEnd + 0.03;
+
+    const catLine = [
+      { x: spanMin, y: Math.pow(10, catFit.slope * spanMin + catFit.intercept) },
+      { x: Ecorr, y: Jcorr },
+    ];
+    const anLine = [
+      { x: Ecorr, y: Jcorr },
+      { x: spanMax, y: Math.pow(10, anFit.slope * spanMax + anFit.intercept) },
+    ];
+
+    chartInstance.data.datasets.push({
+      label: 'Droite cathodique (extrapolée)',
+      data: catLine,
+      borderColor: '#FFD86B',
+      borderDash: [6, 4],
+      borderWidth: 1.4,
+      pointRadius: 0,
+      tension: 0,
+    });
+    chartInstance.data.datasets.push({
+      label: 'Droite anodique (extrapolée)',
+      data: anLine,
+      borderColor: '#FF6BCB',
+      borderDash: [6, 4],
+      borderWidth: 1.4,
+      pointRadius: 0,
+      tension: 0,
+    });
+    chartInstance.update();
+    fitDatasetsAdded = true;
+    clearFitBtn.style.display = 'inline-block';
+  }
+});
+
+clearFitBtn.addEventListener('click', () => {
+  if (chartInstance && fitDatasetsAdded) {
+    chartInstance.data.datasets.splice(-2, 2);
+    chartInstance.update();
+    fitDatasetsAdded = false;
+  }
+  clearFitBtn.style.display = 'none';
+  tafelResults.style.display = 'none';
+  tafelRanges.style.display = 'none';
+});
+
+</script>
+</body>
+</html>
