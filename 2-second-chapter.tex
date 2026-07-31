@@ -8,11 +8,11 @@ Ce chapitre traduit les enjeux métier en spécifications techniques et présent
 
 \section{Spécification des besoins}
 
-Dans cette section, nous formalisons les exigences du système en distinguant les besoins fonctionnels, qui décrivent les services attendus et les besoins non fonctionnels, qui définissent les contraintes de qualité et de performance. Cette étape permet de traduire les attentes métier en spécifications exploitables pour la conception.
+Dans cette section, nous formalisons les exigences du système en distinguant les besoins fonctionnels, qui décrivent les services attendus et les besoins non fonctionnels, qui définissent les contraintes de qualité et de performance. Cette étape traduit les attentes métier en spécifications exploitables pour la conception.
 
 \subsection{Identification des acteurs}
 
-Tout système interactif repose sur une ou plusieurs catégories d'utilisateurs. Identifier précisément ces acteurs permet de définir les fonctionnalités attendues.
+Tout système interactif repose sur une ou plusieurs catégories d'utilisateurs. Identifier précisément ces acteurs définit les fonctionnalités attendues.
 
 \subsubsection{Le responsable de l'enrichissement du produit}
 
@@ -77,7 +77,7 @@ L'architecture doit permettre une évolution indépendante du microservice d'int
 
 \section{Modélisation des besoins}
 
-Cette section modélise le système d'enrichissement et de validation des produits au travers de trois diagrammes UML complémentaires : le diagramme de cas d'utilisation expose les scénarios métier, le diagramme de séquence détaille l'orchestration temporelle des échanges et le diagramme d'activités synthétise le flux de contrôle du traitement.
+Cette section modélise le système d'enrichissement et de validation des produits au travers de trois diagrammes UML \citeURL{uml_omg} complémentaires : le diagramme de cas d'utilisation expose les scénarios métier, le diagramme de séquence détaille l'orchestration temporelle des échanges et le diagramme d'activités synthétise le flux de contrôle du traitement.
 \newpage
 \subsection{Diagramme de cas d'utilisation}
 
@@ -107,7 +107,7 @@ Ce diagramme démontre la nature asynchrone et bien définie des échanges : cha
 
 \subsection{Diagramme d'activités}
 
-Le diagramme d'activités représente le flux global du traitement d'une fiche du produit et met en évidence les différentes étapes ainsi que les points de décision du processus. Il illustre l'enchâinement entre l'intervention du responsable de l'enrichissement du produit, l'orchestration réalisée par SAP Commerce, les traitements effectués par le microservice d'intelligence artificielle et la décision finale avant publication. Ce flux complet est présenté dans la Figure~\ref{fig:activities}.
+Le diagramme d'activités représente le flux global du traitement d'une fiche du produit et met en évidence les différentes étapes ainsi que les points de décision du processus. Il illustre l'enchaînement entre l'intervention du responsable de l'enrichissement du produit, l'orchestration réalisée par SAP Commerce, les traitements effectués par le microservice d'intelligence artificielle et la décision finale avant publication. Ce flux complet est présenté dans la Figure~\ref{fig:activities}.
 
 
 
@@ -118,32 +118,32 @@ Le diagramme d'activités représente le flux global du traitement d'une fiche d
     \label{fig:activities}
 \end{figure}
 
-Ce diagramme souligne l'importance de la validation humaine dans le processus : bien que le système automatise les taches d'enrichissement et de validation technique, la décision finale de publication demeure sous le contrôle du responsable, garantissant ainsi une qualité finale acceptable par le métier.
+Ce diagramme souligne l'importance de la validation humaine dans le processus : bien que le système automatise les tâches d'enrichissement et de validation technique, la décision finale de publication demeure sous le contrôle du responsable, garantissant ainsi une qualité finale acceptable par le métier.
 
 \newpage
 \section{Architecture globale}
 
-L'architecture du système repose sur une séparation de responsabilités entre la plateforme SAP Commerce et un microservice d'intelligence artificielle indépendant. Cette approche permet de centraliser les traitements intelligents dans un composant dédié tout en intégrant les résultats dans le workflow existant de gestion des produits. L'organisation globale de cette architecture est illustrée dans la Figure~\ref{fig:architecture_globale}.
+L'architecture du système repose sur une séparation de responsabilités entre la plateforme SAP Commerce et un microservice \citeURL{fowler_microservices} d'intelligence artificielle indépendant. Cette approche centralise les traitements intelligents dans un composant dédié tout en intégrant les résultats dans le workflow existant de gestion des produits. L'organisation globale de cette architecture est illustrée dans la Figure~\ref{fig:architecture_globale}.
 
 \subsection{Vue générale de l'architecture}
 
-L'architecture repose sur trois éléments principaux : SAP Commerce qui orchestre le processus métier et accueille les extensions nécessaires au déclenchement des traitements, une API REST qui assure la communication entre les deux systèmes  et un microservice d'intelligence artificielle externe, qui réalise les traitements d'enrichissement et de validation.
+L'architecture repose sur trois éléments principaux : SAP Commerce qui orchestre le processus métier et accueille les extensions nécessaires au déclenchement des traitements, une API REST \citeURL{fielding_rest} qui assure la communication entre les deux systèmes  et un microservice d'intelligence artificielle externe, qui réalise les traitements d'enrichissement et de validation.
 
 Cette approche présente plusieurs avantages. Elle concentre les traitements intelligents dans un composant indépendant, facilitant la maintenance et l'évolution de la solution. Elle permet également une séparation claire des responsabilités : SAP Commerce gère le cycle de vie des produits tandis que le microservice d'intelligence artificielle prend en charge les traitements liés à l'intelligence artificielle.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{images/architecture.png}
+    \includegraphics[width=1\textwidth]{architecture.png}
     \caption{Vue d'ensemble de l'architecture du système d'enrichissement intelligent}
     \label{fig:architecture_globale}
 \end{figure}
-Cette architecture démontre l'efficacité d'une séparation nette entre la gestion transactionnelle (SAP Commerce) et les traitements intelligents (microservice). Cette approche facilite la maintenance, l'amélioration et le déploiement de chaque composant indépendamment, tout en garantissant une intlégration harmonieuse au sein de l'ecosystème global.\newpage
+Cette architecture démontre l'efficacité d'une séparation nette entre la gestion transactionnelle (SAP Commerce) et les traitements intelligents (microservice). Cette approche facilite la maintenance, l'amélioration et le déploiement de chaque composant indépendamment, tout en garantissant une intégration harmonieuse au sein de l'écosystème global.\newpage
 
 \subsection{Description détaillée des composants}
 
 \subsubsection{SAP Commerce : orchestrateur métier}
 
-SAP Commerce (anciennement Hybris) constitue le cœur du système de gestion des produits. Elle assure la gestion des données produits et l'orchestration du workflow associé.
+SAP Commerce \citeURL{sap_commerce_cloud} (anciennement Hybris) constitue le cœur du système de gestion des produits. Elle assure la gestion des données produits et l'orchestration du workflow associé.
 
 SAP Commerce accueille les événements métier relatifs à la création et la modification de produits. Des actions et services workflow ont été ajoutés pour intégrer le traitement d'enrichissement et de validation dans ce flux existant. Lorsque le responsable de l'enrichissement du produit crée ou modifie une fiche du produit, un événement déclenche l'extraction des données pertinentes (titre, description, attributs, catégorie, langue). Ces données sont nettoyées, normalisées et structurées en JSON pour transmission au microservice. À réception des résultats d'analyse, SAP Commerce les présente au responsable de l'enrichissement du produit dans l'interface du Backoffice. Le responsable de l'enrichissement du produit examine alors les enrichissements proposés, les anomalies signalées et le score de qualité, puis prend la décision d'approuver ou de corriger la fiche avant publication.
 
@@ -151,11 +151,11 @@ SAP Commerce accueille les événements métier relatifs à la création et la m
 
 L'API REST assure la communication standardisée entre SAP Commerce et le microservice d'intelligence artificielle. REST a été choisi car c'est un standard pour les intégrations inter-services : simple à mettre en œuvre, adapté aux requêtes synchrones et bien supporté par les frameworks modernes.
 
-Les données sont échangées au format JSON. Les réponses structurées en JSON contiennent : les enrichissements générés, la liste des anomalies détectées et un score de qualité global.
+Les données sont échangées au format JSON \citeURL{json_org}. Les réponses structurées en JSON contiennent : les enrichissements générés, la liste des anomalies détectées et un score de qualité global.
 
 \subsubsection{Microservice d'intelligence artificielle : traitements d'enrichissement et de validation}
 
-Le microservice d'intelligence artificielle, développé avec FastAPI et Python, implémente les traitements d'enrichissement et de validation des produits. Il fonctionne selon deux phases successives : l'enrichissement d'abord, puis la validation. Cette séparation permet une progression claire du traitement et facilite le diagnostic en cas de dysfonctionnement.
+Le microservice d'intelligence artificielle, développé avec FastAPI \citeURL{fastapi_docs} et Python \citeURL{python_psf}, implémente les traitements d'enrichissement et de validation des produits. Il fonctionne selon deux phases successives : l'enrichissement d'abord, puis la validation. Cette séparation permet une progression claire du traitement et facilite le diagnostic en cas de dysfonctionnement.
 
 \subsection{Communication entre SAP Commerce et le microservice}
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.7.14)  31 JUL 2026 12:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.7.14)  31 JUL 2026 17:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -934,12 +934,12 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 7.
  (C:\Users\ImenBOUSSETTA\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<images/logo_decade.png, id=393, 225.84375pt x 225.84375pt>
+<images/logo_decade.png, id=385, 225.84375pt x 225.84375pt>
 File: images/logo_decade.png Graphic file (type png)
 <use images/logo_decade.png>
 Package pdftex.def Info: images/logo_decade.png  used on input line 8.
 (pdftex.def)             Requested size: 71.13081pt x 71.13188pt.
-<images/Image2.jpg, id=394, 87.18286pt x 110.7363pt>
+<images/Image2.jpg, id=386, 87.18286pt x 110.7363pt>
 File: images/Image2.jpg Graphic file (type jpg)
 <use images/Image2.jpg>
 Package pdftex.def Info: images/Image2.jpg  used on input line 9.
@@ -987,7 +987,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 9--11
 
 ]
 Package babel Info: 'french' activates 'french' shorthands.
-(babel)             Reported on input line 103.
+(babel)             Reported on input line 105.
  [3])
 \tf@toc=\write6
 \openout6 = `main.toc'.
@@ -1000,37 +1000,164 @@ LaTeX Warning: Hyper reference `acro:AI' on page v undefined on input line 177.
 LaTeX Warning: Hyper reference `acro:AI' on page v undefined on input line 177.
 
 
-LaTeX Warning: Hyper reference `acro:NLP' on page v undefined on input line 178.
+LaTeX Warning: Hyper reference `acro:API' on page v undefined on input line 178.
 
 
-LaTeX Warning: Hyper reference `acro:NLP' on page v undefined on input line 178.
+LaTeX Warning: Hyper reference `acro:API' on page v undefined on input line 178.
 
 
-LaTeX Warning: Hyper reference `acro:PIM' on page v undefined on input line 179.
+LaTeX Warning: Hyper reference `acro:B2B' on page v undefined on input line 179.
 
 
-LaTeX Warning: Hyper reference `acro:PIM' on page v undefined on input line 179.
+LaTeX Warning: Hyper reference `acro:B2B' on page v undefined on input line 179.
 
 
-LaTeX Warning: Hyper reference `acro:LLM' on page v undefined on input line 180.
+LaTeX Warning: Hyper reference `acro:B2C' on page v undefined on input line 180.
 
 
-LaTeX Warning: Hyper reference `acro:LLM' on page v undefined on input line 180.
+LaTeX Warning: Hyper reference `acro:B2C' on page v undefined on input line 180.
 
 
-LaTeX Warning: Hyper reference `acro:API' on page v undefined on input line 181.
+LaTeX Warning: Hyper reference `acro:BLEU' on page v undefined on input line 181.
 
 
-LaTeX Warning: Hyper reference `acro:API' on page v undefined on input line 181.
+LaTeX Warning: Hyper reference `acro:BLEU' on page v undefined on input line 181.
+
+
+LaTeX Warning: Hyper reference `acro:CRM' on page v undefined on input line 182.
+
+
+LaTeX Warning: Hyper reference `acro:CRM' on page v undefined on input line 182.
+
+
+LaTeX Warning: Hyper reference `acro:DAO' on page v undefined on input line 183.
+
+
+LaTeX Warning: Hyper reference `acro:DAO' on page v undefined on input line 183.
+
+
+LaTeX Warning: Hyper reference `acro:DTO' on page v undefined on input line 184.
+
+
+LaTeX Warning: Hyper reference `acro:DTO' on page v undefined on input line 184.
+
+
+LaTeX Warning: Hyper reference `acro:ERP' on page v undefined on input line 185.
+
+
+LaTeX Warning: Hyper reference `acro:ERP' on page v undefined on input line 185.
+
+
+LaTeX Warning: Hyper reference `acro:GPU' on page v undefined on input line 186.
+
+
+LaTeX Warning: Hyper reference `acro:GPU' on page v undefined on input line 186.
+
+
+LaTeX Warning: Hyper reference `acro:HTML' on page v undefined on input line 187.
+
+
+LaTeX Warning: Hyper reference `acro:HTML' on page v undefined on input line 187.
+
+
+LaTeX Warning: Hyper reference `acro:HTTP' on page v undefined on input line 188.
+
+
+LaTeX Warning: Hyper reference `acro:HTTP' on page v undefined on input line 188.
+
+
+LaTeX Warning: Hyper reference `acro:IA' on page v undefined on input line 189.
+
+
+LaTeX Warning: Hyper reference `acro:IA' on page v undefined on input line 189.
+
+
+LaTeX Warning: Hyper reference `acro:JSON' on page v undefined on input line 190.
+
+
+LaTeX Warning: Hyper reference `acro:JSON' on page v undefined on input line 190.
+
+
+LaTeX Warning: Hyper reference `acro:LLM' on page v undefined on input line 191.
+
+
+LaTeX Warning: Hyper reference `acro:LLM' on page v undefined on input line 191.
+
+
+LaTeX Warning: Hyper reference `acro:LoRA' on page v undefined on input line 192.
+
+
+LaTeX Warning: Hyper reference `acro:LoRA' on page v undefined on input line 192.
+
+
+LaTeX Warning: Hyper reference `acro:NLP' on page v undefined on input line 193.
+
+
+LaTeX Warning: Hyper reference `acro:NLP' on page v undefined on input line 193.
+
+
+LaTeX Warning: Hyper reference `acro:NLLB' on page v undefined on input line 194.
+
+
+LaTeX Warning: Hyper reference `acro:NLLB' on page v undefined on input line 194.
+
+
+LaTeX Warning: Hyper reference `acro:ORM' on page v undefined on input line 195.
+
+
+LaTeX Warning: Hyper reference `acro:ORM' on page v undefined on input line 195.
+
+
+LaTeX Warning: Hyper reference `acro:PEFT' on page v undefined on input line 196.
+
+
+LaTeX Warning: Hyper reference `acro:PEFT' on page v undefined on input line 196.
+
+
+LaTeX Warning: Hyper reference `acro:PIM' on page v undefined on input line 197.
+
+
+LaTeX Warning: Hyper reference `acro:PIM' on page v undefined on input line 197.
+
+
+LaTeX Warning: Hyper reference `acro:REST' on page v undefined on input line 198.
+
+
+LaTeX Warning: Hyper reference `acro:REST' on page v undefined on input line 198.
+
+
+LaTeX Warning: Hyper reference `acro:SMTP' on page v undefined on input line 199.
+
+
+LaTeX Warning: Hyper reference `acro:SMTP' on page v undefined on input line 199.
+
+
+LaTeX Warning: Hyper reference `acro:TAL' on page v undefined on input line 200.
+
+
+LaTeX Warning: Hyper reference `acro:TAL' on page v undefined on input line 200.
+
+
+LaTeX Warning: Hyper reference `acro:UML' on page v undefined on input line 201.
+
+
+LaTeX Warning: Hyper reference `acro:UML' on page v undefined on input line 201.
+
+
+LaTeX Warning: Hyper reference `acro:URL' on page v undefined on input line 202.
+
+
+LaTeX Warning: Hyper reference `acro:URL' on page v undefined on input line 202.
+
+
+LaTeX Warning: Hyper reference `acro:XML' on page v undefined on input line 203.
+
+
+LaTeX Warning: Hyper reference `acro:XML' on page v undefined on input line 203.
 
 [5
 
-] (0-introduction.tex
-Underfull \hbox (badness 1412) in paragraph at lines 16--17
-[]\T1/lmr/m/n/12 C'est dans ce contexte que s'ins-crit mon pro-jet de fin d'études au sein de
- []
-
-
+] [6] (0-introduction.tex
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -1039,6 +1166,10 @@ l.18 L
 
 
 ]
+
+LaTeX Warning: Citation `spring_framework' on page 2 undefined on input line 20.
+
+
 Underfull \hbox (badness 1983) in paragraph at lines 30--31
 []\T1/lmr/m/n/12 Le cha-pitre 3 consti-tue le c÷ur tech-nique du pro-jet. Il dé-taille le mo-dule
  []
@@ -1072,15 +1203,11 @@ File: images/logo_decade.png Graphic file (type png)
 Package pdftex.def Info: images/logo_decade.png  used on input line 21.
 (pdftex.def)             Requested size: 91.04742pt x 91.04922pt.
  [5]
-<images/etanco.jpg, id=558, 3519.1475pt x 1325.95375pt>
+<images/etanco.jpg, id=574, 3519.1475pt x 1325.95375pt>
 File: images/etanco.jpg Graphic file (type jpg)
 <use images/etanco.jpg>
 Package pdftex.def Info: images/etanco.jpg  used on input line 47.
 (pdftex.def)             Requested size: 91.04742pt x 34.29391pt.
-
-
-LaTeX Warning: Citation `ibm_ecommerce' on page 6 undefined on input line 58.
-
 
 Underfull \hbox (badness 4416) in paragraph at lines 63--64
 []\T1/lmr/bx/sc/12 B2C (Business-to-Consumer) : \T1/lmr/m/n/12 les en-tre-prises vendent di-rec-te-ment aux
@@ -1096,21 +1223,8 @@ Overfull \hbox (28.53485pt too wide) in paragraph at lines 71--80
  [][] 
  []
 
-[6 <./images/etanco.jpg>]
-
-LaTeX Warning: Citation `sap_erp' on page 7 undefined on input line 95.
-
-
-LaTeX Warning: Citation `akeneo_pim' on page 7 undefined on input line 96.
-
-
-LaTeX Warning: Citation `sap_commerce_cloud' on page 7 undefined on input line 97.
-
-
-LaTeX Warning: Citation `salesforce_crm' on page 7 undefined on input line 98.
-
-[7]
-<images/product.png, id=571, 1445.4pt x 813.0375pt>
+[6 <./images/etanco.jpg>] [7]
+<images/product.png, id=587, 1445.4pt x 813.0375pt>
 File: images/product.png Graphic file (type png)
 <use images/product.png>
 Package pdftex.def Info: images/product.png  used on input line 107.
@@ -1121,7 +1235,7 @@ Underfull \hbox (badness 3323) in paragraph at lines 127--128
  []
 
 [9]
-<images/scrum-process.jpg, id=582, 1204.5pt x 629.35126pt>
+<images/scrum-process.jpg, id=599, 1204.5pt x 629.35126pt>
 File: images/scrum-process.jpg Graphic file (type jpg)
 <use images/scrum-process.jpg>
 Package pdftex.def Info: images/scrum-process.jpg  used on input line 170.
@@ -1156,13 +1270,13 @@ Underfull \hbox (badness 7486) in paragraph at lines 75--76
  []
 
 [18]
-<images/usecase.png, id=632, 915.42pt x 694.595pt>
+<images/usecase.png, id=648, 915.42pt x 694.595pt>
 File: images/usecase.png Graphic file (type png)
 <use images/usecase.png>
 Package pdftex.def Info: images/usecase.png  used on input line 88.
 (pdftex.def)             Requested size: 455.24411pt x 345.42068pt.
  [19 <./images/usecase.png>]
-<images/sequence01.png, id=641, 1000.73875pt x 572.1375pt>
+<images/sequence01.png, id=657, 1000.73875pt x 572.1375pt>
 File: images/sequence01.png Graphic file (type png)
 <use images/sequence01.png>
 Package pdftex.def Info: images/sequence01.png  used on input line 101.
@@ -1172,28 +1286,23 @@ Overfull \hbox (40.97029pt too wide) in paragraph at lines 101--102
  [][] 
  []
 
-<images/activitÃ©s.png, id=643, 595.22375pt x 730.73pt>
+<images/activitÃ©s.png, id=659, 595.22375pt x 730.73pt>
 File: images/activitÃ©s.png Graphic file (type png)
 <use images/activitÃ©s.png>
 Package pdftex.def Info: images/activitÃ©s.png  used on input line 116.
 (pdftex.def)             Requested size: 409.71692pt x 502.98889pt.
 [20 <./images/sequence01.png>] [21 <./images/activitÃ©s.png>]
-<images/architecture.png, id=657, 1445.4pt x 813.0375pt>
+<images/architecture.png, id=674, 1445.4pt x 813.0375pt>
 File: images/architecture.png Graphic file (type png)
 <use images/architecture.png>
 Package pdftex.def Info: images/architecture.png  used on input line 136.
 (pdftex.def)             Requested size: 455.24411pt x 256.07095pt.
 
-Underfull \hbox (badness 2012) in paragraph at lines 140--140
-\T1/lmr/m/n/12 in-dé-pen-dam-ment, tout en ga-ran-tis-sant une int-lé-gra-tion har-mo-nieuse au sein de
+Underfull \hbox (badness 2452) in paragraph at lines 140--140
+\T1/lmr/m/n/12 in-dé-pen-dam-ment, tout en ga-ran-tis-sant une in-té-gra-tion har-mo-nieuse au sein de
  []
 
-[22 <./images/architecture.png (PNG copy)>] [23]
-Underfull \hbox (badness 2245) in paragraph at lines 158--159
-[]\T1/lmr/m/n/12 Le mi-cro-ser-vice d'in-tel-li-gence ar-ti-fi-cielle, dé-ve-loppé avec Fas-tAPI et Py-thon,
- []
-
-[24] [25]
+[22 <./images/architecture.png (PNG copy)>] [23] [24] [25]
 Underfull \hbox (badness 1158) in paragraph at lines 174--175
 []\T1/lmr/bx/sc/12 Transmission au mi-cro-ser-vice d'in-tel-li-gence ar-ti-fi-cielle : \T1/lmr/m/n/12 Les don-nées
  []
@@ -1212,19 +1321,63 @@ Underfull \hbox (badness 2302) in paragraph at lines 12--13
 
 [28
 
-] [29] [30]
-Underfull \hbox (badness 1077) in paragraph at lines 88--89
-[]\T1/lmr/m/n/12 L'exécution du mo-dèle de gé-né-ra-tion est as-su-rée par Ol-lama, une pla-te-forme
+]
+
+LaTeX Warning: Citation `pytorch_org' on page 29 undefined on input line 34.
+
+
+LaTeX Warning: Citation `huggingface_transformers' on page 29 undefined on input line 34.
+
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 36.
+(C:\Users\ImenBOUSSETTA\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+
+LaTeX Warning: Citation `pydantic_docs' on page 29 undefined on input line 36.
+
+
+Underfull \hbox (badness 5331) in paragraph at lines 36--37
+[]\T1/lmr/m/n/12 Pour l'in-ter-face REST, Fas-tAPI [[]] a été re-tenu. Ce fra-me-work va-lide
  []
 
-[31]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 96.
- (C:\Users\ImenBOUSSETTA\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
-File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [32] [33]
+
+LaTeX Warning: Citation `huggingface_transformers' on page 29 undefined on input line 45.
+
+
+LaTeX Warning: Citation `hf_peft' on page 29 undefined on input line 46.
+
+
+LaTeX Warning: Citation `ollama_com' on page 29 undefined on input line 47.
+
+
+LaTeX Warning: Citation `langdetect_pypi' on page 29 undefined on input line 48.
+
+
+LaTeX Warning: Citation `sentence_transformers' on page 29 undefined on input line 49.
+
+[29] [30]
+
+LaTeX Warning: Citation `qwen_model' on page 31 undefined on input line 68.
+
+
+LaTeX Warning: Citation `ollama_com' on page 31 undefined on input line 84.
+
+
+LaTeX Warning: Citation `ollama_com' on page 31 undefined on input line 88.
+
+[31] [32] [33]
 Underfull \hbox (badness 1173) in paragraph at lines 137--138
 []\T1/lmr/m/n/12 La tra-duc-tion ma-nuelle se-rait ex-trê-me-ment coû-teuse et lente. Une tra-duc-tion
  []
+
+
+LaTeX Warning: Citation `nllb_meta' on page 34 undefined on input line 141.
+
+
+LaTeX Warning: Citation `nllb_meta' on page 34 undefined on input line 147.
+
+
+LaTeX Warning: Citation `hf_peft' on page 34 undefined on input line 155.
 
 [34]
 LaTeX Font Info:    External font `lmex10' loaded for size
@@ -1249,7 +1402,14 @@ Underfull \hbox (badness 1067) in paragraph at lines 169--195
 \T1/lmr/m/n/12 d'ap-pren-tis-sage et contraintes ma-té-rielles. Le Ta-bleau [][]3.1[][] pré-sente les prin-ci-paux
  []
 
-[35{C:/Users/ImenBOUSSETTA/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Users/ImenBOUSSETTA/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Users/ImenBOUSSETTA/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}] [36]
+[35{C:/Users/ImenBOUSSETTA/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Users/ImenBOUSSETTA/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Users/ImenBOUSSETTA/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}]
+
+LaTeX Warning: Citation `bleu_metric' on page 36 undefined on input line 199.
+
+
+LaTeX Warning: Citation `hf_peft' on page 36 undefined on input line 201.
+
+[36]
 Underfull \hbox (badness 1360) in paragraph at lines 249--254
 []\T1/lmr/m/n/12 À l'is-sue du pro-ces-sus d'en-ri-chis-se-ment, le mi-cro-ser-vice re-tourne une ré-ponse
  []
@@ -1260,6 +1420,19 @@ Underfull \hbox (badness 1028) in paragraph at lines 336--337
  []
 
 [40]
+
+LaTeX Warning: Citation `langdetect_pypi' on page 41 undefined on input line 350.
+
+
+LaTeX Warning: Citation `languagetool_org' on page 41 undefined on input line 352.
+
+
+LaTeX Warning: Citation `qwen_model' on page 41 undefined on input line 354.
+
+
+LaTeX Warning: Citation `bs4_pypi' on page 41 undefined on input line 367.
+
+
 Underfull \hbox (badness 1062) in paragraph at lines 367--368
 []\T1/lmr/bx/sc/12 Corrections au-to-ma-tiques : \T1/lmr/m/n/12 elles concernent les ano-ma-lies de faible risque
  []
@@ -1269,7 +1442,12 @@ Underfull \hbox (badness 2134) in paragraph at lines 369--370
 []\T1/lmr/bx/sc/12 Suggestions de cor-rec-tion : \T1/lmr/m/n/12 les ano-ma-lies né-ces-si-tant une com-pré-hen-sion
  []
 
-[41] [42] [43] [44]
+[41] [42]
+Underfull \hbox (badness 5908) in paragraph at lines 407--408
+[]\T1/lmr/m/n/12 La no-ta-tion conver-tit les diag-nos-tics tech-niques en un in-di-ca-teur mé-tier
+ []
+
+[43] [44]
 Underfull \hbox (badness 1127) in paragraph at lines 453--454
 []\T1/lmr/m/n/12 Les mé-ca-nismes mis en ÷uvre re-posent sur l'uti-li-sa-tion conjointe de mo-dèles
  []
@@ -1277,213 +1455,199 @@ Underfull \hbox (badness 1127) in paragraph at lines 453--454
 ) (4-fourth-chapter.tex [45]
 Chapitre 4.
 
-Underfull \hbox (badness 1226) in paragraph at lines 15--16
+Underfull \hbox (badness 1270) in paragraph at lines 8--9
+[]\T1/lmr/m/n/12 Ce cha-pitre dé-taille les étapes de cette in-té-gra-tion. Il pré-sente tout d'abord
+ []
+
+
+Underfull \hbox (badness 1226) in paragraph at lines 14--15
 []\T1/lmr/m/n/12 Avant de pré-sen-ter les mé-ca-nismes d'in-té-gra-tion du mi-cro-ser-vice d'in-tel-li-gence
+ []
+
+
+Underfull \hbox (badness 1028) in paragraph at lines 14--15
+\T1/lmr/m/n/12 Cloud [[]]. L'ar-chi-tec-ture mo-du-laire de la pla-te-forme as-sure une sé-pa-ra-tion nette
+ []
+
+
+Underfull \hbox (badness 1810) in paragraph at lines 14--15
+\T1/lmr/m/n/12 des res-pon-sa-bi-li-tés entre les dif-fé-rents com-po-sants. Cette or-ga-ni-sa-tion fa-ci-lite le
  []
 
 [46
 
 ]
-Underfull \hbox (badness 1264) in paragraph at lines 18--19
-[]\T1/lmr/m/n/12 SAP Com-merce Cloud est une pla-te-forme com-plète de ges-tion du com-merce
- []
-
-
-Underfull \hbox (badness 2744) in paragraph at lines 20--21
+Underfull \hbox (badness 2744) in paragraph at lines 19--20
 \T1/lmr/m/n/12 or-ga-ni-sa-tion struc-tu-rée du code, que l'on dé-signe par le terme d'ar-chi-tec-ture.
  []
 
 [47]
-<images/architecture-sap.png, id=815, 813.0375pt x 1016.29688pt>
+<images/architecture-sap.png, id=831, 813.0375pt x 1016.29688pt>
 File: images/architecture-sap.png Graphic file (type png)
 <use images/architecture-sap.png>
-Package pdftex.def Info: images/architecture-sap.png  used on input line 32.
+Package pdftex.def Info: images/architecture-sap.png  used on input line 31.
 (pdftex.def)             Requested size: 277.69917pt x 347.11812pt.
  [48 <./images/architecture-sap.png (PNG copy)>]
-Underfull \hbox (badness 1394) in paragraph at lines 49--50
+Underfull \hbox (badness 1394) in paragraph at lines 48--49
 \T1/lmr/m/n/12 les trai-te-ments né-ces-saires au fonc-tion-ne-ment de la pla-te-forme et co-or-donne les
  []
 
-[49]
-Underfull \hbox (badness 6641) in paragraph at lines 79--79
-[]\T1/lmr/bx/n/14.4 Gestion des ap-pels entre SAP Com-merce et le
+[49] [50]
+Underfull \hbox (badness 1874) in paragraph at lines 92--93
+[]\T1/lmr/m/n/12 Après trai-te-ment, cette API re-tourne les ré-sul-tats de va-li-da-tion com-pre-nant
  []
 
-[50]
-Underfull \hbox (badness 2012) in paragraph at lines 102--103
-[]\T1/lmr/m/n/12 Les don-nées trans-mises au mi-cro-ser-vice contiennent uni-que-ment les élé-ments
- []
-
-
-LaTeX Warning: Reference `fig:sequence_integration' on page 51 undefined on input line 108.
-
-[51]
-Underfull \hbox (badness 3039) in paragraph at lines 110--111
-[]\T1/lmr/m/n/12 Le res-pon-sable de l'en-ri-chis-se-ment dé-clenche l'ac-tion de-puis l'in-ter-face SAP
- []
-
-
-Underfull \hbox (badness 1122) in paragraph at lines 121--122
-[]\T1/lmr/m/n/12 L'implémentation tech-nique des Item-Types passe par un fi-chier XML nommé
- []
-
-[52]
-Underfull \hbox (badness 6412) in paragraph at lines 146--147
-[]\T1/lmtt/m/n/12 fieldsToTranslate \T1/lmr/m/n/12 est une liste de chaînes de ca-rac-tères, par exemple
- []
-
-[53]
-Underfull \hbox (badness 5064) in paragraph at lines 173--174
-[]\T1/lmtt/m/n/12 anomalies \T1/lmr/m/n/12 : col-lec-tion des ano-ma-lies dé-tec-tées (re-la-tion one-to-many vers
- []
-
-[54]
-Underfull \hbox (badness 2126) in paragraph at lines 202--203
-[]\T1/lmr/m/n/12 Les trois en-ti-tés nou-velles (Pro-duct-Mo-del aug-menté, Pro-duct-Va-li-da-tion-Re-sult,
- []
-
-[55]
-Underfull \hbox (badness 6927) in paragraph at lines 204--205
-[]\T1/lmr/m/n/12 Un Pro-duct peut être va-lidé plu-sieurs fois. Chaque va-li-da-tion crée un
+<images/sequence.png, id=852, 964.60374pt x 788.9475pt>
+File: images/sequence.png Graphic file (type png)
+<use images/sequence.png>
+Package pdftex.def Info: images/sequence.png  used on input line 100.
+(pdftex.def)             Requested size: 364.19667pt x 297.87701pt.
+[51] [52 <./images/sequence.png>]
+File: images/product.png Graphic file (type png)
+<use images/product.png>
+Package pdftex.def Info: images/product.png  used on input line 142.
+(pdftex.def)             Requested size: 318.66948pt x 179.25339pt.
+ [53]
+Underfull \hbox (badness 1242) in paragraph at lines 147--148
+[]\T1/lmr/m/n/12 Cette ex-ten-sion du mo-dèle per-met donc d'in-té-grer les ca-pa-ci-tés d'in-tel-li-gence
  []
 
 
-Underfull \hbox (badness 4096) in paragraph at lines 204--205
-\T1/lmr/m/n/12 Pro-duct-Va-li-da-tion-Re-sult dis-tinct. Donc il existe une re-la-tion one-to-many (ou
- []
+LaTeX Warning: Citation `zk_framework' on page 54 undefined on input line 161.
 
 
-Underfull \hbox (badness 1348) in paragraph at lines 204--205
-\T1/lmr/m/n/12 1..n) entre Pro-duct et Pro-duct-Va-li-da-tion-Re-sult. En termes de base de don-nées,
- []
-
-
-Underfull \hbox (badness 2426) in paragraph at lines 206--207
-[]\T1/lmr/m/n/12 Un Pro-duct-Va-li-da-tion-Re-sult peut conte-nir zéro, une ou plu-sieurs ano-ma-lies.
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 206--207
-\T1/lmr/m/n/12 Il existe donc une re-la-tion one-to-many entre Pro-duct-Va-li-da-tion-Re-sult et
- []
-
-File: images/architecture.png Graphic file (type png)
-<use images/architecture.png>
-Package pdftex.def Info: images/architecture.png  used on input line 212.
-(pdftex.def)             Requested size: 364.19667pt x 204.85924pt.
-[56]
-Underfull \hbox (badness 1895) in paragraph at lines 233--234
+Underfull \hbox (badness 1895) in paragraph at lines 167--168
 []\T1/lmr/m/n/12 L'interface d'en-ri-chis-se-ment per-met aux res-pon-sables de ca-ta-logues de lan-cer
  []
 
-
-Underfull \hbox (badness 1931) in paragraph at lines 241--242
+[54]
+Underfull \hbox (badness 1931) in paragraph at lines 175--176
 \T1/lmr/m/n/12 ^^S des-crip-tion courte ^^T, ^^S des-crip-tion longue ^^T, ^^S spé-ci-fi-ca-tions ^^T. L'uti-li-sa-teur
  []
 
-[57]
-Underfull \hbox (badness 3646) in paragraph at lines 255--256
+
+Underfull \hbox (badness 3646) in paragraph at lines 189--190
 \T1/lmr/m/n/12 la confi-gu-ra-tion : \T1/lmtt/m/n/12 fieldsToTranslate \T1/lmr/m/n/12 re-çoit la liste des champs sé-lec-tion-nés,
  []
 
-[58] [59] [60] [61]
-Underfull \hbox (badness 10000) in paragraph at lines 355--356
+[55]
+<images/Image1.jpg, id=881, 81.30376pt x 101.62968pt>
+File: images/Image1.jpg Graphic file (type jpg)
+<use images/Image1.jpg>
+Package pdftex.def Info: images/Image1.jpg  used on input line 205.
+(pdftex.def)             Requested size: 409.71692pt x 512.28604pt.
+ [56] [57 <./images/Image1.jpg>] [58]
+File: images/Image2.jpg Graphic file (type jpg)
+<use images/Image2.jpg>
+Package pdftex.def Info: images/Image2.jpg  used on input line 250.
+(pdftex.def)             Requested size: 409.71692pt x 520.56364pt.
+ [59] [60]
+Underfull \hbox (badness 10000) in paragraph at lines 283--284
 []\T1/lmr/bx/sc/12 Étape 2 : Pré-pa-ra-tion des don-nées. \T1/lmr/m/n/12 Une ac-tion mé-tier ap-pe-lée
  []
 
-
-Underfull \hbox (badness 1509) in paragraph at lines 365--366
-\T1/lmr/m/n/12 s'est ter-miné avec suc-cès, log un mes-sage, et éven-tuel-le-ment no-ti-fie l'uti-li-sa-teur
- []
-
-[62]
-Underfull \hbox (badness 2080) in paragraph at lines 375--376
-[]\T1/lmr/m/n/12 Notifie l'ad-mi-nis-tra-teur sys-tème qu'une en-ri-chis-se-ment a échoué et a be-soin
+[61]
+Underfull \hbox (badness 2828) in paragraph at lines 303--304
+[]\T1/lmr/m/n/12 Notifie l'ad-mi-nis-tra-teur sys-tème qu'un en-ri-chis-se-ment a échoué et a be-soin
  []
 
 File: images/activitÃ©s.png Graphic file (type png)
 <use images/activitÃ©s.png>
-Package pdftex.def Info: images/activitÃ©s.png  used on input line 385.
+Package pdftex.def Info: images/activitÃ©s.png  used on input line 313.
 (pdftex.def)             Requested size: 364.19667pt x 447.10495pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \hbox (badness 7925) in paragraph at lines 392--393
+[62]
+Underfull \hbox (badness 7925) in paragraph at lines 320--321
 []\T1/lmr/m/n/12 Le work-flow de va-li-da-tion fonc-tionne de ma-nière si-mi-laire au work-flow
  []
 
 
-Underfull \hbox (badness 2158) in paragraph at lines 396--397
+Underfull \hbox (badness 2158) in paragraph at lines 324--325
 []\T1/lmr/bx/sc/12 Étape 1 : Dé-clen-che-ment. \T1/lmr/m/n/12 Le work-flow de va-li-da-tion est dé-clen-ché soit
  []
 
-
-Underfull \hbox (badness 1540) in paragraph at lines 402--403
+[63]
+Underfull \hbox (badness 1540) in paragraph at lines 330--331
 \T1/lmr/m/n/12 Pro-duct-Va-li-da-tion-Re-sult avec le score et le sta-tut re-çus. Pour chaque ano-ma-lie
  []
 
-[63]
-Underfull \hbox (badness 1454) in paragraph at lines 412--413
+
+Underfull \hbox (badness 1454) in paragraph at lines 340--341
 \T1/lmr/m/n/12 d'en-ri-chis-se-ment en-voie des don-nées au mi-cro-ser-vice et en ré-cu-père d'autres ; le
  []
 
 [64]
-Underfull \hbox (badness 1205) in paragraph at lines 426--427
+Underfull \hbox (badness 1205) in paragraph at lines 354--355
 []\T1/lmr/m/n/12 Elle na-vigue jus-qu'à l'in-ter-face d'en-ri-chis-se-ment. Elle sé-lec-tionne le pro-duit ^^S
  []
 
-[65]
-Underfull \hbox (badness 10000) in paragraph at lines 460--461
+
+Underfull \hbox (badness 10000) in paragraph at lines 388--389
 []\T1/lmr/m/n/12 Le work-flow d'en-ri-chis-se-ment s'exé-cute. La pre-mière ac-tion mé-tier
  []
 
-[66]
-Underfull \hbox (badness 6542) in paragraph at lines 495--496
+[65]
+
+LaTeX Warning: Citation `spring_framework' on page 66 undefined on input line 407.
+
+
+LaTeX Warning: Citation `jackson_repo' on page 66 undefined on input line 409.
+
+
+Underfull \hbox (badness 6542) in paragraph at lines 423--424
 []\T1/lmr/m/n/12 Ajoute les en-têtes HTTP ap-pro-priés : \T1/lmtt/m/n/12 Content-Type: application/json\T1/lmr/m/n/12 ,
  []
 
-
-Overfull \hbox (20.23112pt too wide) in paragraph at lines 512--512
+[66]
+Overfull \hbox (20.23112pt too wide) in paragraph at lines 440--440
 []           \T1/lmtt/m/n/12 and style. Perfect for everyday running and athletic activities.",[] 
  []
 
 [67]
-Overfull \hbox (32.58113pt too wide) in paragraph at lines 571--571
+Overfull \hbox (32.58113pt too wide) in paragraph at lines 499--499
 []      \T1/lmtt/m/n/12 "suggestion": "Ajouter des détails sur les matériaux ou les performances"[] 
  []
 
 [68] [69]
-<images/sequence.png, id=952, 964.60374pt x 788.9475pt>
 File: images/sequence.png Graphic file (type png)
 <use images/sequence.png>
-Package pdftex.def Info: images/sequence.png  used on input line 653.
+Package pdftex.def Info: images/sequence.png  used on input line 581.
 (pdftex.def)             Requested size: 455.24411pt x 372.33424pt.
 
+Underfull \hbox (badness 1082) in paragraph at lines 586--587
+[]\T1/lmr/m/n/12 Cet en-chaî-ne-ment illustre l'in-ter-opé-ra-bi-lité entre les com-po-sants du sys-tème :
+ []
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+[70]
 
-[70] [71 <./images/sequence.png>] [72] [73]
-Underfull \hbox (badness 3679) in paragraph at lines 728--729
+LaTeX Warning: Citation `velocity_engine' on page 71 undefined on input line 600.
+
+
+LaTeX Warning: Citation `velocity_engine' on page 71 undefined on input line 602.
+
+[71] [72]
+Underfull \hbox (badness 3679) in paragraph at lines 656--657
 []\T1/lmr/m/n/12 Les don-nées à pas-ser au tem-plate (Pro-duct-Mo-del, Pro-duct-Va-li-da-tion-Re-sult,
  []
 
-[74]
-Underfull \hbox (badness 10000) in paragraph at lines 767--768
+[73]
+Underfull \hbox (badness 10000) in paragraph at lines 695--696
 []\T1/lmr/bx/sc/12 Email après va-li-da-tion com-plète : \T1/lmr/m/n/12 ^^S Va-li-da-tion ter-mi-née. Pro-duit
  []
 
 
-Underfull \hbox (badness 1292) in paragraph at lines 799--800
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 1292) in paragraph at lines 727--728
 \T1/lmr/m/n/12 couches (Pré-sen-ta-tion, Fa-cade, Ser-vice, DAO, Mo-dèle), où chaque couche a une
  []
 
-[75]
-Underfull \hbox (badness 10000) in paragraph at lines 807--808
+[74]
+Underfull \hbox (badness 10000) in paragraph at lines 735--736
 []\T1/lmr/m/n/12 Cinquièmement, l'au-to-ma-ti-sa-tion via les work-flows mé-tier. Les work-flows
  []
 
-) (2-conclusion.tex [76]
+[75]) (2-conclusion.tex [76]
 Underfull \hbox (badness 10000) in paragraph at lines 6--7
 
  []
@@ -1502,13 +1666,24 @@ LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
 
 ] (URL.bbl
+Underfull \hbox (badness 2351) in paragraph at lines 40--44
+[]\T1/lmr/m/n/12 Salesforce.  Qu'est-ce que le crm ?  [][]$\T1/lmtt/m/n/12 https : / / www . salesforce . com / fr / crm /
+ []
 
-LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
-) [80
+Underfull \hbox (badness 10000) in paragraph at lines 57--60
+[]\T1/lmr/m/n/12 Microservices - mar-tin fow-ler.  [][]$\T1/lmtt/m/n/12 https : / / martinfowler . com / articles /
+ []
 
 
-] (main.aux)
+Underfull \hbox (badness 4341) in paragraph at lines 68--71
+[]\T1/lmr/m/n/12 Json (ja-vas-cript ob-ject no-ta-tion).  [][]$\T1/lmtt/m/n/12 https : / / www . json . org / json-[]en . html/$[][]\T1/lmr/m/n/12 .
+ []
+
+[80
+
+
+]) [81] (main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
@@ -1521,20 +1696,20 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 7744EB64F49DFE8102BCC85F181182F8;19615.
+(rerunfilecheck)             Checksum: A5692809A373B04C0BE456A51A46D676;19126.
  ) 
 Here is how much of TeX's memory you used:
- 34321 strings out of 467870
- 683028 string characters out of 5414483
- 1107014 words of memory out of 5000000
- 62290 multiletter control sequences out of 15000+600000
+ 34411 strings out of 467870
+ 683899 string characters out of 5414483
+ 1108101 words of memory out of 5000000
+ 62351 multiletter control sequences out of 15000+600000
  724779 words of font info for 108 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  86i,13n,104p,1025b,784s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/ImenBOUSSETTA/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/ImenBOUSSETTA/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/ImenBOUSSETTA/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/ImenBOUSSETTA/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/ImenBOUSSETTA/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/ImenBOUSSETTA/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/ImenBOUSSETTA/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Users/ImenBOUSSETTA/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/ImenBOUSSETTA/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/ImenBOUSSETTA/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Users/ImenBOUSSETTA/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
-Output written on main.pdf (89 pages, 1171157 bytes).
+Output written on main.pdf (91 pages, 1180985 bytes).
 PDF statistics:
- 1127 PDF objects out of 1200 (max. 8388607)
- 287 named destinations out of 1000 (max. 500000)
- 916 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1185 PDF objects out of 1200 (max. 8388607)
+ 316 named destinations out of 1000 (max. 500000)
+ 905 words of extra memory for PDF output out of 10000 (max. 10000000)
 

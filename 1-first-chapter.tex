@@ -6,11 +6,11 @@ Ce chapitre présente le contexte général du projet ainsi que son cadre global
 Nous analysons ensuite le contexte du projet et l’étude de l’existant afin de mettre en lumière la problématique identifiée. Enfin, nous présentons la solution proposée ainsi que la méthodologie Agile Scrum adoptée pour structurer le déroulement de ce travail.
 \section{Présentation de l’organisme d’accueil}
 
-Dans cette section, nous présentons l'organisme d'accueil, le client concerné par le projet, ainsi que les principaux domaines dans lesquels ils exercent leurs activités.
+Dans cette section, nous présentons l'organisme d'accueil, le client concerné par le projet ainsi que les principaux domaines dans lesquels ils exercent leurs activités.
 
 \subsection{Présentation de l’entreprise : DECADE}
 
-DECADE est une Entreprise de Services du Numérique (ESN) spécialisée dans le conseil et la réalisation de solutions e-commerce et de transformation digitale. Depuis sa création en 1988, elle s’est imposée comme un partenaire stratégique pour les entreprises souhaitant titulariser leur activité commerciale en ligne.
+DECADE \citeURL{decade_site} est une Entreprise de Services du Numérique (ESN) spécialisée dans le conseil et la réalisation de solutions e-commerce et de transformation digitale. Depuis sa création en 1988, elle s’est imposée comme un partenaire stratégique pour les entreprises souhaitant titulariser leur activité commerciale en ligne.
 
 L’expertise de DECADE repose sur une maîtrise approfondie des outils de vente en ligne, notamment SAP Commerce Cloud et sur une forte capacité à intégrer des problématiques complexes de gestion des informations des produits. L'entreprise accompagne ses clients tout au long du cycle de vie de leurs projets, de la conception logicielle à l'optimisation continue, en mettant l'accent sur la qualité des contenus et l'efficacité des processus métier.
 
@@ -38,7 +38,7 @@ DECADE accompagne ses clients à travers des solutions adaptées à leurs object
 
 \subsection{Présentation du client : ETANCO}
 
-Dans le cadre de ce projet, DECADE intervient pour le compte d'ETANCO, une filiale du groupe international Simpson Strong-Tie. ETANCO est un acteur majeur en Europe dans la conception, la fabrication et la distribution de solutions de fixation et d'assemblage destinées à l'enveloppe du bâtiment. L'entreprise intervient dans plusieurs domaines, notamment la toiture, la façade, le bardage et l'étanchéité et s'adresse principalement aux professionnels du bâtiment.
+Dans le cadre de ce projet, DECADE intervient pour le compte d'ETANCO \citeURL{etanco_site}, une filiale du groupe international Simpson Strong-Tie. ETANCO est un acteur majeur en Europe dans la conception, la fabrication et la distribution de solutions de fixation et d'assemblage destinées à l'enveloppe du bâtiment. L'entreprise intervient dans plusieurs domaines, notamment la toiture, la façade, le bardage et l'étanchéité et s'adresse principalement aux professionnels du bâtiment.
 
 Afin de répondre aux besoins de ses clients, ETANCO commercialise un catalogue comprenant plusieurs dizaines de milliers de références. Chaque produit est associé à de nombreuses informations, telles que des caractéristiques techniques, des descriptions, des documents réglementaires, des médias, des classifications ainsi que des traductions destinées aux différents marchés. La qualité, la cohérence et la disponibilité de ces informations sont essentielles pour assurer une présentation fiable des produits sur les différents canaux de diffusion de l'entreprise. La Figure~\ref{fig:logo_etanco} présente l'identité visuelle du groupe.
 
@@ -55,7 +55,7 @@ Cette section introduit les notions fondamentales nécessaires à la compréhens
 
 \subsection{Le commerce électronique}
 
-Le commerce électronique, ou e-commerce, désigne l'échange de biens, de services ou d'informations par l'intermédiaire de réseaux informatiques, principalement Internet \cite{ibm_ecommerce}. Il ne se limite pas à l'acte d'achat, mais englobe l'ensemble du parcours client numérique.
+Le commerce électronique, ou e-commerce, désigne l'échange de biens, de services ou d'informations par l'intermédiaire de réseaux informatiques, principalement Internet \citeURL{ibm_ecommerce}. Il ne se limite pas à l'acte d'achat, mais englobe l'ensemble du parcours client numérique.
 
 On distingue généralement deux modèles principaux selon la nature des acteurs impliqués :
 
@@ -92,10 +92,10 @@ Une plateforme e-commerce s'appuie structurellement sur deux composantes :
 La gestion efficace d'une boutique en ligne repose sur l'interopérabilité de plusieurs logiciels métiers spécialisés :
 
 \begin{itemize}
-    \item \textbf{ERP (Enterprise Resource Planning) :} colonne vertébrale de l'entreprise, il centralise les données opérationnelles telles que les stocks, les tarifs et la comptabilité \cite{sap_erp}.
-    \item \textbf{PIM (Product Information Management) :} référentiel unique dédié à la centralisation, l'enrichissement et la traduction des caractéristiques techniques et commerciales des produits \cite{akeneo_pim}.
-    \item \textbf{SAP Commerce Cloud :} plateforme cloud omnicanale qui orchestre l'expérience client et le pilotage des processus de vente complexes \cite{sap_commerce_cloud}.
-    \item \textbf{CRM (Customer Relationship Management) :} outil de gestion de la relation client permettant de suivre les interactions et d'optimiser les stratégies de fidélisation \cite{salesforce_crm}.
+    \item \textbf{ERP (Enterprise Resource Planning) :} colonne vertébrale de l'entreprise, il centralise les données opérationnelles telles que les stocks, les tarifs et la comptabilité \citeURL{sap_erp}.
+    \item \textbf{PIM (Product Information Management) :} référentiel unique dédié à la centralisation, l'enrichissement et la traduction des caractéristiques techniques et commerciales des produits \citeURL{akeneo_pim}.
+    \item \textbf{SAP Commerce Cloud :} plateforme cloud omnicanale qui orchestre l'expérience client et le pilotage des processus de vente complexes \citeURL{sap_commerce_cloud}.
+    \item \textbf{CRM (Customer Relationship Management) :} outil de gestion de la relation client permettant de suivre les interactions et d'optimiser les stratégies de fidélisation \citeURL{salesforce_crm}.
 \end{itemize}
 
 \subsection{Cycle de vie des données d'un produit}
@@ -128,7 +128,7 @@ Cependant, malgré les outils existants, certaines informations techniques et co
 
 \subsection{Étude de l’existant}
 
-Actuellement, la publication d’un produit sur le site e-commerce repose sur un processus largement manuel. Lorsqu’un produit est créé ou modifié, plusieurs vérifications doivent être réalisées, notamment le contrôle des noms, des descriptions des produits, des attributs des produits, ainsi que des images associées.
+Actuellement, la publication d’un produit sur le site e-commerce repose sur un processus largement manuel. Lorsqu’un produit est créé ou modifié, plusieurs vérifications doivent être réalisées, notamment le contrôle des noms, des descriptions des produits, des attributs des produits ainsi que des images associées.
 \vspace{0.2cm}
 
 Cette phase se termine par une validation effectuée par le \textit{Product Detail Manager} dans le workflow d’enrichissement intégré à SAP Commerce. Bien que cette étape soit essentielle pour garantir la qualité des informations publiées, elle dépend fortement de l’intervention humaine.
@@ -153,7 +153,7 @@ Ces problèmes de qualité réduisent la fiabilité des informations publiées. 
 Afin de répondre à cette problématique, la solution proposée consiste à intégrer une couche d’analyse intelligente dans le workflow d’enrichissement de SAP Commerce.
 \vspace{0.2cm}
 
-La solution repose sur un service externe accessible via des API REST permettant l’échange des données nécessaires à l’analyse et à la validation. Cette approche vise à renforcer les contrôles de qualité tout en conservant la validation humaine. Elle permet d’automatiser certaines tâches d’enrichissement, telles que la génération de descriptions des produits et la traduction des contenus, ainsi que la normalisation des formats de données.
+La solution repose sur un service externe accessible via des API REST permettant l’échange des données nécessaires à l’analyse et à la validation. Cette approche vise à renforcer les contrôles de qualité tout en conservant la validation humaine. Elle permet d’automatiser certaines tâches d’enrichissement, telles que la génération de descriptions des produits et la traduction des contenus ainsi que la normalisation des formats de données.
 \vspace{0.2cm}
 
 L’utilisateur conserve un rôle central dans le processus, puisqu’il peut valider ou refuser les suggestions proposées avant leur publication officielle sur le site.
@@ -163,7 +163,7 @@ Cette solution contribue à rendre le processus d’enrichissement plus efficace
 
 \section{Méthodologie de travail adoptée}
 
-Dans le cadre de ce projet, nous avons adopté la méthodologie Agile Scrum, largement utilisée dans le développement logiciel pour sa flexibilité et sa capacité à s'adapter aux besoins évolutifs du projet. Cette approche repose sur un développement itératif et incrémental, permettant de livrer progressivement des fonctionnalités tout en intégrant des retours réguliers des parties prenantes afin d'améliorer continuellement le produit final. Le fonctionnement général de cette méthodologie est présenté dans la Figure~\ref{fig:scrum}.
+Dans le cadre de ce projet, nous avons adopté la méthodologie Agile Scrum \citeURL{scrum_guide}, largement utilisée dans le développement logiciel pour sa flexibilité et sa capacité à s'adapter aux besoins évolutifs du projet. Cette approche repose sur un développement itératif et incrémental, permettant de livrer progressivement des fonctionnalités tout en intégrant des retours réguliers des parties prenantes afin d'améliorer continuellement le produit final. Le fonctionnement général de cette méthodologie est présenté dans la Figure~\ref{fig:scrum}.
 
 \begin{figure}[H]
     \centering
@@ -219,4 +219,4 @@ Dans ce chapitre, nous avons présenté le cadre général du projet ainsi que l
 
 Nous avons également analysé le contexte du projet ainsi que le processus existant de gestion des informations des produits, ce qui nous a permis d’identifier les limites actuelles et de définir la problématique.
 
-Enfin, nous avons présenté la solution proposée ainsi que la méthodologie de travail adoptée, basée sur l’approche Agile Scrum, qui permet de structurer efficacement le déroulement du projet et de garantir une progression itérative et contrôlée.
+Enfin, nous avons présenté la solution proposée ainsi que la méthodologie de travail adoptée, basée sur l’approche Agile Scrum, qui structure efficacement le déroulement du projet et garantit une progression itérative et contrôlée.

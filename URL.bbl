@@ -1,3 +1,82 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{10}
+
+\bibitem{decade_site}
+DECADE.
+\newblock Conseil et ingénierie e-commerce depuis 1988.
+\newblock \url{https://www.decade.fr/agence/}.
+\newblock Consulté le 01/06/2026.
+
+\bibitem{etanco_site}
+ETANCO.
+\newblock Fabricant de fixations et systèmes pour l'enveloppe du bâtiment.
+\newblock \url{https://www.etanco.fr/}.
+\newblock Consulté le 01/06/2026.
+
+\bibitem{ibm_ecommerce}
+IBM.
+\newblock What is e-commerce?
+\newblock \url{https://www.ibm.com/topics/ecommerce}.
+\newblock Consulté le 01/06/2026.
+
+\bibitem{sap_erp}
+SAP.
+\newblock Qu'est-ce qu'un erp (enterprise resource planning) ?
+\newblock \url{https://www.sap.com/france/products/erp/what-is-erp.html}.
+\newblock Consulté le 01/06/2026.
+
+\bibitem{akeneo_pim}
+Akeneo.
+\newblock Qu'est-ce qu'un pim (product information management) ?
+\newblock \url{https://www.akeneo.com/fr/qu-est-ce-qu-un-pim/}.
+\newblock Consulté le 01/06/2026.
+
+\bibitem{sap_commerce_cloud}
+SAP.
+\newblock Sap commerce cloud - documentation officielle.
+\newblock \url{https://help.sap.com/docs/SAP_COMMERCE_CLOUD}.
+\newblock Consulté le 01/06/2026.
+
+\bibitem{salesforce_crm}
+Salesforce.
+\newblock Qu'est-ce que le crm ?
+\newblock \url{https://www.salesforce.com/fr/crm/definition-crm/}.
+\newblock Consulté le 01/06/2026.
+
+\bibitem{scrum_guide}
+Ken Schwaber and Jeff Sutherland.
+\newblock The scrum guide.
+\newblock \url{https://scrumguides.org/scrum-guide.html}.
+\newblock Consulté le 01/06/2026.
+
+\bibitem{uml_omg}
+Unified modeling language (uml) specification.
+\newblock \url{https://www.omg.org/spec/UML/}.
+\newblock Consulté le 01/06/2026.
+
+\bibitem{fowler_microservices}
+Microservices - martin fowler.
+\newblock \url{https://martinfowler.com/articles/microservices.html/}.
+\newblock Consulté le 01/06/2026.
+
+\bibitem{fielding_rest}
+Architectural styles and the design of network-based software architectures
+  (rest).
+\newblock \url{https://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm/}.
+\newblock Consulté le 01/06/2026.
+
+\bibitem{json_org}
+Json (javascript object notation).
+\newblock \url{https://www.json.org/json-en.html/}.
+\newblock Consulté le 01/06/2026.
+
+\bibitem{fastapi_docs}
+Fastapi documentation.
+\newblock \url{https://fastapi.tiangolo.com/}.
+\newblock Consulté le 01/06/2026.
+
+\bibitem{python_psf}
+Python software foundation.
+\newblock \url{https://www.python.org/psf-landing/}.
+\newblock Consulté le 01/06/2026.
 
 \end{thebibliography}

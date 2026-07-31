@@ -3,7 +3,7 @@
 
 \section{Introduction}
 
-Après avoir présenté l'architecture globale de la solution dans le chapitre précédent, ce chapitre s'intéresse au fonctionnement interne du microservice d'intelligence artificielle. Celui-ci constitue le cœur des traitements d'enrichissement et de validation des fiches produits.
+Après avoir présenté l'architecture globale de la solution dans le chapitre précédent, ce chapitre détaille l'implémentation technique et les algorithmes du microservice d'intelligence artificielle. Celui-ci constitue le cœur des traitements d'enrichissement et de validation des fiches produits.
 
 Nous présentons dans un premier temps l'organisation générale du microservice ainsi que les choix technologiques retenus pour son développement. Les différentes étapes du pipeline de traitement sont ensuite décrites avant d'aborder, dans les sections suivantes, les mécanismes d'enrichissement, de traduction et de validation mis en œuvre.
 
@@ -11,11 +11,11 @@ Nous présentons dans un premier temps l'organisation générale du microservice
 
 Le microservice d'intelligence artificielle est développé comme un composant indépendant de SAP Commerce Cloud. Il centralise l'ensemble des traitements liés à l'enrichissement automatique des fiches produits, à leur traduction multilingue ainsi qu'à leur validation avant leur mise à disposition des utilisateurs.
 
-Cette séparation permet de conserver une architecture faiblement couplée : SAP Commerce Cloud reste responsable de la gestion des données métier et des interactions avec les utilisateurs, tandis que le microservice prend en charge l'ensemble des traitements d'intelligence artificielle. Les deux composants communiquent uniquement au travers des interfaces REST, ce qui facilite l'évolution de chacun sans remettre en cause le fonctionnement de l'autre.
+En isolant ces traitements, l'architecture reste faiblement couplée : SAP Commerce Cloud reste responsable de la gestion des données métier et des interactions avec les utilisateurs, tandis que le microservice prend en charge l'ensemble des traitements d'intelligence artificielle. Les deux composants communiquent uniquement au travers des interfaces REST, ce qui facilite l'évolution de chacun sans remettre en cause le fonctionnement de l'autre.
 \newpage
 \subsection{Déroulement du traitement}
 
-Le microservice réalise les traitements selon une succession d'étapes, chacune ayant un objectif précis. Les données progressent d'un module à l'autre jusqu'à la production du résultat final. Cette organisation permet de séparer les différentes responsabilités tout en facilitant l'évolution de chaque étape du processus. Le traitement d'une requête s'effectue selon les étapes suivantes :
+Le microservice réalise les traitements selon une succession d'étapes, chacune ayant un objectif précis. Les données progressent d'un module à l'autre jusqu'à la production du résultat final. Ce découpage modulaire garantit l'indépendance des fonctions et simplifie les mises à jour ultérieures. Le traitement d'une requête s'effectue selon les étapes suivantes :
 
 \begin{enumerate}
     \item \textbf{Validation des données d'entrée :} la requête reçue est d'abord vérifiée afin de s'assurer qu'elle respecte la structure JSON attendue par le microservice. Les champs obligatoires, les types de données ainsi que le format des informations sont contrôlés avant le lancement des traitements d'intelligence artificielle.
@@ -31,22 +31,22 @@ Le microservice réalise les traitements selon une succession d'étapes, chacune
 
 \subsection{Choix technologiques}
 
-Le microservice est développé en Python, choix justifié par l'écosystème mature du traitement du langage naturel et de l'intelligence artificielle. PyTorch, Transformers et les outils d'adaptation fine-tuning sont des références incontournables dans ce domaine.
+Le microservice est développé en Python \citeURL{python_psf}, choix justifié par l'écosystème mature du traitement du langage naturel et de l'intelligence artificielle. PyTorch \citeURL{pytorch_org}, Transformers \citeURL{huggingface_transformers} et les outils d'adaptation fine-tuning sont des références incontournables dans ce domaine.
 
-Pour l'interface REST, FastAPI a été retenu. Ce framework valide automatiquement les données entrantes, génère une documentation interactive et sérialise les réponses en JSON avec un minimum de code. Pydantic assure la validation stricte des requêtes et des réponses.
+Pour l'interface REST, FastAPI \citeURL{fastapi_docs} a été retenu. Ce framework valide automatiquement les données entrantes, génère une documentation interactive et sérialise les réponses en JSON avec un minimum de code. \texttt{Pydantic} \citeURL{pydantic_docs} assure la validation stricte des requêtes et des réponses.
 
 \begin{center}
 \begin{tabular}{|l||l|}
 \hline
 \textbf{Bibliothèque} & \textbf{Rôle dans le projet} \\
 \hline
-FastAPI & Exposition de l'interface REST \\
+FastAPI & Exposition de l'interface REST \citeURL{fastapi_docs} \\
 Pydantic & Validation des requêtes et réponses JSON \\
-Transformers & Chargement des modèles pré-entraînés \\
-PEFT & Fine-tuning efficace avec LoRA \\
-Ollama & Exécution locale du modèle Qwen \\
-Langdetect & Détection automatique de la langue \\
-Sentence Transformers & Analyse de similarité sémantique \\
+Transformers & Chargement des modèles pré-entraînés \citeURL{huggingface_transformers} \\
+PEFT & Fine-tuning efficace avec LoRA \citeURL{hf_peft} \\
+Ollama & Exécution locale du modèle Qwen \citeURL{ollama_com} \\
+Langdetect & Détection automatique de la langue \citeURL{langdetect_pypi} \\
+Sentence Transformers & Analyse de similarité sémantique \citeURL{sentence_transformers} \\
 \hline
 \end{tabular}
 \end{center}
@@ -54,18 +54,18 @@ Sentence Transformers & Analyse de similarité sémantique \\
 \newpage
 
 \section{Module d'enrichissement intelligent  }
-L'objectif de l'enrichissement est d'améliorer la qualité des fiches des produits en générant automatiquement des descriptions détaillées et cohérentes à partir des caractéristiques techniques fournies. Cela permet de réduire le temps de saisie manuel et d'assurer une présentation uniforme des produits sur les différents canaux de vente.
+L'objectif de l'enrichissement est d'améliorer la qualité des fiches des produits en générant automatiquement des descriptions détaillées et cohérentes à partir des caractéristiques techniques fournies. Cette automatisation réduit le temps de saisie manuel et assure une présentation uniforme des produits sur les différents canaux de vente.
 \subsection{Génération automatique des descriptions}
 
 \subsubsection{Principes des grands modèles de langage}
 
-Les grands modèles de langage (LLM pour \textit{Large Language Models}) sont des réseaux de neurones profonds entraînés sur d'énormes quantités de texte. Ils apprennent à prédire le mot suivant dans une phrase, ce qui leur permet de générer du texte cohérent et contextuel.
+Les grands modèles de langage (LLM pour \textit{Large Language Models}) sont des réseaux de neurones profonds entraînés sur d'énormes quantités de texte. Ils apprennent à prédire le mot suivant dans une phrase, facilitant ainsi la génération de texte cohérent et contextuel.
 
 Pour le projet, un modèle de langage est utilisé pour générer des descriptions de produits détaillées à partir de caractéristiques techniques simples.
 
 \subsubsection{Comparaison et sélection du modèle}
 
-Plusieurs modèles de langage existaient au moment du projet : GPT-4, Claude, Llama, Mistral et Qwen2.5. Le tableau ci-dessous les compare selon les critères importants pour une utilisation industrielle.
+Plusieurs modèles de langage existaient au moment du projet : GPT-4, Claude, Llama, Mistral et Qwen2.5 \citeURL{qwen_model}. Le tableau ci-dessous les compare selon les critères importants pour une utilisation industrielle.
 
 \begin{center}
 \begin{tabular}{|l|l|l|l|l|}
@@ -81,13 +81,13 @@ Qwen2.5 7B & Local & Très faible & Complète & Excellente \\
 \end{tabular}
 \end{center}
 
-Qwen2.5 7B a été choisi comme meilleur compromis. Ce modèle de 7 milliards de paramètres peut s'exécuter localement sur du matériel grand public, sans envoyer les données produits vers des services externes. Il est performant pour la génération de texte technique et son intégration dans le microservice est directe grâce à Ollama.
+Qwen2.5 7B a été choisi comme meilleur compromis. Ce modèle de 7 milliards de paramètres peut s'exécuter localement sur du matériel grand public, sans envoyer les données produits vers des services externes. Il est performant pour la génération de texte technique et son intégration dans le microservice est directe grâce à Ollama \citeURL{ollama_com}.
 
 \subsubsection{Exécution locale avec Ollama}
 
-L'exécution du modèle de génération est assurée par Ollama, une plateforme permettant de déployer et d'utiliser des modèles de langage de grande taille en local. Ollama fournit une interface REST qui facilite l'intégration des modèles au sein du microservice tout en simplifiant leur gestion et leur mise à jour.
+L'exécution du modèle de génération est assurée par Ollama \citeURL{ollama_com}, une plateforme permettant de déployer et d'utiliser des modèles de langage de grande taille en local. Ollama fournit une interface REST qui facilite l'intégration des modèles au sein du microservice tout en simplifiant leur gestion et leur mise à jour.
 
-Le recours à une exécution locale répond à plusieurs exigences du projet. Tout d'abord, il garantit la confidentialité des données en évitant l'envoi des informations produits vers des services d'intelligence artificielle hébergés sur le cloud. Les données demeurent ainsi entièrement dans l'environnement de l'entreprise, ce qui constitue un point important dans un contexte industriel.
+Le recours à une exécution locale répond à plusieurs exigences du projet. Le choix d'un modèle local répond aux impératifs de confidentialité propres au secteur industriel en évitant l'envoi des informations produits vers des services d'intelligence artificielle hébergés sur le cloud. Les données demeurent ainsi entièrement dans l'environnement de l'entreprise.
 
 Par ailleurs, cette approche supprime la dépendance vis-à-vis de services externes et de leur disponibilité. Le microservice peut continuer à fonctionner sans connexion à une API distante, ce qui améliore sa robustesse et assure une meilleure maîtrise des temps de réponse.
 
@@ -95,7 +95,7 @@ Par ailleurs, cette approche supprime la dépendance vis-à-vis de services exte
 
 Quand une requête arrive, le microservice commence par vérifier si les champs \texttt{récapitulatif} et \texttt{description} existent déjà. Si c'est le cas, ils sont conservés afin de préserver les contenus rédigés manuellement. Seuls les champs absents font l'objet d'une génération automatique.
 
-À partir des informations disponibles sur le produit (nom, catégorie, marque et caractéristiques techniques), le microservice construit un prompt adapté au contexte. Celui-ci fournit au modèle l'ensemble des informations nécessaires ainsi que les contraintes de rédaction à respecter. Le résumé doit être constitué d'une seule phrase de quinze mots maximum, tandis que la description doit comporter entre deux et quatre phrases rédigées dans un style professionnel adapté au secteur industriel. Cette approche permet d'obtenir des contenus homogènes tout en limitant les variations de qualité entre les différentes fiches produits.
+À partir des informations disponibles sur le produit (nom, catégorie, marque et caractéristiques techniques), le microservice construit un prompt adapté au contexte. Celui-ci fournit au modèle l'ensemble des informations nécessaires ainsi que les contraintes de rédaction à respecter. Le résumé doit être constitué d'une seule phrase de quinze mots maximum, tandis que la description doit comporter entre deux et quatre phrases rédigées dans un style professionnel adapté au secteur industriel. Le système harmonise ainsi la qualité rédactionnelle sur l'ensemble du catalogue tout en limitant les variations entre les différentes fiches produits.
 
 Voici un exemple du type de prompt transmis au modèle :
 
@@ -123,11 +123,11 @@ La description doit être claire, complète et adaptée à un public industriel.
 
 Le prompt est ensuite transmis au modèle Qwen2.5, exécuté localement via Ollama. La réponse est retournée sous la forme d'un objet JSON contenant les deux champs générés. Le microservice extrait ces informations avant de les intégrer dans la réponse destinée à SAP Commerce Cloud.
 
-Avant de renvoyer le résultat, plusieurs contrôles sont réalisés afin de garantir la fiabilité des contenus produits. Le microservice vérifie notamment la présence des champs attendus, la validité du format JSON ainsi que le respect de la longueur maximale imposée au résumé.
+Avant de renvoyer le résultat, plusieurs contrôles sont réalisés pour assurer la pertinence des descriptions générées. Le microservice vérifie notamment la présence des champs attendus, la validité du format JSON et le respect de la longueur maximale imposée au résumé.
 
 En cas d'erreur de communication ou de génération, une nouvelle tentative est automatiquement effectuée. Si aucune réponse exploitable n'est obtenue après plusieurs essais, le titre du produit est utilisé comme valeur par défaut afin de garantir qu'aucune fiche produit ne soit retournée avec des champs textuels vides.
 
-Cette stratégie améliore la robustesse du service tout en assurant la continuité du processus d'enrichissement. Elle permet également de limiter les risques liés à des réponses incomplètes ou mal formatées, sans interrompre le traitement des produits.
+Cette gestion des erreurs fiabilise l'enrichissement et prévient toute interruption du flux de données. Elle permet également de limiter les risques liés à des réponses incomplètes ou mal formatées sans interrompre le traitement des produits.
 \newpage
 \subsection{Module de traduction multilingue}
 
@@ -138,13 +138,13 @@ La traduction manuelle serait extrêmement coûteuse et lente. Une traduction au
 
 \subsubsection{Comparaison des modèles de traduction}
 
-Plusieurs modèles de traduction neuronale existent : MarianMT, mBART-50, M2M100 et NLLB. Le modèle NLLB (No Language Left Behind) de Meta a été sélectionné pour sa couverture de 200 langues, ses performances élevées et sa compatibilité avec le fine-tuning.
+Plusieurs modèles de traduction neuronale existent : MarianMT, mBART-50, M2M100 et NLLB \citeURL{nllb_meta}. Le modèle NLLB (No Language Left Behind) de Meta a été sélectionné pour sa couverture de 200 langues, ses performances élevées et sa compatibilité avec le fine-tuning.
 
 La version utilisée est \texttt{facebook/nllb-200-distilled-600M}, une version compacte de 616 millions de paramètres qui offre un bon équilibre entre qualité et ressources requises.
 
 \subsubsection{Présentation générale de NLLB}
 
-NLLB est un modèle Transformer de type Seq2Seq (séquence à séquence). Il prend une phrase en entrée et génère sa traduction en sortie. Le modèle a été entraîné sur des données de traduction couvrant 200 langues.
+NLLB \citeURL{nllb_meta} est un modèle Transformer de type Seq2Seq (séquence à séquence). Il prend une phrase en entrée et génère sa traduction en sortie. Le modèle a été entraîné sur des données de traduction couvrant 200 langues.
 
 Un point clé de NLLB est l'utilisation des codes FLORES-200. Chaque langue possède un code spécifique (par exemple \texttt{fra\_Latn} pour le français, \texttt{deu\_Latn} pour l'allemand). Le microservice convertit les codes de langues SAP Commerce Cloud vers ces codes FLORES avant la traduction.
 
@@ -152,7 +152,7 @@ Un point clé de NLLB est l'utilisation des codes FLORES-200. Chaque langue poss
 
 Le modèle NLLB pré-entraîné fonctionne correctement, mais un fine-tuning a été réalisé pour adapter le modèle aux spécificités du projet : contexte industriel, vocabulaire technique, style de rédaction des fiches produits.
 
-Le fine-tuning complet d'un modèle de 616 millions de paramètres nécessiterait énormément de mémoire GPU. Pour contourner ce problème, la technique LoRA (Low-Rank Adaptation) a été utilisée. LoRA gèle la majorité des paramètres du modèle et n'entraîne que des petites matrices d'adaptation. Dans ce projet, seuls 1,18 million de paramètres ont été rendus entraînables, soit environ 0,19 \% du total. Cette approche réduit dramatiquement les besoins en ressources tout en conservant de bonnes performances.
+Le fine-tuning complet d'un modèle de 616 millions de paramètres nécessiterait énormément de mémoire GPU. Pour contourner ce problème, la technique LoRA (Low-Rank Adaptation) \citeURL{hf_peft} a été utilisée. LoRA gèle la majorité des paramètres du modèle et n'entraîne que des petites matrices d'adaptation. Dans ce projet, seuls 1,18 million de paramètres ont été rendus entraînables, soit environ 0,19 \% du total. Cette approche réduit dramatiquement les besoins en ressources tout en conservant de bonnes performances.
 
 \subsubsection{Jeu de données d'entraînement}
 
@@ -196,9 +196,9 @@ Représente le nombre d'exemples utilisés à chaque mise à jour des poids. Cet
 L'entraînement a été réalisé sur un GPU de type GTX disposant de 4 Go de mémoire vidéo. L'utilisation de LoRA, associée à une taille de lot réduite et à l'accumulation des gradients, a permis d'adapter le modèle NLLB dans ces contraintes matérielles sans nécessiter d'infrastructure de calcul spécialisée.
 \subsubsection{Résultats du fine-tuning}
 
-Le score BLEU (Bilingual Evaluation Understudy) est une métrique de référence qui mesure la similarité n-grammatique entre la traduction générée par le modèle et une traduction de référence produite par un humain.
+Le score BLEU (Bilingual Evaluation Understudy) \citeURL{bleu_metric} est une métrique de référence qui mesure la similarité n-grammatique entre la traduction générée par le modèle et une traduction de référence produite par un humain.
 
-L'évaluation sur 7 langues (30 échantillons chacune) donne un score BLEU moyen de 28.4, en progression significative par rapport aux 23,5 du modèle de base. Bien que modeste face aux 35 BLEU des modèles les plus performants, ce score confirme que le fine-tuning LoRA sur un jeu de 5 000 paires adapte efficacement le modèle au vocabulaire technique et au style des fiches produits, validant ainsi son déploiement en production.
+L'évaluation sur 7 langues (30 échantillons chacune) donne un score BLEU moyen de 28.4, en progression significative par rapport aux 23,5 du modèle de base. Bien que modeste face aux 35 BLEU des modèles les plus performants, ce score confirme que le fine-tuning LoRA \citeURL{hf_peft} sur un jeu de 5 000 paires adapte efficacement le modèle au vocabulaire technique et au style des fiches produits, validant ainsi son déploiement en production.
 
 
 
@@ -347,15 +347,15 @@ Cette analyse repose sur plusieurs mécanismes complémentaires.
 
 \begin{itemize}
 
-\item \textbf{Détection automatique de la langue :} la bibliothèque \texttt{langdetect} identifie la langue réellement utilisée dans chaque contenu textuel afin de vérifier qu'elle correspond à la langue attendue pour le champ concerné. Une incohérence peut révéler une erreur de traduction, une mauvaise affectation des contenus multilingues ou une inversion des langues.
+\item \textbf{Détection automatique de la langue :} la bibliothèque \texttt{langdetect} \citeURL{langdetect_pypi} identifie la langue réellement utilisée dans chaque contenu textuel afin de vérifier qu'elle correspond à la langue attendue pour le champ concerné. Une incohérence peut révéler une erreur de traduction, une mauvaise affectation des contenus multilingues ou une inversion des langues.
 
-\item \textbf{Analyse grammaticale et orthographique :} les textes sont analysés à l'aide de la bibliothèque \texttt{LanguageTool}, qui détecte les erreurs d'orthographe, de grammaire, de ponctuation et certaines maladresses de formulation susceptibles de diminuer la qualité éditoriale de la fiche produit.
+\item \textbf{Analyse grammaticale et orthographique :} les textes sont analysés à l'aide de la bibliothèque \texttt{LanguageTool} \citeURL{languagetool_org}, qui détecte les erreurs d'orthographe, de grammaire, de ponctuation et certaines maladresses de formulation susceptibles de diminuer la qualité éditoriale de la fiche produit.
 
-\item \textbf{Analyse contextuelle :} certaines anomalies ne peuvent être détectées uniquement à partir de règles grammaticales. Le modèle de langage Qwen2.5 est donc sollicité afin d'évaluer le contenu dans son contexte et d'identifier des formulations peu naturelles, des incohérences rédactionnelles ou des expressions pouvant être améliorées tout en conservant le sens initial du texte.
+\item \textbf{Analyse contextuelle :} certaines anomalies ne peuvent être détectées uniquement à partir de règles grammaticales. Le modèle de langage Qwen2.5 \citeURL{qwen_model} est donc sollicité afin d'évaluer le contenu dans son contexte et d'identifier des formulations peu naturelles, des incohérences rédactionnelles ou des expressions pouvant être améliorées tout en conservant le sens initial du texte.
 
 \end{itemize}
 
-Ces différents contrôles sont appliqués aussi bien aux contenus d'origine qu'aux descriptions traduites automatiquement par le modèle NLLB. Cette approche permet de garantir un niveau de qualité homogène entre les différentes langues prises en charge par le système.
+Ces différents contrôles sont appliqués aussi bien aux contenus d'origine qu'aux descriptions traduites automatiquement par le modèle NLLB. Le module maintient ainsi une rigueur linguistique constante, quelle que soit la langue cible.
 
 
 \subsubsection{Couche 3 : Corrections automatiques et suggestions}
@@ -364,7 +364,7 @@ La troisième couche du processus de validation est dédiée à la correction de
 
 \begin{itemize}
 
-\item \textbf{Corrections automatiques :} elles concernent les anomalies de faible risque pouvant être résolues sans intervention humaine. Ces corrections améliorent la qualité technique des données sans modifier leur signification. Elles comprennent notamment le nettoyage des balises HTML incorrectes à l'aide de \texttt{BeautifulSoup}, la suppression des espaces superflus, la suppression des URLs locales ou invalides, la conversion des liens \texttt{http} vers \texttt{https} ainsi que la normalisation du format des unités techniques et de certains caractères. Une fois appliquées, ces modifications sont enregistrées directement dans SAP Commerce Cloud afin d'améliorer la qualité des fiches produits.
+\item \textbf{Corrections automatiques :} elles concernent les anomalies de faible risque pouvant être résolues sans intervention humaine. Ces corrections améliorent la qualité technique des données sans modifier leur signification. Elles comprennent notamment le nettoyage des balises HTML incorrectes à l'aide de \texttt{BeautifulSoup} \citeURL{bs4_pypi}, la suppression des espaces superflus, la suppression des URLs locales ou invalides, la conversion des liens \texttt{http} vers \texttt{https} ainsi que la normalisation du format des unités techniques et de certains caractères. Une fois appliquées, ces modifications sont enregistrées directement dans SAP Commerce Cloud afin d'améliorer la qualité des fiches produits.
 
 \item \textbf{Suggestions de correction :} les anomalies nécessitant une compréhension du contexte ne sont pas corrigées automatiquement. Elles donnent lieu à des recommandations destinées au responsable de l'enrichissement des produits. Ces suggestions sont générées à partir des analyses réalisées par \texttt{LanguageTool} et par le modèle de langage Qwen2.5, qui propose une reformulation plus naturelle tout en préservant le sens du texte. Chaque recommandation transmise à SAP Commerce Cloud précise le champ concerné, l'anomalie détectée, la correction proposée ainsi que son niveau de sévérité. L'utilisateur conserve ainsi la décision finale et peut accepter, modifier ou refuser chaque proposition avant son application.
 
@@ -379,7 +379,7 @@ La dernière couche du processus de validation consiste à synthétiser l'ensemb
 
 Le calcul débute avec un score maximal de 100 points. Chaque anomalie détectée lors des différentes étapes de validation entraîne ensuite l'application d'une pénalité dont la valeur dépend de son niveau de sévérité. Plus une anomalie est susceptible d'affecter la qualité ou l'exploitabilité de la fiche produit, plus la pénalité associée est importante.
 
-Cette approche présente plusieurs avantages. D'une part, elle permet de distinguer les erreurs critiques, qui empêchent l'utilisation correcte des données, des anomalies mineures ayant principalement un impact sur la qualité éditoriale. D'autre part, elle offre un indicateur unique facilitant le suivi de l'évolution de la qualité des produits au fil des enrichissements successifs.
+Cette approche présente plusieurs avantages. D'une part, elle distingue les erreurs critiques, qui empêchent l'utilisation correcte des données, des anomalies mineures ayant principalement un impact sur la qualité éditoriale. D'autre part, elle fournit un indicateur unique facilitant le suivi de l'évolution de la qualité des produits au fil des enrichissements successifs.
 
 Le score obtenu est également utilisé pour déterminer le statut global de validation de la fiche produit. Selon les anomalies détectées et le score final obtenu, une fiche peut être considérée comme conforme, conforme avec réserves ou non conforme. Cette classification permet au responsable de l'enrichissement d'identifier rapidement les produits nécessitant une intervention prioritaire.
 
@@ -404,7 +404,7 @@ LOW & -1 point & Titre trop long, caractères spéciaux inutiles \\
 \end{tabular}
 \end{table}
 
-Ce mécanisme de notation permet ainsi de transformer les différents résultats de validation en un indicateur synthétique facilement exploitable par SAP Commerce Cloud. Il facilite la priorisation des corrections, le suivi de la qualité des catalogues produits et l'automatisation de certaines décisions métier, tout en conservant une interprétation simple pour les utilisateurs.
+La notation convertit les diagnostics techniques en un indicateur métier immédiatement exploitable par SAP Commerce Cloud. Il facilite la priorisation des corrections, le suivi de la qualité des catalogues produits et l'automatisation de certaines décisions métier tout en conservant une interprétation simple pour les utilisateurs.
 
 \subsection{Standardisation de la réponse de validation}
 

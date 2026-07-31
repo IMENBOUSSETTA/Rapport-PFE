@@ -3,25 +3,24 @@
 
 \section{Introduction}
 
+L'utilité des fonctions développées dépend de leur intégration effective dans la plateforme SAP Commerce Cloud \citeURL{sap_commerce_cloud}, où elles peuvent être exploitées directement par les utilisateurs métier et s'insérer dans les processus de gestion des produits.
 
-Le chapitre précédent a présenté la conception et le développement du microservice d'enrichissement et de validation des produits, qui constitue le cœur du système d'intelligence artificielle proposé. Toutefois, les fonctionnalités développées n'acquièrent leur pleine valeur que lorsqu'elles sont intégrées au sein de la plateforme SAP Commerce Cloud, où elles peuvent être exploitées directement par les utilisateurs métier et s'insérer dans les processus de gestion des produits.
+Ce chapitre détaille les étapes de cette intégration. Il présente tout d'abord l'architecture de SAP Commerce Cloud afin de comprendre l'organisation de la plateforme et les mécanismes sur lesquels repose son extensibilité. Il décrit ensuite la communication entre SAP Commerce Cloud et le microservice via des services REST, les extensions apportées au modèle de données pour prendre en charge les nouveaux objets métier ainsi que les interfaces développées dans Backoffice pour permettre aux utilisateurs de piloter les opérations d'enrichissement et de validation. Enfin, il détaille l'automatisation des traitements à travers les workflows ainsi que le système de notifications et de traçabilité mis en place pour assurer le suivi des opérations.
 
-Ce chapitre est consacré à cette phase d'intégration. Il présente tout d'abord l'architecture de SAP Commerce Cloud afin de comprendre l'organisation de la plateforme et les mécanismes sur lesquels repose son extensibilité. Il décrit ensuite la communication entre SAP Commerce Cloud et le microservice via des services REST, les extensions apportées au modèle de données pour prendre en charge les nouveaux objets métier, ainsi que les interfaces développées dans Backoffice pour permettre aux utilisateurs de piloter les opérations d'enrichissement et de validation. Enfin, il détaille l'automatisation des traitements à travers les workflows ainsi que le système de notifications et de traçabilité mis en place pour assurer le suivi des opérations.
-
-L'objectif de ce chapitre est de montrer comment les capacités d'intelligence artificielle ont été intégrées de manière cohérente au sein de SAP Commerce Cloud afin d'automatiser les processus d'enrichissement et de validation, tout en respectant l'architecture et le fonctionnement de la plateforme.
+Nous présentons ici l'automatisation des flux d'enrichissement et de validation dans le respect de l'architecture standard de la plateforme.
 
 \section{Architecture logicielle de SAP Commerce Cloud}
 
-Avant de présenter les mécanismes d'intégration du microservice d'intelligence artificielle, il est nécessaire de comprendre l'architecture logicielle de SAP Commerce Cloud. Cette plateforme repose sur une organisation modulaire en couches qui sépare les responsabilités entre les différents composants du système. Cette architecture facilite le développement, la maintenance et l'évolution des applications, tout en offrant des points d'extension permettant d'intégrer de nouvelles fonctionnalités. La compréhension de cette organisation est essentielle pour situer les développements réalisés dans ce projet et justifier les choix d'implémentation adoptés.
+Avant de présenter les mécanismes d'intégration du microservice d'intelligence artificielle, il est nécessaire de comprendre l'architecture logicielle de SAP Commerce Cloud \citeURL{sap_commerce_cloud}. L'architecture modulaire de la plateforme assure une séparation nette des responsabilités entre les différents composants. Cette organisation facilite le développement et la maintenance du système tout en offrant les points d'extension nécessaires à l'intégration de nouvelles fonctionnalités. Cette analyse structurelle permet de justifier les choix d'implémentation adoptés.
 \subsection{Fondamentaux de SAP Commerce Cloud}
 
-SAP Commerce Cloud est une plateforme complète de gestion du commerce électronique et du commerce unifié, conçue pour orchestrer l'intégralité du cycle de vie des produits et des commandes. Au-delà de son rôle de vitrine marchande, SAP Commerce centralise la gestion du catalogue, des prix, des stocks, des promotions, ainsi que l'exécution des commandes. C'est un système d'information stratégique pour le secteur du commerce de détail et de la distribution en ligne.
+SAP Commerce Cloud \citeURL{sap_commerce_cloud} est une plateforme complète de gestion du commerce électronique et du commerce unifié, conçue pour orchestrer l'intégralité du cycle de vie des produits et des commandes. Au-delà de son rôle de vitrine marchande, SAP Commerce centralise la gestion du catalogue, des prix, des stocks, des promotions et l'exécution des commandes. C'est un système d'information stratégique pour le secteur du commerce de détail et de la distribution en ligne.
 
-Comme tout système d'information complexe, SAP Commerce s'appuie sur une organisation structurée du code, que l'on désigne par le terme d'architecture. L'architecture d'une application logicielle décrit comment le système est décomposé en composants, comment ces composants interagissent, et quelles responsabilités incombent à chacun. Une bonne architecture facilite la compréhension du code, la maintenance évolutive, les tests automatisés, et la répartition du travail au sein d'équipes de développement.
+Comme tout système d'information complexe, SAP Commerce s'appuie sur une organisation structurée du code, que l'on désigne par le terme d'architecture. L'architecture d'une application logicielle décrit comment le système est décomposé en composants, comment ces composants interagissent et quelles responsabilités incombent à chacun. Une bonne architecture facilite la compréhension du code, la maintenance évolutive, les tests automatisés et la répartition du travail au sein d'équipes de développement.
 
 SAP Commerce adopte une architecture en couches, un pattern architectural reconnu et très largement utilisé dans l'industrie logicielle. Le principe fondamental de cette approche est la séparation des préoccupations : chaque couche gère un aspect distinct du système, et les dépendances entre couches sont strictement contrôlées. Cette organisation rend possible la modification d'une couche sans impact sur les autres. Par exemple, remplacer la base de données relationnelle par une base NoSQL n'affecterait pas la couche métier, car elle communique avec la persistance via une abstraction (la couche d'accès aux données). De même, changer l'interface utilisateur n'impacte pas la logique métier si cette dernière est bien encapsulée.
 \newpage
-L'existence d'une architecture en couches bien définie offre plusieurs avantages concrets pour un projet comme celui-ci. Premièrement, elle permet à plusieurs développeurs de travailler en parallèle sur différentes couches sans créer de conflits. Deuxièmement, elle facilite les tests : chaque couche peut être testée indépendamment des autres. Troisièmement, elle rend le système extensible : ajouter de nouvelles fonctionnalités devient une question de créer de nouveaux composants dans les couches appropriées, plutôt que de modifier du code existant. Enfin, elle favorise la réutilisabilité : une logique métier bien encapsulée dans une couche Service peut être appelée par plusieurs interfaces différentes (Backoffice, API REST, batch, etc.).
+L'architecture en couches apporte une structure rigoureuse au projet. Premièrement, elle permet à plusieurs développeurs de travailler en parallèle sur différentes couches sans créer de conflits. Deuxièmement, elle facilite les tests : chaque couche peut être testée indépendamment des autres. Troisièmement, elle rend le système extensible : ajouter de nouvelles fonctionnalités devient une question de créer de nouveaux composants dans les couches appropriées, plutôt que de modifier du code existant. Enfin, elle favorise la réutilisabilité : une logique métier bien encapsulée dans une couche Service peut être appelée par plusieurs interfaces différentes (Backoffice, API REST, batch, etc.).
 
 \subsection{Les couches de SAP Commerce}
 
@@ -57,166 +56,101 @@ La couche DAO assure l'accès aux données persistées. Elle constitue une abstr
 La couche Modèle représente les entités métier manipulées par SAP Commerce Cloud. Ces entités, appelées \textit{ItemTypes}, définissent la structure des données persistées ainsi que les relations existantes entre elles. Elles constituent la base sur laquelle reposent les différentes opérations réalisées par les couches supérieures.
 
 L'organisation en couches de SAP Commerce Cloud facilite ainsi le développement de nouvelles fonctionnalités tout en préservant une séparation claire des responsabilités. Cette architecture constitue le socle sur lequel s'appuie l'intégration du microservice d'intelligence artificielle présentée dans les sections suivantes.
-
 \section{Communication entre SAP Commerce Cloud et le module d'intelligence artificielle}
 
-Dans l'architecture proposée, SAP Commerce Cloud et le microservice d'intelligence artificielle constituent deux composants indépendants qui communiquent à travers une interface REST. Cette approche permet de séparer les responsabilités : SAP Commerce conserve la gestion du cycle de vie des produits, tandis que le microservice IA prend en charge les traitements liés à l'enrichissement automatique et à la validation des données.
+L'intégration du module d'intelligence artificielle dans SAP Commerce Cloud \citeURL{sap_commerce_cloud} repose sur une communication basée sur des API REST \citeURL{fielding_rest}. SAP Commerce exploite ainsi les fonctions d'IA externes sans compromettre la séparation des responsabilités entre les composants. La plateforme SAP Commerce reste responsable de la gestion des produits et des processus métier, tandis que le module IA réalise les traitements spécialisés liés à l'enrichissement et à la validation des données.
 
 \subsection{Principe de communication REST}
 
-La communication entre SAP Commerce Cloud et le microservice IA repose sur une architecture REST utilisant le protocole HTTP. SAP Commerce agit comme consommateur du service en transmettant les informations nécessaires au traitement, alors que le microservice reçoit ces données, applique les traitements d'intelligence artificielle et retourne les résultats sous forme de réponses structurées.
+REST (\textit{Representational State Transfer}) \citeURL{fielding_rest} est un style architectural permettant à des applications distribuées de communiquer à travers le protocole HTTP. Dans cette approche, les fonctionnalités d'un système sont exposées sous forme de ressources accessibles via des URLs appelées points d'accès ou \textit{endpoints}.
 
-Les échanges entre les deux composants sont organisés autour de plusieurs opérations principales :
+La communication repose sur des requêtes HTTP utilisant différentes méthodes selon l'opération souhaitée. Dans le cadre de ce projet, les échanges entre SAP Commerce Cloud et le module d'intelligence artificielle utilisent principalement la méthode \texttt{POST}. Cette méthode permet d'envoyer des informations vers un service distant afin de déclencher un traitement.
 
+Une requête HTTP POST contient généralement :
 \begin{itemize}
-    \item l'enrichissement automatique des produits, permettant de générer et traduire les descriptions selon les langues demandées 
-    \item la validation des informations produit, permettant d'identifier les anomalies et de proposer des corrections 
-    \item la vérification de disponibilité du service afin d'assurer un suivi de l'état du microservice
+    \item l'adresse de l'API appelée (\textit{endpoint}) ;
+    \item les informations nécessaires au traitement transmises dans le corps de la requête (généralement au format JSON \citeURL{json_org}) ;
+    \item les paramètres techniques permettant d'identifier le format des données échangées.
 \end{itemize}
 
-Le choix d'une communication REST permet d'assurer une faible dépendance entre les deux applications. Ainsi, l'évolution du microservice IA peut être réalisée indépendamment de SAP Commerce, tout en conservant une interface d'échange stable.
+Dans cette architecture, SAP Commerce joue le rôle de client en envoyant les requêtes, tandis que le module d'intelligence artificielle agit comme un serveur capable de traiter ces demandes et de retourner les résultats correspondants.
 
-\subsection{Gestion des appels entre SAP Commerce et le microservice}
+\subsection{API d'enrichissement et API de validation}
 
-Dans SAP Commerce, les communications avec le microservice IA sont encapsulées dans une couche dédiée afin de respecter la séparation des responsabilités. Cette organisation évite de mélanger les traitements métier liés aux produits avec les détails techniques liés aux échanges externes.
+Le module d'intelligence artificielle expose deux API REST principales consommées par SAP Commerce Cloud. Ces interfaces permettent d'intégrer les fonctionnalités d'enrichissement automatique et de contrôle qualité directement dans le cycle de gestion des produits.
 
-Lorsqu'une opération d'enrichissement ou de validation est déclenchée, SAP Commerce prépare les informations nécessaires, transmet une requête au microservice d'intelligence artificielle et récupère le résultat retourné. Les données échangées sont structurées sous forme de messages JSON afin de garantir une communication standardisée entre les deux environnements.
+\subsubsection{API d'enrichissement}
 
-Le processus global d'échange suit les étapes suivantes :
+L'API d'enrichissement permet à SAP Commerce de transmettre les informations nécessaires à la génération automatique des contenus produit. Les données envoyées au module d'intelligence artificielle regroupent les informations descriptives et techniques nécessaires au traitement, telles que les informations générales du produit, sa marque, ses catégories, ses caractéristiques ainsi que les champs à enrichir et les langues cibles.
 
-\begin{enumerate}
-    \item Déclenchement de l'opération depuis SAP Commerce ;
-    \item Préparation des informations nécessaires au traitement ;
-    \item Transmission de la requête vers le microservice IA ;
-    \item Exécution du traitement d'enrichissement ou de validation ;
-    \item Retour du résultat vers SAP Commerce ;
-    \item Application des résultats sur les objets métier concernés.
-\end{enumerate}
+À partir de ces éléments, le module IA génère les contenus demandés et effectue les traitements associés, notamment la génération automatique des descriptions et leur adaptation aux différentes langues sélectionnées. Les résultats retournés sont ensuite exploités par SAP Commerce afin de mettre à jour les informations produit concernées.
 
-Afin d'assurer la robustesse du système, une gestion des erreurs a été mise en place pour traiter les problèmes pouvant survenir lors de la communication, comme l'indisponibilité temporaire du service ou l'échec d'une requête.
+\subsubsection{API de validation}
 
-\subsection{Structure des données échangées}
+L'API de validation permet d'évaluer automatiquement la qualité des données produit existantes. Elle reçoit les informations nécessaires aux contrôles définis par le moteur de validation, notamment les données descriptives, les caractéristiques techniques et les éléments soumis aux différentes règles d'analyse.
 
-Les échanges entre SAP Commerce et le microservice IA utilisent des objets de transfert de données dédiés. Ces objets permettent de définir clairement les informations envoyées et reçues, tout en évitant de transmettre directement les structures internes utilisées par SAP Commerce.
+Après traitement, cette API retourne les résultats de validation comprenant l'évaluation globale de la qualité des données, les anomalies détectées, leur niveau de sévérité ainsi que les corrections ou recommandations associées. Ces informations permettent ensuite à SAP Commerce d'assurer le suivi de la qualité des produits et d'appliquer les actions nécessaires.
 
-Les données transmises au microservice contiennent uniquement les éléments nécessaires aux traitements demandés, tandis que les réponses retournées regroupent les résultats produits par les modèles d'intelligence artificielle ainsi que les informations relatives à la validation effectuée.
+\subsection{Flux global de communication}
 
-Cette organisation garantit une communication claire entre les deux systèmes et facilite l'évolution future de l'architecture.
+Le fonctionnement global des échanges est illustré dans la figure~\ref{fig:communication_ia}. Lorsqu'une opération est déclenchée depuis SAP Commerce Cloud, la plateforme prépare les informations nécessaires puis transmet une requête vers l'API correspondante du module d'intelligence artificielle. Après exécution du traitement demandé, les résultats sont retournés à SAP Commerce afin d'être exploités dans le processus métier associé.
 
-\subsection{Flux global d'intégration}
-
-Le diagramme de séquence présenté dans la figure~\ref{fig:sequence_integration} illustre l'interaction entre les différents composants lors d'une opération d'enrichissement ou de validation.
-
-Le responsable de l'enrichissement déclenche l'action depuis l'interface SAP Commerce. La demande est ensuite prise en charge par les services internes de la plateforme qui communiquent avec le microservice IA. Après traitement, les résultats retournés sont contrôlés puis intégrés dans SAP Commerce afin d'améliorer la qualité des données produit.
-
-Cette architecture permet donc d'ajouter des capacités d'intelligence artificielle à SAP Commerce Cloud tout en conservant une séparation claire entre les fonctionnalités natives de la plateforme et les traitements spécialisés réalisés par le microservice.
-\section{Extension du modèle de données SAP Commerce}
-
-\subsection{Concepts de persistance dans SAP Commerce}
-
-SAP Commerce, comme tout système d'information d'envergure, utilise une base de données relationnelle pour stocker l'ensemble de ses données : produits, commandes, clients, configurations, etc. Pour gérer cette persistance de manière efficace et maintenable, SAP Commerce emploie un concept appelé ItemType.
-
-Un ItemType est essentiellement un modèle descriptif d'une entité métier. Plutôt que de définir une table SQL directement, on définit un ItemType en spécifiant ses attributs, leurs types de données, leurs relations avec d'autres ItemTypes. Cette approche déclarative présente un avantage fondamental : SAP Commerce génère automatiquement la majeure partie du code Java correspondant et gère la persistence sans intervention manuelle. Les développeurs décrivent quoi (« Je veux un ItemType avec ces attributs »), et le système détermine comment (il génère les classes, crée les tables, configure l'ORM).
-
-L'implémentation technique des ItemTypes passe par un fichier XML nommé items.xml. Ce fichier énumère tous les ItemTypes de l'application, leurs attributs, leurs types, leurs valeurs par défaut, leurs relations. Par exemple :
-
-\begin{verbatim}
-<itemtype code="Product" ...")
-  <attribute name="code" type="java.lang.String" />
-  <attribute name="name" type="java.lang.String" />
-  <attribute name="fieldsToTranslate" type="java.util.List" />
-  ...
-</itemtype>
-\end{verbatim}
-
-Après déploiement de ce fichier, SAP Commerce génère automatiquement une classe Java \texttt{ProductModel} avec les getters, setters, constructeurs, et tout le boilerplate nécessaire. Les développeurs n'écrivent qu'une ou deux lignes de déclaration XML ; le système s'occupe du reste.
-
-Pourquoi cette approche est-elle supérieure à écrire les classes Java à la main ? Plusieurs raisons. D'abord, elle élimine le boilerplate : au lieu de cent lignes de Java (getters, setters, constructeurs, annotations JPA), on écrit trois lignes XML. Ensuite, elle unifie la gestion de la persistance : tous les ItemTypes utilisent le même mécanisme, ce qui rend le système prévisible. Enfin, elle automatise les migrations de schéma : si on ajoute un attribut à un ItemType, SAP Commerce ajoute automatiquement la colonne en base de données lors du prochain déploiement.
-
-\subsection{Extension de ProductModel}
-
-Le ProductModel représente un produit du catalogue dans SAP Commerce. Il contient initialement des informations structurelles et commerciales : le code unique du produit, son nom, sa description, sa catégorie, son prix, etc. Ces attributs sont définis dans l'ItemType Product prédéfini par SAP Commerce.
-
-Pour supporter le projet d'enrichissement et de validation, deux attributs ont été ajoutés au ProductModel :
-
-\subsubsection{Attribut fieldsToTranslate}
-
-Cet attribut spécifie quels champs du produit doivent être enrichis et traduits. Ce n'est pas une liste fixe : différents produits peuvent avoir besoin d'enrichissements différents. Par exemple, un produit hautement technique nécessite peut-être l'enrichissement de la description longue et des spécifications, tandis qu'un produit simple ne nécessite que la description courte.
-
-\texttt{fieldsToTranslate} est une liste de chaînes de caractères, par exemple \texttt{["description", "longDescription", "specifications"]}. Cette liste est spécifiée par l'utilisateur via l'interface d'enrichissement (voir section 4.5).
-
-\subsubsection{Attribut targetLanguages}
-
-Cet attribut énumère les langues dans lesquelles enrichir les champs sélectionnés. Par exemple, \texttt{["en", "es", "de"]} signifie que les descriptions doivent être traduites en anglais, espagnol et allemand, en plus de la langue originale (français).
-
-La liste des langues cibles est aussi spécifiée par l'utilisateur via l'interface. SAP Commerce utilise un système de codes de langue standardisés (ISO 639-1 ou similaire).
-
-\subsubsection{Justification du placement dans Product}
-
-Pourquoi ces attributs de configuration sont-ils stockés dans ProductModel plutôt que dans une table de configuration séparée ? Plusieurs raisons justifient ce choix. D'abord, chaque produit peut avoir une configuration d'enrichissement unique : deux produits peuvent cibler des langues ou des champs différents. Ensuite, cette configuration est étroitement liée aux données du produit : elle décrit comment enrichir ce produit spécifique, pas une configuration globale. Enfin, stocker la configuration avec le produit facilite la traçabilité : quand on interroge un produit, on sait immédiatement quelle configuration d'enrichissement a été appliquée.
-
-Ces attributs ont été ajoutés à la définition de ProductModel dans items.xml. Après déploiement, SAP Commerce a généré les getters et setters correspondants, créé les colonnes en base de données, et tout fonctionne de manière transparente pour les services métier.
-
-\subsection{Création du modèle ProductValidationResult}
-
-Quand le microservice valide un produit, il retourne plusieurs informations : un score de qualité (par exemple, 85 sur 100), un statut (par exemple, « valide » ou « anomalies détectées »), et une liste des anomalies identifiées. Ces données doivent être persistées pour que les utilisateurs puissent les consulter ultérieurement et suivre l'évolution de la qualité au fil du temps.
-
-Plutôt que de stocker ces informations directement dans ProductModel (ce qui surchargerait cette classe), un nouvel ItemType appelé ProductValidationResult a été créé. Cet ItemType représente le résultat d'une validation pour un produit donné, à un instant donné.
-
-ProductValidationResult contient les attributs suivants :
-
-\begin{itemize}
-	\item \texttt{product} : référence au ProductModel qui a été validé (clé étrangère)
-	\item \texttt{score} : score numérique de qualité (entier entre 0 et 100)
-	\item \texttt{status} : statut de validation (énumération : VALID, WARNING, ERROR)
-	\item \texttt{validationDate} : date et heure de la validation (timestamp)
-	\item \texttt{anomalies} : collection des anomalies détectées (relation one-to-many vers ValidationAnomaly, voir section 4.4.4)
-\end{itemize}
-
-\subsubsection{Avantage de l'entité séparée}
-
-Pourquoi ne pas simplement ajouter les champs de validation à ProductModel ? Parce que chaque produit peut être validé plusieurs fois au fil du temps. Sa qualité s'améliore progressivement avec les corrections. Si on stockait le résultat directement dans Product, on perdrait cet historique : le dernier résultat écrase les précédents.
-
-Avec une entité ProductValidationResult séparée, chaque validation génère un nouvel enregistrement. On conserve un historique complet : la validation du 15 janvier à 14h30, celle du 15 janvier à 16h00, celle du 16 janvier à 10h00, etc. Les utilisateurs et les administrateurs peuvent analyser cette évolution, générer des rapports sur la qualité des produits au fil du temps, identifier les tendances.
-
-De plus, cela respecte le principe SOLID de responsabilité unique : Product gère les données du produit lui-même (nom, prix, description) ; ProductValidationResult gère les résultats de validation. Chaque classe a une seule raison de changer.
-
-\subsection{Modèle ValidationAnomaly}
-
-Une anomalie représente un problème ou un manque identifié lors de la validation d'un produit. Une anomalie seule n'existe pas en dehors du contexte : elle doit être liée à un résultat de validation spécifique.
-
-Ainsi, un nouvel ItemType ValidationAnomaly a été créé avec les attributs suivants :
-
-\begin{itemize}
-	\item \texttt{validationResult} : référence au ProductValidationResult dont elle fait partie (clé étrangère)
-	\item \texttt{field} : nom du champ concerné par l'anomalie (chaîne, par exemple « description\_en »)
-	\item \texttt{severity} : niveau de sévérité (énumération : INFO, WARNING, ERROR)
-	\item \texttt{message} : description lisible du problème (chaîne, par exemple « La description est inférieure à 50 caractères »)
-	\item \texttt{suggestion} : conseil ou suggestion pour corriger l'anomalie (chaîne, par exemple « Ajouter au moins 50 caractères supplémentaires »)
-\end{itemize}
-
-Quand le microservice retourne une liste d'anomalies (par exemple, « Le champ description\_en est trop court, le champ description\_es manque de précision »), chacune de ces anomalies est sauvegardée comme une instance de ValidationAnomaly, toutes liées au même ProductValidationResult.
-
-\subsection{Relations entre les entités}
-
-Les trois entités nouvelles (ProductModel augmenté, ProductValidationResult, ValidationAnomaly) ne vivent pas isolées. Elles forment un modèle de données cohérent avec des relations bien définies.
-
-Un Product peut être validé plusieurs fois. Chaque validation crée un ProductValidationResult distinct. Donc il existe une relation one-to-many (ou 1..n) entre Product et ProductValidationResult. En termes de base de données, ProductValidationResult possède une clé étrangère pointant vers Product.
-
-Un ProductValidationResult peut contenir zéro, une ou plusieurs anomalies. Il existe donc une relation one-to-many entre ProductValidationResult et ValidationAnomaly. Chaque ValidationAnomaly possède une clé étrangère pointant vers le ProductValidationResult qui la contient.
-
-Il n'existe pas de relation directe entre Product et ValidationAnomaly. Pour accéder aux anomalies d'un produit, il faut passer par ses ProductValidationResults. Cette indirection garantit l'intégrité des données : une anomalie orpheline (sans ValidationResult associé) ne peut pas exister.
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.8\textwidth]{architecture}
-	\caption{Architecture technique de l'intégration}
-	\label{fig:architecture_technique}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{sequence.png}
+    \caption{Flux de communication entre SAP Commerce Cloud et le module IA}
+    \label{fig:communication_ia}
 \end{figure}
 
-La persistance de ce modèle de données dans SAP Commerce a été effectuée via la même approche déclarative que celle décrite plus haut : définition des ItemTypes dans items.xml, puis génération automatique par SAP Commerce. Les services métier manipulent ces entités comme des objets Java, sans se préoccuper des détails de persistance.
+Cette organisation permet d'intégrer des capacités d'intelligence artificielle dans SAP Commerce Cloud tout en conservant une architecture modulaire, où chaque composant possède un rôle clairement défini.
 
-Avec le modèle de données en place, les résultats d'enrichissement et de validation sont sauvegardés durablement. Reste à rendre ces résultats accessibles aux utilisateurs via une interface conviviale. C'est le sujet de la section suivante.
+
+\section{Extension du modèle de données SAP Commerce}
+
+L'intégration du module d'intelligence artificielle nécessite l'adaptation du modèle de données existant de SAP Commerce afin de prendre en charge les nouvelles fonctionnalités d'enrichissement et de validation. Les extensions stockent les paramètres de traitement et les résultats générés par le module IA.
+
+\subsection{Adaptation du modèle produit}
+
+Le produit constitue l'élément central du processus d'enrichissement. Le modèle existant a donc été enrichi afin d'intégrer les informations nécessaires à la personnalisation des traitements d'intelligence artificielle.
+
+Deux éléments de configuration ont été ajoutés au modèle produit. Le premier définit les informations du produit qui doivent faire l'objet d'un enrichissement ou d'une traduction. Le second précise les langues cibles dans lesquelles les contenus doivent être générés.
+
+Ces informations permettent d'adapter le traitement selon les besoins de chaque produit. Ainsi, tous les produits ne sont pas obligés de suivre le même processus d'enrichissement, ce qui offre davantage de flexibilité dans la gestion du catalogue.
+
+\subsection{Gestion des résultats de validation}
+
+La validation automatique génère plusieurs informations relatives à la qualité des données produit, notamment une évaluation globale, un état de validation ainsi que les problèmes identifiés.
+
+Afin de conserver ces résultats et d'assurer leur suivi dans le temps, un modèle spécifique a été introduit pour représenter une opération de validation. Cette séparation évite le mélange des données propres au produit avec les informations générées par le processus de contrôle qualité.
+
+Chaque validation effectuée correspond ainsi à un résultat indépendant associé au produit concerné. Cette approche conserve l'historique des différentes analyses réalisées et suit l'évolution de la qualité des données au cours du cycle de vie du produit.
+
+\subsection{Gestion des anomalies détectées}
+
+Lorsqu'une validation identifie des problèmes dans les informations produit, les anomalies détectées sont conservées séparément afin de faciliter leur consultation et leur traitement.
+
+Chaque anomalie contient les informations nécessaires à son analyse, telles que le champ concerné, le niveau de gravité, la description du problème identifié ainsi que la suggestion de correction proposée.
+
+Cette organisation structure les résultats de validation et fournit aux utilisateurs une vision claire des améliorations nécessaires.
+
+\subsection{Relations entre les éléments du modèle}
+
+Les différentes extensions réalisées forment un ensemble cohérent permettant de représenter le cycle complet de traitement. Un produit peut être soumis à plusieurs validations au cours de son cycle de vie et chaque validation peut générer plusieurs anomalies.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{product.png}
+    \caption{Modèle de données pour la gestion de l'enrichissement et de la validation}
+    \label{fig:modele_ia}
+\end{figure}
+
+Cette extension du modèle permet donc d'intégrer les capacités d'intelligence artificielle dans SAP Commerce tout en conservant une structure claire et évolutive, adaptée aux besoins d'enrichissement et de contrôle qualité des produits.
+
+
+
+
+
+% jusq'ici , j'ai lu.
 
 \section{Interfaces Backoffice pour l'enrichissement et la validation}
 
@@ -224,7 +158,7 @@ Avec le modèle de données en place, les résultats d'enrichissement et de vali
 
 Le Backoffice de SAP Commerce est l'interface d'administration centrale du système. C'est un espace sécurisé, accessible uniquement aux collaborateurs disposant des droits appropriés (administrateurs système, responsables de catalogues, validateurs de qualité, etc.). Contrairement à la boutique en ligne visible par les clients, le Backoffice reste un espace intérieur, pensé pour les workflows internes.
 
-SAP Commerce fournit une interface Backoffice prête à l'emploi, appelée Backoffice Studio, qui permet de gérer les produits, catégories, prix, stocks, commandes, etc. Cependant, cette interface générique ne couvre pas tous les besoins métier spécifiques. Pour des processus métier particuliers, il est possible de développer des interfaces personnalisées.
+SAP Commerce fournit une interface Backoffice prête à l'emploi, appelée Backoffice Studio, dédiée à la gestion des produits, catégories, prix, stocks, commandes, etc. Cette interface repose sur le framework \texttt{ZK} \citeURL{zk_framework}, qui permet de construire des interfaces utilisateur riches en Java. Cependant, cette interface générique ne couvre pas tous les besoins métier spécifiques. Pour des processus métier particuliers, il est possible de développer des interfaces personnalisées.
 
 Dans ce projet, deux interfaces métier ont été développées : l'une pour déclencher et suivre l'enrichissement de produits, l'autre pour consulter et agir sur les résultats de validation. Ces interfaces ont été développées en tant que composants Backoffice personnalisés, intégrés dans l'écosystème SAP Commerce.
 
@@ -240,7 +174,7 @@ Une liste des produits sélectionnés pour enrichissement. Chaque produit est af
 
 Un formulaire de configuration avec deux sections principales. La première section demande à l'utilisateur quels champs enrichir. Par exemple, des checkboxes pour « description courte », « description longue », « spécifications ». L'utilisateur coche ceux qu'il souhaite enrichir. Ces informations seront stockées dans l'attribut \texttt{fieldsToTranslate} du ProductModel.
 
-La deuxième section permet de sélectionner les langues cibles. Une liste déroulante ou un ensemble de checkboxes proposent les langues disponibles : français (FR), anglais (EN), espagnol (ES), allemand (DE), etc. L'utilisateur en sélectionne une ou plusieurs. Ces informations seront stockées dans l'attribut \texttt{targetLanguages} du ProductModel.
+La deuxième section sert à sélectionner les langues cibles. Une liste déroulante ou un ensemble de checkboxes proposent les langues disponibles : français (FR), anglais (EN), espagnol (ES), allemand (DE), etc. L'utilisateur en sélectionne une ou plusieurs. Ces informations seront stockées dans l'attribut \texttt{targetLanguages} du ProductModel.
 
 Un bouton « Lancer l'enrichissement » qui enclenche le processus. Quand on clique, les données du formulaire sont validées côté client (vérifier qu'au moins un champ et une langue sont sélectionnés), puis envoyées au serveur.
 
@@ -264,21 +198,18 @@ La description originale (par exemple, en français).
 
 Les descriptions enrichies par le microservice, organisées par langue. Par exemple, en anglais : « High-performance running shoe designed for comfort and durability », en espagnol : « Zapato de running de alto rendimiento diseñado... », en allemand : « Hochleistungs-Laufschuh...»
 
-L'utilisateur peut comparer la description originale avec les versions enrichies, et juger de leur qualité avant validation. Si une description ne lui plaît pas, il peut la modifier manuellement (si cette fonctionnalité est implémentée) ou l'enrichissement de ce champ peut être relancé ultérieurement.
+L'utilisateur peut comparer la description originale avec les versions enrichies et juger de leur qualité avant validation. Si une description ne lui plaît pas, il peut la modifier manuellement (si cette fonctionnalité est implémentée) ou l'enrichissement de ce champ peut être relancé ultérieurement.
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
-	\fbox{\begin{minipage}{0.9\textwidth}
-			\centering
-			\textit{[Interface d'enrichissement en cours de développement]}
-		\end{minipage}}
+	\includegraphics[width=0.9\textwidth]{Image1.jpg}
 	\caption{Aperçu de l'interface d'enrichissement dans le Backoffice}
 	\label{fig:interface_enrichissement}
 \end{figure}
 
 \subsection{Interface de validation}
 
-L'interface de validation permet aux validateurs de qualité de consulter les résultats de validation des produits, d'identifier les anomalies, et de prendre les mesures correctives appropriées.
+L'interface de validation permet aux validateurs de qualité de consulter les résultats de validation des produits, d'identifier les anomalies et de prendre les mesures correctives appropriées.
 
 \subsubsection{Affichage des résultats de validation}
 
@@ -314,12 +245,9 @@ Si l'utilisateur n'est pas d'accord avec une suggestion, il peut éditer le cham
 
 Si un score est critique (< 50, par exemple), l'interface peut empêcher certaines actions comme la publication du produit jusqu'à correction.
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
-	\fbox{\begin{minipage}{0.9\textwidth}
-			\centering
-			\textit{[Interface de validation en cours de développement]}
-		\end{minipage}}
+	\includegraphics[width=0.9\textwidth]{Image2.jpg}
 	\caption{Aperçu de l'interface de validation dans le Backoffice}
 	\label{fig:interface_validation}
 \end{figure}
@@ -330,7 +258,7 @@ Les deux interfaces d'enrichissement et de validation permettent à l'utilisateu
 
 \subsection{Workflows dans SAP Commerce}
 
-Un workflow est une séquence d'étapes automatisées qui exécutent un processus métier selon une logique prédéfinie. Dans le contexte de SAP Commerce, le moteur de workflow gère l'ordonnancement des étapes, les transitions conditionnelles, l'appel des actions métier, et l'enregistrement de l'historique.
+Un workflow est une séquence d'étapes automatisées qui exécutent un processus métier selon une logique prédéfinie. Dans le contexte de SAP Commerce, le moteur de workflow gère l'ordonnancement des étapes, les transitions conditionnelles, l'appel des actions métier et l'enregistrement de l'historique.
 
 Pourquoi utiliser un workflow au lieu d'écrire simplement une série d'appels de services ? Plusieurs avantages le justifient. D'abord, un workflow rend le processus visible et compréhensible pour les non-développeurs : un responsable métier peut lire la définition du workflow et comprendre comment fonctionnent les processus. Ensuite, un workflow est flexible : modifier le processus ne nécessite pas de redéployer du code Java ; on modifie la configuration du workflow. Troisièmement, les workflows offrent des capacités avancées : parallélisation d'étapes, gestion des erreurs, relance automatique, etc. Enfin, les workflows fournissent une traçabilité complète : chaque étape est loggée, et on peut consulter l'historique d'exécution.
 
@@ -352,7 +280,7 @@ Le workflow se déroule selon une séquence bien définie :
 
 \textbf{Étape 1 : Déclenchement.} Le workflow est déclenché quand l'utilisateur clique sur « Lancer l'enrichissement » dans l'interface Backoffice. À ce moment, les ProductModels concernés ont déjà été mis à jour avec la configuration (champs à enrichir, langues cibles). Le workflow reçoit en paramètre la liste des IDs de produits à enrichir.
 
-\textbf{Étape 2 : Préparation des données.} Une action métier appelée \texttt{ProductEnrichmentAutomatedAction} s'exécute. Elle récupère le ProductModel depuis la base de données, extrait les informations pertinentes (code, nom, descriptions actuelles, champs à traduire, langues cibles), et construit un objet \texttt{ProductEnrichmentRequest} prêt à envoyer au microservice.
+\textbf{Étape 2 : Préparation des données.} Une action métier appelée \texttt{ProductEnrichmentAutomatedAction} s'exécute. Elle récupère le ProductModel depuis la base de données, extrait les informations pertinentes (code, nom, descriptions actuelles, champs à traduire, langues cibles) et construit un objet \texttt{ProductEnrichmentRequest} prêt à envoyer au microservice.
 
 \textbf{Étape 3 : Appel au microservice.} Une seconde action (ou la même, selon l'implémentation) utilise RestTemplate pour envoyer la requête au microservice et récupère la réponse JSON, désérialisée en objet \texttt{ProductEnrichmentResponse} par Jackson.
 
@@ -362,7 +290,7 @@ Le workflow se déroule selon une séquence bien définie :
 
 \textbf{Étape 6 : Déclenchement du workflow de validation.} Après enrichissement réussi, le workflow d'enrichissement déclenche automatiquement le workflow de validation pour le même produit (voir section 4.6.3). Cela crée une chaîne d'automatisation : enrichir puis valider immédiatement.
 
-\textbf{Étape 7 : Fin du workflow.} Une étape de conclusion enregistre que le workflow s'est terminé avec succès, log un message, et éventuellement notifie l'utilisateur qu'l'enrichissement est terminé (voir section 4.8).
+\textbf{Étape 7 : Fin du workflow.} Une étape de conclusion enregistre que le workflow s'est terminé avec succès, log un message et éventuellement notifie l'utilisateur que l'enrichissement est terminé (voir section 4.8).
 
 \subsubsection{Gestion des erreurs}
 
@@ -372,7 +300,7 @@ Pour chacune de ces situations, le workflow contient une branche de gestion d'er
 
 Enregistre l'erreur dans les logs du système.
 
-Notifie l'administrateur système qu'une enrichissement a échoué et a besoin d'intervention.
+Notifie l'administrateur système qu'un enrichissement a échoué et a besoin d'intervention.
 
 Marque le produit avec un statut « Enrichissement échoué - Nouvelle tentative requise ».
 
@@ -380,9 +308,9 @@ Optionnellement, déclenche une tentative automatique après un délai (par exem
 
 Sans cette gestion robuste des erreurs, un problème réseau passager bloquerait indéfiniment l'enrichissement.
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{activités}
+	\includegraphics[width=0.8\textwidth]{activités.png}
 	\caption{Diagramme d'activités du workflow d'enrichissement}
 	\label{fig:workflow_activites}
 \end{figure}
@@ -397,7 +325,7 @@ Le workflow de validation fonctionne de manière similaire au workflow d'enrichi
 
 \textbf{Étape 2 : Appel au microservice de validation.} Une action appelle l'endpoint de validation du microservice avec un objet \texttt{ProductValidationRequest} contenant les descriptions actuelles du produit (en toutes les langues) et d'autres métadonnées.
 
-\textbf{Étape 3 : Réception du score et des anomalies.} Le microservice retourne une réponse contenant un score de qualité (0-100), un statut, et une liste d'anomalies détectées.
+\textbf{Étape 3 : Réception du score et des anomalies.} Le microservice retourne une réponse contenant un score de qualité (0-100), un statut et une liste d'anomalies détectées.
 
 \textbf{Étape 4 : Persistance des résultats.} Une action crée un nouvel enregistrement ProductValidationResult avec le score et le statut reçus. Pour chaque anomalie retournée par le microservice, une instance de ValidationAnomaly est créée et liée au ProductValidationResult. Ces entités sont sauvegardées en base de données.
 
@@ -476,9 +404,9 @@ Construit un objet DTO de type \texttt{ProductEnrichmentRequest} avec ces donné
 
 L'action appelle un service métier \texttt{ProductEnrichmentService}, en lui transmettant le ProductModel.
 
-Le service utilise RestTemplate pour appeler le microservice. RestTemplate :
+Le service utilise \texttt{RestTemplate} \citeURL{spring_framework} pour appeler le microservice. \texttt{RestTemplate} :
 
-Prend l'objet \texttt{ProductEnrichmentRequest} et utilise Jackson pour le sérialiser en JSON :
+Prend l'objet \texttt{ProductEnrichmentRequest} et utilise la bibliothèque \texttt{Jackson} \citeURL{jackson_repo} pour le sérialiser en JSON :
 
 \begin{verbatim}
 {
@@ -634,7 +562,7 @@ Cet email est envoyé à la responsable de validation (ou à Marie si elle l'a d
 
 \subsubsection{Étape 13 : Retour vers l'interface}
 
-L'interface Backoffice, qui attendait le résultat de la Facade (depuis l'étape 1), reçoit enfin une réponse. L'opération asynchrone en arrière-plan s'est terminée, et le résultat remonte vers l'interface.
+L'interface Backoffice, qui attendait le résultat de la Facade (depuis l'étape 1), reçoit enfin une réponse. L'opération asynchrone en arrière-plan s'est terminée et le résultat remonte vers l'interface.
 
 L'interface affiche :
 
@@ -655,7 +583,7 @@ Marie peut maintenant consulter les descriptions enrichies. Elle voit que la des
 	\label{fig:sequence_globale_processus}
 \end{figure}
 
-Ce flux complet montre comment tous les éléments du système interagissent : l'interface, les Facades, les services métier, la sérialisation des données, la communication HTTP, le traitement du microservice, la persistance, les workflows, et les notifications. Aucun de ces éléments ne fonctionne de manière isolée ; ils forment un ensemble cohérent où chaque maillon est indispensable.
+Cet enchaînement illustre l'interopérabilité entre les composants du système : l'interface, les Facades, les services métier, la sérialisation des données, la communication HTTP, le traitement du microservice, la persistance, les workflows et les notifications. Aucun de ces éléments ne fonctionne de manière isolée ; ils forment un ensemble cohérent où chaque maillon est indispensable.
 
 \section{Système de notification par courrier électronique}
 
@@ -669,9 +597,9 @@ Cette séparation présente plusieurs avantages. D'abord, la génération du con
 
 \subsection{Moteurs de template Velocity}
 
-Plutôt que de générer les emails via des concaténations de chaînes de caractères en Java (ce qui serait verbeux et peu flexible), SAP Commerce utilise le moteur Velocity.
+Plutôt que de générer les emails via des concaténations de chaînes de caractères en Java (ce qui serait verbeux et peu flexible), SAP Commerce utilise le moteur \texttt{Velocity} \citeURL{velocity_engine}.
 
-Velocity est un moteur de template simple mais puissant. Un template Velocity est un fichier texte contenant du texte fixe et des directives de template délimitées par des symboles spéciaux (généralement \texttt{\$} pour les variables, \texttt{\#} pour les directives). Par exemple :
+\texttt{Velocity} \citeURL{velocity_engine} est un moteur de template simple mais puissant. Un template Velocity est un fichier texte contenant du texte fixe et des directives de template délimitées par des symboles spéciaux (généralement \texttt{\$} pour les variables, \texttt{\#} pour les directives). Par exemple :
 
 \begin{verbatim}
 Objet : Enrichissement du produit $productName
@@ -792,7 +720,7 @@ Trois types de notifications ont été implémentées :
 
 \section{Conclusion du chapitre}
 
-L'intégration du microservice d'intelligence artificielle dans SAP Commerce Cloud ne consiste pas simplement à faire un appel HTTP et à traiter la réponse. Au contraire, c'est un travail systémique qui couvre plusieurs dimensions complémentaires.
+L'intégration dépasse le simple appel HTTP pour embrasser une dimension systémique via six axes complémentaires.
 
 Ce chapitre a présenté ces six axes d'intégration :
 

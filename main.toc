@@ -82,11 +82,11 @@
 \contentsline {subsubsection}{Couche 2 : Validation sémantique}{40}{section*.47}%
 \contentsline {subsubsection}{Couche 3 : Corrections automatiques et suggestions}{41}{section*.48}%
 \contentsline {subsubsection}{Couche 4 : Calcul du score de qualité}{43}{section*.49}%
-\contentsline {subsection}{\numberline {3.3.5}Standardisation de la réponse de validation}{44}{subsection.3.3.5}%
+\contentsline {subsection}{\numberline {3.3.5}Standardisation de la réponse de validation}{43}{subsection.3.3.5}%
 \contentsline {section}{\numberline {3.4}Conclusion du chapitre}{45}{section.3.4}%
 \contentsline {chapter}{\numberline {4}Intégration dans SAP Commerce Cloud}{46}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Introduction}{46}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Architecture logicielle de SAP Commerce Cloud}{47}{section.4.2}%
+\contentsline {section}{\numberline {4.2}Architecture logicielle de SAP Commerce Cloud}{46}{section.4.2}%
 \contentsline {subsection}{\numberline {4.2.1}Fondamentaux de SAP Commerce Cloud}{47}{subsection.4.2.1}%
 \contentsline {subsection}{\numberline {4.2.2}Les couches de SAP Commerce}{48}{subsection.4.2.2}%
 \contentsline {subsubsection}{Couche Présentation}{49}{section*.52}%
@@ -96,66 +96,62 @@
 \contentsline {subsubsection}{Couche Modèle}{49}{section*.56}%
 \contentsline {section}{\numberline {4.3}Communication entre SAP Commerce Cloud et le module d'intelligence artificielle}{50}{section.4.3}%
 \contentsline {subsection}{\numberline {4.3.1}Principe de communication REST}{50}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Gestion des appels entre SAP Commerce et le microservice}{51}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}Structure des données échangées}{51}{subsection.4.3.3}%
-\contentsline {subsection}{\numberline {4.3.4}Flux global d'intégration}{52}{subsection.4.3.4}%
+\contentsline {subsection}{\numberline {4.3.2}API d'enrichissement et API de validation}{51}{subsection.4.3.2}%
+\contentsline {subsubsection}{API d'enrichissement}{51}{section*.57}%
+\contentsline {subsubsection}{API de validation}{51}{section*.58}%
+\contentsline {subsection}{\numberline {4.3.3}Flux global de communication}{51}{subsection.4.3.3}%
 \contentsline {section}{\numberline {4.4}Extension du modèle de données SAP Commerce}{52}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Concepts de persistance dans SAP Commerce}{52}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}Extension de ProductModel}{53}{subsection.4.4.2}%
-\contentsline {subsubsection}{Attribut fieldsToTranslate}{53}{section*.57}%
-\contentsline {subsubsection}{Attribut targetLanguages}{53}{section*.58}%
-\contentsline {subsubsection}{Justification du placement dans Product}{54}{section*.59}%
-\contentsline {subsection}{\numberline {4.4.3}Création du modèle ProductValidationResult}{54}{subsection.4.4.3}%
-\contentsline {subsubsection}{Avantage de l'entité séparée}{55}{section*.60}%
-\contentsline {subsection}{\numberline {4.4.4}Modèle ValidationAnomaly}{55}{subsection.4.4.4}%
-\contentsline {subsection}{\numberline {4.4.5}Relations entre les entités}{56}{subsection.4.4.5}%
-\contentsline {section}{\numberline {4.5}Interfaces Backoffice pour l'enrichissement et la validation}{57}{section.4.5}%
-\contentsline {subsection}{\numberline {4.5.1}Vue d'ensemble du Backoffice SAP Commerce}{57}{subsection.4.5.1}%
-\contentsline {subsection}{\numberline {4.5.2}Interface d'enrichissement}{57}{subsection.4.5.2}%
-\contentsline {subsubsection}{Éléments de l'interface}{57}{section*.62}%
-\contentsline {subsubsection}{Flux de sauvegarde des données}{58}{section*.63}%
-\contentsline {subsubsection}{Affichage des résultats}{58}{section*.64}%
-\contentsline {subsection}{\numberline {4.5.3}Interface de validation}{59}{subsection.4.5.3}%
-\contentsline {subsubsection}{Affichage des résultats de validation}{59}{section*.66}%
-\contentsline {subsubsection}{Liste des anomalies détectées}{59}{section*.67}%
-\contentsline {subsubsection}{Actions correctives}{60}{section*.68}%
-\contentsline {subsubsection}{Workflow de validation}{60}{section*.69}%
-\contentsline {section}{\numberline {4.6}Workflows métier et automatisation}{61}{section.4.6}%
-\contentsline {subsection}{\numberline {4.6.1}Workflows dans SAP Commerce}{61}{subsection.4.6.1}%
-\contentsline {subsubsection}{Implémentation dans le projet}{61}{section*.71}%
+\contentsline {subsection}{\numberline {4.4.1}Adaptation du modèle produit}{52}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Gestion des résultats de validation}{53}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}Gestion des anomalies détectées}{53}{subsection.4.4.3}%
+\contentsline {subsection}{\numberline {4.4.4}Relations entre les éléments du modèle}{53}{subsection.4.4.4}%
+\contentsline {section}{\numberline {4.5}Interfaces Backoffice pour l'enrichissement et la validation}{54}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Vue d'ensemble du Backoffice SAP Commerce}{54}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Interface d'enrichissement}{55}{subsection.4.5.2}%
+\contentsline {subsubsection}{Éléments de l'interface}{55}{section*.61}%
+\contentsline {subsubsection}{Flux de sauvegarde des données}{55}{section*.62}%
+\contentsline {subsubsection}{Affichage des résultats}{56}{section*.63}%
+\contentsline {subsection}{\numberline {4.5.3}Interface de validation}{57}{subsection.4.5.3}%
+\contentsline {subsubsection}{Affichage des résultats de validation}{58}{section*.65}%
+\contentsline {subsubsection}{Liste des anomalies détectées}{58}{section*.66}%
+\contentsline {subsubsection}{Actions correctives}{58}{section*.67}%
+\contentsline {subsubsection}{Workflow de validation}{58}{section*.68}%
+\contentsline {section}{\numberline {4.6}Workflows métier et automatisation}{60}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}Workflows dans SAP Commerce}{60}{subsection.4.6.1}%
+\contentsline {subsubsection}{Implémentation dans le projet}{60}{section*.70}%
 \contentsline {subsection}{\numberline {4.6.2}Workflow d'enrichissement}{61}{subsection.4.6.2}%
-\contentsline {subsubsection}{Étapes du workflow}{62}{section*.72}%
-\contentsline {subsubsection}{Gestion des erreurs}{62}{section*.73}%
+\contentsline {subsubsection}{Étapes du workflow}{61}{section*.71}%
+\contentsline {subsubsection}{Gestion des erreurs}{62}{section*.72}%
 \contentsline {subsection}{\numberline {4.6.3}Workflow de validation}{63}{subsection.4.6.3}%
-\contentsline {subsubsection}{Étapes du workflow}{63}{section*.75}%
-\contentsline {subsubsection}{Différences avec le workflow d'enrichissement}{64}{section*.76}%
-\contentsline {section}{\numberline {4.7}Flux complet d'exécution et orchestration}{65}{section.4.7}%
-\contentsline {subsection}{\numberline {4.7.1}Scénario concret : enrichissement d'un produit}{65}{subsection.4.7.1}%
+\contentsline {subsubsection}{Étapes du workflow}{63}{section*.74}%
+\contentsline {subsubsection}{Différences avec le workflow d'enrichissement}{64}{section*.75}%
+\contentsline {section}{\numberline {4.7}Flux complet d'exécution et orchestration}{64}{section.4.7}%
+\contentsline {subsection}{\numberline {4.7.1}Scénario concret : enrichissement d'un produit}{64}{subsection.4.7.1}%
 \contentsline {subsection}{\numberline {4.7.2}Étapes techniques du flux complet}{65}{subsection.4.7.2}%
-\contentsline {subsubsection}{Étape 1 : Validation et préparation (Couche Présentation/Facade)}{65}{section*.77}%
-\contentsline {subsubsection}{Étape 2 : Sauvegarde de la configuration}{66}{section*.78}%
-\contentsline {subsubsection}{Étape 3 : Déclenchement du workflow d'enrichissement}{66}{section*.79}%
-\contentsline {subsubsection}{Étape 4 : Orchestration métier (Couche Service)}{66}{section*.80}%
-\contentsline {subsubsection}{Étape 5 : Sérialisation et communication HTTP}{66}{section*.81}%
-\contentsline {subsubsection}{Étape 6 : Traitement du microservice}{67}{section*.82}%
-\contentsline {subsubsection}{Étape 7 : Désérialisation de la réponse}{67}{section*.83}%
-\contentsline {subsubsection}{Étape 8 : Mise à jour du ProductModel}{68}{section*.84}%
-\contentsline {subsubsection}{Étape 9 : Déclenchement du workflow de validation}{68}{section*.85}%
-\contentsline {subsubsection}{Étape 10 : Validation des descriptions}{68}{section*.86}%
-\contentsline {subsubsection}{Étape 11 : Persistance des résultats de validation}{69}{section*.87}%
-\contentsline {subsubsection}{Étape 12 : Notification par email}{69}{section*.88}%
-\contentsline {subsubsection}{Étape 13 : Retour vers l'interface}{70}{section*.89}%
+\contentsline {subsubsection}{Étape 1 : Validation et préparation (Couche Présentation/Facade)}{65}{section*.76}%
+\contentsline {subsubsection}{Étape 2 : Sauvegarde de la configuration}{65}{section*.77}%
+\contentsline {subsubsection}{Étape 3 : Déclenchement du workflow d'enrichissement}{65}{section*.78}%
+\contentsline {subsubsection}{Étape 4 : Orchestration métier (Couche Service)}{66}{section*.79}%
+\contentsline {subsubsection}{Étape 5 : Sérialisation et communication HTTP}{66}{section*.80}%
+\contentsline {subsubsection}{Étape 6 : Traitement du microservice}{67}{section*.81}%
+\contentsline {subsubsection}{Étape 7 : Désérialisation de la réponse}{67}{section*.82}%
+\contentsline {subsubsection}{Étape 8 : Mise à jour du ProductModel}{68}{section*.83}%
+\contentsline {subsubsection}{Étape 9 : Déclenchement du workflow de validation}{68}{section*.84}%
+\contentsline {subsubsection}{Étape 10 : Validation des descriptions}{68}{section*.85}%
+\contentsline {subsubsection}{Étape 11 : Persistance des résultats de validation}{68}{section*.86}%
+\contentsline {subsubsection}{Étape 12 : Notification par email}{69}{section*.87}%
+\contentsline {subsubsection}{Étape 13 : Retour vers l'interface}{70}{section*.88}%
 \contentsline {section}{\numberline {4.8}Système de notification par courrier électronique}{71}{section.4.8}%
 \contentsline {subsection}{\numberline {4.8.1}Moteur d'email dans SAP Commerce}{71}{subsection.4.8.1}%
-\contentsline {subsection}{\numberline {4.8.2}Moteurs de template Velocity}{72}{subsection.4.8.2}%
+\contentsline {subsection}{\numberline {4.8.2}Moteurs de template Velocity}{71}{subsection.4.8.2}%
 \contentsline {subsection}{\numberline {4.8.3}Configuration SMTP et Mailtrap}{73}{subsection.4.8.3}%
-\contentsline {subsection}{\numberline {4.8.4}Processus complet de notification}{74}{subsection.4.8.4}%
-\contentsline {subsubsection}{Déclenchement}{74}{section*.91}%
-\contentsline {subsubsection}{Génération du contenu}{74}{section*.92}%
-\contentsline {subsubsection}{Ajout à la queue et envoi}{74}{section*.93}%
-\contentsline {subsubsection}{Cas d'usage dans le projet}{75}{section*.94}%
-\contentsline {section}{\numberline {4.9}Conclusion du chapitre}{75}{section.4.9}%
-\contentsline {chapter}{Conclusion et perspectives}{77}{chapter*.96}%
+\contentsline {subsection}{\numberline {4.8.4}Processus complet de notification}{73}{subsection.4.8.4}%
+\contentsline {subsubsection}{Déclenchement}{73}{section*.90}%
+\contentsline {subsubsection}{Génération du contenu}{73}{section*.91}%
+\contentsline {subsubsection}{Ajout à la queue et envoi}{74}{section*.92}%
+\contentsline {subsubsection}{Cas d'usage dans le projet}{74}{section*.93}%
+\contentsline {section}{\numberline {4.9}Conclusion du chapitre}{74}{section.4.9}%
+\contentsline {chapter}{Conclusion et perspectives}{77}{chapter*.95}%
 \contentsline {chapter}{\numberline {A}Annexe 1}{78}{appendix.A}%
 \contentsline {chapter}{Bibliographie}{79}{appendix.A}%
-\contentsline {chapter}{Netographie}{80}{appendix*.97}%
+\contentsline {chapter}{Netographie}{80}{appendix*.96}%
