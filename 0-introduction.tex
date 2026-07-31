@@ -1,0 +1,36 @@
+\chapter*{Introduction Générale}
+\addcontentsline{toc}{chapter}{Introduction Générale}
+\markboth{Introduction Générale}{Introduction Générale}
+\label{chap:introduction}
+
+\sloppy
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+
+Le commerce en ligne est devenu un canal de vente indispensable pour la plupart des entreprises. Sur une plateforme e-commerce, la qualité des informations présentées aux clients est un facteur déterminant pour réussir une vente. Des informations complètes et précises sur les produits ne constituent pas seulement un support technique, elles rassurent l'acheteur et diminuent les risques de retours. Pour les entreprises qui gèrent des milliers de références, comme c'est le cas dans le milieu industriel, les données relatives aux produits sont donc un actif stratégique qu'il faut savoir valoriser.
+
+Pourtant, la gestion d'un catalogue volumineux pose souvent des problèmes concrets aux équipes métier. Chez de nombreux distributeurs ou fabricants, l'enrichissement des informations reste une tâche essentiellement manuelle et répétitive. Les personnes chargées de l'administration du catalogue doivent souvent traduire des textes, rédiger des descriptions techniques et vérifier la cohérence de nombreux attributs des produits. Ce processus est long, coûteux et peut facilement laisser passer des erreurs humaines. Ces incohérences finissent par nuire à la crédibilité du site et à l'expérience de l'utilisateur final.
+
+L'évolution récente des technologies d'intelligence artificielle offre de nouvelles pistes pour simplifier ce travail. Les modèles de traitement du langage naturel, ou NLP, ainsi que les modèles de langage de grande taille (LLM), sont désormais capables de comprendre et de générer du texte avec une précision remarquable. Ces outils permettent d'automatiser des tâches qui, jusqu'à présent, nécessitaient une intervention humaine constante. En intégrant ces modèles dans les processus de gestion, il devient possible de traiter les données des produits plus rapidement tout en maintenant un niveau de qualité élevé.
+
+C'est dans ce contexte que s'inscrit mon projet de fin d'études au sein de l'entreprise DECADE. Spécialisée dans les solutions de commerce électronique, DECADE accompagne ses clients dans la mise en place de plateformes performantes. Mon stage s'est concentré sur un besoin spécifique exprimé par ETANCO, une filiale du groupe Simpson Strong-Tie, qui fabrique et distribue des systèmes de fixation. Avec un catalogue technique très riche, l'entreprise cherchait un moyen efficace d'automatiser l'enrichissement et la vérification du contenu associé aux produits au sein de son outil de gestion, SAP Commerce Cloud.
+
+Le travail que j'ai réalisé consiste à concevoir et développer un module intelligent capable d'assister les équipes d'ETANCO. L'idée principale est de proposer un système qui ne se contente pas de stocker des informations, mais qui aide activement à les améliorer. Ce module permet notamment de générer automatiquement des descriptions des produits détaillées à partir de simples caractéristiques techniques, de traduire les informations relatives aux produits en plusieurs langues et de détecter les anomalies ou les éléments manquants avant la mise en ligne.
+
+Pour répondre à ces besoins, j'ai mis en place une architecture qui fait le pont entre le monde du e-commerce et celui de l'intelligence artificielle. D'un côté, le système utilise Java et le framework Spring, qui sont les bases technologiques de SAP Commerce Cloud. De l'autre, j'ai développé une interface de services sous Python avec le framework FastAPI pour exploiter les modèles d'intelligence artificielle. Cette séparation permet d'utiliser le meilleur de chaque technologie : la robustesse de SAP pour la gestion commerciale et la flexibilité de Python pour les traitements d'intelligence artificielle.
+
+L'un des apports majeurs de cette solution est la mise en place d'un score de qualité pour chaque présentation de produit. Ce score permet aux responsables de voir immédiatement quelles données des produits sont prêtes à être publiées et lesquelles demandent une correction. En suggérant des modifications automatiques et en signalant les incohérences dans les caractéristiques des produits, l'outil devient un véritable assistant qui réduit considérablement le temps passé sur des tâches à faible valeur ajoutée. L'objectif final est de permettre aux équipes de se concentrer sur la stratégie plutôt que sur la correction manuelle de fichiers.
+
+Ce rapport présente l'intégralité des étapes de ce projet, de l'analyse initiale à la validation des résultats en production.
+
+Le chapitre 1 expose le contexte général du projet : qui est DECADE, qui est ETANCO, quels sont les enjeux du e-commerce et de la qualité des données, et quelle est précisément la problématique que nous cherchons à résoudre.
+
+Le chapitre 2 détaille l'analyse des besoins et la conception de l'architecture générale du système. Nous y présentons les besoins fonctionnels et non-fonctionnels, les acteurs impliqués, et la stratégie architecturale retenue (microservices découplés, API REST, séparation SAP/IA).
+
+Le chapitre 3 constitue le cœur technique du projet. Il détaille le module d'enrichissement et de validation des produits alimenté par l'intelligence artificielle. Nous y expliquons les pipelines d'enrichissement (génération de descriptions, traduction multilingue), les pipelines de validation (règles métier, analyse linguistique et sémantique), le calcul du score qualité, et finalement l'intégration de cette intelligence dans SAP Commerce Cloud (services Java, workflows, extensions du Backoffice).
+
+Ces trois chapitres forment un tout cohérent :
+problématique → architecture → solution.
+
+
+
