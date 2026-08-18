@@ -1,0 +1,414 @@
+﻿\chapter{Présentation générale du projet}
+\label{chap:premierchapitre}
+\section{Introduction}
+
+Ce chapitre présente le contexte général du projet ainsi que les éléments nécessaires à sa compréhension. Nous introduisons dans un premier temps l'organisme d'accueil DECADE Tunisie et le client concerné par le projet.
+
+Nous présentons ensuite les concepts fondamentaux liés au commerce électronique, à la gestion des informations des produits ainsi qu'aux technologies d'intelligence artificielle générative. Enfin, nous analysons le contexte du projet, l'existant et la problématique identifiée avant de présenter la solution proposée et la méthodologie de travail adoptée.
+\section{Présentation de l’organisme d’accueil}
+
+Dans cette section, nous présentons l'organisme d'accueil, le client concerné par le projet ainsi que les principaux domaines dans lesquels ils exercent leurs activités.
+
+\subsection{Présentation de l’entreprise : DECADE}
+
+DECADE \citeURL{decade_site} est une Entreprise de Services du Numérique (ESN) spécialisée dans le conseil et la réalisation de solutions e-commerce et de transformation digitale. Depuis sa création en 1988, elle s’est imposée comme un partenaire stratégique pour les entreprises souhaitant titulariser leur activité commerciale en ligne.
+
+L’expertise de DECADE repose sur une maîtrise approfondie des outils de vente en ligne, notamment SAP Commerce Cloud et sur une forte capacité à intégrer des problématiques complexes de gestion des informations des produits. 
+\newpage
+
+L'entreprise accompagne ses clients tout au long du cycle de vie de leurs projets, de la conception logicielle à l'optimisation continue, en mettant l'accent sur la qualité des contenus et l'efficacité des processus métier.
+
+Cette spécialisation dans le commerce électronique à forte valeur ajoutée constitue le cadre idéal pour ce projet de fin d'études, qui s'articule autour de l'amélioration du parcours d'enrichissement des informations des produits pour un client industriel majeur. L'identité visuelle de l'entreprise est illustrée par la Figure~\ref{fig:logo_decade}.
+\vspace{0.5cm}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.2\textwidth]{images/logo_decade.png}
+    \caption{Logo de DECADE}
+    \label{fig:logo_decade}
+\end{figure}
+
+\subsection{Types de projets}
+
+DECADE accompagne ses clients à travers des solutions adaptées à leurs objectifs stratégiques. Les principaux axes d’intervention de l’entreprise sont :
+
+\begin{itemize}
+    \item \textbf{Solutions e-commerce :} conception et développement de plateformes de vente robustes et évolutives.
+    \item \textbf{Gestion des informations des produits (PIM/PXM) :} mise en place de référentiels uniques pour centraliser et enrichir les données des produits.
+    \item \textbf{Expérience utilisateur (UX/UI) :} création de parcours d'achat ergonomiques et performants adaptés aux besoins des clients.
+    \item \textbf{Marketplaces :} déploiement de solutions permettant d'étendre l'offre commerciale via des écosystèmes multipartenaires.
+    \item \textbf{Gestion de la relation client (CRM) :} intégration d'outils de suivi et de fidélisation pour une meilleure connaissance du client.
+    \item \textbf{Architectures API-first et Cloud :} mise en œuvre de systèmes modulaires et flexibles facilitant l'interopérabilité entre les outils.
+\end{itemize}
+
+\subsection{Présentation du client : ETANCO}
+
+Dans le cadre de ce projet, DECADE intervient pour le compte d'ETANCO \citeURL{etanco_site}, une filiale du groupe international Simpson Strong-Tie. ETANCO est un acteur majeur en Europe dans la conception, la fabrication et la distribution de solutions de fixation et d'assemblage destinées à l'enveloppe du bâtiment. L'entreprise intervient dans plusieurs domaines, notamment la toiture, la façade, le bardage et l'étanchéité et s'adresse principalement aux professionnels du bâtiment.
+
+Afin de répondre aux besoins de ses clients, ETANCO commercialise un catalogue comprenant plusieurs dizaines de milliers de références. Chaque produit est associé à de nombreuses informations, telles que des caractéristiques techniques, des descriptions, des documents réglementaires, des médias, des classifications ainsi que des traductions destinées aux différents marchés. La qualité, la cohérence et la disponibilité de ces informations sont essentielles pour assurer une présentation fiable des produits sur les différents canaux de diffusion de l'entreprise. La Figure~\ref{fig:logo_etanco} présente l'identité visuelle du groupe.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.2\textwidth]{images/etanco.jpg}
+    \caption{Logo d'ETANCO}
+    \label{fig:logo_etanco}
+\end{figure}
+
+\section{Concepts de base}
+
+Cette section introduit les notions fondamentales nécessaires à la compréhension de la circulation des informations au sein d'une interface de vente moderne.
+
+\subsection{Le commerce électronique}
+
+Le commerce électronique, ou e-commerce, désigne l'échange de biens, de services ou d'informations par l'intermédiaire de réseaux informatiques, principalement Internet \citeURL{ibm_ecommerce}. Il ne se limite pas à l'acte d'achat, mais englobe l'ensemble du parcours client numérique.
+\subsubsection{Les modèles de commerce électronique}
+On distingue généralement deux modèles principaux selon la nature des acteurs impliqués :
+
+\begin{itemize}
+    \item \textbf{B2C (Business-to-Consumer) :} modèle dans lequel une entreprise commercialise directement ses produits ou services auprès des consommateurs finaux. Les achats concernent généralement de faibles quantités et le processus de décision est relativement rapide.
+
+    \item \textbf{B2B (Business-to-Business) :} modèle dans lequel les échanges s'effectuent entre entreprises. Les transactions portent souvent sur des produits techniques ou spécialisés, impliquent des volumes plus importants et suivent un processus d'achat plus structuré.
+\end{itemize}
+\newpage
+Le tableau \ref{tab:b2b_b2c} synthétise les disparités majeures entre ces deux approches.
+
+\renewcommand{\arraystretch}{1.4}
+
+\begin{table}[H]
+    \centering
+    \caption{Comparaison entre les modèles e-commerce B2B et B2C}
+    \begin{tabular}{|p{3.2cm}|p{5.7cm}|p{5.7cm}|}
+    \hline
+    \textbf{Caractéristique} & \textbf{E-commerce B2C} & \textbf{E-commerce B2B} \\ \hline
+    \textbf{Client cible} & Particulier (consommateur final) & Professionnel (entreprise ou organisation) \\ \hline
+    \textbf{Processus d'achat} & Rapide, généralement réalisé par une seule personne & Plus long, impliquant plusieurs intervenants et validations \\ \hline
+    \textbf{Volume / Prix} & Faibles quantités avec des prix fixes & Volumes plus importants avec des prix négociés \\ \hline
+    \textbf{Relation client} & Relation ponctuelle orientée consommateur & Relation durable fondée sur un partenariat commercial \\ \hline
+    \textbf{Catalogue} & Produits standardisés destinés au grand public & Produits techniques avec des informations détaillées \\ \hline
+    \end{tabular}
+    
+    \label{tab:b2b_b2c}
+\end{table}
+
+\renewcommand{\arraystretch}{1}
+Cette comparaison met en évidence les différences fondamentales entre les deux approches e-commerce. Dans le contexte d'ETANCO, le modèle B2B prédomine : les clients sont des professionnels du bâtiment qui nécessitent des informations techniques précises, des catalogs complets et des relations commerciales structurées. Cette spécificité impose des exigences particulières en termes de qualité et d'exactitude des données des produits.
+
+\subsubsection{Les systèmes intervenant dans le commerce électronique}
+
+La gestion efficace d'une boutique en ligne repose sur l'interopérabilité de plusieurs logiciels métiers spécialisés :
+
+\begin{itemize}
+    \item \textbf{ERP (Enterprise Resource Planning) :} système d'information permettant de centraliser et de gérer les principales ressources de l'entreprise, telles que les stocks, les achats, les ventes, la production ou encore la comptabilité \citeURL{sap_erp}.
+
+    \item \textbf{PIM (Product Information Management) :} système dédié à la centralisation, à l'organisation et à l'enrichissement des informations des produits avant leur diffusion sur les différents canaux de vente \citeURL{akeneo_pim}.
+
+    \item \textbf{Boutique en ligne :} plateforme e-commerce accessible aux clients, permettant de consulter le catalogue, de rechercher des produits, de passer des commandes et d'effectuer des achats en ligne.
+
+    \item \textbf{CRM (Customer Relationship Management) :} système destiné à la gestion de la relation client, permettant de centraliser les interactions, de suivre les activités commerciales et d'améliorer la fidélisation des clients \citeURL{salesforce_crm}.
+\end{itemize}
+
+\subsubsection{Cycle de vie des données d'un produit}
+
+Pour garantir la pertinence de l'offre en ligne, les informations des produits suivent un cycle de vie structuré à travers les différents systèmes. L'architecture technique de ce flux est illustrée dans la Figure~\ref{fig:cycle_vie}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{images/product.png}
+    \caption{Flux de circulation des informations des produits dans l'écosystème e-commerce}
+    \label{fig:cycle_vie}
+\end{figure}
+
+Les informations des produits circulent entre l'ERP, le PIM, la boutique en ligne et le CRM pour assurer la cohérence des données tout au long de leur cycle de vie. Les données de référence issues de l'ERP sont transmises au PIM, où elles sont enrichies et complétées avant d'être publiées sur la boutique en ligne. Les interactions générées par les clients, telles que les consultations, les commandes ou les achats, alimentent à leur tour les différents systèmes, notamment l'ERP pour le traitement des opérations commerciales et le CRM pour le suivi de la relation client.
+
+Cette circulation continue des informations permet à chacun d'accéder à des données fiables et à jour. Elle contribue ainsi à assurer la cohérence des catalogues des produits, à faciliter les échanges entre les applications et à offrir une expérience homogène aux utilisateurs sur l'ensemble des canaux de vente.
+
+\newpage
+
+\subsection{SAP Commerce Cloud}
+
+SAP Commerce Cloud \citeURL{sap_commerce_cloud} est une plateforme de commerce électronique développée par SAP. Elle permet aux entreprises de gérer leurs activités de vente en ligne ainsi que les principales informations associées aux produits, aux catalogues, aux clients, aux prix, aux stocks et aux commandes.
+
+La plateforme repose principalement sur le langage Java et sur le framework Spring, qui constituent la base de son environnement de développement. Son architecture modulaire permet de personnaliser son fonctionnement et d'ajouter de nouvelles fonctionnalités en développant des extensions adaptées aux besoins de l'entreprise.
+
+SAP Commerce Cloud fournit également un environnement d'administration, appelé \textit{Backoffice}, permettant aux utilisateurs de gérer les différentes données de la plateforme et les processus associés au cycle de vie des produits. Les développeurs peuvent, de leur côté, intervenir sur les différents composants de la plateforme afin d'adapter son comportement ou de l'intégrer avec des systèmes externes.
+
+Cette architecture permet ainsi à SAP Commerce Cloud d'être adaptée aux besoins spécifiques de chaque entreprise et de communiquer avec des applications et des services externes. Elle offre notamment la possibilité d'étendre les fonctionnalités de la plateforme et de l'intégrer à différents systèmes afin de répondre aux exigences des processus métier.
+\subsection{L'intelligence artificielle générative}
+
+\subsubsection{Définition}
+
+L'intelligence artificielle regroupe un ensemble de méthodes permettant à une machine d'exécuter des tâches qui nécessitent habituellement l'intervention de l'intelligence humaine, comme l'apprentissage, le raisonnement ou la résolution de problèmes. Au fil des années, les progrès réalisés dans ce domaine ont conduit à l'émergence de l'intelligence artificielle générative, une branche de l'IA capable de produire de nouveaux contenus à partir d'une consigne ou d'informations fournies en entrée.
+
+Contrairement aux approches classiques, qui sont principalement utilisées pour analyser des données ou effectuer des prédictions, l'intelligence artificielle générative cherche à créer un contenu cohérent en s'appuyant sur les connaissances acquises lors de sa phase d'apprentissage. Selon les modèles employés, elle peut générer du texte, des images, du code informatique, de l'audio ou encore de la vidéo.
+
+\subsubsection{Principales applications}
+
+L'intelligence artificielle générative est aujourd'hui utilisée dans de nombreux domaines où la création de contenu occupe une place importante. Elle permet notamment de rédiger des textes, d'assister la traduction entre plusieurs langues, de générer des images, de produire du code informatique ou encore d'aider à la synthèse de documents. Son développement s'est fortement accéléré grâce aux avancées de l'apprentissage profond ainsi qu'à la disponibilité de grandes quantités de données utilisées pour entraîner les modèles.
+
+Au-delà de l'automatisation de certaines tâches, ces technologies constituent désormais un véritable outil d'assistance. Elles permettent d'améliorer la productivité des utilisateurs tout en facilitant la réalisation d'activités qui demandent habituellement un temps important de traitement.
+
+\subsection{Les grands modèles de langage}
+
+\subsubsection{Définition}
+
+Les grands modèles de langage, désignés par l'acronyme \textit{LLM} (\textit{Large Language Models}), représentent l'une des applications les plus importantes de l'intelligence artificielle générative. Ils sont entraînés sur de très vastes collections de textes afin d'apprendre les structures du langage, le vocabulaire ainsi que les relations entre les mots et les phrases.
+
+Grâce à cet apprentissage, ces modèles sont capables de comprendre une consigne formulée en langage naturel et de produire une réponse adaptée au contexte. Leur fonctionnement repose sur l'analyse des séquences de mots afin de générer un texte cohérent en tenant compte des informations fournies par l'utilisateur.
+
+\subsubsection{Capacités des grands modèles de langage}
+
+Les LLM sont aujourd'hui capables de réaliser de nombreuses tâches liées au traitement automatique du langage naturel. Ils peuvent notamment rédiger des textes, reformuler un contenu, résumer des documents, répondre à des questions, traduire des informations d'une langue à une autre ou encore assister les utilisateurs dans la recherche d'informations.
+
+Leur polyvalence explique leur adoption croissante dans de nombreux secteurs d'activité. Qu'il s'agisse d'éducation, de santé, d'industrie ou de commerce électronique, ces modèles contribuent à faciliter le traitement des informations textuelles et ouvrent la voie à de nouvelles formes d'assistance intelligentes au sein des systèmes d'information.
+
+
+
+
+\section{Cadre général du projet}
+
+\subsection{Contexte général}
+
+Avec l'évolution rapide du commerce électronique, les entreprises doivent aujourd'hui gérer des catalogues de produits de plus en plus volumineux et complexes. L'augmentation du nombre de références, la diversité des informations associées aux produits ainsi que la nécessité de diffuser ces contenus sur plusieurs canaux rendent la gestion des données des produits plus difficile.
+
+Dans un environnement B2B, cette complexité est davantage accentuée. Les produits proposés nécessitent généralement des informations techniques détaillées, des descriptions précises et des contenus adaptés aux différents marchés. La qualité des informations publiées devient alors un élément essentiel, car elle influence directement la compréhension des produits et la prise de décision des clients.
+
+Cependant, lorsque le volume des données augmente, maintenir un niveau de qualité constant représente un véritable défi. Les opérations d'enrichissement, de traduction et de vérification nécessitent des efforts importants de la part des équipes métier. Les traitements manuels peuvent ainsi ralentir la mise à disposition des produits et rendre plus difficile la détection des erreurs ou des informations incomplètes.
+
+Face à ces enjeux, les plateformes e-commerce modernes intègrent des solutions permettant d'organiser le cycle de vie des informations des produits, depuis leur création jusqu'à leur publication sur les différents canaux de vente.
+
+\subsection{Étude de l'existant}
+
+Les plateformes de commerce électronique modernes, telles que SAP Commerce Cloud, proposent un ensemble de fonctionnalités permettant de gérer les différents processus liés à la commercialisation des produits. Elles offrent notamment un environnement d'administration destiné à la gestion des catalogues, au suivi des informations des produits et au contrôle des étapes nécessaires avant leur publication.
+
+Dans ce contexte, le Backoffice de SAP Commerce Cloud permet de centraliser les informations des produits et de gérer leur cycle de vie. Il peut ainsi être utilisé comme un référentiel de gestion des produits, en permettant aux utilisateurs métier de créer, compléter et mettre à jour les données avant leur diffusion sur les canaux de vente.
+\newpage
+La plateforme propose plusieurs fonctionnalités couvrant les différentes étapes de gestion d'un produit :
+
+\begin{itemize}
+    \item \textbf{Création et gestion des produits :} permet aux utilisateurs de créer de nouvelles références, de modifier les informations existantes et d'organiser les produits selon leur structure métier.
+
+    \item \textbf{Enrichissement des informations :} permet de compléter les fiches des produits avec les différentes données nécessaires à leur présentation sur les canaux de vente.
+
+    \item \textbf{Gestion multilingue :} offre la possibilité de gérer les contenus dans plusieurs langues afin de répondre aux besoins des différents marchés.
+
+    \item \textbf{Publication des produits :} permet de rendre les produits disponibles sur les plateformes de vente après validation des informations nécessaires.
+
+    \item \textbf{Validation des données :} permet d'effectuer des contrôles afin de vérifier la complétude et la cohérence des informations avant leur publication.
+
+    \item \textbf{Workflow d'approbation :} structure le processus de validation en définissant différentes étapes de contrôle avant la mise en ligne définitive des produits.
+\end{itemize}
+
+Malgré ces fonctionnalités, la gestion des informations repose encore largement sur des interventions humaines. Les tâches d'enrichissement, de rédaction des contenus et de traduction nécessitent un temps important et peuvent devenir difficiles à maintenir lorsque le nombre de produits augmente. Cette dépendance aux traitements manuels représente ainsi une limite pour garantir une qualité homogène des informations publiées à grande échelle.
+
+\subsection{Solution proposée}
+
+Afin de répondre aux limites identifiées dans le processus actuel, la solution proposée consiste à intégrer une couche d'assistance intelligente dédiée à l'enrichissement et à la validation des informations des produits.
+
+Cette approche repose sur l'utilisation de techniques d'intelligence artificielle générative capables d'assister les utilisateurs dans certaines tâches nécessitant habituellement une intervention manuelle. Elle permet notamment d'améliorer la création des contenus textuels, d'accompagner la traduction des informations et de faciliter l'identification d'éventuelles incohérences dans les données.
+
+La solution s'intègre dans le processus existant de gestion des produits tout en conservant le rôle central des utilisateurs métier. Les suggestions générées par le système restent soumises à une validation humaine avant toute publication, afin de garantir la maîtrise des informations diffusées.
+
+L'objectif n'est donc pas de remplacer les processus existants, mais de les compléter par des capacités d'analyse et d'assistance permettant de réduire les tâches répétitives, d'améliorer la qualité des informations et d'accélérer le traitement des catalogues des produits.
+
+Cette approche contribue ainsi à rendre le processus d'enrichissement plus fiable et plus efficace, tout en assurant un meilleur équilibre entre automatisation intelligente et contrôle humain.
+
+
+
+
+
+
+
+\section{Pilotage du projet}
+
+La réussite d'un projet de développement logiciel repose en grande partie sur une méthodologie de travail adaptée. Celle-ci permet d'organiser les différentes activités du projet, de faciliter la communication entre les intervenants et d'assurer un suivi régulier de l'avancement. Dans le cadre de ce projet de fin d'études, une approche Agile basée sur la méthodologie Scrum a été adoptée afin de répondre efficacement aux besoins de l'entreprise et d'accompagner le développement progressif de la solution.
+
+\subsection{Méthodologie Agile}
+
+La méthodologie Agile est une approche de gestion de projet fondée sur un développement itératif et incrémental. Contrairement aux méthodes traditionnelles, elle privilégie une évolution progressive de la solution à travers des cycles de développement courts, permettant d'intégrer rapidement les retours des parties prenantes et de s'adapter aux éventuelles évolutions des besoins.
+
+Cette approche favorise une collaboration continue entre les différents acteurs du projet, une meilleure visibilité sur l'avancement des travaux ainsi qu'une livraison progressive de fonctionnalités opérationnelles. Ces caractéristiques en font une méthodologie particulièrement adaptée au développement d'applications logicielles où les besoins peuvent évoluer au cours du projet.
+
+\subsection{L'approche Scrum}
+
+Scrum est le cadre méthodologique Agile retenu pour l'organisation de ce projet. Il repose sur une succession de cycles de développement appelés \textit{Sprints}, au cours desquels un ensemble de fonctionnalités est conçu, développé et validé. Cette organisation permet de suivre régulièrement l'avancement du projet, d'identifier rapidement les difficultés rencontrées et d'améliorer progressivement la solution développée.
+
+Dans le cadre de ce stage, cette approche a permis de structurer le développement du microservice d'intelligence artificielle et son intégration avec SAP Commerce Cloud en planifiant les différentes activités sur plusieurs Sprints successifs. Des réunions de suivi régulières ont également facilité la validation des fonctionnalités développées et l'ajustement des objectifs tout au long du projet.
+
+La Figure~\ref{fig:scrum} présente le principe général de fonctionnement de la méthodologie Scrum.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{images/scrum-process.jpg}
+    \caption{Principe de fonctionnement de la méthodologie Scrum}
+    \label{fig:scrum}
+\end{figure}
+
+\subsubsection{Les rôles Scrum}
+
+Dans le cadre de ce projet, les principaux rôles de Scrum ont été adaptés à l'organisation de l'équipe. Le Tableau~\ref{tab:roles_scrum} présente les différents rôles ainsi que leurs responsabilités.
+
+\begin{table}[H]
+\centering
+\caption{Répartition des rôles Scrum}
+\label{tab:roles_scrum}
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{|p{3.3cm}|p{3.7cm}|p{8cm}|}
+\hline
+\textbf{Rôle Scrum} & \textbf{Acteur} & \textbf{Responsabilités} \\
+\hline
+Product Owner &
+L'équipe ETANCO &
+Définition des besoins fonctionnels, priorisation des fonctionnalités et validation des livrables. \\
+\hline
+Scrum Master &
+M. Aymen Ellouze &
+Coordination du projet, organisation des réunions de suivi et accompagnement de l'équipe de développement. \\
+\hline
+Équipe de développement &
+Stagiaire PFE &
+Analyse des besoins, conception, développement, intégration, tests et documentation de la solution. \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsubsection{Planification des Sprints}
+
+Après une première phase de formation consacrée à la découverte de l'environnement de développement et de SAP Commerce Cloud, le projet a été organisé en six Sprints. Chaque Sprint poursuivait un objectif précis et permettait de produire un incrément fonctionnel de la solution. Cette organisation a facilité le suivi de l'avancement du projet ainsi que la validation progressive des différents modules développés.
+
+Le Tableau~\ref{tab:planning_sprints} présente la planification des principaux Sprints réalisés au cours du projet.
+
+\begin{table}[H]
+\centering
+\caption{Planification des sprints du projet}
+\label{tab:planning_sprints}
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{|c|p{11cm}|c|}
+\hline
+\textbf{Sprint} & \textbf{Modules / Activités} & \textbf{Durée} \\
+\hline
+
+Formation &
+Prise en main de l'environnement de développement, formation en intelligence artificielle et en développement Java/Spring, découverte de SAP Commerce Cloud et de son architecture, ainsi que mise en place de l'environnement de travail. &
+4 semaines \\
+\hline
+
+Sprint 1 &
+Analyse et spécification des besoins, étude de l'existant, définition des besoins fonctionnels et non fonctionnels, conception de la solution et élaboration des diagrammes UML. &
+4 semaines \\
+\hline
+
+Sprint 2 &
+Développement du module d'enrichissement intelligent : génération automatique des descriptions, enrichissement des informations et traduction multilingue. &
+4 semaines \\
+\hline
+
+Sprint 3 &
+Développement du module de validation : contrôle de la qualité des données, détection des anomalies, correction automatique et calcul du score de qualité. &
+4 semaines \\
+\hline
+
+Sprint 4 &
+Intégration des modules d'enrichissement et de validation dans SAP Commerce Cloud, développement des composants d'intégration et mise en place des échanges avec le microservice d'intelligence artificielle. &
+5 semaines \\
+\hline
+
+Sprint 5 &
+Tests fonctionnels et d'intégration, correction des anomalies, validation de la solution, amélioration des performances et finalisation de la documentation technique. &
+3 semaines \\
+\hline
+
+\end{tabular}
+\end{table}
+
+
+
+\newpage
+
+\subsubsection{Mécanisme de feedback}
+
+Afin d'assurer un suivi régulier du projet, des réunions de type \textit{Daily Scrum} étaient organisées chaque matin. Elles permettaient de faire le point sur les travaux réalisés, les tâches prévues pour la journée ainsi que les éventuelles difficultés rencontrées. En complément, une réunion d'avancement était tenue toutes les deux semaines avec le chef de projet afin de présenter les fonctionnalités développées, de recueillir les retours et de définir les objectifs prochains. Ces échanges ont favorisé une amélioration continue de la solution tout en garantissant son adéquation avec les besoins du projet.
+ 
+
+\subsection{Backlog du produit}
+
+Le backlog constitue un élément essentiel de la méthodologie Scrum puisqu'il permet d'organiser et de suivre les travaux à réaliser tout au long du projet. Il offre une vision structurée des fonctionnalités à développer et facilite leur planification au cours des différents Sprints. Les besoins identifiés lors de la phase d'analyse sont progressivement transformés en activités concrètes afin de garantir une réalisation cohérente de la solution.
+Dans le cadre de ce projet, le développement a été organisé à l'aide d'un \textit{Sprint Backlog} présenté dans le tableau~\ref{tab:sprint_backlog}. Pour chaque Sprint, les fonctionnalités retenues ont été décomposées en un ensemble de tâches permettant de guider les différentes étapes de développement. Cette organisation a facilité le suivi de l'avancement des travaux, la répartition des activités ainsi que la validation progressive des fonctionnalités réalisées.
+
+
+\begin{table}[H]
+\centering
+\caption{Extrait du Sprint Backlog du projet}
+\label{tab:sprint_backlog}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|p{5cm}|p{10.3cm}|}
+\hline
+\textbf{User Story} & \textbf{Tâches réalisées} \\
+\hline
+
+Enrichir automatiquement les champs vides des produits &
+\begin{tabular}[t]{@{}l@{}}
+-- Préparer les informations nécessaires à la génération.\\
+-- Générer automatiquement les descriptions.\\
+-- Vérifier la qualité des résultats obtenus.
+\end{tabular}
+\\
+\hline
+
+Traduire les informations des produits &
+\begin{tabular}[t]{@{}l@{}}
+-- Préparer les langues à traiter.\\
+-- Traduire automatiquement les champs des produits.\\
+-- Vérifier la cohérence des traductions.
+\end{tabular}
+\\
+\hline
+
+Vérifier la qualité des champs des produits &
+\begin{tabular}[t]{@{}l@{}}
+-- Contrôler la présence des champs obligatoires.\\
+-- Identifier les anomalies détectées.\\
+-- Calculer le score de qualité.
+\end{tabular}
+\\
+\hline
+
+Corriger automatiquement certaines anomalies &
+\begin{tabular}[t]{@{}l@{}}
+-- Identifier les erreurs pouvant être corrigées.\\
+-- Appliquer les corrections automatiques.\\
+\end{tabular}
+\\
+\hline
+
+Intégrer la solution à SAP Commerce Cloud &
+\begin{tabular}[t]{@{}l@{}}
+-- Établir la communication entre les applications.\\
+-- Lancer les traitements depuis SAP Commerce Cloud.\\
+-- Récupérer et afficher les résultats.
+\end{tabular}
+\\
+\hline
+
+Tester et valider la solution &
+\begin{tabular}[t]{@{}l@{}}
+-- Réaliser les tests fonctionnels.\\
+-- Corriger les anomalies détectées.\\
+-- Valider le fonctionnement global de la solution.
+\end{tabular}
+\\
+\hline
+
+\end{tabular}
+\end{table}
+
+
+
+
+
+\section{Conclusion}
+
+Dans ce chapitre, nous avons présenté le contexte général du projet ainsi que les principaux concepts nécessaires à sa compréhension. Après une présentation de l'entreprise d'accueil et de son domaine d'activité, nous avons introduit les notions essentielles relatives au commerce électronique, à la gestion des informations des produits et à l'intelligence artificielle générative.
+
+Cette étude a permis de mettre en évidence les enjeux liés à la gestion de catalogues des produits ainsi que les limites des traitements manuels, conduisant à la définition de la problématique et à la présentation d'une approche d'assistance intelligente pour l'enrichissement et la validation des données des produits.
+
+Enfin, nous avons présenté la méthodologie adoptée pour encadrer le développement du projet. Le chapitre suivant sera consacré à l'analyse des besoins et à la conception de la solution proposée.
+

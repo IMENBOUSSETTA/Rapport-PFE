@@ -1,0 +1,24 @@
+\chapter*{Conclusion générale et perspectives}
+\addcontentsline{toc}{chapter}{Conclusion générale et perspectives}
+
+Au terme de ce projet de fin d'études réalisé au sein de DECADE pour répondre aux besoins d'ETANCO, nous avons conçu et réalisé une solution intelligente dédiée à l'enrichissement et à la validation des données des produits dans SAP Commerce Cloud. Ce travail répond à la problématique liée aux nombreuses tâches répétitives de rédaction, de traduction et de contrôle nécessaires à la gestion d'un catalogue de produits.
+
+La solution proposée repose sur un microservice d'intelligence artificielle indépendant de SAP Commerce Cloud. Celui-ci prend en charge les traitements d'enrichissement, notamment la génération de contenus et la traduction multilingue, ainsi que la validation de la qualité des données. Cette dernière combine plusieurs niveaux de contrôle permettant d'identifier les anomalies et de proposer des corrections, tout en fournissant un score global de qualité. La séparation entre les traitements d'intelligence artificielle et la plateforme e-commerce permet ainsi de conserver une architecture évolutive et faiblement couplée. 
+
+
+L'intégration réalisée dans SAP Commerce Cloud permet d'exploiter ces fonctionnalités directement dans le processus de gestion des produits. Les échanges entre les deux composants reposent sur des API REST, tandis que le workflow assure l'enchaînement des différentes étapes, depuis le déclenchement de l'enrichissement jusqu'à la validation finale du produit. 
+
+Un principe essentiel a guidé la conception de cette solution : \textbf{l'intelligence artificielle a pour objectif d'assister le responsable et non de le remplacer}. Elle prend en charge une partie des tâches répétitives et fournit des contenus, des corrections et des recommandations, mais le responsable conserve la maîtrise du processus. Il peut examiner les résultats, les accepter, demander une nouvelle génération ou interrompre le traitement. La décision finale reste ainsi sous son contrôle. Cette complémentarité permet de combiner l'automatisation apportée par l'intelligence artificielle avec l'expertise humaine.
+
+
+La réalisation de ce projet a ainsi permis d'aboutir à une solution fonctionnelle intégrant les traitements d'intelligence artificielle au sein de SAP Commerce Cloud, tout en mettant en pratique des compétences liées au développement de microservices, aux API REST, à l'intelligence artificielle et à l'intégration de solutions e-commerce.
+
+Plusieurs évolutions pourraient être envisagées afin de prolonger ce travail.
+
+Une première perspective serait d'intégrer une \textbf{intelligence artificielle multimodale} capable d'analyser les images associées aux produits en complément des informations textuelles. Elle pourrait notamment détecter des anomalies visuelles, identifier une image ne correspondant pas au produit ou relever des incohérences entre l'image et les informations disponibles. Les résultats seraient ensuite présentés au responsable sous forme d'alertes ou de recommandations, afin qu'il puisse prendre la décision appropriée.
+
+Une deuxième perspective concernerait le \textbf{déploiement du microservice dans un environnement Cloud}. Cela permettrait d'améliorer sa disponibilité, de faciliter sa mise à l'échelle en fonction du volume de traitements et de disposer de ressources adaptées à l'utilisation de modèles d'intelligence artificielle plus importants.
+
+Enfin, un \textbf{mécanisme de retour utilisateur} pourrait être ajouté afin d'exploiter les décisions du responsable et d'améliorer progressivement les règles de validation ainsi que les recommandations proposées par le système.
+
+Ainsi, ce projet constitue une première étape vers une gestion plus intelligente et plus efficace des informations des produits. Les perspectives envisagées permettraient d'étendre progressivement les capacités de la solution tout en conservant son principe fondamental : \textbf{mettre l'intelligence artificielle au service du responsable, avec l'humain au centre de la décision}.

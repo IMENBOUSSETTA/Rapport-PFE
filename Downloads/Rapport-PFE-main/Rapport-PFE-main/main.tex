@@ -1,0 +1,234 @@
+﻿﻿\documentclass[12pt,a4paper]{report}
+
+%%%%%%%%%%%%%%%%%%
+%%% Math & Symboles
+%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{lmodern}
+%\usepackage{newtxmath}
+\usepackage{bm}
+
+%%%%%%%%%%%%%%%%%%
+%%% Encodage & langues
+%%%%%%%%%%%%%%%%%%
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+
+\usepackage{color}
+
+%%%%%%%%%%%%%%%%%%
+%%% Mise en page
+%%%%%%%%%%%%%%%%%%
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm, headheight=28pt}
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=*}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{#1}}
+\fancyhead[R]{\thepage}
+\fancyhead[L]{\chaptername\ \thechapter\ --\ \leftmark}
+
+%%%%%%%%%%%%%%%%%%
+%%% Algorithmes
+%%%%%%%%%%%%%%%%%%
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\renewcommand{\listalgorithmname}{Liste des Algorithmes}
+
+%%%%%%%%%%%%%%%%%%
+%%% Images & Tableaux
+%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx}
+\graphicspath{{images/}}
+\usepackage{epstopdf}
+\usepackage{subfig}
+\usepackage{float}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{tikz}
+\usetikzlibrary{positioning, arrows.meta}
+
+%%%%%%%%%%%%%%%%%%
+%%% Boîtes & Couleurs
+%%%%%%%%%%%%%%%%%%
+\usepackage[most]{tcolorbox}
+\usepackage{xcolor}
+
+
+
+\usepackage{setspace}
+
+\setstretch{1.33}
+
+
+%%%%%%%%%%%%%%%%%%
+%%% Références & Bibliographie
+%%%%%%%%%%%%%%%%%%
+\usepackage[resetlabels]{multibib}
+\newcites{URL}{Netographie}
+\usepackage{url}
+\usepackage[footnote]{acronym}
+
+%%%%%%%%%%%%%%%%%%
+%%% Texte arabe (temp removed)
+%%%%%%%%%%%%%%%%%%
+% \usepackage{arabtex}
+
+%%%%%%%%%%%%%%%%%%
+%%% Hyperref (Dernier pour la compatibilité)
+%%%%%%%%%%%%%%%%%%
+\usepackage[colorlinks=true, linkcolor=black, citecolor=black, urlcolor=blue]{hyperref}
+
+%%%%%%%%%%%%%%%%%%
+%%% Divers
+%%%%%%%%%%%%%%%%%%
+\newlength\figureheight
+\newlength\figurewidth
+
+\renewcommand{\labelitemi}{--}
+\renewcommand{\labelitemii}{\textbullet}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%% DOCUMENT %%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\input{pg-pcd-ENSI}
+
+\clearpage
+
+\input{0-i-signature}
+
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% Résumé %%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\Large \textbf{Résumé}} \\[0.5cm]
+\end{center}
+
+Ce projet s’inscrit dans le cadre de notre projet de fin d’études à l’École Nationale des Sciences de l’Informatique, en vue de l’obtention du diplôme d’ingénieur en informatique. Il a été réalisé au sein de DECADE sur une durée de six mois.
+
+L’objectif principal du projet est de concevoir une solution intelligente d’enrichissement et de validation des données produits intégrée à SAP Commerce pour ETANCO/SIMPSON. Cette solution permet d’automatiser la génération des descriptions produits, la traduction des contenus ainsi que la détection des anomalies et incohérences dans les données avant leur publication sur les plateformes e-commerce.
+
+\vspace{0.3cm}
+
+\textbf{Mots-clés :} SAP Commerce, Intelligence artificielle, NLP, Enrichissement produit, Validation des données, E-commerce.
+
+\noindent\rule{\textwidth}{0.4pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% Abstract %%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\Large \textbf{Abstract}} \\[0.5cm]
+\end{center}
+
+This project is part of our end-of-study project at the National School of Computer Science, leading to the engineering degree in computer science. It was carried out at DECADE over a period of six months.
+
+The main objective of the project is to design an intelligent product enrichment and validation solution integrated into SAP Commerce for ETANCO/SIMPSON. The solution automates product description generation, content translation, and the detection of anomalies and inconsistencies in product data before publication on e-commerce platforms.
+
+\vspace{0.3cm}
+
+\textbf{Keywords :} SAP Commerce, Artificial Intelligence, NLP, Product Enrichment, Data Validation, E-commerce.
+
+\noindent\rule{\textwidth}{0.4pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% الملخص %%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+% {\Large \textbf{\RL{الملخص}}} \\[0.5cm]
+{\Large \textbf{Résumé Arabe}} \\[0.5cm]
+\end{center}
+
+% \begin{arabtext}
+% يندرج هذا المشروع في إطار مشروع ختم الدراسات بالمدرسة الوطنية لعلوم الإعلامية لنيل شهادة مهندس في الإعلامية، وقد تم إنجازه بشركة DECADE على مدى ستة أشهر.
+%
+% يهدف هذا المشروع إلى تصميم حل ذكي لإثراء والتحقق من بيانات المنتجات داخل SAP Commerce لفائدة ETANCO/SIMPSON. يتيح هذا الحل أتمتة توليد أوصاف المنتجات، وترجمة المحتوى، واكتشاف الأخطاء والتناقضات في بيانات المنتجات قبل نشرها على منصات التجارة الإلكترونية.
+%
+% \textbf{الكلمات المفتاحية :}
+% SAP Commerce, الذكاء الاصطناعي, NLP, إثراء المنتجات, التحقق من البيانات, التجارة الإلكترونية.
+% \end{arabtext}
+
+\clearpage
+
+\pagenumbering{roman}
+
+\input{0-iii-Remerciements}
+
+\clearpage
+
+\tableofcontents
+
+\chapter*{Liste des acronymes}
+
+\begin{acronym}[Transformers]
+\acro{AI}{Artificial Intelligence}
+\acro{API}{Application Programming Interface}
+\acro{B2B}{Business-to-Business}
+\acro{B2C}{Business-to-Consumer}
+\acro{BLEU}{Bilingual Evaluation Understudy}
+\acro{CRM}{Customer Relationship Management}
+\acro{DAO}{Data Access Object}
+\acro{DTO}{Data Transfer Object}
+\acro{ERP}{Enterprise Resource Planning}
+\acro{GPU}{Graphics Processing Unit}
+\acro{HTML}{HyperText Markup Language}
+\acro{HTTP}{HyperText Transfer Protocol}
+\acro{IA}{Intelligence Artificielle}
+\acro{JSON}{JavaScript Object Notation}
+\acro{LLM}{Large Language Model}
+\acro{LoRA}{Low-Rank Adaptation}
+\acro{NLP}{Natural Language Processing}
+\acro{NLLB}{No Language Left Behind}
+\acro{ORM}{Object-Relational Mapping}
+\acro{PEFT}{Parameter-Efficient Fine-Tuning}
+\acro{PIM}{Product Information Management}
+\acro{REST}{Representational State Transfer}
+\acro{SMTP}{Simple Mail Transfer Protocol}
+\acro{TAL}{Traitement Automatique des Langues}
+\acro{UML}{Unified Modeling Language}
+\acro{URL}{Uniform Resource Locator}
+\acro{XML}{Extensible Markup Language}
+\end{acronym}
+
+\clearpage
+
+\pagenumbering{arabic}
+
+\input{0-introduction}
+
+\input{1-first-chapter}
+
+\input{2-second-chapter}
+\input{3-third-chapter}
+\input{4-fourth-chapter}
+
+\input{2-conclusion}
+
+\appendix
+
+\input{3-annexes}
+
+\clearpage
+\addcontentsline{toc}{chapter}{Bibliographie}
+\bibliographystyle{plain}
+\bibliography{references}
+
+\clearpage
+\addcontentsline{toc}{chapter}{Netographie}
+\bibliographystyleURL{unsrt}
+\bibliographyURL{urls}
+
+\end{document}
