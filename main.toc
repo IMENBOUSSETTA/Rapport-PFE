@@ -1,0 +1,141 @@
+\babel@toc {french}{}\relax 
+\contentsline {chapter}{Introduction Générale}{1}{chapter*.4}%
+\contentsline {chapter}{\numberline {1}Présentation générale du projet}{4}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Introduction}{4}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Présentation de l’organisme d’accueil}{4}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Présentation de l’entreprise : DECADE}{4}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Types de projets}{5}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}Présentation du client : ETANCO}{5}{subsection.1.2.3}%
+\contentsline {section}{\numberline {1.3}Concepts de base}{6}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Le commerce électronique}{6}{subsection.1.3.1}%
+\contentsline {subsubsection}{Les modèles de commerce électronique}{6}{section*.7}%
+\contentsline {subsubsection}{Les systèmes intervenant dans le commerce électronique}{7}{section*.9}%
+\contentsline {subsubsection}{Cycle de vie des données d'un produit}{8}{section*.10}%
+\contentsline {subsection}{\numberline {1.3.2}SAP Commerce Cloud}{9}{subsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.3.3}L'intelligence artificielle générative}{9}{subsection.1.3.3}%
+\contentsline {subsubsection}{Définition}{9}{section*.12}%
+\contentsline {subsubsection}{Principales applications}{10}{section*.13}%
+\contentsline {subsection}{\numberline {1.3.4}Les grands modèles de langage}{10}{subsection.1.3.4}%
+\contentsline {subsubsection}{Définition}{10}{section*.14}%
+\contentsline {subsubsection}{Capacités des grands modèles de langage}{10}{section*.15}%
+\contentsline {section}{\numberline {1.4}Cadre général du projet}{11}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}Contexte général}{11}{subsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.4.2}Étude de l'existant}{11}{subsection.1.4.2}%
+\contentsline {subsection}{\numberline {1.4.3}Solution proposée}{12}{subsection.1.4.3}%
+\contentsline {section}{\numberline {1.5}Pilotage du projet}{13}{section.1.5}%
+\contentsline {subsection}{\numberline {1.5.1}Méthodologie Agile}{13}{subsection.1.5.1}%
+\contentsline {subsection}{\numberline {1.5.2}L'approche Scrum}{13}{subsection.1.5.2}%
+\contentsline {subsubsection}{Les rôles Scrum}{14}{section*.17}%
+\contentsline {subsubsection}{Planification des Sprints}{15}{section*.19}%
+\contentsline {subsubsection}{Mécanisme de feedback}{16}{section*.21}%
+\contentsline {subsection}{\numberline {1.5.3}Backlog du produit}{16}{subsection.1.5.3}%
+\contentsline {section}{\numberline {1.6}Conclusion}{17}{section.1.6}%
+\contentsline {chapter}{\numberline {2}Analyse, Conception et Architecture }{18}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Introduction}{18}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Analyse et Spécification des besoins}{18}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Identification des acteurs}{19}{subsection.2.2.1}%
+\contentsline {subsubsection}{Le responsable de l'enrichissement du produit}{19}{section*.23}%
+\contentsline {subsection}{\numberline {2.2.2}Recueil des besoins fonctionnels}{19}{subsection.2.2.2}%
+\contentsline {subsubsection}{Enrichissement des contenus des produits}{19}{section*.24}%
+\contentsline {subsubsection}{Détection des anomalies}{20}{section*.25}%
+\contentsline {subsubsection}{Validation des fiches des produits}{20}{section*.26}%
+\contentsline {subsection}{\numberline {2.2.3}Recueil des besoins non fonctionnels}{20}{subsection.2.2.3}%
+\contentsline {subsubsection}{Fiabilité}{20}{section*.27}%
+\contentsline {subsubsection}{Performance}{21}{section*.28}%
+\contentsline {subsubsection}{Sécurité}{21}{section*.29}%
+\contentsline {subsubsection}{Utilisabilité}{21}{section*.30}%
+\contentsline {subsubsection}{Scalabilité}{21}{section*.31}%
+\contentsline {section}{\numberline {2.3}Modélisation des besoins}{21}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Diagramme de cas d'utilisation}{22}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Diagramme de séquence système}{23}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Diagramme de classes global}{24}{subsection.2.3.3}%
+\contentsline {section}{\numberline {2.4}Architecture globale}{25}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Choix architecturaux}{25}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Architecture et organisation des composants}{26}{subsection.2.4.2}%
+\contentsline {subsubsection}{Diagramme de composants}{26}{section*.35}%
+\contentsline {subsubsection}{Composant SAP Commerce Cloud}{27}{section*.37}%
+\contentsline {subsubsection}{Microservice d'intelligence artificielle}{28}{section*.38}%
+\contentsline {subsubsection}{Communication entre les composants}{28}{section*.39}%
+\contentsline {subsection}{\numberline {2.4.3}Flux global de traitement}{29}{subsection.2.4.3}%
+\contentsline {section}{\numberline {2.5}Conclusion}{31}{section.2.5}%
+\contentsline {chapter}{\numberline {3}Module d'enrichissement et de validation des produits}{32}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Introduction}{32}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Architecture du microservice d'intelligence artificielle}{32}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Couche des routes}{34}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Couche des schémas de données}{34}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Couche des services de traitement}{35}{subsection.3.2.3}%
+\contentsline {subsubsection}{Service d'enrichissement}{35}{section*.42}%
+\contentsline {subsubsection}{Service de validation}{36}{section*.43}%
+\contentsline {subsection}{\numberline {3.2.4}Couche des modèles et composants d'intelligence artificielle}{36}{subsection.3.2.4}%
+\contentsline {section}{\numberline {3.3}Module d'enrichissement intelligent}{37}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Génération automatique des descriptions}{37}{subsection.3.3.1}%
+\contentsline {subsubsection}{Principes des grands modèles de langage}{37}{section*.44}%
+\contentsline {subsubsection}{Comparaison et sélection du modèle}{37}{section*.45}%
+\contentsline {subsubsection}{Exécution locale avec Ollama}{38}{section*.47}%
+\contentsline {subsubsection}{Génération du résumé et de la description}{38}{section*.48}%
+\contentsline {subsection}{\numberline {3.3.2}Traduction multilingue}{40}{subsection.3.3.2}%
+\contentsline {subsubsection}{Comparaison des modèles de traduction}{40}{section*.49}%
+\contentsline {subsubsection}{Présentation générale de NLLB}{40}{section*.50}%
+\contentsline {subsubsection}{Fine-tuning avec LoRA}{40}{section*.51}%
+\contentsline {subsubsection}{Jeu de données d'entraînement}{41}{section*.52}%
+\contentsline {subsubsection}{Configuration de l'entraînement}{41}{section*.53}%
+\contentsline {subsubsection}{Résultats du fine-tuning}{42}{section*.55}%
+\contentsline {subsubsection}{Fonctionnement du module de traduction dans le microservice}{42}{section*.56}%
+\contentsline {subsection}{\numberline {3.3.3}Structure de la réponse du service d'enrichissement}{43}{subsection.3.3.3}%
+\contentsline {section}{\numberline {3.4}Module de validation : contrôle de qualité automatique}{44}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Couche 1 : Validation structurelle}{45}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Couche 2 : Validation sémantique}{46}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}Couche 3 : Corrections automatiques et suggestions}{47}{subsection.3.4.3}%
+\contentsline {subsection}{\numberline {3.4.4}Couche 4 : Calcul du score de qualité}{48}{subsection.3.4.4}%
+\contentsline {subsection}{\numberline {3.4.5}Standardisation de la réponse de validation}{49}{subsection.3.4.5}%
+\contentsline {section}{\numberline {3.5}Conclusion}{50}{section.3.5}%
+\contentsline {chapter}{\numberline {4}Intégration dans SAP Commerce Cloud}{51}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Introduction}{51}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Présentation de SAP Commerce Cloud}{51}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Organisation en couches}{52}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Description des principales couches}{53}{subsection.4.2.2}%
+\contentsline {subsubsection}{Couche Présentation}{53}{section*.59}%
+\contentsline {subsubsection}{Couche Facade}{53}{section*.60}%
+\contentsline {subsubsection}{Couche Service}{53}{section*.61}%
+\contentsline {subsubsection}{Couche d'accès aux données}{53}{section*.62}%
+\contentsline {subsubsection}{Couche Modèle}{53}{section*.63}%
+\contentsline {subsection}{\numberline {4.2.3}Notion de workflow}{54}{subsection.4.2.3}%
+\contentsline {section}{\numberline {4.3}Intégration du microservice IA dans SAP Commerce Cloud}{54}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Architecture de l'intégration}{55}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Communication REST entre les composants}{55}{subsection.4.3.2}%
+\contentsline {section}{\numberline {4.4}Présentation du workflow d'enrichissement et de validation des produits}{57}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Déroulement global}{57}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Gestion des états du produit}{57}{subsection.4.4.2}%
+\contentsline {section}{\numberline {4.5}Réalisation du workflow d'enrichissement et de validation}{58}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Configuration du workflow}{58}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Action 1 : Déclenchement du workflow}{59}{subsection.4.5.2}%
+\contentsline {subsubsection}{Fonctionnement}{59}{section*.66}%
+\contentsline {subsubsection}{Implémentation}{59}{section*.67}%
+\contentsline {subsubsection}{Notification envoyée}{59}{section*.68}%
+\contentsline {subsection}{\numberline {4.5.3}Action 2 : Sélection des champs et des langues}{60}{subsection.4.5.3}%
+\contentsline {subsubsection}{Fonctionnement}{60}{section*.70}%
+\contentsline {subsubsection}{Implémentation}{60}{section*.71}%
+\contentsline {subsubsection}{Interface de sélection}{61}{section*.72}%
+\contentsline {subsection}{\numberline {4.5.4}Action 3 : Enrichissement automatique du produit}{62}{subsection.4.5.4}%
+\contentsline {subsubsection}{Fonctionnement}{62}{section*.75}%
+\contentsline {subsubsection}{Implémentation}{63}{section*.76}%
+\contentsline {subsubsection}{Échange avec le microservice.}{63}{section*.77}%
+\contentsline {subsubsection}{Résultat}{63}{section*.78}%
+\contentsline {subsection}{\numberline {4.5.5}Action 4 : Validation automatique des résultats}{63}{subsection.4.5.5}%
+\contentsline {subsubsection}{Fonctionnement}{63}{section*.79}%
+\contentsline {subsubsection}{Implémentation}{64}{section*.80}%
+\contentsline {subsubsection}{Notification de fin de traitement}{64}{section*.81}%
+\contentsline {subsection}{\numberline {4.5.6}Action 5 : Consultation des résultats}{65}{subsection.4.5.6}%
+\contentsline {subsubsection}{Résultats de l'enrichissement}{65}{section*.83}%
+\contentsline {subsubsection}{Résultats de la validation}{66}{section*.85}%
+\contentsline {subsubsection}{Anomalies identifiées}{66}{section*.87}%
+\contentsline {subsubsection}{Corrections suggérées}{67}{section*.89}%
+\contentsline {subsubsection}{Corrections automatiques}{68}{section*.91}%
+\contentsline {subsubsection}{Prise de décision}{68}{section*.93}%
+\contentsline {subsection}{\numberline {4.5.7}Action 6 : Validation du produit}{69}{subsection.4.5.7}%
+\contentsline {subsubsection}{Fonctionnement}{69}{section*.94}%
+\contentsline {subsubsection}{Implémentation}{69}{section*.95}%
+\contentsline {subsubsection}{Résultat}{69}{section*.96}%
+\contentsline {section}{\numberline {4.6}Conclusion}{70}{section.4.6}%
+\contentsline {chapter}{Conclusion générale et perspectives}{71}{chapter*.97}%
+\contentsline {chapter}{Netographie}{73}{chapter*.97}%

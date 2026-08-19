@@ -1,0 +1,471 @@
+﻿\chapter{Intégration dans SAP Commerce Cloud}
+
+\section{Introduction}
+
+Après avoir présenté dans le chapitre précédent la conception et la réalisation du microservice d'intelligence artificielle, ce chapitre est consacré à son intégration dans SAP Commerce Cloud. Cette intégration permet d'exploiter les fonctionnalités d'enrichissement, de traduction et de validation développées précédemment dans le processus de gestion des produits.
+
+Dans un premier temps, les principales caractéristiques de SAP Commerce Cloud ainsi que son organisation en couches sont présentées. La notion de workflow est ensuite introduite afin de préciser le mécanisme utilisé pour orchestrer les différentes étapes du processus. La communication entre SAP Commerce Cloud et le microservice est également décrite à travers les échanges REST mis en place.
+
+Enfin, la réalisation du workflow d'enrichissement et de validation est détaillée à travers ses différentes actions, depuis le déclenchement du traitement et la sélection des paramètres jusqu'à la consultation des résultats et la validation finale du produit.
+
+\section{Présentation de SAP Commerce Cloud}
+
+Comme présenté dans le premier chapitre, SAP Commerce Cloud constitue la plateforme de commerce électronique sur laquelle repose la solution développée. Dans le cadre de ce projet, elle joue le rôle de système principal pour la gestion des produits et l'orchestration du processus d'enrichissement et de validation.
+\newpage
+L'intégration réalisée s'appuie sur les différents composants de la plateforme afin de récupérer les données du produit, déclencher les traitements, communiquer avec le microservice d'intelligence artificielle et exploiter les résultats retournés. Cette organisation permet de conserver le microservice indépendant de SAP Commerce Cloud, tout en assurant son intégration au processus métier existant.
+
+\subsection{Organisation en couches}
+
+L'architecture de SAP Commerce Cloud repose sur une organisation modulaire permettant de séparer les différentes responsabilités de l'application. Dans le cadre de ce projet, les principales couches mobilisées sont la couche Présentation, la couche Facade, la couche Service, la couche d'accès aux données et la couche Modèle.
+
+La Figure~\ref{fig:architecture_sap} présente une vue simplifiée de cette organisation ainsi que le rôle des principales couches utilisées dans la solution.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.36\textwidth]{images/architecture_sap.png}
+\caption{Organisation en couches de SAP Commerce Cloud}
+\label{fig:architecture_sap}
+\end{figure}
+\newpage
+Ces différentes couches collaborent pour assurer le traitement des opérations liées à la gestion des produits et à l'exécution du workflow. Elles permettent également d'isoler la logique d'intégration avec le microservice d'intelligence artificielle au niveau des services métier.
+
+\subsection{Description des principales couches}
+
+\subsubsection{Couche Présentation}
+
+La couche Présentation correspond au niveau d'interaction avec les utilisateurs. Dans la solution développée, le \textit{Backoffice} permet au responsable de consulter et de gérer les produits ainsi que d'interagir avec les différentes étapes du workflow d'enrichissement et de validation.
+
+\subsubsection{Couche Facade}
+
+La couche Facade assure l'intermédiaire entre la présentation et les services métier. Elle expose des opérations adaptées aux besoins de l'interface tout en masquant les détails liés à l'implémentation des traitements.
+
+\subsubsection{Couche Service}
+
+La couche Service regroupe la logique métier et assure la coordination des différentes opérations du processus. Elle constitue également le principal point d'intégration avec le microservice d'intelligence artificielle.
+
+Dans le cadre de ce projet, les services développés permettent notamment de récupérer les informations nécessaires du produit, de préparer les données à transmettre, de déclencher les appels aux API REST du microservice et de traiter les résultats retournés.
+
+\subsubsection{Couche d'accès aux données}
+
+La couche d'accès aux données regroupe les mécanismes permettant de rechercher et de récupérer les informations nécessaires aux traitements métier. Elle assure ainsi la séparation entre les opérations d'accès aux données et la logique métier portée par les services.
+
+\subsubsection{Couche Modèle}
+
+La couche Modèle représente les entités métier manipulées par SAP Commerce Cloud. Ces entités sont notamment définies à l'aide des \textit{ItemTypes}, qui permettent de décrire leurs attributs et leurs relations.
+
+Dans le cadre de ce projet, le modèle \textit{Product} est principalement utilisé pour accéder aux informations nécessaires au processus d'enrichissement et de validation. Ces informations sont ensuite préparées par la couche Service avant leur transmission au microservice d'intelligence artificielle.
+
+\subsection{Notion de workflow}
+
+Le workflow correspond à un enchaînement structuré d'étapes permettant d'exécuter un processus selon un ordre défini. Il permet de représenter les différentes opérations du processus, les interventions du responsable ainsi que les conditions déterminant la suite du traitement.
+
+Dans SAP Commerce Cloud, une \textbf{action} représente une opération exécutée au cours du workflow. Elle peut être automatique, lorsqu'elle est prise en charge directement par le système, ou manuelle, lorsqu'une intervention du responsable est nécessaire.
+
+Une \textbf{décision} constitue un point de choix permettant de déterminer la prochaine étape du processus selon une condition ou une décision du responsable. Elle permet notamment d'accepter un résultat, de relancer un traitement ou de mettre fin au processus.
+
+Dans le cadre de ce projet, le workflow permet d'orchestrer le processus d'enrichissement et de validation des produits. Il coordonne les différentes actions réalisées dans SAP Commerce Cloud et les échanges avec le microservice d'intelligence artificielle. Les traitements effectués par ce microservice, notamment l'enrichissement, la traduction et la validation, sont détaillés dans le chapitre précédent.
+
+\section{Intégration du microservice IA dans SAP Commerce Cloud}
+
+L'intégration du microservice d'intelligence artificielle dans SAP Commerce Cloud permet de déléguer les traitements d'enrichissement, de traduction et de validation à un composant externe, tout en conservant la gestion des produits et l'orchestration du processus au niveau de SAP Commerce Cloud. Le microservice reste ainsi indépendant de la plateforme et communique avec celle-ci à travers des interfaces REST.
+\newpage
+\subsection{Architecture de l'intégration}
+
+L’architecture mise en place repose sur deux composants principaux : \textbf{SAP Commerce Cloud} et le \textbf{microservice d’intelligence artificielle}. SAP Commerce Cloud assure l’orchestration du processus à travers le workflow et communique avec le microservice via les services d’intégration.
+
+Les échanges reposent sur deux API REST : \texttt{POST /enrich}, utilisée pour transmettre les données du produit et récupérer les résultats d’enrichissement, et \texttt{POST /valid}, destinée à transmettre les données à valider et à recevoir le score, les anomalies et les corrections proposées.
+
+Cette organisation permet de séparer les responsabilités : \textbf{SAP Commerce Cloud} gère le workflow et les données du produit, tandis que le \textbf{microservice IA} prend en charge les traitements d’enrichissement et de validation.
+
+La Figure~\ref{fig:architecture_integration} présente l'architecture générale de cette intégration.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{images/architecture_integration.png}
+\caption{Architecture de l'intégration}
+\label{fig:architecture_integration}
+\end{figure}
+
+\subsection{Communication REST entre les composants}
+
+La communication entre SAP Commerce Cloud et le microservice d'intelligence artificielle repose sur des échanges REST via le protocole HTTP. Les appels sont réalisés à l'aide de \texttt{RestTemplate} et les données sont échangées au format JSON. Chaque requête et chaque réponse sont structurées autour de deux parties principales : les \textit{headers} et le \textit{body}.
+
+Les \textit{headers} permettent notamment de préciser le format des données échangées ainsi que certaines informations relatives à l'application et au site concerné. Le \textit{body} contient quant à lui les données nécessaires au traitement.
+
+\begin{tcolorbox}[
+colback=white,
+colframe=black,
+coltext=black,
+title=Requête HTTP,
+fonttitle=\bfseries,
+boxrule=0.6pt,
+arc=1mm
+]
+\textbf{Headers}
+\begin{verbatim}
+Content-Type: application/json
+Accept: application/json
+X-Client: PFE-APP
+X-Site-Id: <site>
+Accept-Language: en
+\end{verbatim}
+
+\textbf{Body}
+\begin{verbatim}
+{
+"product": { ... }
+}
+\end{verbatim}
+\end{tcolorbox}
+
+Pour construire les requêtes et exploiter les réponses JSON, SAP Commerce Cloud utilise la bibliothèque \textit{Jackson} de Java. La classe \texttt{ObjectMapper} permet de convertir les objets Java en données JSON lors de l'envoi et de transformer les réponses JSON reçues en objets Java.
+
+Pour l'enrichissement, les données sont transmises à travers l'endpoint \texttt{POST /enrich}. Le microservice retourne ensuite les résultats d'enrichissement sous forme d'une réponse JSON.
+
+\begin{tcolorbox}[
+colback=white,
+colframe=black,
+coltext=black,
+title=Réponse HTTP -- /enrich,
+fonttitle=\bfseries,
+boxrule=0.6pt,
+arc=1mm
+]
+\textbf{Headers}
+\begin{verbatim}
+Content-Type: application/json
+\end{verbatim}
+
+\textbf{Body}
+\begin{verbatim}
+{
+"result": { ... }
+}
+\end{verbatim}
+\end{tcolorbox}
+
+Le même principe est appliqué à la validation à travers l'endpoint \texttt{POST /valid}. La requête contient les données à contrôler dans son \textit{body}, tandis que la réponse retourne les résultats de validation.
+
+Ainsi, les échanges entre les deux composants restent simples et standardisés : SAP Commerce Cloud prépare les données, les transmet au format JSON et exploite les résultats retournés par le microservice.
+
+\section{Présentation du workflow d'enrichissement et de validation des produits}
+
+Le workflow mis en place dans SAP Commerce Cloud permet de structurer le processus d'enrichissement et de validation des produits. Il organise l'enchaînement des traitements automatiques et des interventions du responsable de l'enrichissement.
+
+\subsection{Déroulement global}
+
+Le processus est piloté par le \textbf{responsable de l'enrichissement des produits}, qui constitue l'acteur humain du workflow. Il peut déclencher le traitement, consulter les résultats obtenus et intervenir lorsqu'une décision est requise.
+
+Le traitement débute par la sélection des champs et des langues à traiter. Le produit est ensuite transmis au microservice d'intelligence artificielle pour l'enrichissement, puis soumis à une validation automatique. Les résultats obtenus sont finalement présentés au responsable afin qu'il puisse les examiner.
+
+Trois choix sont alors possibles :
+
+\begin{itemize}
+\item \textbf{Accepter} : les résultats proposés sont acceptés et le produit passe à l'étape de validation.
+\item \textbf{Régénérer} : l'enrichissement est relancé afin d'obtenir une nouvelle proposition.
+\item \textbf{Quitter} : le processus est interrompu et le produit reste dans l'état \textit{À vérifier}.
+\end{itemize}
+
+\subsection{Gestion des états du produit}
+
+Le workflow permet de suivre l'évolution du produit à travers trois états principaux, correspondant aux différentes étapes du processus.
+
+\begin{table}[H]
+\centering
+\caption{États du produit au cours du workflow}
+\label{tab:etats_produit}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|p{5cm}|p{9.5cm}|}
+\hline
+\textbf{État} & \textbf{Description} \\
+\hline
+\textit{À vérifier} & Produit en attente de traitement ou dont le processus a été interrompu. \\
+\hline
+\textit{En cours de vérification} & Produit en cours de traitement et de validation par le workflow. \\
+\hline
+\textit{Validé} & Produit ayant terminé avec succès le processus de vérification. \\
+\hline
+\end{tabular}
+\end{table}
+
+\section{Réalisation du workflow d'enrichissement et de validation}
+
+La mise en œuvre du workflow repose sur plusieurs actions développées dans SAP Commerce Cloud afin d'assurer l'enchaînement des traitements et la gestion des différents états du produit. Chaque action correspond à une fonctionnalité précise du processus et peut faire intervenir des traitements automatiques, des services métier ou des interfaces destinées au responsable.
+
+\subsection{Configuration du workflow}
+
+Après avoir défini le fonctionnement du workflow, sa configuration est réalisée dans SAP Commerce Cloud à l'aide du mécanisme \textit{Impex}. Celui-ci permet d'importer des données dans la plateforme et notamment de créer, mettre à jour ou supprimer des instances d'\textit{ItemTypes}. Il est ainsi utilisé pour initialiser les différents éléments nécessaires à la mise en place du workflow.
+
+Dans le cadre de ce projet, le fichier \textit{Impex} permet notamment de déclarer le modèle du workflow ainsi que les modèles correspondant à ses différentes actions. Ces éléments constituent la structure de base sur laquelle repose l'exécution du processus.
+
+L'extrait suivant illustre la déclaration du workflow et d'une de ses actions :
+
+\begin{tcolorbox}[
+colback=gray!5,
+colframe=gray!60,
+title=\textbf{Extrait de la configuration Impex du workflow},
+fonttitle=\small,
+coltitle=black,
+boxrule=0.6pt,
+arc=2mm,
+left=3mm,
+right=3mm,
+top=2mm,
+bottom=2mm
+]
+\begin{verbatim}
+INSERT_UPDATE WorkflowTemplate; code; name[lang=fr];
+productEnrichmentWorkflow; Workflow d'enrichissement et de validation;
+
+INSERT_UPDATE WorkflowActionTemplate; code; name[lang=fr];
+productEnrichmentAction;  Déclenchement du traitement;
+\end{verbatim}
+\end{tcolorbox}
+
+Dans cet extrait, l'instruction \verb|INSERT_UPDATE| permet de créer l'élément s'il n'existe pas ou de le mettre à jour lorsqu'il existe déjà. Le premier bloc définit le modèle du workflow à travers son identifiant et son nom. Le second associe une action à ce workflow en précisant notamment le workflow auquel elle appartient et le nom de l'étape correspondante.
+
+Cette configuration constitue ainsi le point de départ de la réalisation du workflow. Les sections suivantes présentent les différentes actions développées ainsi que les fonctionnalités et interfaces associées à chacune d'elles.
+
+\subsection{Action 1 : Déclenchement du workflow}
+
+Cette première action correspond au déclenchement automatique du workflow d'enrichissement et de validation. Elle est initiée lorsque le produit passe à l'état \textit{À vérifier}, qui constitue le point de départ du processus.
+
+\subsubsection{Fonctionnement}
+
+Lorsqu'un produit est placé dans l'état \textit{À vérifier}, le workflow correspondant est automatiquement déclenché. Le produit entre alors dans le processus d'enrichissement et de validation et peut poursuivre vers les étapes suivantes définies dans le workflow.
+
+\subsubsection{Implémentation}
+
+La configuration de cette étape est réalisée à l'aide d'un fichier \textit{Impex}. Celui-ci permet notamment de définir le workflow associé au produit ainsi que les paramètres nécessaires à son déclenchement. La configuration précise également le responsable de l'enrichissement auquel le traitement est attribué.
+
+Le fichier permet également de définir les éléments liés à la notification envoyée lors du démarrage du workflow, notamment le destinataire, le modèle utilisé et le contenu du message. Cette configuration permet d'automatiser l'information du responsable sans nécessiter d'intervention supplémentaire.
+
+\subsubsection{Notification envoyée}
+
+Une fois le workflow déclenché, une notification est automatiquement envoyée au responsable de l'enrichissement. Elle l'informe du lancement du traitement et lui permet d'identifier le produit concerné.
+
+La Figure~\ref{fig:notification_enrichissement} présente un exemple du courrier électronique généré lors du déclenchement du workflow.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{images/notification_enrichissement.png}
+\caption{Notification envoyée lors du déclenchement du workflow}
+\label{fig:notification_enrichissement}
+\end{figure}
+
+Cette étape permet ainsi d'initialiser automatiquement le processus dès qu'un produit entre dans l'état \textit{À vérifier}, tout en informant le responsable chargé du suivi du traitement.
+
+\subsection{Action 2 : Sélection des champs et des langues}
+
+Cette deuxième action permet au responsable de définir les éléments du produit qui seront pris en charge par le processus d'enrichissement et de traduction. Elle offre ainsi la possibilité d'adapter le traitement aux besoins spécifiques de chaque produit.
+
+\subsubsection{Fonctionnement}
+
+À partir de l'interface de gestion du produit, le responsable peut sélectionner les \textit{champs à enrichir}, les \textit{champs à traduire} ainsi que les \textit{langues cibles}. Ces paramètres déterminent les informations qui seront transmises aux traitements automatisés lors des étapes suivantes.
+
+La sélection est effectuée directement depuis les champs prévus à cet effet. Le responsable peut ainsi choisir uniquement les informations nécessitant un enrichissement ou une traduction, sans appliquer systématiquement le traitement à l'ensemble des données du produit.
+
+\subsubsection{Implémentation}
+
+Cette fonctionnalité repose sur l'ajout d'attributs spécifiques au modèle du produit dans SAP Commerce Cloud. Ces attributs permettent de conserver les choix effectués par le responsable et de les exploiter lors de la préparation de la requête destinée au microservice d'intelligence artificielle.
+
+Les valeurs sélectionnées sont ensuite récupérées par le service chargé de préparer les données du produit. Elles permettent notamment de déterminer les champs à traiter ainsi que les langues dans lesquelles les contenus doivent être générés ou traduits.
+
+\subsubsection{Interface de sélection}
+
+Une interface dédiée a été intégrée à la fiche produit afin de regrouper les paramètres nécessaires au traitement. Comme le montre la Figure~\ref{fig:selection_champs_langues}, la section \textit{Traduction} permet au responsable de renseigner les champs à enrichir, les champs à traduire et les langues cibles.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{images/selection_champs_langues.png}
+\caption{Interface de sélection des champs et des langues}
+\label{fig:selection_champs_langues}
+\end{figure}
+
+\textbf{Résultat.}
+
+À l'issue de cette action, les choix effectués par le responsable sont associés au produit et seront utilisés lors du déclenchement de l'enrichissement automatique. La Figure~\ref{fig:exemple_selection} présente un exemple de sélection des champs à enrichir, des champs à traduire et des langues cibles.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{images/exemple_selection.png}
+\caption{Exemple de sélection des paramètres d'enrichissement}
+\label{fig:exemple_selection}
+\end{figure}
+
+\subsection{Action 3 : Enrichissement automatique du produit}
+
+Cette action assure la communication entre SAP Commerce Cloud et le microservice d'intelligence artificielle afin de réaliser automatiquement l'enrichissement du produit. Elle constitue l'étape au cours de laquelle les paramètres sélectionnés précédemment sont transmis au microservice pour générer les contenus demandés.
+
+\subsubsection{Fonctionnement}
+
+L'action récupère les informations du produit ainsi que les champs et les langues sélectionnés par le responsable lors de l'étape précédente. Ces données sont ensuite préparées sous la forme d'une requête conforme au schéma attendu par l'API d'enrichissement.
+
+La requête est envoyée au microservice d'intelligence artificielle à travers l'API REST \texttt{/enrich}. Le microservice réalise alors les traitements d'enrichissement et de traduction demandés, puis retourne une réponse contenant les résultats générés.
+
+SAP Commerce Cloud récupère cette réponse et exploite les informations retournées afin de poursuivre le traitement du produit. Les résultats sont ainsi préparés pour les étapes suivantes du workflow, notamment la validation automatique et la consultation par le responsable.
+
+\subsubsection{Implémentation}
+
+L'intégration repose sur un service dédié chargé d'assurer la communication avec le microservice. Celui-ci prépare les données du produit, construit l'objet de requête et effectue l'appel HTTP vers l'API \texttt{/enrich}.
+
+La réponse retournée par le microservice est ensuite désérialisée et traitée par SAP Commerce Cloud. Les données obtenues sont associées aux informations du produit afin de pouvoir être contrôlées lors de l'étape de validation.
+
+Cette organisation permet de séparer la logique d'intégration avec le microservice de la logique métier du workflow. L'action du workflow se charge ainsi de déclencher le traitement, tandis que le service dédié prend en charge la communication REST et le traitement de la réponse.
+
+\subsubsection{Échange avec le microservice.}
+
+Le processus repose sur un échange de données entre SAP Commerce Cloud et le microservice d'intelligence artificielle. SAP Commerce Cloud transmet les informations nécessaires à l'enrichissement dans une requête structurée, puis reçoit les contenus générés en réponse.
+
+L'utilisation d'une interface REST permet ainsi de maintenir le microservice indépendant de SAP Commerce Cloud tout en assurant son intégration au workflow.
+
+\subsubsection{Résultat}
+
+À l'issue de cette action, les résultats de l'enrichissement sont disponibles dans SAP Commerce Cloud et peuvent être soumis à l'étape suivante du workflow, consacrée à leur validation automatique.
+
+\subsection{Action 4 : Validation automatique des résultats}
+
+Cette action intervient après l'enrichissement automatique du produit. Elle permet de contrôler les résultats générés par le microservice d'intelligence artificielle avant leur présentation au responsable.
+
+\subsubsection{Fonctionnement}
+
+À la suite de l'enrichissement, les résultats obtenus sont transmis au service de validation. Celui-ci prépare les données nécessaires et construit la requête destinée à l'API de validation du microservice.
+
+SAP Commerce Cloud envoie alors la requête à l'API \texttt{/valid}. Le microservice exécute les différents contrôles définis dans le moteur de validation et retourne les résultats correspondants. La réponse reçue est ensuite récupérée et traitée par SAP Commerce Cloud afin de préparer les données qui seront présentées au responsable.
+
+Cette étape permet ainsi d'effectuer automatiquement les contrôles avant l'intervention humaine, tout en conservant les recommandations générées pour leur revue.
+
+\subsubsection{Implémentation}
+
+L'appel à l'API de validation repose sur un service dédié, chargé de préparer la requête, d'établir la communication REST avec le microservice et de traiter la réponse retournée.
+
+Le fonctionnement est similaire à celui de l'appel d'enrichissement présenté précédemment : SAP Commerce Cloud prépare les données, transmet une requête au microservice et exploite la réponse reçue. La différence réside dans la finalité du traitement, cette étape étant consacrée au contrôle des résultats produits lors de l'enrichissement.
+
+\subsubsection{Notification de fin de traitement}
+
+Une fois l'enrichissement et la validation terminés, une notification est automatiquement envoyée au responsable afin de l'informer que le traitement est terminé et que les recommandations sont prêtes pour consultation et validation.
+
+La Figure~\ref{fig:review_recommendation} présente un exemple du courrier électronique envoyé à l'issue du traitement.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{review_recommendation.png}
+\caption{Notification indiquant que les recommandations sont prêtes pour validation}
+\label{fig:review_recommendation}
+\end{figure}
+
+\newpage
+À l'issue de cette action, les résultats enrichis et validés sont disponibles pour le responsable. Le workflow peut alors poursuivre vers l'étape de consultation des recommandations, au cours de laquelle celui-ci pourra examiner les propositions et décider de leur acceptation, de leur régénération ou de l'abandon du traitement.
+
+\subsection{Action 5 : Consultation des résultats}
+
+Cette action constitue l'étape de contrôle humain du workflow. Une fois les traitements d'enrichissement et de validation terminés, le responsable accède aux résultats générés afin d'examiner les contenus proposés, les résultats de validation ainsi que les éventuelles anomalies et corrections identifiées.
+
+\subsubsection{Résultats de l'enrichissement}
+
+Les contenus générés par le microservice sont accessibles directement depuis la fiche du produit dans SAP Commerce Cloud. Le responsable peut ainsi consulter les valeurs enrichies ou traduites dans les langues sélectionnées lors de l'étape précédente.
+
+La Figure~\ref{fig:interface_enrichissement} présente l'interface permettant de consulter les résultats obtenus à l'issue du traitement d'enrichissement.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{images/interface_enrichissement.png}
+\caption{Interface de consultation des résultats d'enrichissement}
+\label{fig:interface_enrichissement}
+\end{figure}
+
+Cette interface permet au responsable de vérifier les contenus générés avant de prendre une décision concernant leur validation.
+
+\subsubsection{Résultats de la validation}
+
+Les résultats de la validation sont regroupés dans une interface dédiée accessible depuis l'onglet \textit{Validation IA}. Elle présente notamment le score obtenu, les anomalies identifiées ainsi que les corrections suggérées et les corrections appliquées automatiquement.
+
+La Figure~\ref{fig:interface_validation} présente cette interface de synthèse des résultats de validation.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{images/interface_validation.png}
+\caption{Interface de consultation des résultats de validation}
+\label{fig:interface_validation}
+\end{figure}
+
+Cette interface offre ainsi une vue globale de la qualité du produit et permet d'accéder aux différents éléments nécessitant une vérification.
+
+\subsubsection{Anomalies identifiées}
+
+Lorsque le moteur de validation détecte une anomalie qui nécessite une intervention, celle-ci est enregistrée et associée au champ concerné ainsi qu'à un niveau de gravité et à une recommandation.
+
+La Figure~\ref{fig:anomalie} présente un exemple d'anomalie détectée sur le champ \textit{price}. Dans cet exemple, l'anomalie est classée comme \textit{CRITICAL} et le système recommande de renseigner le champ avec une valeur valide.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{images/anomalie.png}
+\caption{Exemple d'une anomalie identifiée lors de la validation}
+\label{fig:anomalie}
+\end{figure}
+
+Les anomalies permettent ainsi d'orienter le responsable vers les informations nécessitant une correction avant la validation définitive du produit.
+
+\subsubsection{Corrections suggérées}
+
+Certaines anomalies peuvent donner lieu à une proposition de correction sans que celle-ci soit appliquée automatiquement. Le responsable conserve alors la possibilité d'examiner la modification proposée avant de l'accepter.
+
+La Figure~\ref{fig:correction_suggestion} présente un exemple de correction suggérée. Elle indique notamment le champ concerné, l'ancienne valeur, la nouvelle valeur proposée ainsi que le type de correction. Dans cet exemple, la correction nécessite une validation du responsable.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{images/correction_suggestion.png}
+\caption{Exemple d'une correction suggérée}
+\label{fig:correction_suggestion}
+\end{figure}
+\newpage
+Ce mécanisme permet de conserver une intervention humaine lorsque la modification proposée nécessite une vérification avant son application.
+
+\subsubsection{Corrections automatiques}
+
+À l'inverse, certaines corrections considérées comme sûres peuvent être appliquées automatiquement par le système. Ces corrections sont enregistrées afin de conserver la traçabilité de la modification effectuée.
+
+La Figure~\ref{fig:auto_correction} présente un exemple de correction automatique portant sur le nettoyage et la normalisation d'une valeur. La correction est indiquée comme appliquée et ne nécessite pas de validation supplémentaire.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{images/auto_correction.png}
+\caption{Exemple d'une correction appliquée automatiquement}
+\label{fig:auto_correction}
+\end{figure}
+
+La distinction entre corrections suggérées et corrections automatiques permet ainsi de réserver l'intervention du responsable aux modifications nécessitant une appréciation, tout en automatisant les corrections simples.
+
+\subsubsection{Prise de décision}
+
+À l'issue de cette consultation, le responsable dispose de l'ensemble des informations nécessaires pour évaluer les résultats du traitement. Il peut alors accepter les recommandations, demander une nouvelle génération ou quitter le processus.
+
+En cas d'acceptation, le workflow poursuit son exécution vers l'étape de validation du produit. En cas de régénération, le traitement revient à l'étape d'enrichissement automatique afin de produire une nouvelle proposition. Enfin, en cas d'abandon, le produit conserve l'état \textit{À vérifier}.
+
+\subsection{Action 6 : Validation du produit}
+
+Cette dernière action intervient lorsque le responsable accepte les résultats proposés lors de l'étape de consultation. Elle permet de finaliser le traitement et de clôturer le workflow.
+
+\subsubsection{Fonctionnement}
+
+Lorsque le responsable accepte les recommandations, le workflow poursuit automatiquement vers l'action de validation du produit. Celui-ci passe alors de l'état \textit{En cours de vérification} à l'état \textit{Validé}.
+
+Cette transition confirme l'acceptation des résultats et marque la fin du processus d'enrichissement et de validation.
+
+\subsubsection{Implémentation}
+
+L'action est implémentée dans SAP Commerce Cloud à travers une action dédiée du workflow. Son exécution consiste à mettre à jour automatiquement l'état de validation du produit. Une fois cette modification effectuée, aucune intervention supplémentaire n'est nécessaire et le workflow est clôturé.
+
+\subsubsection{Résultat}
+
+À l'issue de cette action, le produit est placé dans l'état \textit{Validé} et le workflow arrive à son état final. Le processus est ainsi terminé après validation des résultats par le responsable.
+
+\newpage
+
+\section{Conclusion}
+
+Ce chapitre a présenté l'intégration du microservice d'intelligence artificielle dans SAP Commerce Cloud ainsi que la réalisation du workflow d'enrichissement et de validation. L'organisation en couches de la plateforme a permis de situer les différents composants impliqués, tandis que la communication REST assure les échanges avec le microservice tout en conservant son indépendance.
+
+La réalisation du workflow permet d'automatiser les traitements d'enrichissement et de validation tout en laissant au responsable le contrôle des résultats et la décision finale concernant leur acceptation, leur régénération ou l'abandon du traitement.
+
+Ainsi, la solution réalisée combine l'automatisation apportée par le microservice d'intelligence artificielle avec les mécanismes de gestion et de suivi de SAP Commerce Cloud. Le bilan global du projet, les objectifs atteints et les perspectives d'évolution seront présentés dans la conclusion générale.

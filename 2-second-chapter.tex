@@ -1,0 +1,242 @@
+﻿\chapter{Analyse, Conception et Architecture }
+\label{chap:deuxiemechapitre}
+
+\section{Introduction}
+
+Après avoir présenté le contexte du projet, les concepts nécessaires à sa compréhension ainsi que la problématique et la solution proposée dans le chapitre précédent, cette étape est consacrée à la conception de la solution. L'objectif est de traduire les besoins identifiés en une représentation structurée du système, en précisant ses fonctionnalités, ses interactions et son organisation technique.
+
+Dans ce chapitre, nous commençons par formaliser les besoins fonctionnels et non fonctionnels ainsi que les acteurs concernés. Nous présentons ensuite les principaux diagrammes UML permettant de modéliser les interactions, le déroulement des traitements et la structure du système. Enfin, nous définissons l'architecture globale de la solution, en précisant l'organisation de SAP Commerce Cloud, du microservice d'intelligence artificielle, leurs interfaces de communication ainsi que le flux global de traitement.
+
+\section{Analyse et Spécification des besoins}
+
+Dans cette section, nous formalisons les exigences du système en distinguant les besoins fonctionnels, qui décrivent les services attendus et les besoins non fonctionnels, qui définissent les contraintes de qualité et de performance. Cette étape traduit les attentes métier en spécifications exploitables pour la conception.
+\newpage
+\subsection{Identification des acteurs}
+
+Tout système interactif repose sur une ou plusieurs catégories d'utilisateurs. Identifier précisément ces acteurs définit les fonctionnalités attendues.
+
+\subsubsection{Le responsable de l'enrichissement du produit}
+
+L'utilisateur principal du système est le responsable de l'enrichissement du produit. Il intervient dans la gestion, l'amélioration et la validation des fiches des produits au sein de SAP Commerce. Il crée, modifie ou valide régulièrement les données des produits avant leur publication. 
+
+Son rôle consiste à garantir la qualité et la complétude des informations des produits. Le système proposé l'assiste en générant automatiquement des enrichissements et en signalant les anomalies détectées. Cependant, le responsable de l'enrichissement du produit conserve l'autorité finale : il examine les propositions du système et approuve ou rejette chaque suggestion en fonction de son jugement professionnel.
+
+\subsection{Recueil des besoins fonctionnels}
+
+Les besoins fonctionnels décrivent les actions que le responsable de l'enrichissement du produit doit pouvoir accomplir au travers du système. Ils structurent l'interaction entre l'utilisateur et la solution.
+
+\subsubsection{Enrichissement des contenus des produits}
+
+Le responsable de l'enrichissement des produits doit pouvoir consulter les enrichissements générés automatiquement par le système pour chaque produit. Ces enrichissements incluent :
+
+\begin{itemize}
+    \item une description détaillée conçue pour présenter les caractéristiques principales du produit 
+    \item un résumé court destiné à une présentation rapide sur les interfaces compactes 
+    \item les traductions des contenus dans les langues demandées
+\end{itemize}
+
+Ces propositions doivent être clairement présentées dans l'interface de SAP Commerce Backoffice, permettant au Responsable de l'enrichissement du produit d'accepter, modifier ou rejeter chaque suggestion.
+
+\subsubsection{Détection des anomalies}
+
+Le système doit identifier automatiquement les problèmes présents dans les données des produits. Cela inclut :
+
+\begin{itemize}
+    \item les champs obligatoires absents ou non conformes aux règles définies 
+    \item les erreurs de structure ou de format 
+    \item les incohérences sémantiques ou linguistiques 
+\end{itemize}
+
+Cette détection permet au responsable de l'enrichissement du produit de corriger les défauts avant la publication et d'améliorer la qualité globale du catalogue.
+
+\subsubsection{Validation des fiches des produits}
+
+Le responsable de l'enrichissement du produit doit pouvoir consulter un score de qualité global pour chaque fiche du produit, accompagné d'une liste des anomalies détectées. Ce score synthétise les résultats de l'analyse technique et sémantique. Sur cette base, Le responsable de l'enrichissement du produit décide d'approuver la fiche ou d'exiger des corrections avant publication.
+
+\subsection{Recueil des besoins non fonctionnels}
+
+Au-delà des fonctionnalités attendues, plusieurs besoins non fonctionnels ont été définis afin de garantir la qualité et la robustesse de la solution. Ces exigences concernent principalement la fiabilité, la performance, la sécurité, l'utilisabilité et la scalabilité du système.
+
+\subsubsection{Fiabilité}
+
+Le système doit fournir des enrichissements et des validations fiables afin d'améliorer la qualité des fiches des produits. Cette fiabilité repose sur une approche hybride combinant des règles métier et des modèles d'intelligence artificielle, tandis que le responsable de l'enrichissement du produit conserve la possibilité de valider les résultats proposés avant leur publication.
+\newpage
+\subsubsection{Performance}
+
+Les traitements d'enrichissement et de validation doivent être réalisés dans un délai compatible avec le processus de gestion des produits. Afin de garantir des temps de réponse satisfaisants, la solution repose sur une architecture en microservices qui permet d'exécuter les traitements d'intelligence artificielle de manière indépendante, sans dégrader les performances de SAP Commerce.
+
+\subsubsection{Sécurité}
+
+Les échanges entre SAP Commerce et le microservice d'intelligence artificielle doivent être sécurisés afin de garantir la confidentialité et l'intégrité des données. Seules les informations nécessaires au traitement sont transmises, les communications sont protégées par le protocole HTTPS et les requêtes sont authentifiées afin de prévenir tout accès non autorisé.
+
+\subsubsection{Utilisabilité}
+
+La solution doit s'intégrer naturellement dans l'environnement SAP Commerce afin de préserver les habitudes de travail des utilisateurs. Les résultats d'enrichissement et de validation sont présentés directement dans le Backoffice à travers une interface claire et intuitive, permettant au responsable de l'enrichissement du produit d'identifier rapidement les recommandations proposées et de prendre les décisions appropriées.
+
+\subsubsection{Scalabilité}
+
+L'architecture modulaire de la solution doit permettre son évolution sans remettre en cause les composants existants. De nouveaux modèles d'intelligence artificielle, de nouvelles règles métier ou des fonctionnalités complémentaires peuvent ainsi être intégrés progressivement, sans impacter le fonctionnement global de SAP Commerce.
+
+
+\section{Modélisation des besoins}
+
+Cette section modélise le système d'enrichissement et de validation des produits au travers de trois diagrammes UML \citeURL{uml_omg} complémentaires : le diagramme de cas d'utilisation expose les scénarios métier, le diagramme de séquence détaille l'orchestration temporelle des échanges et le diagramme d'activités synthétise le flux de contrôle du traitement.
+
+\subsection{Diagramme de cas d'utilisation}
+
+Afin de préciser les fonctionnalités offertes par la solution ainsi que les interactions entre l'utilisateur et le système, un diagramme de cas d'utilisation a été élaboré. Celui-ci décrit les principales actions réalisées par le responsable de l'enrichissement des produits lors de la gestion d'un produit dans SAP Commerce Cloud. Il met en évidence les différentes fonctionnalités mises à sa disposition. Ces interactions sont illustrées dans la Figure~\ref{fig:usecase}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.80\textwidth]{images/usecase.png}
+    \caption{Diagramme de cas d'utilisation}
+    \label{fig:usecase}
+\end{figure}
+
+
+Le diagramme montre que le responsable de l’enrichissement intervient à plusieurs étapes du processus. Il commence par s’authentifier, puis crée ou modifie le produit avant de lancer son traitement automatique. Celui-ci prend en compte les champs sélectionnés et permet de générer les enrichissements et les traductions nécessaires. Les recommandations produites par le microservice d’intelligence artificielle sont ensuite consultées par le responsable afin de l’assister dans sa prise de décision. Enfin, il conserve la responsabilité de valider le produit, garantissant ainsi que les résultats obtenus respectent les exigences métier et les objectifs de qualité des données.
+
+\subsection{Diagramme de séquence système}
+
+Le diagramme de séquence système décrit le déroulement chronologique des interactions entre le responsable de l'enrichissement des produits et le système d'enrichissement et de validation des produits. Il représente le système comme une boîte noire et met en évidence les échanges de requêtes et de réponses permettant d'exécuter le processus, depuis la création ou la modification d'un produit jusqu'à sa validation finale. Les différentes interactions sont présentées dans la Figure~\ref{fig:sequence}.
+\vspace{0.3cm}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.97\textwidth]{images/sequence.png}
+    \caption{Diagramme de séquence}
+    \label{fig:sequence}
+\end{figure}
+
+Le diagramme de séquence de la figure~\ref{fig:sequence} illustre les interactions entre le \textbf{responsable de l'enrichissement des produits} et le \textbf{système d'enrichissement et de validation des produits}. Le processus commence par la création ou la modification du produit et la sélection des champs à enrichir. Le système déclenche ensuite l'enrichissement, génère les contenus demandés et permet au responsable de consulter les résultats (\textbf{étapes 1 à 6}).
+
+Une fois les résultats consultés, le responsable peut les \textbf{approuver} ou les \textbf{refuser}. En cas d'approbation, le produit est publié et le processus prend fin. En cas de refus, l'enrichissement est relancé jusqu'à l'obtention d'un résultat validé (\textbf{étapes 7 à 10}). Le diagramme met ainsi en évidence le déroulement itératif du processus d'enrichissement.
+
+
+
+\subsection{Diagramme de classes global}
+
+Le diagramme de classes présente la structure statique du système en décrivant les principales informations associées au produit ainsi que les traitements et résultats qui leur sont liés. Il permet de représenter les données utilisées lors de l'enrichissement et de la validation, notamment les informations du produit, les données transmises pour le traitement, les résultats obtenus, ainsi que les anomalies et les corrections identifiées. Les associations et les multiplicités précisent les liens entre ces différents éléments et permettent de représenter leur organisation au cours du processus. Cette modélisation est présentée dans la Figure~\ref{fig:class}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1.0\textwidth]{images/class.png}
+\caption{Diagramme de classes global du système}
+\label{fig:class}
+\end{figure}
+\newpage
+La structure représentée distingue également les éléments liés à la gestion du produit de ceux utilisés pour les échanges avec le service d'intelligence artificielle. Ainsi, les informations nécessaires à l'enrichissement sont transmises puis associées aux résultats générés, tandis que la validation produit un résultat comprenant un score, un état, des anomalies éventuelles et les corrections correspondantes. Le diagramme permet ainsi de formaliser les relations entre les données manipulées et les résultats produits par les différents traitements.
+
+
+\section{Architecture globale}
+
+L'architecture globale constitue une étape essentielle de la conception, puisqu'elle définit l'organisation générale de la solution et les interactions entre ses principaux composants. Dans le cadre de ce projet, la solution repose sur deux composants principaux : SAP Commerce Cloud et un microservice d'intelligence artificielle. Cette organisation permet d'intégrer les fonctionnalités d'enrichissement et de validation tout en conservant une séparation claire entre la plateforme de commerce et les traitements spécialisés.
+
+\subsection{Choix architecturaux}
+
+Le choix d'une architecture composée de SAP Commerce Cloud et d'un microservice indépendant répond au besoin d'intégrer des fonctionnalités d'intelligence artificielle sans modifier profondément l'organisation existante de la plateforme. Les traitements liés à l'intelligence artificielle sont ainsi regroupés dans un composant spécialisé, indépendant de SAP Commerce Cloud.
+
+Cette séparation permet de distinguer les responsabilités des deux environnements. SAP Commerce Cloud conserve la gestion du processus métier, tandis que le microservice regroupe les traitements d'enrichissement et de validation. Cette organisation facilite également l'évolution des fonctionnalités d'intelligence artificielle, notamment l'ajout ou le remplacement de modèles, sans modifier directement la structure interne de SAP Commerce Cloud.
+
+La communication entre les deux composants repose sur des services REST et sur l'utilisation du format JSON. Ce choix permet de définir des interfaces d'échange indépendantes des technologies utilisées pour l'implémentation de chaque composant.
+
+Cette architecture présente ainsi plusieurs avantages :
+
+\begin{itemize}
+    \item \textbf{Séparation des responsabilités} : les fonctionnalités de la plateforme de commerce et les traitements d'intelligence artificielle sont regroupés dans des composants distincts.
+
+    \item \textbf{Modularité} : le microservice peut évoluer indépendamment de SAP Commerce Cloud.
+
+    \item \textbf{Évolutivité} : de nouveaux traitements ou modèles d'intelligence artificielle peuvent être ajoutés progressivement.
+
+    \item \textbf{Maintenabilité} : l'isolation des traitements spécialisés facilite leur développement, leur modification et leur maintenance.
+
+    \item \textbf{Faible couplage} : les deux composants échangent uniquement à travers des interfaces REST définies.
+\end{itemize}
+
+Cette organisation permet ainsi de bénéficier des mécanismes existants de SAP Commerce Cloud tout en intégrant des traitements d'intelligence artificielle dans un composant spécialisé et indépendant.
+
+\subsection{Architecture et organisation des composants}
+
+L'architecture globale de la solution est représentée à travers un diagramme de composants. Celui-ci permet d'identifier les principaux éléments intervenant dans le système ainsi que les interfaces utilisées pour assurer leur communication.
+
+\subsubsection{Diagramme de composants}
+
+Le diagramme présenté dans la Figure~\ref{fig:architecture_composants} met en évidence les deux composants principaux de la solution ainsi que leurs principaux éléments internes et leurs interactions. Il permet notamment de distinguer les fonctionnalités assurées par SAP Commerce Cloud de celles prises en charge par le microservice d'intelligence artificielle.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{images/composants.png}
+\caption{Architecture globale des composants}
+\label{fig:architecture_composants}
+\end{figure}
+
+L'architecture s'articule ainsi autour de \textbf{SAP Commerce Cloud}, qui constitue le composant central de gestion, et du \textbf{microservice d'intelligence artificielle}, qui regroupe les traitements spécialisés. Les deux composants sont reliés par une interface REST permettant l'échange de données structurées au format JSON.
+
+\subsubsection{Composant SAP Commerce Cloud}
+
+SAP Commerce Cloud constitue le composant chargé de la gestion du processus au sein de la plateforme. L'interaction avec le responsable de l'enrichissement s'effectue à travers le \textbf{Backoffice}, qui permet notamment de consulter et de gérer les produits et de déclencher les traitements prévus.
+\newpage
+Le traitement s'appuie sur les services internes de la plateforme. Le \textbf{service d'enrichissement} prépare les informations nécessaires et assure l'intégration des résultats liés à l'enrichissement. Le \textbf{service de validation} exploite quant à lui les résultats retournés par le microservice afin de poursuivre le traitement de contrôle de la qualité.
+
+Les composants d'intégration REST assurent les échanges avec le microservice d'intelligence artificielle. Ils prennent en charge la préparation des requêtes, l'envoi des données nécessaires au traitement et la récupération des réponses.
+
+SAP Commerce Cloud assure également l'enregistrement des informations nécessaires au suivi du traitement. Les données concernées ainsi que les résultats obtenus peuvent ainsi être conservés dans la base de données de la plateforme pour leur consultation et leur exploitation ultérieure.
+
+\subsubsection{Microservice d'intelligence artificielle}
+
+Le microservice d'intelligence artificielle est une application indépendante dédiée aux traitements spécialisés du projet. Il expose des interfaces REST permettant de recevoir les demandes provenant de SAP Commerce Cloud et d'orienter chaque requête vers le traitement correspondant.
+
+Le traitement d'enrichissement prend en charge principalement la \textbf{génération de descriptions} et la \textbf{traduction multilingue}. Ces fonctionnalités permettent de produire les contenus nécessaires à partir des informations transmises par SAP Commerce Cloud.
+
+Le traitement de validation repose sur plusieurs mécanismes complémentaires. Le microservice applique les \textbf{règles de validation}, réalise une \textbf{analyse sémantique} et calcule un \textbf{score de qualité}. Ces traitements permettent d'identifier les anomalies et de produire les corrections ou recommandations associées.
+
+À l'issue du traitement, le microservice construit une réponse structurée contenant les résultats obtenus. Cette réponse est ensuite transmise à SAP Commerce Cloud au format JSON.
+
+\subsubsection{Communication entre les composants}
+
+La communication entre SAP Commerce Cloud et le microservice d'intelligence artificielle est assurée par une interface REST. Les échanges utilisent le protocole HTTP et des données structurées au format JSON. Cette approche permet aux deux composants de communiquer à travers des interfaces clairement définies, indépendamment de leur implémentation interne.
+\newpage
+Deux opérations principales sont utilisées dans le cadre du projet :
+
+\begin{itemize}
+    \item \textbf{POST /enrich} : déclenche le traitement d'enrichissement, notamment la génération de descriptions et la traduction, puis retourne les résultats obtenus.
+
+    \item \textbf{POST /valid} : déclenche le traitement de validation et retourne les informations relatives à la qualité des données, notamment le score, le statut, les anomalies détectées et les corrections proposées.
+\end{itemize}
+
+Pour chaque opération, SAP Commerce Cloud prépare une requête contenant les informations nécessaires au traitement. Cette requête est transmise au microservice à travers l'interface REST correspondante. Après exécution du traitement, le microservice retourne une réponse JSON contenant les résultats.
+
+Cette communication permet ainsi de maintenir une interface d'échange simple entre les deux composants tout en laissant chaque environnement gérer ses propres traitements.
+
+\subsection{Flux global de traitement}
+
+Le flux global décrit l'enchaînement des opérations exécutées depuis le déclenchement du traitement dans SAP Commerce Cloud jusqu'à l'intégration des résultats retournés par le microservice d'intelligence artificielle. La Figure~\ref{fig:flux_global_traitement} présente les principales étapes de ce processus.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/flux.png}
+    \caption{Flux global de traitement}
+    \label{fig:flux_global_traitement}
+\end{figure}
+
+Le processus débute dans le \textbf{Backoffice de SAP Commerce Cloud}, où le responsable de l'enrichissement effectue la création ou la modification d'un produit et déclenche le traitement correspondant.
+
+Dans un premier temps, SAP Commerce Cloud prépare les informations nécessaires à l'opération demandée. Les données sont extraites et structurées sous la forme d'une requête JSON, puis transmises au microservice d'intelligence artificielle à travers l'API REST.
+
+Une fois la requête reçue, le microservice commence par effectuer le traitement d'\textbf{enrichissement}. Cette étape comprend notamment la génération des descriptions et la traduction multilingue. Les résultats produits constituent ensuite la base du traitement de validation.
+
+La phase de \textbf{validation} est alors exécutée afin d'évaluer la qualité des données obtenues. Le microservice applique les règles de validation et réalise les contrôles prévus, notamment l'analyse sémantique et la détection des anomalies. À partir des résultats de ces contrôles, il calcule un score de qualité et génère les corrections ou recommandations associées.
+
+Une fois les traitements terminés, le microservice construit une réponse contenant les résultats obtenus, notamment les enrichissements proposés, le score de qualité, le statut de validation, les anomalies détectées et les corrections associées. Cette réponse est retournée à SAP Commerce Cloud au format JSON.
+
+Enfin, SAP Commerce Cloud récupère les résultats et les réintègre dans le processus métier. Les résultats peuvent être exploités pour mettre à jour les informations concernées, appliquer les corrections autorisées et conserver les données nécessaires au suivi du traitement. Les recommandations nécessitant une intervention humaine peuvent également être présentées au responsable de l'enrichissement afin qu'il puisse les consulter et prendre la décision appropriée.
+
+Ce flux permet ainsi d'assurer un enchaînement cohérent entre la gestion du processus dans SAP Commerce Cloud et l'exécution des traitements spécialisés au sein du microservice d'intelligence artificielle.
+\newpage
+\section{Conclusion}
+
+Ce chapitre a permis de transformer les besoins identifiés en une conception structurée de la solution. La spécification des exigences a défini les fonctionnalités attendues et les contraintes à respecter, tandis que la modélisation UML a permis de représenter les principales interactions, le déroulement du traitement et la structure des éléments manipulés.
+
+L'architecture définie repose sur une séparation entre SAP Commerce Cloud et un microservice d'intelligence artificielle, reliés par des interfaces REST. Cette organisation permet d'intégrer les traitements d'enrichissement et de validation tout en conservant une architecture modulaire et évolutive. Le flux global présenté formalise également l'enchaînement des différentes étapes, depuis le déclenchement du traitement jusqu'à l'exploitation des résultats dans SAP Commerce Cloud.
+
+La conception étant désormais établie, le chapitre suivant se concentre sur la mise en œuvre du microservice d'intelligence artificielle. Il présente son organisation interne, les modèles et mécanismes utilisés ainsi que l'implémentation des traitements d'enrichissement et de validation.
