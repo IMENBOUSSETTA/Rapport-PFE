@@ -1,6 +1,6 @@
-PWD c:\Users\MSI\Downloads\Rapport-PFE-main\Rapport-PFE-main
+PWD C:\Users\MSI\Downloads\Rapport-PFE-main\Rapport-PFE-main
 INPUT C:\Users\MSI\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\MSI\Downloads\Rapport-PFE-main\Rapport-PFE-main\main.tex
+INPUT main.tex
 OUTPUT main.log
 INPUT C:\Program Files\MiKTeX\tex\latex\base\report.cls
 INPUT C:\Program Files\MiKTeX\tex\latex\base\report.cls

@@ -1,10 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.7.14)  19 AUG 2026 12:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.7.14)  19 AUG 2026 20:45
 entering extended mode
  restricted \write18 enabled.
- file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/MSI/Downloads/Rapport-PFE-main/Rapport-PFE-main/main.tex
-(c:/Users/MSI/Downloads/Rapport-PFE-main/Rapport-PFE-main/main.tex
+**./main.tex
+(main.tex
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
 (C:\Program Files\MiKTeX\tex/latex/base\report.cls
@@ -24,21 +23,25 @@ File: size12.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
 \abovecaptionskip=\skip49
 \belowcaptionskip=\skip50
 \bibindent=\dimen148
-) (C:\Program Files\MiKTeX\tex/latex/amsmath\amsmath.sty
+)
+(C:\Program Files\MiKTeX\tex/latex/amsmath\amsmath.sty
 Package: amsmath 2025/07/09 v2.17z AMS math features
 \@mathmargin=\skip51
 
 For additional information on amsmath, use the `?' option.
 (C:\Program Files\MiKTeX\tex/latex/amsmath\amstext.sty
 Package: amstext 2024/11/17 v2.01 AMS text
- (C:\Program Files\MiKTeX\tex/latex/amsmath\amsgen.sty
+
+(C:\Program Files\MiKTeX\tex/latex/amsmath\amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks17
 \ex@=\dimen149
-)) (C:\Program Files\MiKTeX\tex/latex/amsmath\amsbsy.sty
+))
+(C:\Program Files\MiKTeX\tex/latex/amsmath\amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen150
-) (C:\Program Files\MiKTeX\tex/latex/amsmath\amsopn.sty
+)
+(C:\Program Files\MiKTeX\tex/latex/amsmath\amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
 \inf@bad=\count284
@@ -88,7 +91,8 @@ LaTeX Info: Redefining \Relbar on input line 970.
 \mathdisplay@stack=\toks21
 LaTeX Info: Redefining \[ on input line 2950.
 LaTeX Info: Redefining \] on input line 2951.
-) (C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/amscls\amsthm.sty
+)
+(C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/amscls\amsthm.sty
 Package: amsthm 2020/05/29 v2.20.6
 \thm@style=\toks22
 \thm@bodyfont=\toks23
@@ -99,16 +103,19 @@ Package: amsthm 2020/05/29 v2.20.6
 \thm@postskip=\skip55
 \thm@headsep=\skip56
 \dth@everypar=\toks27
-) (C:\Program Files\MiKTeX\tex/latex/amsfonts\amssymb.sty
+)
+(C:\Program Files\MiKTeX\tex/latex/amsfonts\amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
- (C:\Program Files\MiKTeX\tex/latex/amsfonts\amsfonts.sty
+
+(C:\Program Files\MiKTeX\tex/latex/amsfonts\amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-)) (C:\Program Files\MiKTeX\tex/latex/lm\lmodern.sty
+))
+(C:\Program Files\MiKTeX\tex/latex/lm\lmodern.sty
 Package: lmodern 2015/05/01 v1.6.1 Latin Modern Fonts
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
@@ -142,7 +149,8 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
-) (C:\Program Files\MiKTeX\tex/latex/tools\bm.sty
+)
+(C:\Program Files\MiKTeX\tex/latex/tools\bm.sty
 Package: bm 2025/10/21 v1.2g Bold Symbol Support (DPC/FMi)
 \symboldoperators=\mathgroup6
 \symboldletters=\mathgroup7
@@ -151,28 +159,42 @@ Package bm Info: No bold for \OMX/lmex/m/n, using \pmb.
 Package bm Info: No bold for \U/msa/m/n, using \pmb.
 Package bm Info: No bold for \U/msb/m/n, using \pmb.
 LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 149.
-) (C:\Program Files\MiKTeX\tex/latex/base\inputenc.sty
+)
+(C:\Program Files\MiKTeX\tex/latex/base\inputenc.sty
 Package: inputenc 2024/02/08 v1.3d Input encoding file
 \inpenc@prehook=\toks28
 \inpenc@posthook=\toks29
-) (C:\Program Files\MiKTeX\tex/latex/base\fontenc.sty
+)
+(C:\Program Files\MiKTeX\tex/latex/base\fontenc.sty
 Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 116.
- (C:\Program Files\MiKTeX\tex/latex/lm\t1lmr.fd
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 11
+6.
+
+(C:\Program Files\MiKTeX\tex/latex/lm\t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)) (C:\Program Files\MiKTeX\tex/generic/babel\babel.sty
-Package: babel 2025/12/11 v25.17 The multilingual framework for LuaLaTeX, pdfLaTeX and XeLaTeX
+))
+(C:\Program Files\MiKTeX\tex/generic/babel\babel.sty
+Package: babel 2025/12/11 v25.17 The multilingual framework for LuaLaTeX, pdfLa
+TeX and XeLaTeX
 \babel@savecnt=\count296
-LaTeX Encoding Info:    Redeclaring text command \ij (encoding OT1) on input line 2068.
-LaTeX Encoding Info:    Redeclaring text command \IJ (encoding OT1) on input line 2070.
-LaTeX Encoding Info:    Redeclaring text command \ij (encoding T1) on input line 2072.
-LaTeX Encoding Info:    Redeclaring text command \IJ (encoding T1) on input line 2073.
-LaTeX Encoding Info:    Ignoring declaration for text command \ij (encoding ?) on input line 2074.
-LaTeX Encoding Info:    Ignoring declaration for text command \IJ (encoding ?) on input line 2076.
-LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) on input line 2101.
+LaTeX Encoding Info:    Redeclaring text command \ij (encoding OT1) on input li
+ne 2068.
+LaTeX Encoding Info:    Redeclaring text command \IJ (encoding OT1) on input li
+ne 2070.
+LaTeX Encoding Info:    Redeclaring text command \ij (encoding T1) on input lin
+e 2072.
+LaTeX Encoding Info:    Redeclaring text command \IJ (encoding T1) on input lin
+e 2073.
+LaTeX Encoding Info:    Ignoring declaration for text command \ij (encoding ?) 
+on input line 2074.
+LaTeX Encoding Info:    Ignoring declaration for text command \IJ (encoding ?) 
+on input line 2076.
+LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) 
+on input line 2101.
 \U@D=\dimen158
 \l@unhyphenated=\language79
- (C:\Program Files\MiKTeX\tex/generic/babel\txtbabel.def)
+
+(C:\Program Files\MiKTeX\tex/generic/babel\txtbabel.def)
 \bbl@readstream=\read2
 \bbl@dirlevel=\count297
 Package babel Info: Configuration files are deprecated, as
@@ -183,13 +205,17 @@ Package babel Info: Configuration files are deprecated, as
 * Local config file bblopts.cfg used
 *
 (C:\Program Files\MiKTeX\tex/latex/arabi\bblopts.cfg
-File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of babel
-) (C:\Program Files\MiKTeX\tex/generic/babel/locale/fr\babel-french.tex)
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
+ babel
+)
+(C:\Program Files\MiKTeX\tex/generic/babel/locale/fr\babel-french.tex)
 Package babel Info: Importing font and identification data for french
 (babel)             from babel-fr.ini. Reported on input line 4320.
- (C:\Users\MSI\AppData\Roaming\MiKTeX\tex/generic/babel-french\french.ldf
+
+(C:\Users\MSI\AppData\Roaming\MiKTeX\tex/generic/babel-french\french.ldf
 Language: french 2026-06-06 v4.1a French support from the babel system
- (C:\Users\MSI\AppData\Roaming\MiKTeX\tex/generic/babel-french\french3.ldf
+
+(C:\Users\MSI\AppData\Roaming\MiKTeX\tex/generic/babel-french\french3.ldf
 Language: french 2026-06-06 v3.7f French support from the babel system
 \FB@stdchar=\count298
 Package babel Info: Making : an active character on input line 266.
@@ -211,22 +237,31 @@ Package babel Info: Making ? an active character on input line 269.
 \FB@pardim=\dimen164
 \parindentFFN=\dimen165
 \FBfnindent=\dimen166
-))) (C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/carlisle\scalefnt.sty) (C:\Program Files\MiKTeX\tex/latex/graphics\color.sty
+)))
+(C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/carlisle\scalefnt.sty)
+(C:\Program Files\MiKTeX\tex/latex/graphics\color.sty
 Package: color 2025/01/14 v1.3e Standard LaTeX Color (DPC)
- (C:\Program Files\MiKTeX\tex/latex/graphics-cfg\color.cfg
+
+(C:\Program Files\MiKTeX\tex/latex/graphics-cfg\color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 149.
- (C:\Program Files\MiKTeX\tex/latex/graphics-def\pdftex.def
+
+(C:\Program Files\MiKTeX\tex/latex/graphics-def\pdftex.def
 File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
-) (C:\Program Files\MiKTeX\tex/latex/graphics\mathcolor.ltx)) (C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/geometry\geometry.sty
+)
+(C:\Program Files\MiKTeX\tex/latex/graphics\mathcolor.ltx))
+(C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/geometry\geometry.sty
 Package: geometry 2026/03/07 v6.0 Page Geometry
- (C:\Program Files\MiKTeX\tex/latex/graphics\keyval.sty
+
+(C:\Program Files\MiKTeX\tex/latex/graphics\keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks31
-) (C:\Program Files\MiKTeX\tex/generic/iftex\ifvtex.sty
+)
+(C:\Program Files\MiKTeX\tex/generic/iftex\ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
- (C:\Program Files\MiKTeX\tex/generic/iftex\iftex.sty
+
+(C:\Program Files\MiKTeX\tex/generic/iftex\iftex.sty
 Package: iftex 2024/12/12 v1.0g TeX engine tests
 ))
 \Gm@cnth=\count305
@@ -241,7 +276,9 @@ Package: iftex 2024/12/12 v1.0g TeX engine tests
 \Gm@layouthoffset=\dimen173
 \Gm@layoutvoffset=\dimen174
 \Gm@dimlist=\toks32
- (C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/geometry\geometry.cfg)) (C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/enumitem\enumitem.sty
+
+(C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/geometry\geometry.cfg))
+(C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/enumitem\enumitem.sty
 Package: enumitem 2025/02/06 v3.11 Customized lists
 \labelindent=\skip57
 \enit@outerparindent=\dimen175
@@ -249,8 +286,10 @@ Package: enumitem 2025/02/06 v3.11 Customized lists
 \enit@inbox=\box55
 \enit@count@id=\count308
 \enitdp@description=\count309
-) (C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty
+)
+(C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty
 Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
+
 \f@nch@headwidth=\skip58
 \f@nch@offset@elh=\skip59
 \f@nch@offset@erh=\skip60
@@ -266,23 +305,29 @@ Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
 \f@nch@widthC=\skip70
 \f@nch@widthR=\skip71
 \@temptokenb=\toks34
-) (C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/algorithms\algorithm.sty
-Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating environment
- (C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/float\float.sty
+)
+(C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/algorithms\algorithm.sty
+Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
+nment
+
+(C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/float\float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count310
 \float@exts=\toks35
 \float@box=\box56
 \@float@everytoks=\toks36
 \@floatcapt=\box57
-) (C:\Program Files\MiKTeX\tex/latex/base\ifthen.sty
+)
+(C:\Program Files\MiKTeX\tex/latex/base\ifthen.sty
 Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
 )
 \@float@every@algorithm=\toks37
 \c@algorithm=\count311
-) (C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/algorithmicx\algpseudocode.sty
+)
+(C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/algorithmicx\algpseudocode.sty
 Package: algpseudocode 
- (C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/algorithmicx\algorithmicx.sty
+
+(C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/algorithmicx\algorithmicx.sty
 Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
 
 Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
@@ -300,49 +345,67 @@ Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
 Document Style - pseudocode environments for use with the `algorithmicx' style
 ) (C:\Program Files\MiKTeX\tex/latex/graphics\graphicx.sty
 Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
- (C:\Program Files\MiKTeX\tex/latex/graphics\graphics.sty
+
+(C:\Program Files\MiKTeX\tex/latex/graphics\graphics.sty
 Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
- (C:\Program Files\MiKTeX\tex/latex/graphics\trig.sty
+
+(C:\Program Files\MiKTeX\tex/latex/graphics\trig.sty
 Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
-) (C:\Program Files\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
+)
+(C:\Program Files\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 106.
 )
 \Gin@req@height=\dimen176
 \Gin@req@width=\dimen177
-) (C:\Program Files\MiKTeX\tex/latex/epstopdf-pkg\epstopdf.sty
+)
+(C:\Program Files\MiKTeX\tex/latex/epstopdf-pkg\epstopdf.sty
 Package: epstopdf 2020-01-24 v2.11 Conversion with epstopdf on the fly (HO)
- (C:\Users\MSI\AppData\Roaming\MiKTeX\tex/generic/infwarerr\infwarerr.sty
+
+(C:\Users\MSI\AppData\Roaming\MiKTeX\tex/generic/infwarerr\infwarerr.sty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
-) (C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/grfext\grfext.sty
+)
+(C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/grfext\grfext.sty
 Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
- (C:\Users\MSI\AppData\Roaming\MiKTeX\tex/generic/kvdefinekeys\kvdefinekeys.sty
+
+(C:\Users\MSI\AppData\Roaming\MiKTeX\tex/generic/kvdefinekeys\kvdefinekeys.sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
 )) (C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/kvoptions\kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
- (C:\Users\MSI\AppData\Roaming\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+
+(C:\Users\MSI\AppData\Roaming\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
 Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
-) (C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+)
+(C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
-)) (C:\Program Files\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.sty
-Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+))
+(C:\Program Files\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
-) (C:\Program Files\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
+)
+(C:\Program Files\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
 Package grfext Info: Graphics extension search list:
-(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps]
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 504.
- (C:\Program Files\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
+
+(C:\Program Files\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
-))) (C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/subfig\subfig.sty
+)))
+(C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/subfig\subfig.sty
 Package: subfig 2005/06/28 ver: 1.3 subfig package
- (C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/caption\caption.sty
+
+(C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/caption\caption.sty
 Package: caption 2023/08/05 v3.6o Customizing captions (AR)
- (C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/caption\caption3.sty
+
+(C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/caption\caption3.sty
 Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
 \caption@tempdima=\dimen178
 \captionmargin=\dimen179
@@ -372,7 +435,8 @@ Package caption Info: float package is loaded.
 \c@lotdepth=\count327
 \sf@top=\skip78
 \sf@bottom=\skip79
-) (C:\Program Files\MiKTeX\tex/latex/tools\array.sty
+)
+(C:\Program Files\MiKTeX\tex/latex/tools\array.sty
 Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
 \col@sep=\dimen187
 \ar@mcellbox=\box58
@@ -381,28 +445,42 @@ Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
 \extratabsurround=\skip80
 \backup@length=\skip81
 \ar@cellbox=\box59
-) (C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/multirow\multirow.sty
+)
+(C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/multirow\multirow.sty
 Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
 \multirow@colwidth=\skip82
 \multirow@cntb=\count328
 \multirow@dima=\skip83
 \bigstrutjot=\dimen189
-) (C:\Program Files\MiKTeX\tex/latex/pgf/frontendlayer\tikz.sty (C:\Program Files\MiKTeX\tex/latex/pgf/basiclayer\pgf.sty (C:\Program Files\MiKTeX\tex/latex/pgf/utilities\pgfrcs.sty (C:\Program Files\MiKTeX\tex/generic/pgf/utilities\pgfutil-common.tex
+)
+(C:\Program Files\MiKTeX\tex/latex/pgf/frontendlayer\tikz.sty
+(C:\Program Files\MiKTeX\tex/latex/pgf/basiclayer\pgf.sty
+(C:\Program Files\MiKTeX\tex/latex/pgf/utilities\pgfrcs.sty
+(C:\Program Files\MiKTeX\tex/generic/pgf/utilities\pgfutil-common.tex
 \pgfutil@everybye=\toks39
 \pgfutil@tempdima=\dimen190
 \pgfutil@tempdimb=\dimen191
-) (C:\Program Files\MiKTeX\tex/generic/pgf/utilities\pgfutil-latex.def
+)
+(C:\Program Files\MiKTeX\tex/generic/pgf/utilities\pgfutil-latex.def
 \pgfutil@abb=\box60
-) (C:\Program Files\MiKTeX\tex/generic/pgf/utilities\pgfrcs.code.tex (C:\Program Files\MiKTeX\tex/generic/pgf\pgf.revision.tex)
+)
+(C:\Program Files\MiKTeX\tex/generic/pgf/utilities\pgfrcs.code.tex
+(C:\Program Files\MiKTeX\tex/generic/pgf\pgf.revision.tex)
 Package: pgfrcs 2025-08-29 v3.1.11a (3.1.11a)
 ))
 Package: pgf 2025-08-29 v3.1.11a (3.1.11a)
- (C:\Program Files\MiKTeX\tex/latex/pgf/basiclayer\pgfcore.sty (C:\Program Files\MiKTeX\tex/latex/pgf/systemlayer\pgfsys.sty (C:\Program Files\MiKTeX\tex/generic/pgf/systemlayer\pgfsys.code.tex
+
+(C:\Program Files\MiKTeX\tex/latex/pgf/basiclayer\pgfcore.sty
+(C:\Program Files\MiKTeX\tex/latex/pgf/systemlayer\pgfsys.sty
+(C:\Program Files\MiKTeX\tex/generic/pgf/systemlayer\pgfsys.code.tex
 Package: pgfsys 2025-08-29 v3.1.11a (3.1.11a)
- (C:\Program Files\MiKTeX\tex/generic/pgf/utilities\pgfkeys.code.tex
+
+(C:\Program Files\MiKTeX\tex/generic/pgf/utilities\pgfkeys.code.tex
 \pgfkeys@pathtoks=\toks40
 \pgfkeys@temptoks=\toks41
- (C:\Program Files\MiKTeX\tex/generic/pgf/utilities\pgfkeyslibraryfiltered.code.tex
+
+(C:\Program Files\MiKTeX\tex/generic/pgf/utilities\pgfkeyslibraryfiltered.code.
+tex
 \pgfkeys@tmptoks=\toks42
 ))
 \pgf@x=\dimen192
@@ -429,24 +507,31 @@ Package: pgfsys 2025-08-29 v3.1.11a (3.1.11a)
 File: pgf.cfg 2025-08-29 v3.1.11a (3.1.11a)
 )
 Driver file for pgf: pgfsys-pdftex.def
- (C:\Program Files\MiKTeX\tex/generic/pgf/systemlayer\pgfsys-pdftex.def
+
+(C:\Program Files\MiKTeX\tex/generic/pgf/systemlayer\pgfsys-pdftex.def
 File: pgfsys-pdftex.def 2025-08-29 v3.1.11a (3.1.11a)
- (C:\Program Files\MiKTeX\tex/generic/pgf/systemlayer\pgfsys-common-pdf.def
+
+(C:\Program Files\MiKTeX\tex/generic/pgf/systemlayer\pgfsys-common-pdf.def
 File: pgfsys-common-pdf.def 2025-08-29 v3.1.11a (3.1.11a)
-))) (C:\Program Files\MiKTeX\tex/generic/pgf/systemlayer\pgfsyssoftpath.code.tex
+)))
+(C:\Program Files\MiKTeX\tex/generic/pgf/systemlayer\pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgfsyssoftpath@smallbuffer@items=\count334
 \pgfsyssoftpath@bigbuffer@items=\count335
-) (C:\Program Files\MiKTeX\tex/generic/pgf/systemlayer\pgfsysprotocol.code.tex
+)
+(C:\Program Files\MiKTeX\tex/generic/pgf/systemlayer\pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-)) (C:\Program Files\MiKTeX\tex/latex/xcolor\xcolor.sty
+))
+(C:\Program Files\MiKTeX\tex/latex/xcolor\xcolor.sty
 Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
- (C:\Program Files\MiKTeX\tex/latex/graphics-cfg\color.cfg
+
+(C:\Program Files\MiKTeX\tex/latex/graphics-cfg\color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 274.
 LaTeX Info: Redefining \color on input line 762.
- (C:\Program Files\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+
+(C:\Program Files\MiKTeX\tex/latex/graphics\mathcolor.ltx)
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
 Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1353.
 Package xcolor Info: Model `RGB' extended on input line 1365.
@@ -456,18 +541,38 @@ Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1369.
 Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
-) (C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcore.code.tex
+)
+(C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcore.code.tex
 Package: pgfcore 2025-08-29 v3.1.11a (3.1.11a)
- (C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmath.code.tex (C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmathutil.code.tex) (C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmathparser.code.tex
+
+(C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmath.code.tex
+(C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmathutil.code.tex)
+(C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmathparser.code.tex
 \pgfmath@dimen=\dimen258
 \pgfmath@count=\count336
 \pgfmath@box=\box61
 \pgfmath@toks=\toks46
 \pgfmath@stack@operand=\toks47
 \pgfmath@stack@operation=\toks48
-) (C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.code.tex) (C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.basic.code.tex) (C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.trigonometric.code.tex) (C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.random.code.tex) (C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.comparison.code.tex) (C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.base.code.tex) (C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.round.code.tex) (C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.misc.code.tex) (C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.integerarithmetics.code.tex) (C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmathcalc.code.tex) (C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmathfloat.code.tex
+)
+(C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.code.tex)
+(C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.basic.code.tex)
+(C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.trigonometric.co
+de.tex)
+(C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.random.code.tex)
+
+(C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.comparison.code.
+tex)
+(C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.base.code.tex)
+(C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.round.code.tex)
+(C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.misc.code.tex)
+(C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.integerarithmeti
+cs.code.tex) (C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmathcalc.code.tex
+) (C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmathfloat.code.tex
 \c@pgfmathroundto@lastzeros=\count337
-)) (C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfint.code.tex) (C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepoints.code.tex
+))
+(C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfint.code.tex)
+(C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepoints.code.tex
 File: pgfcorepoints.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgf@picminx=\dimen259
 \pgf@picmaxx=\dimen260
@@ -483,24 +588,32 @@ File: pgfcorepoints.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgf@yy=\dimen270
 \pgf@zx=\dimen271
 \pgf@zy=\dimen272
-) (C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepathconstruct.code.tex
+)
+(C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepathconstruct.code.t
+ex
 File: pgfcorepathconstruct.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgf@path@lastx=\dimen273
 \pgf@path@lasty=\dimen274
-) (C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepathusage.code.tex
+)
+(C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepathusage.code.tex
 File: pgfcorepathusage.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgf@shorten@end@additional=\dimen275
 \pgf@shorten@start@additional=\dimen276
-) (C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcorescopes.code.tex
+)
+(C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcorescopes.code.tex
 File: pgfcorescopes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgfpic=\box62
 \pgf@hbox=\box63
 \pgf@layerbox@main=\box64
 \pgf@picture@serial@count=\count338
-) (C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcoregraphicstate.code.tex
+)
+(C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcoregraphicstate.code.te
+x
 File: pgfcoregraphicstate.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgflinewidth=\dimen277
-) (C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcoretransformations.code.tex
+)
+(C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcoretransformations.code
+.tex
 File: pgfcoretransformations.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgf@pt@x=\dimen278
 \pgf@pt@y=\dimen279
@@ -509,7 +622,9 @@ File: pgfcoretransformations.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 File: pgfcorequick.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ) (C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcoreobjects.code.tex
 File: pgfcoreobjects.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-) (C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepathprocessing.code.tex
+)
+(C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepathprocessing.code.
+tex
 File: pgfcorepathprocessing.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ) (C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcorearrows.code.tex
 File: pgfcorearrows.code.tex 2025-08-29 v3.1.11a (3.1.11a)
@@ -519,39 +634,56 @@ File: pgfcoreshade.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgf@max=\dimen282
 \pgf@sys@shading@range@num=\count339
 \pgf@shadingcount=\count340
-) (C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcoreimage.code.tex
+)
+(C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-) (C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcoreexternal.code.tex
+)
+(C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcoreexternal.code.tex
 File: pgfcoreexternal.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgfexternal@startupbox=\box65
-) (C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcorelayers.code.tex
+)
+(C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcorelayers.code.tex
 File: pgfcorelayers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-) (C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcoretransparency.code.tex
+)
+(C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcoretransparency.code.te
+x
 File: pgfcoretransparency.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ) (C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepatterns.code.tex
 File: pgfcorepatterns.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ) (C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcorerdf.code.tex
 File: pgfcorerdf.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-))) (C:\Program Files\MiKTeX\tex/generic/pgf/modules\pgfmoduleshapes.code.tex
+)))
+(C:\Program Files\MiKTeX\tex/generic/pgf/modules\pgfmoduleshapes.code.tex
 File: pgfmoduleshapes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgfnodeparttextbox=\box66
-) (C:\Program Files\MiKTeX\tex/generic/pgf/modules\pgfmoduleplot.code.tex
+)
+(C:\Program Files\MiKTeX\tex/generic/pgf/modules\pgfmoduleplot.code.tex
 File: pgfmoduleplot.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-) (C:\Program Files\MiKTeX\tex/latex/pgf/compatibility\pgfcomp-version-0-65.sty
+)
+(C:\Program Files\MiKTeX\tex/latex/pgf/compatibility\pgfcomp-version-0-65.sty
 Package: pgfcomp-version-0-65 2025-08-29 v3.1.11a (3.1.11a)
 \pgf@nodesepstart=\dimen283
 \pgf@nodesepend=\dimen284
-) (C:\Program Files\MiKTeX\tex/latex/pgf/compatibility\pgfcomp-version-1-18.sty
+)
+(C:\Program Files\MiKTeX\tex/latex/pgf/compatibility\pgfcomp-version-1-18.sty
 Package: pgfcomp-version-1-18 2025-08-29 v3.1.11a (3.1.11a)
-)) (C:\Program Files\MiKTeX\tex/latex/pgf/utilities\pgffor.sty (C:\Program Files\MiKTeX\tex/latex/pgf/utilities\pgfkeys.sty (C:\Program Files\MiKTeX\tex/generic/pgf/utilities\pgfkeys.code.tex)) (C:\Program Files\MiKTeX\tex/latex/pgf/math\pgfmath.sty (C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmath.code.tex)) (C:\Program Files\MiKTeX\tex/generic/pgf/utilities\pgffor.code.tex
+)) (C:\Program Files\MiKTeX\tex/latex/pgf/utilities\pgffor.sty
+(C:\Program Files\MiKTeX\tex/latex/pgf/utilities\pgfkeys.sty
+(C:\Program Files\MiKTeX\tex/generic/pgf/utilities\pgfkeys.code.tex))
+(C:\Program Files\MiKTeX\tex/latex/pgf/math\pgfmath.sty
+(C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmath.code.tex))
+(C:\Program Files\MiKTeX\tex/generic/pgf/utilities\pgffor.code.tex
 Package: pgffor 2025-08-29 v3.1.11a (3.1.11a)
 \pgffor@iter=\dimen285
 \pgffor@skip=\dimen286
 \pgffor@stack=\toks49
 \pgffor@toks=\toks50
-)) (C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz\tikz.code.tex
+))
+(C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz\tikz.code.tex
 Package: tikz 2025-08-29 v3.1.11a (3.1.11a)
- (C:\Program Files\MiKTeX\tex/generic/pgf/libraries\pgflibraryplothandlers.code.tex
+
+(C:\Program Files\MiKTeX\tex/generic/pgf/libraries\pgflibraryplothandlers.code.
+tex
 File: pgflibraryplothandlers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgf@plot@mark@count=\count341
 \pgfplotmarksize=\dimen287
@@ -579,11 +711,17 @@ File: pgfmodulematrix.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgf@matrix@numberofcolumns=\count348
 )
 \tikz@expandcount=\count349
- (C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarytopaths.code.tex
+
+(C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibra
+rytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-))) (C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarypositioning.code.tex
+)))
+(C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibra
+rypositioning.code.tex
 File: tikzlibrarypositioning.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-) (C:\Program Files\MiKTeX\tex/generic/pgf/libraries\pgflibraryarrows.meta.code.tex
+)
+(C:\Program Files\MiKTeX\tex/generic/pgf/libraries\pgflibraryarrows.meta.code.t
+ex
 File: pgflibraryarrows.meta.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgfarrowinset=\dimen296
 \pgfarrowlength=\dimen297
@@ -591,16 +729,20 @@ File: pgflibraryarrows.meta.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgfarrowlinewidth=\dimen299
 ) (C:\Program Files\MiKTeX\tex/latex/tcolorbox\tcolorbox.sty
 Package: tcolorbox 2025/11/28 version 6.9.0 text color boxes
- (C:\Program Files\MiKTeX\tex/latex/tools\verbatim.sty
+
+(C:\Program Files\MiKTeX\tex/latex/tools\verbatim.sty
 Package: verbatim 2024-01-22 v1.5x LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks51
 \verbatim@line=\toks52
 \verbatim@in@stream=\read4
-) (C:\Program Files\MiKTeX\tex/latex/environ\environ.sty
+)
+(C:\Program Files\MiKTeX\tex/latex/environ\environ.sty
 Package: environ 2014/05/04 v0.3 A new way to define environments
- (C:\Program Files\MiKTeX\tex/latex/trimspaces\trimspaces.sty
+
+(C:\Program Files\MiKTeX\tex/latex/trimspaces\trimspaces.sty
 Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
-)) (C:\Program Files\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+))
+(C:\Program Files\MiKTeX\tex/latex/etoolbox\etoolbox.sty
 Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count350
 )
@@ -617,7 +759,8 @@ Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
 \tcb@temp=\box77
 \tcb@temp=\box78
 \tcb@temp=\box79
- (C:\Program Files\MiKTeX\tex/latex/tcolorbox\tcbraster.code.tex
+
+(C:\Program Files\MiKTeX\tex/latex/tcolorbox\tcbraster.code.tex
 Library (tcolorbox): 'tcbraster.code.tex' version '6.9.0'
 \c@tcbrastercolumn=\count354
 \c@tcbrasterrow=\count355
@@ -627,7 +770,9 @@ Library (tcolorbox): 'tcbraster.code.tex' version '6.9.0'
 Library (tcolorbox): 'tcbskins.code.tex' version '6.9.0'
 (C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/tikzfill\tikzfill.image.sty
 Package: tikzfill.image 2026/04/23 v1.2.0 Image filling library for TikZ
- (C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/tikzfill\tikzlibraryfill.image.code.tex
+
+(C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/tikzfill\tikzlibraryfill.image.c
+ode.tex
 File: tikzlibraryfill.image.code.tex 2026/04/23 v1.2.0 Image filling library
 \l__tikzfill_tmpa_dim=\dimen301
 \l__tikzfill_tmpb_dim=\dimen302
@@ -643,7 +788,8 @@ Package pdfcol Info: New color stack `tcb@breakable' = 1 on input line 23.
 \tcb@testbox=\box81
 \tcb@totalupperbox=\box82
 \tcb@totallowerbox=\box83
-) (C:\Program Files\MiKTeX\tex/latex/tcolorbox\tcbhooks.code.tex
+)
+(C:\Program Files\MiKTeX\tex/latex/tcolorbox\tcbhooks.code.tex
 Library (tcolorbox): 'tcbhooks.code.tex' version '6.9.0'
 ) (C:\Program Files\MiKTeX\tex/latex/tcolorbox\tcbtheorems.code.tex
 Library (tcolorbox): 'tcbtheorems.code.tex' version '6.9.0'
@@ -670,14 +816,17 @@ Library (tcolorbox): 'tcblistings.code.tex' version '6.9.0'
 \lst@newlines=\count363
 \lst@lineno=\count364
 \lst@maxwidth=\dimen309
- (C:\Program Files\MiKTeX\tex/latex/listings\lstpatch.sty
+
+(C:\Program Files\MiKTeX\tex/latex/listings\lstpatch.sty
 File: lstpatch.sty 2025/11/14 1.11b (Carsten Heinz)
-) (C:\Program Files\MiKTeX\tex/latex/listings\lstmisc.sty
+)
+(C:\Program Files\MiKTeX\tex/latex/listings\lstmisc.sty
 File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
 \c@lstnumber=\count365
 \lst@skipnumbers=\count366
 \lst@framebox=\box85
-) (C:\Program Files\MiKTeX\tex/latex/listings\listings.cfg
+)
+(C:\Program Files\MiKTeX\tex/latex/listings\listings.cfg
 File: listings.cfg 2025/11/14 1.11b listings configuration
 ))
 Package: listings 2025/11/14 1.11b (Carsten Heinz)
@@ -694,27 +843,36 @@ Library (tcolorbox): 'tcblistingscore.code.tex' version '6.9.0'
 Library (tcolorbox): 'tcbprocessing.code.tex' version '6.9.0'
 )
 \c@tcblisting=\count367
-)) (C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/listingsutf8\listingsutf8.sty
+))
+(C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/listingsutf8\listingsutf8.sty
 Package: listingsutf8 2019-12-10 v1.5 Allow UTF-8 in listings input (HO)
- (C:\Users\MSI\AppData\Roaming\MiKTeX\tex/generic/stringenc\stringenc.sty
-Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
- (C:\Users\MSI\AppData\Roaming\MiKTeX\tex/generic/pdfescape\pdfescape.sty
+
+(C:\Users\MSI\AppData\Roaming\MiKTeX\tex/generic/stringenc\stringenc.sty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
+)
+
+(C:\Users\MSI\AppData\Roaming\MiKTeX\tex/generic/pdfescape\pdfescape.sty
 Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
-)))) (C:\Program Files\MiKTeX\tex/latex/tcolorbox\tcbexternal.code.tex
+))))
+(C:\Program Files\MiKTeX\tex/latex/tcolorbox\tcbexternal.code.tex
 Library (tcolorbox): 'tcbexternal.code.tex' version '6.9.0'
 ) (C:\Program Files\MiKTeX\tex/latex/tcolorbox\tcbmagazine.code.tex
 Library (tcolorbox): 'tcbmagazine.code.tex' version '6.9.0'
 ) (C:\Program Files\MiKTeX\tex/latex/tcolorbox\tcbvignette.code.tex
 Library (tcolorbox): 'tcbvignette.code.tex' version '6.9.0'
-(C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryfadings.code.tex
+
+(C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibra
+ryfadings.code.tex
 File: tikzlibraryfadings.code.tex 2025-08-29 v3.1.11a (3.1.11a)
- (C:\Program Files\MiKTeX\tex/generic/pgf/libraries\pgflibraryfadings.code.tex
+
+(C:\Program Files\MiKTeX\tex/generic/pgf/libraries\pgflibraryfadings.code.tex
 File: pgflibraryfadings.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ))) (C:\Program Files\MiKTeX\tex/latex/tcolorbox\tcbposter.code.tex
 Library (tcolorbox): 'tcbposter.code.tex' version '6.9.0'
 )) (C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/setspace\setspace.sty
 Package: setspace 2022/12/04 v6.7b set line spacing
-) (C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/multibib\multibib.sty
+)
+(C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/multibib\multibib.sty
 Package: multibib 2008/12/10 v1.4 Multiple bibliographies for one document.
 \mb@biblabelwidth=\count368
 )
@@ -722,29 +880,39 @@ Package: multibib 2008/12/10 v1.4 Multiple bibliographies for one document.
  (URL.aux)
 \openout4 = `URL.aux'.
 
- (C:\Program Files\MiKTeX\tex/latex/url\url.sty
+(C:\Program Files\MiKTeX\tex/latex/url\url.sty
 \Urlmuskip=\muskip18
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
-) (C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/acronym\acronym.sty
+)
+(C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/acronym\acronym.sty
 Package: acronym 2025/01/17 v1.50 Support for acronyms (Tobias Oetiker)
- (C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/bigfoot\suffix.sty
+
+(C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/bigfoot\suffix.sty
 Package: suffix 2006/07/15 1.5a Variant command support
-) (C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/xstring\xstring.sty (C:\Users\MSI\AppData\Roaming\MiKTeX\tex/generic/xstring\xstring.tex
+)
+(C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/xstring\xstring.sty
+(C:\Users\MSI\AppData\Roaming\MiKTeX\tex/generic/xstring\xstring.tex
 \xs_counta=\count369
 \xs_countb=\count370
 )
 Package: xstring 2023/08/22 v1.86 String manipulations (CT)
 )
 \AC@clearlist=\toks54
-) (C:\Program Files\MiKTeX\tex/latex/hyperref\hyperref.sty
+)
+(C:\Program Files\MiKTeX\tex/latex/hyperref\hyperref.sty
 Package: hyperref 2025-07-12 v7.01o Hypertext links for LaTeX
- (C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/hycolor\hycolor.sty
+
+(C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/hycolor\hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
-) (C:\Program Files\MiKTeX\tex/latex/hyperref\nameref.sty
+)
+(C:\Program Files\MiKTeX\tex/latex/hyperref\nameref.sty
 Package: nameref 2025-06-21 v2.57 Cross-referencing by name of section
- (C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/refcount\refcount.sty
+
+(C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/refcount\refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
-) (C:\Users\MSI\AppData\Roaming\MiKTeX\tex/generic/gettitlestring\gettitlestring.sty
+)
+(C:\Users\MSI\AppData\Roaming\MiKTeX\tex/generic/gettitlestring\gettitlestring.
+sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count371
@@ -756,11 +924,13 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 File: pd1enc.def 2025-07-12 v7.01o Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
-) (C:\Users\MSI\AppData\Roaming\MiKTeX\tex/generic/intcalc\intcalc.sty
+)
+(C:\Users\MSI\AppData\Roaming\MiKTeX\tex/generic/intcalc\intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
 \Hy@SavedSpaceFactor=\count374
- (C:\Program Files\MiKTeX\tex/latex/hyperref\puenc.def
+
+(C:\Program Files\MiKTeX\tex/latex/hyperref\puenc.def
 File: puenc.def 2025-07-12 v7.01o Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
@@ -776,10 +946,13 @@ Package hyperref Info: Bookmarks ON on input line 4462.
 \c@Hy@tempcnt=\count375
 LaTeX Info: Redefining \url on input line 4801.
 \XeTeXLinkMargin=\dimen311
- (C:\Users\MSI\AppData\Roaming\MiKTeX\tex/generic/bitset\bitset.sty
+
+(C:\Users\MSI\AppData\Roaming\MiKTeX\tex/generic/bitset\bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
- (C:\Users\MSI\AppData\Roaming\MiKTeX\tex/generic/bigintcalc\bigintcalc.sty
-Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
+
+(C:\Users\MSI\AppData\Roaming\MiKTeX\tex/generic/bigintcalc\bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
 ))
 \Fld@menulength=\count376
 \Field@Width=\dimen312
@@ -796,16 +969,22 @@ Package hyperref Info: PDF/A mode OFF on input line 6108.
 \c@Hfootnote=\count379
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
- (C:\Program Files\MiKTeX\tex/latex/hyperref\hpdftex.def
+
+(C:\Program Files\MiKTeX\tex/latex/hyperref\hpdftex.def
 File: hpdftex.def 2025-07-12 v7.01o Hyperref driver for pdfTeX
 \Fld@listcount=\count380
 \c@bookmark@seq@number=\count381
- (C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/rerunfilecheck\rerunfilecheck.sty
+
+(C:\Users\MSI\AppData\Roaming\MiKTeX\tex/latex/rerunfilecheck\rerunfilecheck.st
+y
 Package: rerunfilecheck 2025-06-21 v1.11 Rerun checks for auxiliary files (HO)
- (C:\Users\MSI\AppData\Roaming\MiKTeX\tex/generic/uniquecounter\uniquecounter.sty
+
+(C:\Users\MSI\AppData\Roaming\MiKTeX\tex/generic/uniquecounter\uniquecounter.st
+y
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
-Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 284.
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+84.
 )
 \Hy@SectionHShift=\skip84
 )
@@ -813,38 +992,39 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 \figurewidth=\skip86
 Package french3.ldf Info: Setting StandardItemizeEnv=true for
 (french3.ldf)             compatibility with enumitem package,
-(french3.ldf)             reported on input line 100.
+(french3.ldf)             reported on input line 99.
 Package french3.ldf Info: Setting StandardEnumerateEnv=true for
 (french3.ldf)             compatibility with enumitem package,
-(french3.ldf)             reported on input line 100.
+(french3.ldf)             reported on input line 99.
  (C:\Program Files\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count382
-) (main.aux
+)
+(main.aux
 Package babel Info: 'french' activates 'french' shorthands.
 (babel)             Reported on input line 12.
 )
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Info: Redefining \degres on input line 100.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Info: Redefining \degres on input line 99.
  (C:\Program Files\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count383
@@ -899,7 +1079,7 @@ Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count389
-Package hyperref Info: Link coloring ON on input line 100.
+Package hyperref Info: Link coloring ON on input line 99.
 (main.out) (main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
@@ -920,20 +1100,27 @@ Package pdftex.def Info: images/logo_ensi.jpg  used on input line 22.
 LaTeX Font Warning: Font shape `T1/lmr/bx/sc' undefined
 (Font)              using `T1/lmr/bx/n' instead on input line 30.
 
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 41.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 4
+1.
 (C:\Program Files\MiKTeX\tex/latex/lm\ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 41.
- (C:\Program Files\MiKTeX\tex/latex/lm\omllmm.fd
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 4
+1.
+
+(C:\Program Files\MiKTeX\tex/latex/lm\omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 41.
- (C:\Program Files\MiKTeX\tex/latex/lm\omslmsy.fd
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
+41.
+
+(C:\Program Files\MiKTeX\tex/latex/lm\omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 41.
- (C:\Program Files\MiKTeX\tex/latex/lm\omxlmex.fd
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
+41.
+
+(C:\Program Files\MiKTeX\tex/latex/lm\omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
@@ -943,11 +1130,15 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10> on input line 41.
 LaTeX Font Info:    Trying to load font information for U+msa on input line 41.
- (C:\Program Files\MiKTeX\tex/latex/amsfonts\umsa.fd
+
+
+(C:\Program Files\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Trying to load font information for U+msb on input line 41.
- (C:\Program Files\MiKTeX\tex/latex/amsfonts\umsb.fd
+
+
+(C:\Program Files\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
@@ -961,21 +1152,25 @@ Package pdftex.def Info: images/logo_decade.png  used on input line 58.
 (pdftex.def)             Requested size: 162.09668pt x 36.98866pt.
  [1
 
-{C:/Users/MSI/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc} <./images/uma.png> <./images/logo_ensi.jpg> <./images/logo_decade.png>]) (0-i-signature.tex
+{C:/Users/MSI/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Program File
+s/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc} <./images/uma.png> <./images/logo_ensi.j
+pg> <./images/logo_decade.png>]) (0-i-signature.tex
 Underfull \hbox (badness 10000) detected at line 5
 []
  []
 
 )
-pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.108 \clearpage
+l.107 \clearpage
                  [1
 
 ]
-Overfull \hbox (6.59581pt too wide) in paragraph at lines 120--121
-\T1/lmr/m/n/12 et de va-li-da-tion des don-nées pro-duits in-té-grée à SAP Com-merce pour ETANCO/SIMPSON.
+Overfull \hbox (6.59581pt too wide) in paragraph at lines 119--120
+\T1/lmr/m/n/12 et de va-li-da-tion des don-nées pro-duits in-té-grée à SAP Com-
+merce pour ETANCO/SIMPSON.
  []
 
 [2
@@ -1005,180 +1200,237 @@ Package babel Info: 'french' activates 'french' shorthands.
 
  [4]
 
-LaTeX Warning: Hyper reference `acro:AI' on page v undefined on input line 177.
+LaTeX Warning: Hyper reference `acro:AI' on page v undefined on input line 176.
 
 
-LaTeX Warning: Hyper reference `acro:AI' on page v undefined on input line 177.
 
+LaTeX Warning: Hyper reference `acro:AI' on page v undefined on input line 176.
 
-LaTeX Warning: Hyper reference `acro:API' on page v undefined on input line 178.
 
 
-LaTeX Warning: Hyper reference `acro:API' on page v undefined on input line 178.
+LaTeX Warning: Hyper reference `acro:API' on page v undefined on input line 177
+.
 
 
-LaTeX Warning: Hyper reference `acro:B2B' on page v undefined on input line 179.
+LaTeX Warning: Hyper reference `acro:API' on page v undefined on input line 177
+.
 
 
-LaTeX Warning: Hyper reference `acro:B2B' on page v undefined on input line 179.
+LaTeX Warning: Hyper reference `acro:B2B' on page v undefined on input line 178
+.
 
 
-LaTeX Warning: Hyper reference `acro:B2C' on page v undefined on input line 180.
+LaTeX Warning: Hyper reference `acro:B2B' on page v undefined on input line 178
+.
 
 
-LaTeX Warning: Hyper reference `acro:B2C' on page v undefined on input line 180.
+LaTeX Warning: Hyper reference `acro:B2C' on page v undefined on input line 179
+.
 
 
-LaTeX Warning: Hyper reference `acro:BLEU' on page v undefined on input line 181.
+LaTeX Warning: Hyper reference `acro:B2C' on page v undefined on input line 179
+.
 
 
-LaTeX Warning: Hyper reference `acro:BLEU' on page v undefined on input line 181.
+LaTeX Warning: Hyper reference `acro:BLEU' on page v undefined on input line 18
+0.
 
 
-LaTeX Warning: Hyper reference `acro:CRM' on page v undefined on input line 182.
+LaTeX Warning: Hyper reference `acro:BLEU' on page v undefined on input line 18
+0.
 
 
-LaTeX Warning: Hyper reference `acro:CRM' on page v undefined on input line 182.
+LaTeX Warning: Hyper reference `acro:CRM' on page v undefined on input line 181
+.
 
 
-LaTeX Warning: Hyper reference `acro:DAO' on page v undefined on input line 183.
+LaTeX Warning: Hyper reference `acro:CRM' on page v undefined on input line 181
+.
 
 
-LaTeX Warning: Hyper reference `acro:DAO' on page v undefined on input line 183.
+LaTeX Warning: Hyper reference `acro:DAO' on page v undefined on input line 182
+.
 
 
-LaTeX Warning: Hyper reference `acro:DTO' on page v undefined on input line 184.
+LaTeX Warning: Hyper reference `acro:DAO' on page v undefined on input line 182
+.
 
 
-LaTeX Warning: Hyper reference `acro:DTO' on page v undefined on input line 184.
+LaTeX Warning: Hyper reference `acro:DTO' on page v undefined on input line 183
+.
 
 
-LaTeX Warning: Hyper reference `acro:ERP' on page v undefined on input line 185.
+LaTeX Warning: Hyper reference `acro:DTO' on page v undefined on input line 183
+.
 
 
-LaTeX Warning: Hyper reference `acro:ERP' on page v undefined on input line 185.
+LaTeX Warning: Hyper reference `acro:ERP' on page v undefined on input line 184
+.
 
 
-LaTeX Warning: Hyper reference `acro:GPU' on page v undefined on input line 186.
+LaTeX Warning: Hyper reference `acro:ERP' on page v undefined on input line 184
+.
 
 
-LaTeX Warning: Hyper reference `acro:GPU' on page v undefined on input line 186.
+LaTeX Warning: Hyper reference `acro:GPU' on page v undefined on input line 185
+.
 
 
-LaTeX Warning: Hyper reference `acro:HTML' on page v undefined on input line 187.
+LaTeX Warning: Hyper reference `acro:GPU' on page v undefined on input line 185
+.
 
 
-LaTeX Warning: Hyper reference `acro:HTML' on page v undefined on input line 187.
+LaTeX Warning: Hyper reference `acro:HTML' on page v undefined on input line 18
+6.
 
 
-LaTeX Warning: Hyper reference `acro:HTTP' on page v undefined on input line 188.
+LaTeX Warning: Hyper reference `acro:HTML' on page v undefined on input line 18
+6.
 
 
-LaTeX Warning: Hyper reference `acro:HTTP' on page v undefined on input line 188.
+LaTeX Warning: Hyper reference `acro:HTTP' on page v undefined on input line 18
+7.
 
 
-LaTeX Warning: Hyper reference `acro:IA' on page v undefined on input line 189.
+LaTeX Warning: Hyper reference `acro:HTTP' on page v undefined on input line 18
+7.
 
 
-LaTeX Warning: Hyper reference `acro:IA' on page v undefined on input line 189.
+LaTeX Warning: Hyper reference `acro:IA' on page v undefined on input line 188.
 
 
-LaTeX Warning: Hyper reference `acro:JSON' on page v undefined on input line 190.
 
+LaTeX Warning: Hyper reference `acro:IA' on page v undefined on input line 188.
 
-LaTeX Warning: Hyper reference `acro:JSON' on page v undefined on input line 190.
 
 
-LaTeX Warning: Hyper reference `acro:LLM' on page v undefined on input line 191.
+LaTeX Warning: Hyper reference `acro:JSON' on page v undefined on input line 18
+9.
 
 
-LaTeX Warning: Hyper reference `acro:LLM' on page v undefined on input line 191.
+LaTeX Warning: Hyper reference `acro:JSON' on page v undefined on input line 18
+9.
 
 
-LaTeX Warning: Hyper reference `acro:LoRA' on page v undefined on input line 192.
+LaTeX Warning: Hyper reference `acro:LLM' on page v undefined on input line 190
+.
 
 
-LaTeX Warning: Hyper reference `acro:LoRA' on page v undefined on input line 192.
+LaTeX Warning: Hyper reference `acro:LLM' on page v undefined on input line 190
+.
 
 
-LaTeX Warning: Hyper reference `acro:NLP' on page v undefined on input line 193.
+LaTeX Warning: Hyper reference `acro:LoRA' on page v undefined on input line 19
+1.
 
 
-LaTeX Warning: Hyper reference `acro:NLP' on page v undefined on input line 193.
+LaTeX Warning: Hyper reference `acro:LoRA' on page v undefined on input line 19
+1.
 
 
-LaTeX Warning: Hyper reference `acro:NLLB' on page v undefined on input line 194.
+LaTeX Warning: Hyper reference `acro:NLP' on page v undefined on input line 192
+.
 
 
-LaTeX Warning: Hyper reference `acro:NLLB' on page v undefined on input line 194.
+LaTeX Warning: Hyper reference `acro:NLP' on page v undefined on input line 192
+.
 
 
-LaTeX Warning: Hyper reference `acro:ORM' on page v undefined on input line 195.
+LaTeX Warning: Hyper reference `acro:NLLB' on page v undefined on input line 19
+3.
 
 
-LaTeX Warning: Hyper reference `acro:ORM' on page v undefined on input line 195.
+LaTeX Warning: Hyper reference `acro:NLLB' on page v undefined on input line 19
+3.
 
 
-LaTeX Warning: Hyper reference `acro:PEFT' on page v undefined on input line 196.
+LaTeX Warning: Hyper reference `acro:ORM' on page v undefined on input line 194
+.
 
 
-LaTeX Warning: Hyper reference `acro:PEFT' on page v undefined on input line 196.
+LaTeX Warning: Hyper reference `acro:ORM' on page v undefined on input line 194
+.
 
 
-LaTeX Warning: Hyper reference `acro:PIM' on page v undefined on input line 197.
+LaTeX Warning: Hyper reference `acro:PEFT' on page v undefined on input line 19
+5.
 
 
-LaTeX Warning: Hyper reference `acro:PIM' on page v undefined on input line 197.
+LaTeX Warning: Hyper reference `acro:PEFT' on page v undefined on input line 19
+5.
 
 
-LaTeX Warning: Hyper reference `acro:REST' on page v undefined on input line 198.
+LaTeX Warning: Hyper reference `acro:PIM' on page v undefined on input line 196
+.
 
 
-LaTeX Warning: Hyper reference `acro:REST' on page v undefined on input line 198.
+LaTeX Warning: Hyper reference `acro:PIM' on page v undefined on input line 196
+.
 
 
-LaTeX Warning: Hyper reference `acro:SMTP' on page v undefined on input line 199.
+LaTeX Warning: Hyper reference `acro:REST' on page v undefined on input line 19
+7.
 
 
-LaTeX Warning: Hyper reference `acro:SMTP' on page v undefined on input line 199.
+LaTeX Warning: Hyper reference `acro:REST' on page v undefined on input line 19
+7.
 
 
-LaTeX Warning: Hyper reference `acro:TAL' on page v undefined on input line 200.
+LaTeX Warning: Hyper reference `acro:SMTP' on page v undefined on input line 19
+8.
 
 
-LaTeX Warning: Hyper reference `acro:TAL' on page v undefined on input line 200.
+LaTeX Warning: Hyper reference `acro:SMTP' on page v undefined on input line 19
+8.
 
 
-LaTeX Warning: Hyper reference `acro:UML' on page v undefined on input line 201.
+LaTeX Warning: Hyper reference `acro:TAL' on page v undefined on input line 199
+.
 
 
-LaTeX Warning: Hyper reference `acro:UML' on page v undefined on input line 201.
+LaTeX Warning: Hyper reference `acro:TAL' on page v undefined on input line 199
+.
 
 
-LaTeX Warning: Hyper reference `acro:URL' on page v undefined on input line 202.
+LaTeX Warning: Hyper reference `acro:UML' on page v undefined on input line 200
+.
 
 
-LaTeX Warning: Hyper reference `acro:URL' on page v undefined on input line 202.
+LaTeX Warning: Hyper reference `acro:UML' on page v undefined on input line 200
+.
 
 
-LaTeX Warning: Hyper reference `acro:XML' on page v undefined on input line 203.
+LaTeX Warning: Hyper reference `acro:URL' on page v undefined on input line 201
+.
 
 
-LaTeX Warning: Hyper reference `acro:XML' on page v undefined on input line 203.
+LaTeX Warning: Hyper reference `acro:URL' on page v undefined on input line 201
+.
+
+
+LaTeX Warning: Hyper reference `acro:XML' on page v undefined on input line 202
+.
+
+
+LaTeX Warning: Hyper reference `acro:XML' on page v undefined on input line 202
+.
 
 [5
 
 ] [6] (0-introduction.tex
-pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.18 L
-      e travail que j'ai rÃ©alisÃ© consiste Ã  concevoir et dÃ©velopper un m... [1
+      e travail que j'ai rÃ©alisÃ© consiste Ã  concevoir et dÃ©velopper un m...
+[1
 
 
 ]
 
-LaTeX Warning: Citation `spring_framework' on page 2 undefined on input line 20.
+LaTeX Warning: Citation `spring_framework' on page 2 undefined on input line 20
+.
 
 
 LaTeX Warning: Citation `python_psf' on page 2 undefined on input line 20.
@@ -1188,19 +1440,23 @@ LaTeX Warning: Citation `fastapi_docs' on page 2 undefined on input line 20.
 
 
 Underfull \hbox (badness 1983) in paragraph at lines 30--31
-[]\T1/lmr/m/n/12 Le cha-pitre 3 consti-tue le c÷ur tech-nique du pro-jet. Il dé-taille le mo-dule
+[]\T1/lmr/m/n/12 Le cha-pitre 3 consti-tue le c÷ur tech-nique du pro-jet. Il dé
+-taille le mo-dule
  []
 
 
-pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has been already used, duplicate ignored
+pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has 
+been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.31 
       [2]
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 33.
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 3
+3.
  (C:\Program Files\MiKTeX\tex/latex/lm\ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)) (1-first-chapter.tex [3{C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}]
+))
+(1-first-chapter.tex [3{C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}]
 Chapitre 1.
 [4
 
@@ -1217,7 +1473,8 @@ Package pdftex.def Info: images/etanco.jpg  used on input line 51.
 (pdftex.def)             Requested size: 91.04742pt x 34.29391pt.
 
 Underfull \hbox (badness 1803) in paragraph at lines 67--68
-\T1/lmr/m/n/12 concernent gé-né-ra-le-ment de faibles quan-ti-tés et le pro-ces-sus de dé-ci-sion est
+\T1/lmr/m/n/12 concernent gé-né-ra-le-ment de faibles quan-ti-tés et le pro-ces
+-sus de dé-ci-sion est
  []
 
 [6 <./images/etanco.jpg>]
@@ -1258,27 +1515,32 @@ Package pdftex.def Info: images/product.png  used on input line 115.
 (pdftex.def)             Requested size: 455.24411pt x 348.81943pt.
  [8 <./images/product.png>] [9]
 Underfull \hbox (badness 1194) in paragraph at lines 153--154
-\T1/lmr/m/it/12 Mo-dels\T1/lmr/m/n/12 ), re-pré-sentent l'une des ap-pli-ca-tions les plus im-por-tantes de l'in-tel-li-gence
+\T1/lmr/m/it/12 Mo-dels\T1/lmr/m/n/12 ), re-pré-sentent l'une des ap-pli-ca-tio
+ns les plus im-por-tantes de l'in-tel-li-gence
  []
 
 [10] [11]
 Underfull \hbox (badness 2073) in paragraph at lines 206--207
-[]\T1/lmr/m/n/12 Cette ap-proche re-pose sur l'uti-li-sa-tion de tech-niques d'in-tel-li-gence ar-ti-fi-cielle
+[]\T1/lmr/m/n/12 Cette ap-proche re-pose sur l'uti-li-sa-tion de tech-niques d'
+in-tel-li-gence ar-ti-fi-cielle
  []
 
 
 Underfull \hbox (badness 4303) in paragraph at lines 206--207
-\T1/lmr/m/n/12 gé-né-ra-tive ca-pables d'as-sis-ter les uti-li-sa-teurs dans cer-taines tâches né-ces-si-tant
+\T1/lmr/m/n/12 gé-né-ra-tive ca-pables d'as-sis-ter les uti-li-sa-teurs dans ce
+r-taines tâches né-ces-si-tant
  []
 
 [12]
 Underfull \hbox (badness 1067) in paragraph at lines 226--227
-[]\T1/lmr/m/n/12 La mé-tho-do-lo-gie Agile est une ap-proche de ges-tion de pro-jet fon-dée sur un
+[]\T1/lmr/m/n/12 La mé-tho-do-lo-gie Agile est une ap-proche de ges-tion de pro
+-jet fon-dée sur un
  []
 
 
 Underfull \hbox (badness 3861) in paragraph at lines 228--229
-\T1/lmr/m/n/12 pro-gres-sive de fonc-tion-na-li-tés opé-ra-tion-nelles. Ces ca-rac-té-ris-tiques en font une
+\T1/lmr/m/n/12 pro-gres-sive de fonc-tion-na-li-tés opé-ra-tion-nelles. Ces ca-
+rac-té-ris-tiques en font une
  []
 
 [13]
@@ -1325,16 +1587,19 @@ Underfull \hbox (badness 4403) in paragraph at lines 290--290
 
 Underfull \hbox (badness 2334) in paragraph at lines 295--295
 \T1/lmr/m/n/12 dé-fi-ni-tion des be-soins fonc-tion-nels et non fonc-tion-nels,
+
  []
 
 
 Underfull \hbox (badness 1755) in paragraph at lines 300--300
-[]|\T1/lmr/m/n/12 Développement du mo-dule d'en-ri-chis-se-ment in-tel-li-gent :
+[]|\T1/lmr/m/n/12 Développement du mo-dule d'en-ri-chis-se-ment in-tel-li-gent 
+:
  []
 
 
 Underfull \hbox (badness 1142) in paragraph at lines 305--305
 \T1/lmr/m/n/12 qua-lité des don-nées, dé-tec-tion des ano-ma-lies, cor-rec-tion
+
  []
 
 
@@ -1383,7 +1648,8 @@ Chapitre 2.
 
 ]
 Underfull \hbox (badness 3930) in paragraph at lines 30--31
-[]\T1/lmr/m/n/12 Le res-pon-sable de l'en-ri-chis-se-ment des pro-duits doit pou-voir consul-ter les
+[]\T1/lmr/m/n/12 Le res-pon-sable de l'en-ri-chis-se-ment des pro-duits doit po
+u-voir consul-ter les
  []
 
 [19] [20]
@@ -1403,12 +1669,14 @@ Package pdftex.def Info: images/sequence.png  used on input line 105.
 (pdftex.def)             Requested size: 441.58734pt x 393.88234pt.
 
 Underfull \hbox (badness 2073) in paragraph at lines 101--108
-[]\T1/lmr/m/n/12 Le dia-gramme de sé-quence sys-tème dé-crit le dé-rou-le-ment chro-no-lo-gique des
+[]\T1/lmr/m/n/12 Le dia-gramme de sé-quence sys-tème dé-crit le dé-rou-le-ment 
+chro-no-lo-gique des
  []
 
 
 Underfull \hbox (badness 1888) in paragraph at lines 101--108
-\T1/lmr/m/n/12 in-ter-ac-tions entre le res-pon-sable de l'en-ri-chis-se-ment des pro-duits et le sys-tème
+\T1/lmr/m/n/12 in-ter-ac-tions entre le res-pon-sable de l'en-ri-chis-se-ment d
+es pro-duits et le sys-tème
  []
 
 [22 <./images/usecase.png>] [23 <./images/sequence.png>]
@@ -1425,12 +1693,14 @@ Package pdftex.def Info: images/composants.png  used on input line 168.
 (pdftex.def)             Requested size: 432.48051pt x 417.31284pt.
  [26] [27 <./images/composants.png>]
 Underfull \hbox (badness 1033) in paragraph at lines 179--180
-[]\T1/lmr/m/n/12 Le trai-te-ment s'ap-puie sur les ser-vices in-ternes de la pla-te-forme. Le \T1/lmr/bx/n/12 ser-vice
+[]\T1/lmr/m/n/12 Le trai-te-ment s'ap-puie sur les ser-vices in-ternes de la pl
+a-te-forme. Le \T1/lmr/bx/n/12 ser-vice
  []
 
 
 Underfull \hbox (badness 1137) in paragraph at lines 179--180
-\T1/lmr/bx/n/12 d'en-ri-chis-se-ment \T1/lmr/m/n/12 pré-pare les in-for-ma-tions né-ces-saires et as-sure l'in-té-gra-tion des
+\T1/lmr/bx/n/12 d'en-ri-chis-se-ment \T1/lmr/m/n/12 pré-pare les in-for-ma-tion
+s né-ces-saires et as-sure l'in-té-gra-tion des
  []
 
 [28]
@@ -1441,14 +1711,16 @@ Package pdftex.def Info: images/flux.png  used on input line 217.
 (pdftex.def)             Requested size: 455.24411pt x 303.49452pt.
  [29 <./images/flux.png (PNG copy)>]
 Underfull \hbox (badness 1147) in paragraph at lines 232--233
-\T1/lmr/m/n/12 mé-tier. Les ré-sul-tats peuvent être ex-ploi-tés pour mettre à jour les in-for-ma-tions
+\T1/lmr/m/n/12 mé-tier. Les ré-sul-tats peuvent être ex-ploi-tés pour mettre à 
+jour les in-for-ma-tions
  []
 
 [30]) (3-third-chapter.tex [31]
 Chapitre 3.
 
 Underfull \hbox (badness 2080) in paragraph at lines 5--6
-\T1/lmr/m/n/12 ar-ti-fi-cielle. Celui-ci consti-tue le com-po-sant chargé de cen-tra-li-ser les trai-te-ments
+\T1/lmr/m/n/12 ar-ti-fi-cielle. Celui-ci consti-tue le com-po-sant chargé de ce
+n-tra-li-ser les trai-te-ments
  []
 
 
@@ -1460,17 +1732,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 9--9
 
 ]
 Underfull \hbox (badness 1005) in paragraph at lines 13--14
-\T1/lmr/m/n/12 les routes, les sché-mas de don-nées, les ser-vices de trai-te-ment et les mo-dèles et
+\T1/lmr/m/n/12 les routes, les sché-mas de don-nées, les ser-vices de trai-te-m
+ent et les mo-dèles et
  []
 
 <images/architecture_microservice.png, id=700, 431.36156pt x 609.77812pt>
 File: images/architecture_microservice.png Graphic file (type png)
 <use images/architecture_microservice.png>
-Package pdftex.def Info: images/architecture_microservice.png  used on input line 17.
+Package pdftex.def Info: images/architecture_microservice.png  used on input li
+ne 17.
 (pdftex.def)             Requested size: 273.14923pt x 386.1348pt.
 [33 <./images/architecture_microservice.png>]
 Underfull \hbox (badness 1303) in paragraph at lines 28--29
-[]\T1/lmr/m/n/12 Les routes sont or-ga-ni-sées se-lon les prin-ci-pales fonc-tion-na-li-tés of-fertes par le
+[]\T1/lmr/m/n/12 Les routes sont or-ga-ni-sées se-lon les prin-ci-pales fonc-ti
+on-na-li-tés of-fertes par le
  []
 
 [34] [35]
@@ -1480,7 +1755,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 70--70
 
 
 Underfull \hbox (badness 2158) in paragraph at lines 78--79
-[]\T1/lmr/m/n/12 L'intérêt de cette or-ga-ni-sa-tion ré-side dans la sé-pa-ra-tion entre les ca-pa-ci-tés
+[]\T1/lmr/m/n/12 L'intérêt de cette or-ga-ni-sa-tion ré-side dans la sé-pa-ra-t
+ion entre les ca-pa-ci-tés
  []
 
 [36]
@@ -1501,18 +1777,22 @@ LaTeX Warning: Citation `ollama' on page 38 undefined on input line 120.
 
 [38]
 Underfull \hbox (badness 1320) in paragraph at lines 130--131
-[]\T1/lmr/m/n/12 Ce prompt pré-cise éga-le-ment les contraintes de ré-dac-tion à res-pec-ter par le
+[]\T1/lmr/m/n/12 Ce prompt pré-cise éga-le-ment les contraintes de ré-dac-tion 
+à res-pec-ter par le
  []
 
 [39]
 Underfull \hbox (badness 1173) in paragraph at lines 169--170
-[]\T1/lmr/m/n/12 La tra-duc-tion ma-nuelle se-rait ex-trê-me-ment coû-teuse et lente. Une tra-duc-tion
+[]\T1/lmr/m/n/12 La tra-duc-tion ma-nuelle se-rait ex-trê-me-ment coû-teuse et 
+lente. Une tra-duc-tion
  []
 
 
-LaTeX Warning: Citation `translation_models' on page 40 undefined on input line 173.
+LaTeX Warning: Citation `translation_models' on page 40 undefined on input line
+ 173.
 
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 175.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
+75.
 (C:\Program Files\MiKTeX\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -1524,7 +1804,8 @@ LaTeX Warning: Citation `lora' on page 40 undefined on input line 187.
 
 [40]
 Underfull \hbox (badness 1067) in paragraph at lines 201--202
-\T1/lmr/m/n/12 d'ap-pren-tis-sage et contraintes ma-té-rielles. Le Ta-bleau [][]3.2[][] pré-sente les prin-ci-paux
+\T1/lmr/m/n/12 d'ap-pren-tis-sage et contraintes ma-té-rielles. Le Ta-bleau [][
+]3.2[][] pré-sente les prin-ci-paux
  []
 
 
@@ -1532,7 +1813,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 217--217
 []|\T1/lmr/m/n/12 Nombre
  []
 
-[41{C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}]
+[41{C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Program Files/
+MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program Files/MiKTeX/fonts/enc/dvips/lm
+/lm-mathsy.enc}]
 
 LaTeX Warning: Citation `bleu' on page 42 undefined on input line 228.
 
@@ -1541,7 +1824,8 @@ LaTeX Warning: Citation `lora' on page 42 undefined on input line 230.
 
 [42]
 Underfull \hbox (badness 1360) in paragraph at lines 252--253
-[]\T1/lmr/m/n/12 À l'is-sue du pro-ces-sus d'en-ri-chis-se-ment, le mi-cro-ser-vice re-tourne une ré-ponse
+[]\T1/lmr/m/n/12 À l'is-sue du pro-ces-sus d'en-ri-chis-se-ment, le mi-cro-ser-
+vice re-tourne une ré-ponse
  []
 
 [43]
@@ -1551,7 +1835,8 @@ Underfull \hbox (badness 2103) in paragraph at lines 295--295
 
 [44]
 Underfull \hbox (badness 1127) in paragraph at lines 307--308
-\T1/lmr/m/n/12 in-dé-pen-dam-ment du code de trai-te-ment, ce qui fa-ci-lite leur com-pré-hen-sion, leur
+\T1/lmr/m/n/12 in-dé-pen-dam-ment du code de trai-te-ment, ce qui fa-ci-lite le
+ur com-pré-hen-sion, leur
  []
 
 [45]
@@ -1569,13 +1854,16 @@ LaTeX Warning: Citation `llm_models' on page 46 undefined on input line 338.
 LaTeX Warning: Citation `beautifulsoup' on page 47 undefined on input line 348.
 
 
+
 Underfull \hbox (badness 1062) in paragraph at lines 348--349
-[]\T1/lmr/bx/n/12 Corrections au-to-ma-tiques : \T1/lmr/m/n/12 elles concernent les ano-ma-lies de faible risque
+[]\T1/lmr/bx/n/12 Corrections au-to-ma-tiques : \T1/lmr/m/n/12 elles concernent
+ les ano-ma-lies de faible risque
  []
 
 
 Underfull \hbox (badness 2134) in paragraph at lines 350--351
-[]\T1/lmr/bx/n/12 Suggestions de cor-rec-tion : \T1/lmr/m/n/12 les ano-ma-lies né-ces-si-tant une com-pré-hen-sion
+[]\T1/lmr/bx/n/12 Suggestions de cor-rec-tion : \T1/lmr/m/n/12 les ano-ma-lies 
+né-ces-si-tant une com-pré-hen-sion
  []
 
 [47]
@@ -1590,12 +1878,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 379--380
 
 
 Underfull \hbox (badness 5908) in paragraph at lines 386--387
-[]\T1/lmr/m/n/12 La no-ta-tion conver-tit les diag-nos-tics tech-niques en un in-di-ca-teur mé-tier
+[]\T1/lmr/m/n/12 La no-ta-tion conver-tit les diag-nos-tics tech-niques en un i
+n-di-ca-teur mé-tier
  []
 
 [48] [49]
 Underfull \hbox (badness 1127) in paragraph at lines 432--433
-[]\T1/lmr/m/n/12 Les mé-ca-nismes mis en ÷uvre re-posent sur l'uti-li-sa-tion conjointe de mo-dèles
+[]\T1/lmr/m/n/12 Les mé-ca-nismes mis en ÷uvre re-posent sur l'uti-li-sa-tion c
+onjointe de mo-dèles
  []
 
 ) (4-fourth-chapter.tex [50]
@@ -1604,7 +1894,8 @@ Chapitre 4.
 
 ]
 Underfull \hbox (badness 1226) in paragraph at lines 15--16
-\T1/lmr/m/n/12 le mi-cro-ser-vice d'in-tel-li-gence ar-ti-fi-cielle et ex-ploi-ter les ré-sul-tats re-tour-nés. Cette
+\T1/lmr/m/n/12 le mi-cro-ser-vice d'in-tel-li-gence ar-ti-fi-cielle et ex-ploi-
+ter les ré-sul-tats re-tour-nés. Cette
  []
 
 <images/architecture_sap.png, id=807, 184.89075pt x 421.575pt>
@@ -1614,7 +1905,8 @@ Package pdftex.def Info: images/architecture_sap.png  used on input line 25.
 (pdftex.def)             Requested size: 163.88815pt x 373.7146pt.
 [52 <./images/architecture_sap.png>] [53]
 Underfull \hbox (badness 3323) in paragraph at lines 66--67
-[]\T1/lmr/m/n/12 Dans le cadre de ce pro-jet, le work-flow per-met d'or-ches-trer le pro-ces-sus
+[]\T1/lmr/m/n/12 Dans le cadre de ce pro-jet, le work-flow per-met d'or-ches-tr
+er le pro-ces-sus
  []
 
 
@@ -1624,44 +1916,52 @@ Underfull \hbox (badness 4467) in paragraph at lines 68--68
 
 [54]
 Underfull \hbox (badness 1584) in paragraph at lines 74--75
-[]\T1/lmr/m/n/12 L'architecture mise en place re-pose sur deux com-po-sants prin-ci-paux : \T1/lmr/bx/n/12 SAP
+[]\T1/lmr/m/n/12 L'architecture mise en place re-pose sur deux com-po-sants pri
+n-ci-paux : \T1/lmr/bx/n/12 SAP
  []
 
 <images/architecture_integration.png, id=829, 3897.56125pt x 1284.8pt>
 File: images/architecture_integration.png Graphic file (type png)
 <use images/architecture_integration.png>
-Package pdftex.def Info: images/architecture_integration.png  used on input line 84.
+Package pdftex.def Info: images/architecture_integration.png  used on input lin
+e 84.
 (pdftex.def)             Requested size: 455.24411pt x 150.05241pt.
 [55 <./images/architecture_integration.png>] [56] [57]
 Overfull \hbox (0.96826pt too wide) in paragraph at lines 218--218
-[]\T1/lmtt/m/n/12 productEnrichmentWorkflow; Workflow d'enrichissement et de validation;[] 
+[]\T1/lmtt/m/n/12 productEnrichmentWorkflow; Workflow d'enrichissement et de va
+lidation;[] 
  []
 
 
 Underfull \hbox (badness 1057) in paragraph at lines 227--228
-\T1/lmr/m/n/12 Les sec-tions sui-vantes pré-sentent les dif-fé-rentes ac-tions dé-ve-lop-pées ainsi que les
+\T1/lmr/m/n/12 Les sec-tions sui-vantes pré-sentent les dif-fé-rentes ac-tions 
+dé-ve-lop-pées ainsi que les
  []
 
 
 Underfull \hbox (badness 1320) in paragraph at lines 231--232
-[]\T1/lmr/m/n/12 Cette pre-mière ac-tion cor-res-pond au dé-clen-che-ment au-to-ma-tique du work-flow
+[]\T1/lmr/m/n/12 Cette pre-mière ac-tion cor-res-pond au dé-clen-che-ment au-to
+-ma-tique du work-flow
  []
 
 [58]
 Underfull \hbox (badness 1939) in paragraph at lines 247--248
-[]\T1/lmr/m/n/12 La Fi-gure [][]4.3[][] pré-sente un exemple du cour-rier élec-tro-nique gé-néré lors du
+[]\T1/lmr/m/n/12 La Fi-gure [][]4.3[][] pré-sente un exemple du cour-rier élec-
+tro-nique gé-néré lors du
  []
 
 <images/notification_enrichissement.png, id=852, 853.38824pt x 361.35pt>
 File: images/notification_enrichissement.png Graphic file (type png)
 <use images/notification_enrichissement.png>
-Package pdftex.def Info: images/notification_enrichissement.png  used on input line 251.
+Package pdftex.def Info: images/notification_enrichissement.png  used on input 
+line 251.
 (pdftex.def)             Requested size: 455.24411pt x 192.7662pt.
 [59] [60 <./images/notification_enrichissement.png>]
 <images/selection_champs_langues.png, id=869, 1391.95032pt x 648.17157pt>
 File: images/selection_champs_langues.png Graphic file (type png)
 <use images/selection_champs_langues.png>
-Package pdftex.def Info: images/selection_champs_langues.png  used on input line 280.
+Package pdftex.def Info: images/selection_champs_langues.png  used on input lin
+e 280.
 (pdftex.def)             Requested size: 455.24411pt x 211.98845pt.
 <images/exemple_selection.png, id=871, 631.60968pt x 392.21532pt>
 File: images/exemple_selection.png Graphic file (type png)
@@ -1670,40 +1970,47 @@ Package pdftex.def Info: images/exemple_selection.png  used on input line 291.
 (pdftex.def)             Requested size: 455.24411pt x 282.70003pt.
  [61 <./images/selection_champs_langues.png>]
 Underfull \hbox (badness 1939) in paragraph at lines 302--303
-\T1/lmr/m/n/12 pré-pa-rées sous la forme d'une re-quête conforme au schéma at-tendu par l'API
+\T1/lmr/m/n/12 pré-pa-rées sous la forme d'une re-quête conforme au schéma at-t
+endu par l'API
  []
 
 [62 <./images/exemple_selection.png>]
 Underfull \hbox (badness 1584) in paragraph at lines 320--321
-[]\T1/lmr/m/n/12 L'utilisation d'une in-ter-face REST per-met ainsi de main-te-nir le mi-cro-ser-vice
+[]\T1/lmr/m/n/12 L'utilisation d'une in-ter-face REST per-met ainsi de main-te-
+nir le mi-cro-ser-vice
  []
 
 [63]
 Underfull \hbox (badness 2469) in paragraph at lines 342--343
-[]\T1/lmr/m/n/12 Le fonc-tion-ne-ment est si-mi-laire à ce-lui de l'ap-pel d'en-ri-chis-se-ment pré-senté
+[]\T1/lmr/m/n/12 Le fonc-tion-ne-ment est si-mi-laire à ce-lui de l'ap-pel d'en
+-ri-chis-se-ment pré-senté
  []
 
 
 Underfull \hbox (badness 8000) in paragraph at lines 346--347
-[]\T1/lmr/m/n/12 Une fois l'en-ri-chis-se-ment et la va-li-da-tion ter-mi-nés, une no-ti-fi-ca-tion est
+[]\T1/lmr/m/n/12 Une fois l'en-ri-chis-se-ment et la va-li-da-tion ter-mi-nés, 
+une no-ti-fi-ca-tion est
  []
 
 <images/review_recommendation.png, id=895, 1054.6903pt x 450.9347pt>
 File: images/review_recommendation.png Graphic file (type png)
 <use images/review_recommendation.png>
-Package pdftex.def Info: images/review_recommendation.png  used on input line 352.
+Package pdftex.def Info: images/review_recommendation.png  used on input line 3
+52.
 (pdftex.def)             Requested size: 409.71692pt x 175.16887pt.
 [64 <./images/review_recommendation.png>]
 <images/interface_enrichissement.png, id=906, 938.00438pt x 443.40656pt>
 File: images/interface_enrichissement.png Graphic file (type png)
 <use images/interface_enrichissement.png>
-Package pdftex.def Info: images/interface_enrichissement.png  used on input line 372.
+Package pdftex.def Info: images/interface_enrichissement.png  used on input lin
+e 372.
 (pdftex.def)             Requested size: 455.24411pt x 215.194pt.
  [65 <./images/interface_enrichissement.png>]
 <images/interface_validation.png, id=915, 998.9822pt x 541.27219pt>
 File: images/interface_validation.png Graphic file (type png)
 <use images/interface_validation.png>
-Package pdftex.def Info: images/interface_validation.png  used on input line 387.
+Package pdftex.def Info: images/interface_validation.png  used on input line 38
+7.
 (pdftex.def)             Requested size: 455.24411pt x 246.65915pt.
 <images/anomalie.png, id=917, 633.11531pt x 287.57437pt>
 File: images/anomalie.png Graphic file (type png)
@@ -1712,13 +2019,15 @@ Package pdftex.def Info: images/anomalie.png  used on input line 402.
 (pdftex.def)             Requested size: 386.96027pt x 175.76675pt.
  [66 <./images/interface_validation.png>]
 Underfull \hbox (badness 1142) in paragraph at lines 407--408
-[]\T1/lmr/m/n/12 Les ano-ma-lies per-mettent ainsi d'orien-ter le res-pon-sable vers les in-for-ma-tions
+[]\T1/lmr/m/n/12 Les ano-ma-lies per-mettent ainsi d'orien-ter le res-pon-sable
+ vers les in-for-ma-tions
  []
 
 <images/correction_suggestion.png, id=928, 631.60968pt x 346.29375pt>
 File: images/correction_suggestion.png Graphic file (type png)
 <use images/correction_suggestion.png>
-Package pdftex.def Info: images/correction_suggestion.png  used on input line 417.
+Package pdftex.def Info: images/correction_suggestion.png  used on input line 4
+17.
 (pdftex.def)             Requested size: 386.96027pt x 212.16357pt.
 [67 <./images/anomalie.png> <./images/correction_suggestion.png>]
 <images/auto_correction.png, id=938, 640.64343pt x 361.35pt>
@@ -1728,24 +2037,28 @@ Package pdftex.def Info: images/auto_correction.png  used on input line 432.
 (pdftex.def)             Requested size: 386.96027pt x 218.2673pt.
 
 Underfull \hbox (badness 2096) in paragraph at lines 441--442
-\T1/lmr/m/n/12 né-ces-saires pour éva-luer les ré-sul-tats du trai-te-ment. Il peut alors ac-cep-ter les
+\T1/lmr/m/n/12 né-ces-saires pour éva-luer les ré-sul-tats du trai-te-ment. Il 
+peut alors ac-cep-ter les
  []
 
 [68 <./images/auto_correction.png>]
 Underfull \hbox (badness 4846) in paragraph at lines 451--452
-[]\T1/lmr/m/n/12 Lorsque le res-pon-sable ac-cepte les re-com-man-da-tions, le work-flow pour-suit
+[]\T1/lmr/m/n/12 Lorsque le res-pon-sable ac-cepte les re-com-man-da-tions, le 
+work-flow pour-suit
  []
 
 [69]) (2-conclusion.tex [70]
 Underfull \hbox (badness 7133) in paragraph at lines 9--10
-[]\T1/lmr/m/n/12 L'intégration réa-li-sée dans SAP Com-merce Cloud per-met d'ex-ploi-ter ces
+[]\T1/lmr/m/n/12 L'intégration réa-li-sée dans SAP Com-merce Cloud per-met d'ex
+-ploi-ter ces
  []
 
 [71
 
 ]) [72] (URL.bbl
 Underfull \hbox (badness 2351) in paragraph at lines 40--44
-[]\T1/lmr/m/n/12 Salesforce.  Qu'est-ce que le crm ?  [][]$\T1/lmtt/m/n/12 https : / / www . salesforce . com / fr / crm /
+[]\T1/lmr/m/n/12 Salesforce.  Qu'est-ce que le crm ?  [][]$\T1/lmtt/m/n/12 http
+s : / / www . salesforce . com / fr / crm /
  []
 
 ) [73
@@ -1767,14 +2080,20 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: EDFA857E561485CFCA7555BB95D55118;16944.
  ) 
 Here is how much of TeX's memory you used:
- 34411 strings out of 467871
- 679547 string characters out of 5428449
+ 34409 strings out of 467871
+ 679376 string characters out of 5428449
  1108543 words of memory out of 5000000
  62384 multiletter control sequences out of 15000+600000
  724415 words of font info for 102 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 86i,16n,104p,868b,784s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Program Files/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmmi12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
+ 86i,16n,104p,813b,784s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Program Files/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Program Files/M
+iKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Program Files/MiKTeX/fonts/type1/pub
+lic/lm/lmcsc10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmmi12.pfb><C
+:/Program Files/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Program Files/MiKTeX
+/fonts/type1/public/lm/lmr8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/
+lmri12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Program
+ Files/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
 Output written on main.pdf (82 pages, 3076676 bytes).
 PDF statistics:
  1105 PDF objects out of 1200 (max. 8388607)
