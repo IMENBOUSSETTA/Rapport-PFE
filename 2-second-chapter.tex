@@ -67,7 +67,7 @@ Les traitements d'enrichissement et de validation doivent être réalisés dans 
 
 \subsubsection{Sécurité}
 
-Les échanges entre SAP Commerce et le microservice d'intelligence artificielle doivent être sécurisés afin de garantir la confidentialité et l'intégrité des données. Seules les informations nécessaires au traitement sont transmises, les communications sont protégées par le protocole HTTPS et les requêtes sont authentifiées afin de prévenir tout accès non autorisé.
+Les échanges entre SAP Commerce et le microservice d'intelligence artificielle doivent être sécurisés afin de garantir la confidentialité et l'intégrité des données. Seules les informations nécessaires au traitement sont transmises, les communications sont protégées par le protocole HTTPS \citeURL{rfc7231_http} et les requêtes sont authentifiées afin de prévenir tout accès non autorisé.
 
 \subsubsection{Utilisabilité}
 
@@ -80,7 +80,7 @@ L'architecture modulaire de la solution doit permettre son évolution sans remet
 
 \section{Modélisation des besoins}
 
-Cette section modélise le système d'enrichissement et de validation des produits au travers de trois diagrammes UML \citeURL{uml_omg} complémentaires : le diagramme de cas d'utilisation expose les scénarios métier, le diagramme de séquence détaille l'orchestration temporelle des échanges et le diagramme d'activités synthétise le flux de contrôle du traitement.
+Cette section modélise le système d'enrichissement et de validation des produits au travers de trois diagrammes UML \citeURL{uml_omg} complémentaires : le diagramme de cas d'utilisation expose les scénarios métier, le diagramme de séquences détaille l'orchestration temporelle des échanges et le diagramme d'activités synthétise le flux de contrôle du traitement.
 
 \subsection{Diagramme de cas d'utilisation}
 
@@ -88,26 +88,26 @@ Afin de préciser les fonctionnalités offertes par la solution ainsi que les in
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.80\textwidth]{images/usecase.png}
+    \includegraphics[width=0.99\textwidth]{images/use-case.png}
     \caption{Diagramme de cas d'utilisation}
     \label{fig:usecase}
 \end{figure}
 
 
 Le diagramme montre que le responsable de l’enrichissement intervient à plusieurs étapes du processus. Il commence par s’authentifier, puis crée ou modifie le produit avant de lancer son traitement automatique. Celui-ci prend en compte les champs sélectionnés et permet de générer les enrichissements et les traductions nécessaires. Les recommandations produites par le microservice d’intelligence artificielle sont ensuite consultées par le responsable afin de l’assister dans sa prise de décision. Enfin, il conserve la responsabilité de valider le produit, garantissant ainsi que les résultats obtenus respectent les exigences métier et les objectifs de qualité des données.
+\newpage
+\subsection{Diagramme de séquences système}
 
-\subsection{Diagramme de séquence système}
-
-Le diagramme de séquence système décrit le déroulement chronologique des interactions entre le responsable de l'enrichissement des produits et le système d'enrichissement et de validation des produits. Il représente le système comme une boîte noire et met en évidence les échanges de requêtes et de réponses permettant d'exécuter le processus, depuis la création ou la modification d'un produit jusqu'à sa validation finale. Les différentes interactions sont présentées dans la Figure~\ref{fig:sequence}.
+Le diagramme de séquences système décrit le déroulement chronologique des interactions entre le responsable de l'enrichissement des produits et le système d'enrichissement et de validation des produits. Il représente le système comme une boîte noire et met en évidence les échanges de requêtes et de réponses permettant d'exécuter le processus, depuis la création ou la modification d'un produit jusqu'à sa validation finale. Les différentes interactions sont présentées dans la Figure~\ref{fig:sequence}.
 \vspace{0.3cm}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.97\textwidth]{images/sequence.png}
-    \caption{Diagramme de séquence}
+    \caption{Diagramme de séquences}
     \label{fig:sequence}
 \end{figure}
 
-Le diagramme de séquence de la figure~\ref{fig:sequence} illustre les interactions entre le \textbf{responsable de l'enrichissement des produits} et le \textbf{système d'enrichissement et de validation des produits}. Le processus commence par la création ou la modification du produit et la sélection des champs à enrichir. Le système déclenche ensuite l'enrichissement, génère les contenus demandés et permet au responsable de consulter les résultats (\textbf{étapes 1 à 6}).
+Le diagramme de séquences de la figure~\ref{fig:sequence} illustre les interactions entre le \textbf{responsable de l'enrichissement des produits} et le \textbf{système d'enrichissement et de validation des produits}. Le processus commence par la création ou la modification du produit et la sélection des champs à enrichir. Le système déclenche ensuite l'enrichissement, génère les contenus demandés et permet au responsable de consulter les résultats (\textbf{étapes 1 à 6}).
 
 Une fois les résultats consultés, le responsable peut les \textbf{approuver} ou les \textbf{refuser}. En cas d'approbation, le produit est publié et le processus prend fin. En cas de refus, l'enrichissement est relancé jusqu'à l'obtention d'un résultat validé (\textbf{étapes 7 à 10}). Le diagramme met ainsi en évidence le déroulement itératif du processus d'enrichissement.
 
@@ -137,7 +137,7 @@ Le choix d'une architecture composée de SAP Commerce Cloud et d'un microservice
 
 Cette séparation permet de distinguer les responsabilités des deux environnements. SAP Commerce Cloud conserve la gestion du processus métier, tandis que le microservice regroupe les traitements d'enrichissement et de validation. Cette organisation facilite également l'évolution des fonctionnalités d'intelligence artificielle, notamment l'ajout ou le remplacement de modèles, sans modifier directement la structure interne de SAP Commerce Cloud.
 
-La communication entre les deux composants repose sur des services REST et sur l'utilisation du format JSON. Ce choix permet de définir des interfaces d'échange indépendantes des technologies utilisées pour l'implémentation de chaque composant.
+La communication entre les deux composants repose sur des services REST \citeURL{fielding_rest} et sur l'utilisation du format JSON \citeURL{rfc8259_json}. Ce choix permet de définir des interfaces d'échange indépendantes des technologies utilisées pour l'implémentation de chaque composant.
 
 Cette architecture présente ainsi plusieurs avantages :
 

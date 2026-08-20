@@ -10,7 +10,7 @@ Enfin, la réalisation du workflow d'enrichissement et de validation est détail
 
 \section{Présentation de SAP Commerce Cloud}
 
-Comme présenté dans le premier chapitre, SAP Commerce Cloud constitue la plateforme de commerce électronique sur laquelle repose la solution développée. Dans le cadre de ce projet, elle joue le rôle de système principal pour la gestion des produits et l'orchestration du processus d'enrichissement et de validation.
+Comme présenté dans le premier chapitre, SAP Commerce Cloud \citeURL{sap_commerce_cloud_docs} constitue la plateforme de commerce électronique sur laquelle repose la solution développée. Dans le cadre de ce projet, elle joue le rôle de système principal pour la gestion des produits et l'orchestration du processus d'enrichissement et de validation.
 \newpage
 L'intégration réalisée s'appuie sur les différents composants de la plateforme afin de récupérer les données du produit, déclencher les traitements, communiquer avec le microservice d'intelligence artificielle et exploiter les résultats retournés. Cette organisation permet de conserver le microservice indépendant de SAP Commerce Cloud, tout en assurant son intégration au processus métier existant.
 
@@ -88,7 +88,7 @@ La Figure~\ref{fig:architecture_integration} présente l'architecture générale
 
 \subsection{Communication REST entre les composants}
 
-La communication entre SAP Commerce Cloud et le microservice d'intelligence artificielle repose sur des échanges REST via le protocole HTTP. Les appels sont réalisés à l'aide de \texttt{RestTemplate} et les données sont échangées au format JSON. Chaque requête et chaque réponse sont structurées autour de deux parties principales : les \textit{headers} et le \textit{body}.
+La communication entre SAP Commerce Cloud et le microservice d'intelligence artificielle repose sur des échanges REST via le protocole HTTP~\citeURL{rest_api_guide}. Les appels sont réalisés à l'aide de \texttt{RestTemplate} et les données sont échangées au format JSON. Chaque requête et chaque réponse sont structurées autour de deux parties principales : les \textit{headers} et le \textit{body}.
 
 Les \textit{headers} permettent notamment de préciser le format des données échangées ainsi que certaines informations relatives à l'application et au site concerné. Le \textit{body} contient quant à lui les données nécessaires au traitement.
 
@@ -118,7 +118,7 @@ Accept-Language: en
 \end{verbatim}
 \end{tcolorbox}
 
-Pour construire les requêtes et exploiter les réponses JSON, SAP Commerce Cloud utilise la bibliothèque \textit{Jackson} de Java. La classe \texttt{ObjectMapper} permet de convertir les objets Java en données JSON lors de l'envoi et de transformer les réponses JSON reçues en objets Java.
+Pour construire les requêtes et exploiter les réponses JSON, SAP Commerce Cloud utilise la bibliothèque \textit{Jackson} de Java~\citeURL{jackson_java_library}. La classe \texttt{ObjectMapper} permet de convertir les objets Java en données JSON lors de l'envoi et de transformer les réponses JSON reçues en objets Java.
 
 Pour l'enrichissement, les données sont transmises à travers l'endpoint \texttt{POST /enrich}. Le microservice retourne ensuite les résultats d'enrichissement sous forme d'une réponse JSON.
 
@@ -194,7 +194,7 @@ La mise en œuvre du workflow repose sur plusieurs actions développées dans SA
 
 \subsection{Configuration du workflow}
 
-Après avoir défini le fonctionnement du workflow, sa configuration est réalisée dans SAP Commerce Cloud à l'aide du mécanisme \textit{Impex}. Celui-ci permet d'importer des données dans la plateforme et notamment de créer, mettre à jour ou supprimer des instances d'\textit{ItemTypes}. Il est ainsi utilisé pour initialiser les différents éléments nécessaires à la mise en place du workflow.
+Après avoir défini le fonctionnement du workflow, sa configuration est réalisée dans SAP Commerce Cloud à l'aide du mécanisme \textit{Impex}~\citeURL{sap_impex_guide}. Celui-ci permet d'importer des données dans la plateforme et notamment de créer, mettre à jour ou supprimer des instances d'\textit{ItemTypes}. Il est ainsi utilisé pour initialiser les différents éléments nécessaires à la mise en place du workflow.
 
 Dans le cadre de ce projet, le fichier \textit{Impex} permet notamment de déclarer le modèle du workflow ainsi que les modèles correspondant à ses différentes actions. Ces éléments constituent la structure de base sur laquelle repose l'exécution du processus.
 

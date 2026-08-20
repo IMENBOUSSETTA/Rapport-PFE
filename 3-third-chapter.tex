@@ -93,7 +93,7 @@ Pour le projet, un modèle de langage est utilisé pour générer des descriptio
 
 \subsubsection{Comparaison et sélection du modèle}
 
-Plusieurs modèles de langage existaient au moment du projet : GPT-4, Claude, Llama, Mistral et Qwen2.5~\cite{llm_models}. Le tableau~\ref{tab:comparaison_llm} les compare selon les critères importants pour une utilisation industrielle.
+Plusieurs modèles de langage existaient au moment du projet : GPT-4, Claude, Llama, Mistral et Qwen2.5~\citeURL{llm_models, qwen2_5}. Le tableau~\ref{tab:comparaison_llm} les compare selon les critères importants pour une utilisation industrielle.
 
 \begin{table}[H]
 \centering
@@ -113,15 +113,17 @@ Qwen2.5 7B & Local & Très faible & Complète & Excellente \\
 \end{tabular}
 \end{table}
 
-Qwen2.5 7B a été choisi comme meilleur compromis. Ce modèle de 7 milliards de paramètres peut s'exécuter localement sur du matériel grand public, sans envoyer les données des produits vers des services externes. Il est performant pour la génération de texte technique et son intégration dans le microservice est directe grâce à Ollama~\cite{ollama}.
+Qwen2.5 7B a été choisi comme meilleur compromis. Ce modèle de 7 milliards de paramètres peut s'exécuter localement sur du matériel grand public, sans envoyer les données des produits vers des services externes. Il est performant pour la génération de texte technique et son intégration dans le microservice est directe grâce à Ollama~\citeURL{ollama}.
 
 \subsubsection{Exécution locale avec Ollama}
 
-L'exécution du modèle de génération est assurée par Ollama~\cite{ollama}, une plateforme permettant de déployer et d'utiliser des modèles de langage de grande taille en local. Ollama fournit une interface REST qui facilite l'intégration des modèles au sein du microservice tout en simplifiant leur gestion et leur mise à jour.
+L'exécution du modèle de génération est assurée par Ollama~\citeURL{ollama}, une plateforme permettant de déployer et d'utiliser des modèles de langage de grande taille en local. Ollama fournit une interface REST qui facilite l'intégration des modèles au sein du microservice tout en simplifiant leur gestion et leur mise à jour.
 
 Le recours à une exécution locale répond à plusieurs exigences du projet. Le choix d'un modèle local répond aux impératifs de confidentialité propres au secteur industriel en évitant l'envoi des informations produits vers des services d'intelligence artificielle hébergés sur le cloud. Les données demeurent ainsi entièrement dans l'environnement de l'entreprise.
 
 Par ailleurs, cette approche supprime la dépendance vis-à-vis de services externes et de leur disponibilité. Le microservice peut continuer à fonctionner sans connexion à une API distante, ce qui améliore sa robustesse et assure une meilleure maîtrise des temps de réponse.
+
+
 
 \subsubsection{Génération du résumé et de la description}
 
@@ -153,15 +155,25 @@ Génère une description professionnelle pour ce produit :
 La description doit être claire, complète et adaptée à un public industriel.
 \end{tcolorbox}
 
+À partir de ces informations, le modèle génère automatiquement une description respectant les contraintes définies dans le prompt. Le résultat obtenu pour cet exemple est présenté ci-dessous :
+
+\begin{tcolorbox}[
+    colback=gray!5,
+    colframe=black,
+    title=Résultat généré par le modèle,
+    fonttitle=\bfseries
+]
+Le moteur électrique est une solution de motorisation industrielle conçue pour assurer l'entraînement de différents équipements et installations. Avec une puissance de 50 W et une tension nominale de 220 V, il convient aux applications nécessitant une motorisation fiable et adaptée aux environnements industriels. 
+\end{tcolorbox}
 
 Le prompt est ensuite transmis au modèle Qwen2.5, exécuté localement via Ollama. La réponse est retournée sous la forme d'un objet JSON contenant les deux champs générés. Le microservice extrait ces informations avant de les intégrer dans la réponse destinée à SAP Commerce Cloud.
 
 Avant de renvoyer le résultat, plusieurs contrôles sont réalisés pour assurer la pertinence des descriptions générées. Le microservice vérifie notamment la présence des champs attendus, la validité du format JSON et le respect de la longueur maximale imposée au résumé.
-
+\newpage
 En cas d'erreur de communication ou de génération, une nouvelle tentative est automatiquement effectuée. Si aucune réponse exploitable n'est obtenue après plusieurs essais, le titre du produit est utilisé comme valeur par défaut afin de garantir qu'aucune fiche du produit ne soit retournée avec des champs textuels vides.
 
 Cette gestion des erreurs fiabilise l'enrichissement et prévient toute interruption du flux de données. Elle permet également de limiter les risques liés à des réponses incomplètes ou mal formatées sans interrompre le traitement des produits.
-\newpage
+
 \subsection{Traduction multilingue}
 
 SAP Commerce Cloud doit alimenter des sites e-commerce dans plusieurs pays. Chaque fiche du produit doit être disponible en français, allemand, italien, espagnol, polonais, tchèque, hongrois, indonésien, russe, coréen, japonais, chinois simplifié, hindi, portugais, chinois traditionnel et certaines variantes régionales.
@@ -170,13 +182,13 @@ La traduction manuelle serait extrêmement coûteuse et lente. Une traduction au
 
 \subsubsection{Comparaison des modèles de traduction}
 
-Plusieurs modèles de traduction neuronale existent : MarianMT, mBART-50, M2M100 et NLLB~\cite{translation_models}. Le modèle NLLB (\textit{No Language Left Behind}) de Meta a été sélectionné pour sa couverture de 200 langues, ses performances élevées et sa compatibilité avec le fine-tuning.
+Plusieurs modèles de traduction neuronale existent : MarianMT, mBART-50, M2M100 et NLLB~\citeURL{translation_models, nllb}. Le modèle NLLB (\textit{No Language Left Behind}) de Meta a été sélectionné pour sa couverture de 200 langues, ses performances élevées et sa compatibilité avec le fine-tuning.
 
 La version utilisée est \texttt{facebook/nllb-200-distilled-600M}, une version compacte de 616 millions de paramètres qui offre un bon équilibre entre qualité et ressources requises.
 
 \subsubsection{Présentation générale de NLLB}
 
-NLLB~\cite{nllb} est un modèle Transformer de type Seq2Seq (séquence à séquence). Il prend une phrase en entrée et génère sa traduction en sortie. Le modèle a été entraîné sur des données de traduction couvrant 200 langues.
+NLLB~\citeURL{nllb} est un modèle Transformer de type Seq2Seq (séquence à séquence). Il prend une phrase en entrée et génère sa traduction en sortie. Le modèle a été entraîné sur des données de traduction couvrant 200 langues.
 
 Un point clé de NLLB est l'utilisation des codes FLORES-200. Chaque langue possède un code spécifique (par exemple \texttt{fra\_Latn} pour le français, \texttt{deu\_Latn} pour l'allemand). Le microservice convertit les codes de langues SAP Commerce Cloud vers ces codes FLORES avant la traduction.
 
@@ -184,7 +196,7 @@ Un point clé de NLLB est l'utilisation des codes FLORES-200. Chaque langue poss
 
 Le modèle NLLB pré-entraîné fonctionne correctement, mais un fine-tuning a été réalisé pour adapter le modèle aux spécificités du projet : contexte industriel, vocabulaire technique, style de rédaction des fiches des produits.
 
-Le fine-tuning complet d'un modèle de 616 millions de paramètres nécessiterait énormément de mémoire GPU. Pour contourner ce problème, la technique LoRA (\textit{Low-Rank Adaptation})~\cite{lora} a été utilisée. LoRA gèle la majorité des paramètres du modèle et n'entraîne que des petites matrices d'adaptation. Dans ce projet, seuls 1,18 million de paramètres ont été rendus entraînables, soit environ 0,19\,\% du total. Cette approche réduit les besoins en ressources tout en conservant de bonnes performances.
+Le fine-tuning complet d'un modèle de 616 millions de paramètres nécessiterait énormément de mémoire GPU. Pour contourner ce problème, la technique LoRA (\textit{Low-Rank Adaptation})~\citeURL{lora} a été utilisée. LoRA gèle la majorité des paramètres du modèle et n'entraîne que des petites matrices d'adaptation. Dans ce projet, seuls 1,18 million de paramètres ont été rendus entraînables, soit environ 0,19\,\% du total. Cette approche réduit les besoins en ressources tout en conservant de bonnes performances.
 
 \subsubsection{Jeu de données d'entraînement}
 
@@ -225,13 +237,13 @@ L'utilisation de LoRA, associée à une taille de lot réduite et à l'accumulat
 
 \subsubsection{Résultats du fine-tuning}
 
-Le score BLEU (\textit{Bilingual Evaluation Understudy})~\cite{bleu} est une métrique de référence qui mesure la similarité n-grammatique entre la traduction générée par le modèle et une traduction de référence produite par un humain.
+Le score BLEU (\textit{Bilingual Evaluation Understudy})~\citeURL{bleu_score} est une métrique de référence qui mesure la similarité n-grammatique entre la traduction générée par le modèle et une traduction de référence produite par un humain.
 
-L'évaluation sur 7 langues (30 échantillons chacune) donne un score BLEU moyen de 28,4, en progression significative par rapport aux 23,5 du modèle de base. Bien que modeste face aux 35 BLEU des modèles les plus performants, ce score confirme que le fine-tuning LoRA~\cite{lora} sur un jeu de 5\,000 paires adapte efficacement le modèle au vocabulaire technique et au style des fiches des produits, validant ainsi son déploiement en production.
+L'évaluation sur 7 langues (30 échantillons chacune) donne un score BLEU moyen de 28,4, en progression significative par rapport aux 23,5 du modèle de base. Bien que modeste face aux 35 BLEU des modèles les plus performants, ce score confirme que le fine-tuning LoRA~\citeURL{lora} sur un jeu de 5\,000 paires adapte efficacement le modèle au vocabulaire technique et au style des fiches des produits, validant ainsi son déploiement en production.
 
 \subsubsection{Fonctionnement du module de traduction dans le microservice}
 
-Le module de traduction intégré au microservice assure la génération des différentes versions linguistiques des contenus produits tout en garantissant la cohérence et la fiabilité des données échangées avec SAP Commerce Cloud. Afin d'optimiser les temps de réponse, les ressources nécessaires au traitement linguistique sont initialisées au démarrage du microservice et maintenues en mémoire durant son exécution. Cette approche permet d'éviter les opérations répétitives de chargement et d'améliorer les performances globales du système.
+Le module de traduction intégré au microservice assure la génération des différentes versions linguistiques des contenus produits tout en garantissant la cohérence et la fiabilité des données échangées avec SAP Commerce Cloud. Afin d'optimiser les temps de réponse, les ressources nécessaires au traitement linguistique sont initialisées au démarrage du microservice et maintenues en mémoire durant son exécution. 
 
 Le processus de traduction repose sur plusieurs étapes principales :
 
@@ -239,7 +251,6 @@ Le processus de traduction repose sur plusieurs étapes principales :
     \item \textbf{Adaptation des paramètres linguistiques :} les codes de langues utilisés par SAP Commerce Cloud sont convertis vers le format attendu par le module de traduction. Cette étape assure l'interopérabilité entre les deux environnements et garantit une interprétation correcte des langues cibles.
 
     \item \textbf{Traitement des contenus multilingues :} les différents champs textuels du produit, notamment le récapitulatif et la description, sont traités séparément pour chaque langue demandée. Cette organisation permet de préserver la structure des informations et d'assurer une correspondance précise entre les contenus sources et leurs variantes linguistiques.
-\newpage
     \item \textbf{Gestion des erreurs de traitement :} un mécanisme de secours est mis en place afin d'assurer la continuité du processus en cas d'indisponibilité ou d'échec lors de la génération d'une traduction. Dans ce cas, la version source du contenu est conservée afin d'éviter l'introduction de données incomplètes dans le catalogue produit.
 
     \item \textbf{Centralisation des résultats :} les différentes versions linguistiques obtenues sont regroupées dans une structure de données unique avant leur transmission vers SAP Commerce Cloud. Cette organisation facilite la mise à jour cohérente des informations du produit au sein du catalogue.
@@ -249,7 +260,7 @@ Ainsi, le module de traduction contribue à automatiser la gestion des contenus 
 
 \subsection{Structure de la réponse du service d'enrichissement}
 
-À l'issue du processus d'enrichissement, le microservice retourne une réponse structurée contenant les informations générées ainsi que les métadonnées nécessaires à leur intégration dans SAP Commerce Cloud. Cette organisation permet de séparer les contenus enrichis des informations de contrôle et facilite le traitement automatique de la réponse par le système appelant.
+À l'issue du processus d'enrichissement, le microservice retourne une réponse structurée contenant les informations générées ainsi que les métadonnées nécessaires à leur intégration dans SAP Commerce Cloud.
 
 La réponse de l'API d'enrichissement est composée principalement des éléments suivants :
 
@@ -298,6 +309,15 @@ Le module de validation assure que chaque fiche produit respecte un ensemble de 
 
 La validation est organisée sous la forme d'un pipeline composé de plusieurs couches successives. Chaque couche intervient sur un aspect particulier de la qualité du contenu. La première repose principalement sur un moteur de règles chargé d'effectuer les contrôles structurels et les vérifications déterministes. Les couches suivantes complètent cette première analyse par des contrôles portant notamment sur la qualité linguistique et le contenu.
 
+La Figure~\ref{fig:pipeline_validation} présente l'organisation du flux de validation sous la forme d'un pipeline composé de plusieurs couches successives.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{flux-validation.png}
+    \caption{Flux de validation des produits}
+    \label{fig:pipeline_validation}
+\end{figure}
+
 \subsection{Couche 1 : Validation structurelle}
 
 La première couche du processus de validation a pour objectif de vérifier la conformité structurelle des données reçues avant toute analyse plus approfondie. Elle constitue une étape de filtrage permettant de détecter rapidement les erreurs susceptibles de compromettre les traitements suivants.
@@ -307,7 +327,7 @@ Cette étape est assurée par un moteur de règles qui regroupe l'ensemble des c
 L'utilisation d'un moteur de règles permet de séparer les critères de validation de la logique générale du service. Les règles peuvent ainsi être regroupées et organisées indépendamment du code de traitement, ce qui facilite leur compréhension, leur maintenance et leur évolution lorsque les critères de qualité du catalogue changent.
 
 Les règles sont principalement utilisées pour contrôler la présence, le format et la cohérence élémentaire des informations. Elles permettent notamment de vérifier les éléments suivants :
-
+\newpage
 \begin{itemize}
     \item \textbf{Présence des champs obligatoires :} vérification que les informations indispensables à l'identification et à l'exploitation du produit sont renseignées, notamment son identifiant, son nom et les attributs considérés comme requis.
 
@@ -331,28 +351,26 @@ Une fois la conformité structurelle vérifiée, le microservice procède à une
 Cette analyse repose sur plusieurs mécanismes complémentaires.
 
 \begin{itemize}
-    \item \textbf{Détection automatique de la langue :} la bibliothèque \texttt{langdetect}~\cite{langdetect} de Python identifie la langue réellement utilisée dans chaque contenu textuel afin de vérifier qu'elle correspond à la langue attendue pour le champ concerné. Une incohérence peut révéler une erreur de traduction, une mauvaise affectation des contenus multilingues ou une inversion des langues.
+    \item \textbf{Détection automatique de la langue :} la bibliothèque \texttt{langdetect}~\citeURL{langdetect} de Python identifie la langue réellement utilisée dans chaque contenu textuel afin de vérifier qu'elle correspond à la langue attendue pour le champ concerné. Une incohérence peut révéler une erreur de traduction, une mauvaise affectation des contenus multilingues ou une inversion des langues.
 
-    \item \textbf{Analyse grammaticale et orthographique :} les textes sont analysés à l'aide de la bibliothèque LanguageTool~\cite{languagetool} de Python, qui détecte les erreurs d'orthographe, de grammaire, de ponctuation et certaines maladresses de formulation susceptibles de diminuer la qualité éditoriale de la fiche du produit.
+    \item \textbf{Analyse grammaticale et orthographique :} les textes sont analysés à l'aide de la bibliothèque LanguageTool~\citeURL{languagetool} de Python, qui détecte les erreurs d'orthographe, de grammaire, de ponctuation et certaines maladresses de formulation susceptibles de diminuer la qualité éditoriale de la fiche du produit.
 
-    \item \textbf{Analyse contextuelle :} certaines anomalies ne peuvent être détectées uniquement à partir de règles grammaticales. Le modèle de langage Qwen2.5~\cite{llm_models} est donc sollicité afin d'évaluer le contenu dans son contexte et d'identifier des formulations peu naturelles, des incohérences rédactionnelles ou des expressions pouvant être améliorées tout en conservant le sens initial du texte.
+    \item \textbf{Analyse contextuelle :} certaines anomalies ne peuvent être détectées uniquement à partir de règles grammaticales. Le modèle de langage Qwen2.5~\citeURL{qwen2_5} est donc sollicité afin d'évaluer le contenu dans son contexte et d'identifier des incohérences rédactionnelles ou des expressions pouvant être améliorées tout en conservant le sens initial du texte.
 \end{itemize}
 
 Ces différents contrôles sont appliqués aussi bien aux contenus d'origine qu'aux descriptions traduites automatiquement par le modèle NLLB. Le module maintient ainsi une rigueur linguistique constante, quelle que soit la langue cible.
-\newpage
 \subsection{Couche 3 : Corrections automatiques et suggestions}
 
 La troisième couche du processus de validation est dédiée à la correction des anomalies détectées lors des étapes précédentes. Afin de garantir un équilibre entre automatisation et contrôle humain, le microservice distingue les corrections pouvant être appliquées sans risque de celles nécessitant une validation par le responsable de l'enrichissement des produits. Deux catégories de traitements sont ainsi mises en œuvre :
 
 \begin{itemize}
-    \item \textbf{Corrections automatiques :} elles concernent les anomalies de faible risque pouvant être résolues sans intervention humaine. Ces corrections améliorent la qualité technique des données sans modifier leur signification. Elles comprennent notamment le nettoyage des balises HTML incorrectes à l'aide de BeautifulSoup~\cite{beautifulsoup}, la suppression des espaces superflus, la suppression des URLs locales ou invalides, la conversion des liens \texttt{http} vers \texttt{https} ainsi que la normalisation du format des unités techniques et de certains caractères. Une fois appliquées, ces modifications sont enregistrées directement dans SAP Commerce Cloud afin d'améliorer la qualité des fiches des produits.
+    \item \textbf{Corrections automatiques :} elles concernent les anomalies de faible risque pouvant être résolues sans intervention humaine. Ces corrections améliorent la qualité technique des données sans modifier leur signification. Elles comprennent notamment le nettoyage des balises HTML incorrectes à l'aide de BeautifulSoup~\citeURL{beautifulsoup}, la suppression des espaces superflus, la suppression des URLs locales ou invalides, la conversion des liens \texttt{http} vers \texttt{https} ainsi que la normalisation du format des unités techniques et de certains caractères. Une fois appliquées, ces modifications sont enregistrées directement dans SAP Commerce Cloud afin d'améliorer la qualité des fiches des produits.
 
     \item \textbf{Suggestions de correction :} les anomalies nécessitant une compréhension du contexte ne sont pas corrigées automatiquement. Elles donnent lieu à des recommandations destinées au responsable de l'enrichissement des produits. Ces suggestions sont générées à partir des analyses réalisées par LanguageTool et par le modèle de langage Qwen2.5, qui propose une reformulation plus naturelle tout en préservant le sens du texte. Chaque recommandation transmise à SAP Commerce Cloud précise le champ concerné, l'anomalie détectée, la correction proposée ainsi que son niveau de sévérité. L'utilisateur conserve ainsi la décision finale et peut accepter, modifier ou refuser chaque proposition avant son application.
 \end{itemize}
 
 Le responsable de l'enrichissement conserve ainsi le contrôle sur les modifications proposées et peut accepter, modifier ou refuser chaque suggestion avant son application. Cette séparation entre corrections automatiques et recommandations permet de concilier efficacité, fiabilité et maîtrise des contenus éditoriaux.
-\newpage
-\subsection{Couche 4 : Calcul du score de qualité}
+\subsection{Couche 4 : Agrégation des résultats et calcul du score de qualité}
 
 La dernière couche du processus de validation consiste à synthétiser l'ensemble des analyses réalisées précédemment sous la forme d'un score de qualité global. Ce score fournit une mesure quantitative permettant d'évaluer rapidement le niveau de conformité d'une fiche du produit et de faciliter sa prise en charge par les utilisateurs métier.
 
@@ -420,17 +438,18 @@ Voilà un exemple de la structure JSON retournée par le module de validation.
 }
 \end{verbatim}
 \end{tcolorbox}
-```
-
+\newpage
 
 L'analyse de cette structure montre que le microservice ne se limite pas à retourner un score global de qualité. La réponse fournit également des informations détaillées sur les anomalies détectées, notamment le champ concerné, leur niveau de sévérité ainsi que, lorsque cela est possible, une proposition de correction ou la trace des corrections appliquées automatiquement. Cette structuration facilite l'exploitation des résultats par SAP Commerce Cloud, qui peut présenter des recommandations précises au responsable de l'enrichissement des produits et assurer la traçabilité des traitements réalisés par le module de validation.
 
 \section{Conclusion}
 
-Ce chapitre a présenté la conception et le fonctionnement du microservice d'intelligence artificielle développé dans le cadre de ce projet. Après avoir décrit son architecture générale et les technologies retenues, les différents modules qui le composent ont été détaillés, depuis la génération automatique des descriptions jusqu'à la traduction multilingue et au contrôle de la qualité des fiches des produits.
+Ce chapitre a présenté la conception et le fonctionnement du microservice d'intelligence artificielle développé dans le cadre de ce projet. Après avoir décrit son architecture et les technologies retenues, les principaux modules ont été détaillés, notamment la génération des descriptions, la traduction multilingue et la validation des fiches des produits.
 
-Les mécanismes mis en œuvre reposent sur l'utilisation conjointe de modèles d'intelligence artificielle spécialisés et de règles de validation permettant d'automatiser une grande partie des opérations d'enrichissement tout en garantissant la cohérence et la fiabilité des données générées. L'organisation du module de validation en plusieurs couches successives assure une séparation claire des responsabilités, depuis la vérification structurelle des données jusqu'au calcul d'un score global de qualité, en passant par l'analyse sémantique et la gestion des corrections.
+Les mécanismes mis en œuvre combinent des modèles d'intelligence artificielle et des règles de validation afin d'automatiser les opérations d'enrichissement tout en garantissant la cohérence et la fiabilité des données. L'organisation du module de validation en plusieurs couches permet de vérifier progressivement la structure, le contenu et la qualité des données générées.
 
-L'approche retenue permet ainsi de disposer d'un microservice modulaire, indépendant de SAP Commerce Cloud et facilement évolutif, capable de centraliser les traitements d'intelligence artificielle tout en exposant des interfaces REST standardisées pour communiquer avec le système d'information.
+Le microservice ainsi conçu est modulaire, indépendant de SAP Commerce Cloud et évolutif. Il expose des interfaces REST permettant d'assurer une communication standardisée avec la plateforme.
 
-Le chapitre suivant est consacré à l'intégration de ce microservice au sein de SAP Commerce Cloud. Il présente les différents développements réalisés sur la plateforme, les mécanismes d'échange entre les deux composants ainsi que leur intégration dans les processus métier de gestion et d'enrichissement des fiches des produits.
+Le chapitre suivant présente l'intégration de ce microservice dans SAP Commerce Cloud, ainsi que les développements réalisés et les mécanismes d'échange mis en place entre les deux composants.
+
+

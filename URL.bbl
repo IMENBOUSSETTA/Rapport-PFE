@@ -1,14 +1,15 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{decade_site}
 DECADE.
-\newblock Conseil et ingénierie e-commerce depuis 1988.
-\newblock \url{https://www.decade.fr/agence/}.
+\newblock Decade - conseil et ingénierie e-commerce.
+\newblock \url{https://www.decade.fr/}.
 \newblock Consulté le 01/06/2026.
 
 \bibitem{etanco_site}
 ETANCO.
-\newblock Fabricant de fixations et systèmes pour l'enveloppe du bâtiment.
+\newblock Etanco - fabricant de fixations et systèmes pour l'enveloppe du
+  bâtiment.
 \newblock \url{https://www.etanco.fr/}.
 \newblock Consulté le 01/06/2026.
 
@@ -18,22 +19,52 @@ SAP.
 \newblock \url{https://help.sap.com/docs/SAP_COMMERCE_CLOUD}.
 \newblock Consulté le 01/06/2026.
 
+\bibitem{spring_framework}
+Spring.
+\newblock Spring framework.
+\newblock \url{https://spring.io/projects/spring-framework}.
+\newblock Consulté le 10/05/2026.
+
+\bibitem{python_psf}
+Python~Software Foundation.
+\newblock Python.
+\newblock \url{https://www.python.org/}.
+\newblock Consulté le 10/05/2026.
+
+\bibitem{fastapi_docs}
+FastAPI.
+\newblock Fastapi documentation.
+\newblock \url{https://fastapi.tiangolo.com/}.
+\newblock Consulté le 10/05/2026.
+
 \bibitem{ibm_ecommerce}
 IBM.
 \newblock What is e-commerce?
 \newblock \url{https://www.ibm.com/topics/ecommerce}.
 \newblock Consulté le 01/06/2026.
 
+\bibitem{b2c_definition}
+IBM.
+\newblock What is b2c (business-to-consumer)?
+\newblock \url{https://www.ibm.com/think/topics/b2c}.
+\newblock Consulté le 10/07/2026.
+
+\bibitem{b2b_definition}
+IBM.
+\newblock What is b2b (business-to-business)?
+\newblock \url{https://www.ibm.com/think/topics/b2b}.
+\newblock Consulté le 10/07/2026.
+
 \bibitem{sap_erp}
 SAP.
-\newblock Qu'est-ce qu'un erp (enterprise resource planning) ?
+\newblock Qu'est-ce que l'erp (enterprise resource planning) ?
 \newblock \url{https://www.sap.com/france/products/erp/what-is-erp.html}.
 \newblock Consulté le 01/06/2026.
 
 \bibitem{akeneo_pim}
 Akeneo.
-\newblock Qu'est-ce qu'un pim (product information management) ?
-\newblock \url{https://www.akeneo.com/fr/qu-est-ce-qu-un-pim/}.
+\newblock Qu'est-ce qu'un pim ?
+\newblock \url{https://www.akeneo.com/fr/what-is-a-pim/}.
 \newblock Consulté le 01/06/2026.
 
 \bibitem{salesforce_crm}
@@ -41,5 +72,165 @@ Salesforce.
 \newblock Qu'est-ce que le crm ?
 \newblock \url{https://www.salesforce.com/fr/crm/definition-crm/}.
 \newblock Consulté le 01/06/2026.
+
+\bibitem{generative_ai_definition}
+IBM.
+\newblock Qu'est-ce que l'intelligence artificielle générative ?
+\newblock \url{https://www.ibm.com/fr-fr/think/topics/generative-ai}.
+\newblock Consulté le 10/07/2026.
+
+\bibitem{llm_definition}
+Google Cloud.
+\newblock Large language models (llms).
+\newblock \url{https://cloud.google.com/ai/llms?hl=fr}.
+\newblock Consulté le 10/07/2026.
+
+\bibitem{agile_manifesto}
+Kent Beck, Mike Beedle, Arie van Bennekum, Alistair Cockburn, Ward Cunningham,
+  Martin Fowler, James Grenning, Jim Highsmith, Andrew Hunt, Ron Jeffries, Jon
+  Kern, Brian Marick, Robert~C. Martin, Steve Mellor, Ken Schwaber, Jeff
+  Sutherland, and Dave Thomas.
+\newblock Manifesto for agile software development.
+\newblock \url{https://agilemanifesto.org/}.
+\newblock Consulté le 10/07/2026.
+
+\bibitem{scrum_guide}
+Ken Schwaber and Jeff Sutherland.
+\newblock The scrum guide.
+\newblock \url{https://scrumguides.org/scrum-guide.html}.
+\newblock Consulté le 05/06/2026.
+
+\bibitem{rfc7231_http}
+Roy Fielding and Julian Reschke.
+\newblock Rfc 7231 - hypertext transfer protocol (http/1.1): Semantics and
+  content.
+\newblock \url{https://www.rfc-editor.org/rfc/rfc7231}, 2014.
+\newblock Consulté le 10/07/2026.
+
+\bibitem{uml_omg}
+Object~Management Group.
+\newblock Unified modeling language (uml) specification version 2.5.1.
+\newblock \url{https://www.omg.org/spec/UML/2.5.1/About-UML}, 2017.
+\newblock Consulté le 10/07/2026.
+
+\bibitem{fielding_rest}
+Roy~Thomas Fielding.
+\newblock {\em Architectural Styles and the Design of Network-based Software
+  Architectures}.
+\newblock PhD thesis, University of California, Irvine, 2000.
+\newblock Consulté le 10/07/2026.
+
+\bibitem{rfc8259_json}
+Tim Bray.
+\newblock Rfc 8259 - the javascript object notation (json) data interchange
+  format.
+\newblock \url{https://www.rfc-editor.org/rfc/rfc8259}, 2017.
+\newblock Consulté le 10/07/2026.
+
+\bibitem{llm_models}
+Various Authors.
+\newblock Large language models comparison - gpt-4, claude, llama, mistral,
+  qwen.
+\newblock \url{https://huggingface.co/models}.
+\newblock Consulté le 07/08/2026.
+
+\bibitem{qwen2_5}
+Alibaba Cloud.
+\newblock Qwen2.5 - large language model.
+\newblock \url{https://huggingface.co/Qwen/Qwen2.5-7B}, 2024.
+\newblock Consulté le 07/08/2026.
+
+\bibitem{ollama}
+Ollama.
+\newblock Ollama - run large language models locally.
+\newblock \url{https://ollama.ai/}.
+\newblock Consulté le 07/08/2026.
+
+\bibitem{translation_models}
+Hugging Face.
+\newblock Translation models - marianmt, mbart-50, m2m100, nllb.
+\newblock \url{https://huggingface.co/models?pipeline_tag=translation}, 2024.
+\newblock Consulté le 07/08/2026.
+
+\bibitem{nllb}
+Meta AI.
+\newblock No language left behind: Scaling human-centered machine translation.
+\newblock \url{https://huggingface.co/facebook/nllb-200-distilled-600M}, 2022.
+\newblock Consulté le 07/08/2026.
+
+\bibitem{lora}
+Edward~J. Hu, Yelong Shen, Phil Wallis, Zeyuan Allen-Zhu, Yuanzhi Li, Shean
+  Wang, Lu~Wang, and Weizhu Chen.
+\newblock Lora: Low-rank adaptation of large language models.
+\newblock \url{https://arxiv.org/abs/2106.09685}, 2021.
+\newblock Consulté le 07/08/2026.
+
+\bibitem{bleu_score}
+Kishore Papineni, Salim Roukos, Todd Ward, and Wei-Jing Zhu.
+\newblock Bleu: a method for automatic evaluation of machine translation.
+\newblock \url{https://aclanthology.org/P02-1040/}, 2002.
+\newblock Consulté le 07/08/2026.
+
+\bibitem{langdetect}
+Nakatani Shuyo.
+\newblock langdetect - language detection library for python.
+\newblock \url{https://github.com/Nakatani-Shuyo/language-detection}.
+\newblock Consulté le 07/08/2026.
+
+\bibitem{languagetool}
+LanguageTool.
+\newblock Languagetool - grammar, style and spell checker.
+\newblock \url{https://languagetool.org/}.
+\newblock Consulté le 07/08/2026.
+
+\bibitem{beautifulsoup}
+Leonard Richardson.
+\newblock Beautiful soup - python html/xml parser.
+\newblock \url{https://www.crummy.com/software/BeautifulSoup/}.
+\newblock Consulté le 07/08/2026.
+
+\bibitem{sap_commerce_cloud_docs}
+SAP.
+\newblock Sap commerce cloud - official documentation.
+\newblock \url{https://help.sap.com/docs/SAP_COMMERCE_CLOUD}.
+\newblock Consulté le 17/08/2026.
+
+\bibitem{rest_api_guide}
+Roy Fielding and Julian Reschke.
+\newblock Rfc 7231 - hypertext transfer protocol (http/1.1): Semantics and
+  content.
+\newblock \url{https://www.rfc-editor.org/rfc/rfc7231}, 2014.
+\newblock Consulté le 17/08/2026.
+
+\bibitem{jackson_java_library}
+FasterXML.
+\newblock Jackson project - java json serialization/deserialization.
+\newblock \url{https://github.com/FasterXML/jackson}.
+\newblock Consulté le 17/08/2026.
+
+\bibitem{sap_impex_guide}
+SAP.
+\newblock Impex - data import/export for sap commerce cloud.
+\newblock
+  \url{https://help.sap.com/docs/SAP_COMMERCE_CLOUD/d0224eca81e249cb821e7fdf87f86721/8c7fdd086086eb149181f37ceaf72181.html}.
+\newblock Consulté le 17/08/2026.
+
+\bibitem{ibm_ai}
+IBM.
+\newblock What is artificial intelligence (ai)?
+\newblock \url{https://www.ibm.com/think/topics/artificial-intelligence}.
+\newblock Consulté le 05/06/2026.
+
+\bibitem{ibm_generative_ai}
+IBM.
+\newblock Qu'est-ce que l'ia générative (gen ai) ?
+\newblock \url{https://www.ibm.com/fr-fr/think/topics/generative-ai}.
+\newblock Consulté le 05/06/2026.
+
+\bibitem{google_llm}
+Google Cloud.
+\newblock Large language models (llms).
+\newblock \url{https://cloud.google.com/ai/llms?hl=en}.
+\newblock Consulté le 05/06/2026.
 
 \end{thebibliography}
